@@ -1,20 +1,11 @@
 ---
 name: Feature request
-about: Suggest an idea for this project
+about: '진행할 작업에 대해 알려주세요! '
 title: ''
-labels: enhancement
+labels: ''
 assignees: ''
 
 ---
-
----
- name: Feature_template
- about: '진행할 작업에 대해 알려주세요! '
- title: ''
- labels: ''
- assignees: ''
-
- ---
 
  ## 📌 Issue
 
