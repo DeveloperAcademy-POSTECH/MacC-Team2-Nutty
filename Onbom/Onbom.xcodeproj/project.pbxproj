@@ -51,11 +51,11 @@
 		737EE3522ABD646100D224FC /* Onbom */ = {
 			isa = PBXGroup;
 			children = (
-				737EE3652ABD649400D224FC /* Core */,
-				737EE3642ABD649000D224FC /* Extension */,
-				737EE3632ABD648B00D224FC /* Model */,
-				737EE3622ABD648200D224FC /* View */,
-				737EE3612ABD647200D224FC /* Resource */,
+				737EE36F2ABD67E100D224FC /* Core */,
+				737EE36E2ABD67DD00D224FC /* Extension */,
+				737EE36D2ABD67DA00D224FC /* Resource */,
+				737EE36C2ABD67D700D224FC /* Model */,
+				737EE36B2ABD67D300D224FC /* View */,
 				737EE3532ABD646100D224FC /* OnbomApp.swift */,
 				737EE3552ABD646100D224FC /* ContentView.swift */,
 				737EE3572ABD646200D224FC /* Assets.xcassets */,
@@ -72,35 +72,35 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		737EE3612ABD647200D224FC /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resource;
-			sourceTree = "<group>";
-		};
-		737EE3622ABD648200D224FC /* View */ = {
+		737EE36B2ABD67D300D224FC /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		737EE3632ABD648B00D224FC /* Model */ = {
+		737EE36C2ABD67D700D224FC /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		737EE3642ABD649000D224FC /* Extension */ = {
+		737EE36D2ABD67DA00D224FC /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		737EE36E2ABD67DD00D224FC /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		737EE3652ABD649400D224FC /* Core */ = {
+		737EE36F2ABD67E100D224FC /* Core */ = {
 			isa = PBXGroup;
 			children = (
 			);
