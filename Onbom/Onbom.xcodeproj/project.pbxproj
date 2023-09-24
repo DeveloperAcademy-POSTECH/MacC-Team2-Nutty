@@ -7,18 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		735EE1A12AC01B1700AD8B8D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 735EE1A02AC01B1700AD8B8D /* GoogleService-Info.plist */; };
+		735EE1AF2AC0274400AD8B8D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 735EE1AE2AC0274400AD8B8D /* FirebaseAuth */; };
+		735EE1B12AC0276D00AD8B8D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 735EE1B02AC0276D00AD8B8D /* FirebaseFirestore */; };
 		737EE3542ABD646100D224FC /* OnbomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737EE3532ABD646100D224FC /* OnbomApp.swift */; };
 		737EE3562ABD646100D224FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737EE3552ABD646100D224FC /* ContentView.swift */; };
 		737EE3582ABD646200D224FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737EE3572ABD646200D224FC /* Assets.xcassets */; };
 		737EE35B2ABD646200D224FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737EE35A2ABD646200D224FC /* Preview Assets.xcassets */; };
-		AE57BA112ABD694000F71B34 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE57BA102ABD694000F71B34 /* File.swift */; };
-		AE57BA132ABD695800F71B34 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE57BA122ABD695800F71B34 /* File.swift */; };
-		AE57BA152ABD696000F71B34 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE57BA142ABD696000F71B34 /* File.swift */; };
-		AE57BA172ABD696600F71B34 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE57BA162ABD696600F71B34 /* File.swift */; };
-		AE57BA192ABD696C00F71B34 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE57BA182ABD696C00F71B34 /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		735EE1A02AC01B1700AD8B8D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		735EE1B22AC027EA00AD8B8D /* Onbom.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Onbom.entitlements; sourceTree = "<group>"; };
 		737EE3502ABD646100D224FC /* Onbom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Onbom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		737EE3532ABD646100D224FC /* OnbomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbomApp.swift; sourceTree = "<group>"; };
 		737EE3552ABD646100D224FC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -36,17 +36,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				735EE1AF2AC0274400AD8B8D /* FirebaseAuth in Frameworks */,
+				735EE1B12AC0276D00AD8B8D /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		735EE1AD2AC0274400AD8B8D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		737EE3472ABD646100D224FC = {
 			isa = PBXGroup;
 			children = (
+				735EE1A02AC01B1700AD8B8D /* GoogleService-Info.plist */,
 				737EE3522ABD646100D224FC /* Onbom */,
 				737EE3512ABD646100D224FC /* Products */,
+				735EE1AD2AC0274400AD8B8D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +72,7 @@
 		737EE3522ABD646100D224FC /* Onbom */ = {
 			isa = PBXGroup;
 			children = (
+				735EE1B22AC027EA00AD8B8D /* Onbom.entitlements */,
 				AE57BA0F2ABD690700F71B34 /* Resources */,
 				AE57BA0E2ABD690100F71B34 /* Core */,
 				AE57BA0D2ABD68FA00F71B34 /* Extensions */,
@@ -138,6 +150,10 @@
 			dependencies = (
 			);
 			name = Onbom;
+			packageProductDependencies = (
+				735EE1AE2AC0274400AD8B8D /* FirebaseAuth */,
+				735EE1B02AC0276D00AD8B8D /* FirebaseFirestore */,
+			);
 			productName = Onbom;
 			productReference = 737EE3502ABD646100D224FC /* Onbom.app */;
 			productType = "com.apple.product-type.application";
@@ -166,6 +182,9 @@
 				Base,
 			);
 			mainGroup = 737EE3472ABD646100D224FC;
+			packageReferences = (
+				735EE1A22AC01BDE00AD8B8D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 737EE3512ABD646100D224FC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -182,6 +201,7 @@
 			files = (
 				737EE35B2ABD646200D224FC /* Preview Assets.xcassets in Resources */,
 				737EE3582ABD646200D224FC /* Assets.xcassets in Resources */,
+				735EE1A12AC01B1700AD8B8D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,12 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE57BA152ABD696000F71B34 /* File.swift in Sources */,
-				AE57BA172ABD696600F71B34 /* File.swift in Sources */,
-				AE57BA192ABD696C00F71B34 /* File.swift in Sources */,
 				737EE3562ABD646100D224FC /* ContentView.swift in Sources */,
-				AE57BA132ABD695800F71B34 /* File.swift in Sources */,
-				AE57BA112ABD694000F71B34 /* File.swift in Sources */,
 				737EE3542ABD646100D224FC /* OnbomApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,6 +339,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Onbom/Onbom.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Onbom/Preview Content\"";
@@ -352,6 +368,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Onbom/Onbom.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Onbom/Preview Content\"";
@@ -397,6 +414,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		735EE1A22AC01BDE00AD8B8D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.15.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		735EE1AE2AC0274400AD8B8D /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 735EE1A22AC01BDE00AD8B8D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		735EE1B02AC0276D00AD8B8D /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 735EE1A22AC01BDE00AD8B8D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 737EE3482ABD646100D224FC /* Project object */;
 }
