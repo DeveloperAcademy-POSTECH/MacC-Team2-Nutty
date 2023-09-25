@@ -5,9 +5,9 @@
 //  Created by moon on 2023/09/24.
 //
 
-import Foundation
-import FirebaseAuth
 import AuthenticationServices
+import FirebaseAuth
+import KakaoSDKUser
 import CryptoKit
 
 class AuthenticationViewModel {
@@ -50,6 +50,15 @@ class AuthenticationViewModel {
                     }
                 }
             }
+        }
+    }
+    func handleSignInWithKakaoLogin() {
+        UserApi.shared.loginWithKakaoTalk { oauthToken, error in
+            if let error = error {
+                print(error)
+                return
+            }
+            print("loginWithKakaoTalk() success.")
         }
     }
     func signOut() {

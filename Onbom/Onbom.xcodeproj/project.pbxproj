@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		735EE1A12AC01B1700AD8B8D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 735EE1A02AC01B1700AD8B8D /* GoogleService-Info.plist */; };
 		735EE1AF2AC0274400AD8B8D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 735EE1AE2AC0274400AD8B8D /* FirebaseAuth */; };
-		735EE1B12AC0276D00AD8B8D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 735EE1B02AC0276D00AD8B8D /* FirebaseFirestore */; };
+		735EE1B42AC029A900AD8B8D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735EE1B32AC029A900AD8B8D /* LoginView.swift */; };
+		735EE1B62AC02AA200AD8B8D /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735EE1B52AC02AA200AD8B8D /* AuthenticationViewModel.swift */; };
 		737EE3542ABD646100D224FC /* OnbomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737EE3532ABD646100D224FC /* OnbomApp.swift */; };
 		737EE3562ABD646100D224FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737EE3552ABD646100D224FC /* ContentView.swift */; };
 		737EE3582ABD646200D224FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737EE3572ABD646200D224FC /* Assets.xcassets */; };
 		737EE35B2ABD646200D224FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737EE35A2ABD646200D224FC /* Preview Assets.xcassets */; };
+		739F9FA12AC1DA0D00523110 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 739F9FA02AC1DA0D00523110 /* KakaoSDK */; };
+		739F9FAC2AC1DF2300523110 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 739F9FAB2AC1DF2300523110 /* KakaoSDKUser */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		735EE1A02AC01B1700AD8B8D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		735EE1B22AC027EA00AD8B8D /* Onbom.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Onbom.entitlements; sourceTree = "<group>"; };
+		735EE1B32AC029A900AD8B8D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		735EE1B52AC02AA200AD8B8D /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		737EE3502ABD646100D224FC /* Onbom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Onbom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		737EE3532ABD646100D224FC /* OnbomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbomApp.swift; sourceTree = "<group>"; };
 		737EE3552ABD646100D224FC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		737EE3572ABD646200D224FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		737EE35A2ABD646200D224FC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		739F9FAA2AC1DB4300523110 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		AE57BA102ABD694000F71B34 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		AE57BA122ABD695800F71B34 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		AE57BA142ABD696000F71B34 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
@@ -36,8 +42,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				739F9FAC2AC1DF2300523110 /* KakaoSDKUser in Frameworks */,
 				735EE1AF2AC0274400AD8B8D /* FirebaseAuth in Frameworks */,
-				735EE1B12AC0276D00AD8B8D /* FirebaseFirestore in Frameworks */,
+				739F9FA12AC1DA0D00523110 /* KakaoSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +79,7 @@
 		737EE3522ABD646100D224FC /* Onbom */ = {
 			isa = PBXGroup;
 			children = (
+				739F9FAA2AC1DB4300523110 /* Info.plist */,
 				735EE1B22AC027EA00AD8B8D /* Onbom.entitlements */,
 				AE57BA0F2ABD690700F71B34 /* Resources */,
 				AE57BA0E2ABD690100F71B34 /* Core */,
@@ -98,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				AE57BA102ABD694000F71B34 /* File.swift */,
+				735EE1B32AC029A900AD8B8D /* LoginView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -122,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				AE57BA162ABD696600F71B34 /* File.swift */,
+				735EE1B52AC02AA200AD8B8D /* AuthenticationViewModel.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -152,7 +162,8 @@
 			name = Onbom;
 			packageProductDependencies = (
 				735EE1AE2AC0274400AD8B8D /* FirebaseAuth */,
-				735EE1B02AC0276D00AD8B8D /* FirebaseFirestore */,
+				739F9FA02AC1DA0D00523110 /* KakaoSDK */,
+				739F9FAB2AC1DF2300523110 /* KakaoSDKUser */,
 			);
 			productName = Onbom;
 			productReference = 737EE3502ABD646100D224FC /* Onbom.app */;
@@ -184,6 +195,7 @@
 			mainGroup = 737EE3472ABD646100D224FC;
 			packageReferences = (
 				735EE1A22AC01BDE00AD8B8D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				739F9F9F2AC1DA0D00523110 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 			);
 			productRefGroup = 737EE3512ABD646100D224FC /* Products */;
 			projectDirPath = "";
@@ -212,6 +224,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				735EE1B62AC02AA200AD8B8D /* AuthenticationViewModel.swift in Sources */,
+				735EE1B42AC029A900AD8B8D /* LoginView.swift in Sources */,
 				737EE3562ABD646100D224FC /* ContentView.swift in Sources */,
 				737EE3542ABD646100D224FC /* OnbomApp.swift in Sources */,
 			);
@@ -343,13 +357,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Onbom/Preview Content\"";
+				DEVELOPMENT_TEAM = RV2W6Y7UMT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Onbom/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -372,13 +389,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Onbom/Preview Content\"";
+				DEVELOPMENT_TEAM = RV2W6Y7UMT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Onbom/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -424,6 +444,14 @@
 				minimumVersion = 10.15.0;
 			};
 		};
+		739F9F9F2AC1DA0D00523110 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.17.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -432,10 +460,15 @@
 			package = 735EE1A22AC01BDE00AD8B8D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
-		735EE1B02AC0276D00AD8B8D /* FirebaseFirestore */ = {
+		739F9FA02AC1DA0D00523110 /* KakaoSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 735EE1A22AC01BDE00AD8B8D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
+			package = 739F9F9F2AC1DA0D00523110 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
+		};
+		739F9FAB2AC1DF2300523110 /* KakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 739F9F9F2AC1DA0D00523110 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKUser;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

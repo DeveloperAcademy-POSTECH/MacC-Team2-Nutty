@@ -23,6 +23,15 @@ struct LoginView: View {
             .cornerRadius(8)
             .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             
+            Button {
+                viewModel.handleSignInWithKakaoLogin()
+            } label: {
+                Image("kakao_login_medium_wide")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            }
+            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+            
         }
     }
 }
