@@ -9,15 +9,16 @@ import SwiftUI
 
 struct InputField: View {
     var label: String
+    var placeholder: String
     @Binding var content: String
     // TODO: 다른 곳을 탭했을 때, isFocused가 false 되야 하는데 이건 추후에 다시 좀 해야할듯
     @FocusState private var isFocused: Bool
     var body: some View {
         VStack(alignment:.leading) {
-            Text("\(label)")
+            Text(label)
                 .foregroundColor(.G6)
                 .bold()
-            TextField("기본 문구", text: $content)
+            TextField(placeholder, text: $content)
                 .focused($isFocused)
                 .padding()
                 .background() {
@@ -33,6 +34,6 @@ struct InputField: View {
 
 struct InputField_Previews: PreviewProvider {
     static var previews: some View {
-        InputField(label: "라벨",content: Binding.constant(""))
+        InputField(label: "라벨", placeholder: "기본 문구", content: Binding.constant(""))
     }
 }
