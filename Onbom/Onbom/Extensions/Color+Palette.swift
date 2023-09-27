@@ -65,7 +65,7 @@ extension Color {
     }
     
     static var PB1: Self {
-        .init(hex: "#C3C6FF")
+        .init(hex: "#EDEEFF")
     }
     
     static var PB2: Self {
@@ -73,11 +73,11 @@ extension Color {
     }
     
     static var PB3: Self {
-        .init(hex: "#343E9A")
+        .init(hex: "#575DE1")
     }
     
     static var PB4: Self {
-        .init(hex: "#575DE1")
+        .init(hex: "#343E9A")
     }
     
     // MARK: Opacity
@@ -89,7 +89,7 @@ extension Color {
         .init(hex: "#D6D6D6", opacity: 0.4)
     }
     
-    static var TG3: Self {
+    static var TPB: Self {
         .init(hex: "#575DE1", opacity: 0.7)
     }
 }
@@ -97,12 +97,29 @@ extension Color {
 // MARK: Preview
 struct Color_Previews: PreviewProvider {
     static var previews: some View {
-        VStack {
-            Color.R
-            Color.L
-            Color.PB4
-            Color.TG1
+        HStack{
+            VStack {
+                Color.G1
+                Color.G2
+                Color.G3
+                Color.G4
+                Color.G5
+                Color.G6
+                Color.B
+            }
+            VStack {
+                Color.R
+                Color.L
+                Color.PB1
+                Color.PB2
+                Color.PB3
+                Color.PB4
+                Color.TG1
+                Color.TG2
+                Color.TPB
+            }
         }
+        .padding()
     }
 }
 
