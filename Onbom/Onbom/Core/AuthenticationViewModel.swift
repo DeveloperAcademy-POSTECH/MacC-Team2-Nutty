@@ -11,26 +11,6 @@ import KakaoSDKUser
 import CryptoKit
 
 class AuthenticationViewModel {
-    func signOut() {
-        do {
-            try Auth.auth().signOut()
-        }
-        catch {
-            print(error)
-            errorMessage = error.localizedDescription
-        }
-    }
-    func deleteAccount() async -> Bool {
-        do {
-            try await Auth.auth().currentUser?.delete()
-            return true
-        }
-        catch {
-            errorMessage = error.localizedDescription
-            return false
-        }
-    }
-    
 	private var currentNonce: String?
 	private var _errorMessage: String?
 		
@@ -154,6 +134,27 @@ class AuthenticationViewModel {
 			}
 		}
 	}
+	// MARK: 로그아웃과 회원탈퇴
+	func signOutFirebase() {
+		do {
+			try Auth.auth().signOut()
+		}
+		catch {
+			errorMessage = error.localizedDescription
+		}
+	}
+	
+	func deleteAccount() async -> Bool {
+		do {
+			try await Auth.auth().currentUser?.delete()
+			return true
+		}
+		catch {
+			errorMessage = "회원탈퇴하는데 실패했습니다. \(error.localizedDescription)"
+			return false
+		}
+	}
+	
 	// MARK: 유틸리티
 	private func randomNonceString(length: Int = 32) -> String {
 		precondition(length > 0)
