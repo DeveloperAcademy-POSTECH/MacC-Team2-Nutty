@@ -11,15 +11,6 @@ import KakaoSDKUser
 import CryptoKit
 
 class AuthenticationViewModel {
-    func handleSignInWithKakaoLogin() {
-        UserApi.shared.loginWithKakaoTalk { oauthToken, error in
-            if let error = error {
-                print(error)
-                return
-            }
-            print("loginWithKakaoTalk() success.")
-        }
-    }
     func signOut() {
         do {
             try Auth.auth().signOut()
@@ -94,6 +85,75 @@ class AuthenticationViewModel {
 		}
 	}
 	
+	// MARK: 카카오톡 로그인 기능 관련
+	func handleSignInWithKakaoLogin() {
+		if UserApi.isKakaoTalkLoginAvailable() {
+			kakaoLoginInApp() // 카카오톡 앱이 있다면 앱으로 로그인
+		} else {
+			kakaoLoginInWeb() // 앱이 없다면 웹으로 로그인 (애뮬레이터)
+		}
+	}
+	
+	private func kakaoLoginInApp() {
+		UserApi.shared.loginWithKakaoTalk { oauthToken, error in
+			if let error = error {
+				self.errorMessage = "카카오톡에 로그인하는데 실패했습니다. \(error.localizedDescription)"
+				return
+			}
+			self.loginInFirebaseWithEmail()
+		}
+	}
+	private func kakaoLoginInWeb() {
+		UserApi.shared.loginWithKakaoAccount { oauthToken, error in
+			if let error = error {
+				self.errorMessage = "카카오톡에 로그인하는데 실패했습니다. \(error.localizedDescription)"
+				return
+			}
+			self.loginInFirebaseWithEmail()
+		}
+	}
+	
+	private func loginInFirebaseWithEmail() {
+		UserApi.shared.me { kakaoUser, error in
+			if let error = error {
+				self.errorMessage = "카카오에서 유저정보를 불러오는데 실패했습니다. \(error.localizedDescription)"
+				return
+			}
+			guard let email = kakaoUser?.kakaoAccount?.email else { return }
+			guard let password = kakaoUser?.id else { return }
+			guard let userName = kakaoUser?.kakaoAccount?.profile?.nickname else { return }
+			
+			self.emailAuthSignUp(email: email, userName: userName, password: "\(password)")
+			self.emailAuthSignIn(email: email, password: "\(password)")
+		}
+	}
+		
+	private func emailAuthSignUp(email: String, userName: String, password: String) {
+		Auth.auth().createUser(withEmail: email, password: password) { result, error in
+			if let error = error {
+				self.errorMessage = "파이어베이스에 회원가입하는데 실패했습니다. \(error.localizedDescription)"
+				return
+			}
+			if result != nil {
+				let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+				changeRequest?.displayName = userName
+			}
+		}
+	}
+
+	private func emailAuthSignIn(email: String, password: String) {
+		Auth.auth().signIn(withEmail: email, password: password) { result, error in
+			if let error = error {
+				self.errorMessage = "파이어베이스에 로그인하는데 실패했습니다. error: \(error.localizedDescription)"
+				return
+			}
+			
+			if result == nil {
+				self.errorMessage = "Fail to find firebase user info."
+				return
+			}
+		}
+	}
 	// MARK: 유틸리티
 	private func randomNonceString(length: Int = 32) -> String {
 		precondition(length > 0)
