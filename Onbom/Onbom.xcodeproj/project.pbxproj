@@ -11,6 +11,7 @@
 		735EE1AF2AC0274400AD8B8D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 735EE1AE2AC0274400AD8B8D /* FirebaseAuth */; };
 		735EE1B42AC029A900AD8B8D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735EE1B32AC029A900AD8B8D /* LoginView.swift */; };
 		735EE1B62AC02AA200AD8B8D /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735EE1B52AC02AA200AD8B8D /* AuthenticationViewModel.swift */; };
+		737D49032ACB3F4F008AC5EC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D49022ACB3F4F008AC5EC /* MainView.swift */; };
 		737EE3542ABD646100D224FC /* OnbomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737EE3532ABD646100D224FC /* OnbomApp.swift */; };
 		737EE3562ABD646100D224FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737EE3552ABD646100D224FC /* ContentView.swift */; };
 		737EE3582ABD646200D224FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737EE3572ABD646200D224FC /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		735EE1B22AC027EA00AD8B8D /* Onbom.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Onbom.entitlements; sourceTree = "<group>"; };
 		735EE1B32AC029A900AD8B8D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		735EE1B52AC02AA200AD8B8D /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		737D49022ACB3F4F008AC5EC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		737EE3502ABD646100D224FC /* Onbom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Onbom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		737EE3532ABD646100D224FC /* OnbomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbomApp.swift; sourceTree = "<group>"; };
 		737EE3552ABD646100D224FC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				AE57BA102ABD694000F71B34 /* File.swift */,
 				735EE1B32AC029A900AD8B8D /* LoginView.swift */,
+				737D49022ACB3F4F008AC5EC /* MainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				735EE1B62AC02AA200AD8B8D /* AuthenticationViewModel.swift in Sources */,
 				735EE1B42AC029A900AD8B8D /* LoginView.swift in Sources */,
 				737EE3562ABD646100D224FC /* ContentView.swift in Sources */,
+				737D49032ACB3F4F008AC5EC /* MainView.swift in Sources */,
 				737EE3542ABD646100D224FC /* OnbomApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

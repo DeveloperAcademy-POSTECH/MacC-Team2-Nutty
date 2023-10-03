@@ -21,7 +21,9 @@ struct OnbomApp: App {
     
     var body: some Scene {
         WindowGroup {
-            LoginView().onOpenURL { url in
+            MainView()
+				.environmentObject(AuthenticationViewModel())
+				.onOpenURL { url in
                 if (AuthApi.isKakaoTalkLoginUrl(url) == false) {
                     print("유효하지 않은 url입니다")
                     return

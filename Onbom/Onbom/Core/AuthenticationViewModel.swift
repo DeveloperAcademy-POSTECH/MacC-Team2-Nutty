@@ -10,7 +10,14 @@ import FirebaseAuth
 import KakaoSDKUser
 import CryptoKit
 
-class AuthenticationViewModel {
+class AuthenticationViewModel: ObservableObject {
+	
+	enum SignInState {
+		case signedIn
+		case signedOut
+	}
+	
+	@Published var state: SignInState = .signedOut
 	private var currentNonce: String?
 	private var _errorMessage: String?
 		
@@ -22,6 +29,10 @@ class AuthenticationViewModel {
 			print(newValue ?? "")
 			_errorMessage = newValue
 		}
+	}
+	
+	init() {
+		state = (Auth.auth().currentUser != nil) ? .signedIn : .signedOut
 	}
 	
 	// MARK: 애플 로그인 기능 관련
@@ -65,6 +76,7 @@ class AuthenticationViewModel {
 				self.errorMessage = "애플 로그인에 실패했습니다. \(error?.localizedDescription ?? "")"
 				return
 			}
+			self.state = .signedIn
 		}
 	}
 	
@@ -135,12 +147,14 @@ class AuthenticationViewModel {
 				self.errorMessage = "Fail to find firebase user info."
 				return
 			}
+			self.state = .signedIn
 		}
 	}
 	// MARK: 로그아웃과 회원탈퇴
 	func signOutFirebase() {
 		do {
 			try Auth.auth().signOut()
+			state = .signedOut
 		}
 		catch {
 			errorMessage = error.localizedDescription
