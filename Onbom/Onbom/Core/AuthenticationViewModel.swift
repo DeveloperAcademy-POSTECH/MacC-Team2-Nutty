@@ -53,14 +53,17 @@ class AuthenticationViewModel {
 														  idToken: idTokenString,
 														  rawNonce: nonce)
 				
-				Task {
-					do {
-						try await Auth.auth().signIn(with: credential)
-					}
-					catch {
-						print("Error authentication: \(error.localizedDescription)")
-					}
-				}
+				
+				signInWithCredential(credential)
+			}
+		}
+	}
+	
+	private func signInWithCredential(_ credential: OAuthCredential) {
+		Auth.auth().signIn(with: credential) { (authResult, error) in
+			if (error != nil) {
+				self.errorMessage = "애플 로그인에 실패했습니다. \(error?.localizedDescription ?? "")"
+				return
 			}
 		}
 	}
