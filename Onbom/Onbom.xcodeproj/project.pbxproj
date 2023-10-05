@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		735EE1A12AC01B1700AD8B8D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 735EE1A02AC01B1700AD8B8D /* GoogleService-Info.plist */; };
 		735EE1AF2AC0274400AD8B8D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 735EE1AE2AC0274400AD8B8D /* FirebaseAuth */; };
 		735EE1B42AC029A900AD8B8D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735EE1B32AC029A900AD8B8D /* LoginView.swift */; };
 		735EE1B62AC02AA200AD8B8D /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735EE1B52AC02AA200AD8B8D /* AuthenticationViewModel.swift */; };
@@ -28,7 +27,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		735EE1A02AC01B1700AD8B8D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		735EE1B22AC027EA00AD8B8D /* Onbom.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Onbom.entitlements; sourceTree = "<group>"; };
 		735EE1B32AC029A900AD8B8D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		735EE1B52AC02AA200AD8B8D /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
@@ -73,7 +71,6 @@
 		737EE3472ABD646100D224FC = {
 			isa = PBXGroup;
 			children = (
-				735EE1A02AC01B1700AD8B8D /* GoogleService-Info.plist */,
 				737EE3522ABD646100D224FC /* Onbom */,
 				737EE3512ABD646100D224FC /* Products */,
 				735EE1AD2AC0274400AD8B8D /* Frameworks */,
@@ -238,7 +235,6 @@
 				AEB33E992AC3F7CE0082A3E7 /* LTCIForm.pdf in Resources */,
 				737EE35B2ABD646200D224FC /* Preview Assets.xcassets in Resources */,
 				737EE3582ABD646200D224FC /* Assets.xcassets in Resources */,
-				735EE1A12AC01B1700AD8B8D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
