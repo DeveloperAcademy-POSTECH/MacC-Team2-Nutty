@@ -9,25 +9,25 @@ import SwiftUI
 import FirebaseAuth
 
 struct MainView: View {
-	@EnvironmentObject var authViewModel: AuthenticationViewModel
-	
-	var body: some View {
-		if authViewModel.state == .signedIn {
-			VStack{
-				Text("Hello, World!")
-				Button("로그아웃"){
-					authViewModel.signOutFirebase()
-				}
-			}
-		}
-		else {
-			LoginView()
-		}
-	}
+  @EnvironmentObject var authViewModel: AuthenticationViewModel
+  
+  var body: some View {
+    if authViewModel.state == .signedIn {
+      VStack{
+        Text("Hello, World!")
+        Button("로그아웃"){
+          authViewModel.signOutFirebase()
+        }
+      }
+    }
+    else {
+      LoginView()
+    }
+  }
 }
 
 struct MainView_Previews: PreviewProvider {
-	static var previews: some View {
-		MainView()
-	}
+  static var previews: some View {
+    MainView()
+  }
 }
