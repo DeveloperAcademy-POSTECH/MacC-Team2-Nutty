@@ -10,13 +10,15 @@ import PDFKit
 
 class PDFManager: ObservableObject {
     @Published var PDFDatas: [Data] = []
+    let cgRectArray: [CGRect] = [CGRect(x: 150, y: 650, width: 140, height: 20),CGRect(x: 350, y: 650, width: 140, height: 20),CGRect(x: 150, y: 600, width: 140, height: 20),CGRect(x: 350, y: 565, width: 140, height: 20)]
+    let signatureRect: CGRect = CGRect(x: 300, y: 600, width: 500, height: 250)
     
-    func createPDF(documentURL: URL, newText: [String], at rect: [CGRect]) {
+    func createPDF(documentURL: URL, newText: [String], signature: [[CGPoint]]) {
         guard let pdfDocument = PDFDocument(url: documentURL) else { return }
         
         if let firstPage = pdfDocument.page(at: 0) {
             for index in 0..<newText.count {
-                let textAnnotation = PDFAnnotation(bounds: rect[index], forType: .freeText, withProperties: nil)
+                let textAnnotation = PDFAnnotation(bounds: cgRectArray[index], forType: .freeText, withProperties: nil)
                 textAnnotation.contents = newText[index]
 //                textAnnotation.font = UIFont.systemFont(ofSize: 12.0)
                 textAnnotation.font = UIFont(name: "Helvetica", size: 12.0)
@@ -25,14 +27,30 @@ class PDFManager: ObservableObject {
             }
         }
         
+        addSignatureToPDF(lines: signature, pdfDocument: pdfDocument)
+        
         guard let newData = pdfDocument.dataRepresentation() else { return }
         PDFDatas.append(newData)
-        
-        //    let newURL = 서버 URL?
-        //    do {
-        //        try newData.write(to: newURL)
-        //    } catch {
-        //        print("Failed to save the modified PDF: \(error)")
-        //    }
     }
+    
+    func addSignatureToPDF(lines: [[CGPoint]], pdfDocument: PDFDocument) {
+        if let secondPage = pdfDocument.page(at: 1) {
+            for line in lines {
+                let linePath = UIBezierPath()
+                linePath.lineWidth = 20
+                
+                guard let firstPoint = line.first else { continue }
+                linePath.move(to: firstPoint)
+                
+                for pointIndex in 1..<line.count {
+                    linePath.addLine(to: line[pointIndex])
+                }
+
+                let lineAnnotation = PDFAnnotation(bounds: signatureRect, forType: .ink, withProperties: nil)
+                lineAnnotation.add(linePath)
+                secondPage.addAnnotation(lineAnnotation)
+            }
+        }
+    }
+
 }
