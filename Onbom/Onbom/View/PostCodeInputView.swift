@@ -19,7 +19,7 @@ struct PostCodeInputView: View {
             Text("주소 : \(selectedAddress)")
         }
         .sheet(isPresented: $isPostCodeViewPresented) {
-            PostCodeView(urlString: "https://developeracademy-postech.github.io/MacC-Team2-Nutty/", isPostCodeViewPresented: $isPostCodeViewPresented, selectedAddress: $selectedAddress)
+            PostCodeView(isPostCodeViewPresented: $isPostCodeViewPresented, selectedAddress: $selectedAddress)
         }
     }
 }

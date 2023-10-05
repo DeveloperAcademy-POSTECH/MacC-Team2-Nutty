@@ -9,7 +9,7 @@ import SwiftUI
 import WebKit
 
 struct PostCodeView: UIViewRepresentable {
-    var urlString: String
+    let urlString = "https://developeracademy-postech.github.io/MacC-Team2-Nutty/"
     @Binding var isPostCodeViewPresented: Bool
     @Binding var selectedAddress: String
     
@@ -57,6 +57,6 @@ struct PostCodeView: UIViewRepresentable {
 
 struct PostCodeView_Previews: PreviewProvider {
     static var previews: some View {
-        PostCodeView(urlString: "https://developeracademy-postech.github.io/MacC-Team2-Nutty/", isPostCodeViewPresented: .constant(false), selectedAddress: .constant(""))
+        PostCodeView(isPostCodeViewPresented: .constant(false), selectedAddress: .constant(""))
     }
 }
