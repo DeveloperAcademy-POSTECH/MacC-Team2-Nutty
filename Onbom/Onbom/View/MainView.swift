@@ -11,7 +11,7 @@ import FirebaseAuth
 struct MainView: View {
 	@EnvironmentObject var authViewModel: AuthenticationViewModel
 	
-    var body: some View {
+	var body: some View {
 		if authViewModel.state == .signedIn {
 			VStack{
 				Text("Hello, World!")
@@ -23,11 +23,11 @@ struct MainView: View {
 		else {
 			LoginView()
 		}
-    }
+	}
 }
 
 struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
-    }
+	static var previews: some View {
+		MainView()
+	}
 }
