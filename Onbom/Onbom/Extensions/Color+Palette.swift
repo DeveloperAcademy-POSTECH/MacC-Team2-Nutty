@@ -121,10 +121,6 @@ struct Color_Previews: PreviewProvider {
                 Color.PB5
             }
             VStack {
-                Color.white
-                Color.white
-                Color.white
-                Color.white
                 Color.TG1
                 Color.TG2
                 Color.TPB
