@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		70D2994A2AC573B3009F536A /* CameraViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299492AC573B3009F536A /* CameraViewer.swift */; };
 		70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D2994B2AC573BC009F536A /* CameraManager.swift */; };
-		70D2994E2AC95F99009F536A /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D2994D2AC95F99009F536A /* CameraView.swift */; };
 		70D299512AC9617D009F536A /* PrepareIDCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299502AC9617D009F536A /* PrepareIDCardView.swift */; };
 		70D299532AC961AB009F536A /* TakeIDCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299522AC961AB009F536A /* TakeIDCardView.swift */; };
 		70D299552AC961BB009F536A /* ConfirmIDCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299542AC961BB009F536A /* ConfirmIDCardView.swift */; };
@@ -25,7 +24,6 @@
 /* Begin PBXFileReference section */
 		70D299492AC573B3009F536A /* CameraViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewer.swift; sourceTree = "<group>"; };
 		70D2994B2AC573BC009F536A /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
-		70D2994D2AC95F99009F536A /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		70D299502AC9617D009F536A /* PrepareIDCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareIDCardView.swift; sourceTree = "<group>"; };
 		70D299522AC961AB009F536A /* TakeIDCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeIDCardView.swift; sourceTree = "<group>"; };
 		70D299542AC961BB009F536A /* ConfirmIDCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmIDCardView.swift; sourceTree = "<group>"; };
@@ -67,7 +65,6 @@
 				70D299502AC9617D009F536A /* PrepareIDCardView.swift */,
 				70D299522AC961AB009F536A /* TakeIDCardView.swift */,
 				70D299542AC961BB009F536A /* ConfirmIDCardView.swift */,
-				70D2994D2AC95F99009F536A /* CameraView.swift */,
 			);
 			path = IDCard;
 			sourceTree = "<group>";
@@ -228,7 +225,6 @@
 				737EE3562ABD646100D224FC /* ContentView.swift in Sources */,
 				70D299532AC961AB009F536A /* TakeIDCardView.swift in Sources */,
 				70D299552AC961BB009F536A /* ConfirmIDCardView.swift in Sources */,
-				70D2994E2AC95F99009F536A /* CameraView.swift in Sources */,
 				AEB33E762AC2B0ED0082A3E7 /* PDFManager.swift in Sources */,
 				70D299512AC9617D009F536A /* PrepareIDCardView.swift in Sources */,
 				AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */,
@@ -363,6 +359,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Onbom/Preview Content\"";
+				DEVELOPMENT_TEAM = 3FD7AHY7SL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "신분증을 인식하기 위해 카메라를 사용합니다";
@@ -392,6 +389,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Onbom/Preview Content\"";
+				DEVELOPMENT_TEAM = 3FD7AHY7SL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "신분증을 인식하기 위해 카메라를 사용합니다";
