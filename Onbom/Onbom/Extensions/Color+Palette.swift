@@ -65,18 +65,22 @@ extension Color {
     }
     
     static var PB1: Self {
-        .init(hex: "#EDEEFF")
+        .init(hex: "#EFF0FF")
     }
     
     static var PB2: Self {
-        .init(hex: "#C3C6FF")
+        .init(hex: "#E4E6FF")
     }
     
     static var PB3: Self {
-        .init(hex: "#575DE1")
+        .init(hex: "#C3C6FF")
     }
     
     static var PB4: Self {
+        .init(hex: "#575DE1")
+    }
+    
+    static var PB5: Self {
         .init(hex: "#343E9A")
     }
     
@@ -114,6 +118,13 @@ struct Color_Previews: PreviewProvider {
                 Color.PB2
                 Color.PB3
                 Color.PB4
+                Color.PB5
+            }
+            VStack {
+                Color.white
+                Color.white
+                Color.white
+                Color.white
                 Color.TG1
                 Color.TG2
                 Color.TPB
