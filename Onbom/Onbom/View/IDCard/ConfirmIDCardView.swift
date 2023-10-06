@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct ConfirmIDCardView: View {
+    @Binding var image: UIImage?
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct ConfirmIDCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        ConfirmIDCardView()
+        if let image = image {
+            Image(uiImage: image)
+                .resizable()
+                .scaledToFit()
+        } else {
+            Text("사진없음")
+        }
     }
 }

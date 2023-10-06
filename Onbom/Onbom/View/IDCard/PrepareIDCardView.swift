@@ -9,7 +9,15 @@ import SwiftUI
 
 struct PrepareIDCardView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            VStack {
+                Text("신분증을 준비해주세요")
+                
+                NavigationLink(destination: TakeIDCardView()) {
+                    Text("다음")
+                }
+            }
+        }
     }
 }
 
