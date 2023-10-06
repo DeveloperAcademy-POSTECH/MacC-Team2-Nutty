@@ -11,7 +11,7 @@ import PDFKit
 class PDFManager: ObservableObject {
     @Published var PDFDatas: [Data] = []
     let cgRectArray: [CGRect] = [CGRect(x: 150, y: 650, width: 140, height: 20),CGRect(x: 350, y: 650, width: 140, height: 20),CGRect(x: 150, y: 600, width: 140, height: 20),CGRect(x: 350, y: 565, width: 140, height: 20)]
-    let signatureRect: CGRect = CGRect(x: 300, y: 600, width: 500, height: 250)
+    let signatureRect: CGRect = CGRect(x: 300, y: 300, width: 500, height: 250)
     
     func createPDF(documentURL: URL, newText: [String], signature: [[CGPoint]]) {
         guard let pdfDocument = PDFDocument(url: documentURL) else { return }
@@ -39,13 +39,15 @@ class PDFManager: ObservableObject {
                 let linePath = UIBezierPath()
                 linePath.lineWidth = 20
                 
-                guard let firstPoint = line.first else { continue }
-                linePath.move(to: firstPoint)
+                guard line.count > 0 else { continue }
+                // 좌표를 상하반전해서 적용
+                let reversedLine = line.map { CGPoint(x: $0.x, y: signatureRect.height - $0.y) }
+                linePath.move(to: reversedLine[0])
                 
-                for pointIndex in 1..<line.count {
-                    linePath.addLine(to: line[pointIndex])
+                for pointIndex in 1..<reversedLine.count {
+                    linePath.addLine(to: reversedLine[pointIndex])
                 }
-
+                
                 let lineAnnotation = PDFAnnotation(bounds: signatureRect, forType: .ink, withProperties: nil)
                 lineAnnotation.add(linePath)
                 secondPage.addAnnotation(lineAnnotation)
