@@ -122,9 +122,8 @@
 		AE57BA0E2ABD690100F71B34 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				AEB33EAF2ACFDE740082A3E7 /* PDF */,
 				AEB33EAA2ACD3BFA0082A3E7 /* DigitalSignature */,
-				AEB33E752AC2B0ED0082A3E7 /* PDFManager.swift */,
-				AEB33E782AC2BDAC0082A3E7 /* PDFViewer.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -169,6 +168,15 @@
 				AEB33EAB2ACD3D010082A3E7 /* DigitalSignatureManager.swift */,
 			);
 			path = DigitalSignature;
+			sourceTree = "<group>";
+		};
+		AEB33EAF2ACFDE740082A3E7 /* PDF */ = {
+			isa = PBXGroup;
+			children = (
+				AEB33E752AC2B0ED0082A3E7 /* PDFManager.swift */,
+				AEB33E782AC2BDAC0082A3E7 /* PDFViewer.swift */,
+			);
+			path = PDF;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
