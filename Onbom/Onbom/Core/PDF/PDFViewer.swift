@@ -19,19 +19,16 @@ struct PDFViewer: UIViewRepresentable {
         } else {
             pdfView.document = PDFDocument(url: LTCIFormResource)
         }
-        // TODO: pdfData로 넘긴 pdfView만 적용 안되는 이슈 존재
         pdfView.autoScales = true
-        pdfView.displayDirection = .horizontal
-        pdfView.minScaleFactor = 0.6
-        pdfView.maxScaleFactor = 5.0
         
         return pdfView
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) {
         if let pdfView = uiView as? PDFView, let pdfData {
-                pdfView.document = PDFDocument(data: pdfData)
-            }
+            pdfView.document = PDFDocument(data: pdfData)
+            pdfView.autoScales = true
+        }
     }
 }
 
