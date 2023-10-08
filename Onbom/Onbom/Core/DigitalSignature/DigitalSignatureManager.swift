@@ -16,7 +16,7 @@ class DigitalSignatureManager: ObservableObject {
         DragGesture()
             .onChanged { value in
                 if self.rectangle.contains(value.location) {
-                    self.addNewcurrentPath(value)
+                    self.addNewCurrentPath(value)
                 }
             }
             .onEnded { value in
@@ -25,7 +25,7 @@ class DigitalSignatureManager: ObservableObject {
             }
     }
     
-    func addNewcurrentPath(_ value: DragGesture.Value) {
+    func addNewCurrentPath(_ value: DragGesture.Value) {
         currentPath.append(value.location)
     }
     
