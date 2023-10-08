@@ -39,7 +39,7 @@ class PDFManager: ObservableObject {
                 let linePath = UIBezierPath()
                 linePath.lineWidth = 20
                 
-                guard line.count > 0 else { continue }
+                guard !line.isEmpty else { continue }
                 // 좌표를 상하반전해서 적용
                 let reversedLine = line.map { CGPoint(x: $0.x, y: signatureRect.height - $0.y) }
                 linePath.move(to: reversedLine[0])
