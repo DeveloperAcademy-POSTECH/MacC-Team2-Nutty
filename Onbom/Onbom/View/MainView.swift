@@ -35,7 +35,7 @@ struct MainView: View {
                         alignment: .bottomTrailing
                     )
                     
-                    VStack(alignment: .center){
+                    VStack(alignment: .center, spacing: 0){
                         Text("집에서 간편하게\n장기요양등급 신청해 보세요")
                             .T1()
                             .lineSpacing(4)
@@ -46,7 +46,7 @@ struct MainView: View {
                         Rectangle()
                             .fill(Color.G2)
                             .frame(width: 150, height: 120)
-                            .padding(.bottom, 30)
+                            .padding(.bottom, 33)
                         
                         Button{
                         } label: {
@@ -63,7 +63,7 @@ struct MainView: View {
                     .background(RoundedRectangle(cornerRadius: 20).fill(.white))
                     .padding(20)
                     
-                    HStack {
+                    HStack(spacing: 0) {
                         Text("본인 부담금 계산기")
                             .B2()
                             .padding(.leading, 19)
@@ -98,7 +98,7 @@ struct MainView: View {
                                             "장기요양등급,\n1분만에 시설등급 받기",]
                             
                             ForEach(0..<6) { i in
-                                VStack(alignment: .leading) {
+                                VStack(alignment: .leading, spacing: 0) {
                                     Circle()
                                         .fill(Color.white)
                                         .frame(maxWidth: 64, maxHeight: 64)
@@ -134,6 +134,7 @@ struct MainView: View {
                     }
                 }
             }
+            .tint(Color.G5)
             .tabItem {
                 Image("home")
                 Text("홈")
