@@ -9,10 +9,11 @@ import SwiftUI
 
 struct MainView: View {
     @State private var selectedPage = 0
+    @State private var path: [Int] = []
     
     var body: some View {
         TabView {
-            NavigationView {
+            NavigationStack(path: $path) {
                 ScrollView(showsIndicators: false) {
                     TabView(selection: $selectedPage){
                         Rectangle().fill(Color.G4)
@@ -48,7 +49,8 @@ struct MainView: View {
                             .frame(width: 150, height: 120)
                             .padding(.bottom, 33)
                         
-                        Button{
+                        Button {
+                            path.append(1)
                         } label: {
                             Text("지금 바로 신청하기")
                                 .foregroundColor(Color.white)
@@ -122,6 +124,24 @@ struct MainView: View {
                     }
                     Spacer().frame(height: 50)
                 }
+                .navigationDestination(for: Int.self) { viewId in
+                    switch(viewId){
+                    case 1:
+                        ApplyTypeView(path: $path)
+                            .toolbar(.hidden, for: .tabBar)
+                            .navigationTitle("")
+                    case 2:
+                        MediHistoryView(path: $path)
+                            .navigationTitle("")
+                    case 3:
+                        RejectView(path: $path)
+                            .navigationTitle("")
+                    default:
+                        RejectView(path: $path)
+                            .navigationTitle("")
+                    }
+                }
+                .navigationTitle("")
                 .background(Color.G2)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
