@@ -15,6 +15,7 @@ struct PatientInfoView: View {
         case seniorSSN1
         case seniorSSN2
     }
+    @Binding var path: [Int]
     
     @State private var step:                    [Bool] = [false, false, false]
     @State private var onWait:                  [Bool] = [true, true, true]
@@ -183,5 +184,5 @@ struct PatientInfoView: View {
 }
 
 #Preview {
-    PatientInfoView()
+    PatientInfoView(path: .constant([]))
 }

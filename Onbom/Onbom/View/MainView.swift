@@ -136,6 +136,10 @@ struct MainView: View {
                     case 3:
                         RejectView(path: $path)
                             .navigationTitle("")
+                    case 4:
+                        PatientInfoView(path: $path)
+                            .toolbar(.hidden, for: .tabBar)
+                            .navigationTitle("")
                     default:
                         RejectView(path: $path)
                             .navigationTitle("")
