@@ -46,10 +46,15 @@ struct PatientInfoView: View {
             .background(RoundedRectangle(cornerRadius: 10).fill(Color.PB1))
             .padding(20)
             .isHidden(onWait[2])
+
+            TextFormView { validate in
                 ScrollView {
                     if(step[2]) {
                         HStack(spacing: 0){
                             FormTextField("주민번호", "앞 6자리", textInput: $seniorSSN1)
+                                .validate{
+                                    seniorSSN1.count == 6
+                                }
                                 .onChange(of: seniorSSN1) { newValue in
                                     if newValue.count >= 6 {
                                         focusedField = .seniorSSN2
@@ -66,6 +71,9 @@ struct PatientInfoView: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                 
                                 SecureField("뒤 7자리", text: $seniorSSN2)
+                                    .validate {
+                                        seniorSSN2.count == 7
+                                    }
                                     .onChange(of: seniorSSN2) { newValue in
                                         if newValue.count >= 7 {
                                             didFinishTypingAll()
@@ -84,6 +92,9 @@ struct PatientInfoView: View {
                     if(step[1] == true) {
                         VStack(spacing: 12){
                             FormTextField("전화번호", "전화번호", textInput: $seniorPhoneNumber)
+                                .validate{
+                                    seniorPhoneNumber.count == 11 || !hasMobile
+                                }
                                 .onChange(of: seniorPhoneNumber) { newValue in
                                     if newValue.count >= 11 {
                                         didFinishTypingPhoneNumber()
@@ -121,6 +132,9 @@ struct PatientInfoView: View {
                         .isHidden(onWait[1])
                     }
                     FormTextField("어르신 성함", "성함", textInput: $seniorName)
+                        .validate{
+                            !seniorName.isEmpty && step[2] == true
+                        }
                         .animation(.easeInOut, value: step)
                         .focused($focusedField, equals: .seniorName)
                         .onSubmit {
@@ -139,6 +153,8 @@ struct PatientInfoView: View {
                 }
                 .frame(maxWidth: .infinity)
                 .background(validate() ? Color.PB4 : Color.PB3)
+                .disabled(!validate())
+            }
         }
         .onAppear {
             focusedField = .seniorName
