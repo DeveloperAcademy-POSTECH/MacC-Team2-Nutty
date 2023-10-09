@@ -24,6 +24,11 @@
 		AEB33E992AC3F7CE0082A3E7 /* LTCIForm.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AEB33E982AC3F7CE0082A3E7 /* LTCIForm.pdf */; };
 		AEB33E9B2AC406600082A3E7 /* Color+Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33E9A2AC406600082A3E7 /* Color+Palette.swift */; };
 		AEB33E9E2AC40C470082A3E7 /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33E9D2AC40C470082A3E7 /* InputField.swift */; };
+		AEB33EA52ACAAB4C0082A3E7 /* TempPDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33EA42ACAAB4C0082A3E7 /* TempPDFView.swift */; };
+		AEB33EA72ACAABAC0082A3E7 /* TempWriteFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33EA62ACAABAC0082A3E7 /* TempWriteFormView.swift */; };
+		AEB33EA92ACAADE00082A3E7 /* PDFFormLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33EA82ACAADE00082A3E7 /* PDFFormLocation.swift */; };
+		AEB33EAC2ACD3D010082A3E7 /* DigitalSignatureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33EAB2ACD3D010082A3E7 /* DigitalSignatureManager.swift */; };
+		AEB33EAE2ACD3D680082A3E7 /* TempWriteSignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33EAD2ACD3D680082A3E7 /* TempWriteSignatureView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +51,11 @@
 		AEB33E982AC3F7CE0082A3E7 /* LTCIForm.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = LTCIForm.pdf; sourceTree = "<group>"; };
 		AEB33E9A2AC406600082A3E7 /* Color+Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Palette.swift"; sourceTree = "<group>"; };
 		AEB33E9D2AC40C470082A3E7 /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
+		AEB33EA42ACAAB4C0082A3E7 /* TempPDFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempPDFView.swift; sourceTree = "<group>"; };
+		AEB33EA62ACAABAC0082A3E7 /* TempWriteFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempWriteFormView.swift; sourceTree = "<group>"; };
+		AEB33EA82ACAADE00082A3E7 /* PDFFormLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFFormLocation.swift; sourceTree = "<group>"; };
+		AEB33EAB2ACD3D010082A3E7 /* DigitalSignatureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalSignatureManager.swift; sourceTree = "<group>"; };
+		AEB33EAD2ACD3D680082A3E7 /* TempWriteSignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempWriteSignatureView.swift; sourceTree = "<group>"; tabWidth = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +131,8 @@
 		AE57BA0B2ABD68E600F71B34 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AEB33EA22ACAA9820082A3E7 /* DigitalSignature */,
+				AEB33E9F2ACAA9020082A3E7 /* Form */,
 				737EE3552ABD646100D224FC /* ContentView.swift */,
 				70D2994F2AC96163009F536A /* IDCard */,
 				03D759352ACDA17400495D7F /* PostCodeInputView.swift */,
@@ -149,9 +161,9 @@
 		AE57BA0E2ABD690100F71B34 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				AEB33EAF2ACFDE740082A3E7 /* PDF */,
+				AEB33EAA2ACD3BFA0082A3E7 /* DigitalSignature */,
 				70D299482AC40E49009F536A /* Camera */,
-				AEB33E752AC2B0ED0082A3E7 /* PDFManager.swift */,
-				AEB33E782AC2BDAC0082A3E7 /* PDFViewer.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -160,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				AEB33E982AC3F7CE0082A3E7 /* LTCIForm.pdf */,
+				AEB33EA82ACAADE00082A3E7 /* PDFFormLocation.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -170,6 +183,40 @@
 				AEB33E9D2AC40C470082A3E7 /* InputField.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		AEB33E9F2ACAA9020082A3E7 /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				AEB33EA42ACAAB4C0082A3E7 /* TempPDFView.swift */,
+				AEB33EA62ACAABAC0082A3E7 /* TempWriteFormView.swift */,
+			);
+			path = Form;
+			sourceTree = "<group>";
+		};
+		AEB33EA22ACAA9820082A3E7 /* DigitalSignature */ = {
+			isa = PBXGroup;
+			children = (
+				AEB33EAD2ACD3D680082A3E7 /* TempWriteSignatureView.swift */,
+			);
+			path = DigitalSignature;
+			sourceTree = "<group>";
+		};
+		AEB33EAA2ACD3BFA0082A3E7 /* DigitalSignature */ = {
+			isa = PBXGroup;
+			children = (
+				AEB33EAB2ACD3D010082A3E7 /* DigitalSignatureManager.swift */,
+			);
+			path = DigitalSignature;
+			sourceTree = "<group>";
+		};
+		AEB33EAF2ACFDE740082A3E7 /* PDF */ = {
+			isa = PBXGroup;
+			children = (
+				AEB33E752AC2B0ED0082A3E7 /* PDFManager.swift */,
+				AEB33E782AC2BDAC0082A3E7 /* PDFViewer.swift */,
+			);
+			path = PDF;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,11 +301,16 @@
 				70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */,
 				03FFF2A92ACDAE7A00B81D65 /* PostCodeView.swift in Sources */,
 				AEB33E762AC2B0ED0082A3E7 /* PDFManager.swift in Sources */,
+				AEB33EA72ACAABAC0082A3E7 /* TempWriteFormView.swift in Sources */,
 				03D759362ACDA17400495D7F /* PostCodeInputView.swift in Sources */,
 				AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */,
+				AEB33EA52ACAAB4C0082A3E7 /* TempPDFView.swift in Sources */,
+				AEB33EAE2ACD3D680082A3E7 /* TempWriteSignatureView.swift in Sources */,
+				AEB33EA92ACAADE00082A3E7 /* PDFFormLocation.swift in Sources */,
 				AEB33E9B2AC406600082A3E7 /* Color+Palette.swift in Sources */,
 				737EE3542ABD646100D224FC /* OnbomApp.swift in Sources */,
 				AEB33E9E2AC40C470082A3E7 /* InputField.swift in Sources */,
+				AEB33EAC2ACD3D010082A3E7 /* DigitalSignatureManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
