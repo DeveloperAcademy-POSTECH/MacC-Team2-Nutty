@@ -16,6 +16,8 @@ struct PatientInfoView: View {
         case seniorSSN2
     }
     
+    @State private var step:                    [Bool] = [false, false, false]
+    @State private var onWait:                  [Bool] = [true, true, true]
     @State private var hasMobile:               Bool = true
     
     @State private var seniorSSN1:              String = ""
@@ -43,7 +45,9 @@ struct PatientInfoView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(RoundedRectangle(cornerRadius: 10).fill(Color.PB1))
             .padding(20)
+            .isHidden(onWait[2])
                 ScrollView {
+                    if(step[2]) {
                         HStack(spacing: 0){
                             FormTextField("주민번호", "앞 6자리", textInput: $seniorSSN1)
                                 .onChange(of: seniorSSN1) { newValue in
@@ -75,6 +79,9 @@ struct PatientInfoView: View {
                             }
                         }
                         .padding(.bottom, 36)
+                        .isHidden(onWait[2])
+                    }
+                    if(step[1] == true) {
                         VStack(spacing: 12){
                             FormTextField("전화번호", "전화번호", textInput: $seniorPhoneNumber)
                                 .onChange(of: seniorPhoneNumber) { newValue in
@@ -110,7 +117,11 @@ struct PatientInfoView: View {
                             }
                         }
                         .padding(.bottom, 36)
+                        .animation(.easeInOut, value: step)
+                        .isHidden(onWait[1])
+                    }
                     FormTextField("어르신 성함", "성함", textInput: $seniorName)
+                        .animation(.easeInOut, value: step)
                         .focused($focusedField, equals: .seniorName)
                         .onSubmit {
                             if(seniorName.isEmpty) { return }
@@ -121,6 +132,7 @@ struct PatientInfoView: View {
                 .scrollDismissesKeyboard(.immediately)
                 
                 Button{
+                } label: {
                     Text("다음")
                         .foregroundColor(.white)
                         .padding(20)
@@ -133,6 +145,26 @@ struct PatientInfoView: View {
         }
     }
     
+    private func didFinishTypingName() {
+        step[1] = true
+        focusedField = .seniorPhoneNumber
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            onWait[1] = false
+        }
+    }
+    
+    private func didFinishTypingPhoneNumber() {
+        step[2] = true
+        focusedField = .seniorSSN1
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            onWait[2] = false
+        }
+    }
+    
+    private func didFinishTypingAll() {
+        focusedField = nil
+    }
+}
 
 #Preview {
     PatientInfoView()
