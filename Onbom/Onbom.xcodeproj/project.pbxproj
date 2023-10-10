@@ -17,6 +17,7 @@
 		7337E1E82AD04B1700D91E6F /* TextStyle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337E1E72AD04B1700D91E6F /* TextStyle+Extension.swift */; };
 		7337E1ED2AD14D1200D91E6F /* UITabBarController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337E1EC2AD14D1200D91E6F /* UITabBarController+Extension.swift */; };
 		7337E1EF2AD1531700D91E6F /* ApplyTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */; };
+		735ADB2F2AD5AC4E0069B94B /* MediConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735ADB2E2AD5AC4E0069B94B /* MediConditionView.swift */; };
 		7372273E2AD2FB340021EFC6 /* MediHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372273D2AD2FB340021EFC6 /* MediHistoryView.swift */; };
 		737227402AD30BBE0021EFC6 /* RejectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372273F2AD30BBE0021EFC6 /* RejectView.swift */; };
 		737227422AD323360021EFC6 /* PatientInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737227412AD323360021EFC6 /* PatientInfoView.swift */; };
@@ -30,6 +31,7 @@
 		737EE3562ABD646100D224FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737EE3552ABD646100D224FC /* ContentView.swift */; };
 		737EE3582ABD646200D224FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737EE3572ABD646200D224FC /* Assets.xcassets */; };
 		737EE35B2ABD646200D224FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737EE35A2ABD646200D224FC /* Preview Assets.xcassets */; };
+		7389872F2AD5E95A00688634 /* MediConditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389872E2AD5E95A00688634 /* MediConditionViewModel.swift */; };
 		7396F4632AD034D6000E8F1A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7396F4622AD034D6000E8F1A /* MainView.swift */; };
 		AEB33E762AC2B0ED0082A3E7 /* PDFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33E752AC2B0ED0082A3E7 /* PDFManager.swift */; };
 		AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33E782AC2BDAC0082A3E7 /* PDFViewer.swift */; };
@@ -49,6 +51,7 @@
 		7337E1E72AD04B1700D91E6F /* TextStyle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextStyle+Extension.swift"; sourceTree = "<group>"; };
 		7337E1EC2AD14D1200D91E6F /* UITabBarController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extension.swift"; sourceTree = "<group>"; };
 		7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyTypeView.swift; sourceTree = "<group>"; };
+		735ADB2E2AD5AC4E0069B94B /* MediConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediConditionView.swift; sourceTree = "<group>"; };
 		7372273D2AD2FB340021EFC6 /* MediHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediHistoryView.swift; sourceTree = "<group>"; };
 		7372273F2AD30BBE0021EFC6 /* RejectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RejectView.swift; sourceTree = "<group>"; };
 		737227412AD323360021EFC6 /* PatientInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientInfoView.swift; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 		737EE3552ABD646100D224FC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		737EE3572ABD646200D224FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		737EE35A2ABD646200D224FC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7389872E2AD5E95A00688634 /* MediConditionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediConditionViewModel.swift; sourceTree = "<group>"; };
 		7396F4622AD034D6000E8F1A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		AE57BA122ABD695800F71B34 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		AEB33E752AC2B0ED0082A3E7 /* PDFManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFManager.swift; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 				7372273F2AD30BBE0021EFC6 /* RejectView.swift */,
 				737227412AD323360021EFC6 /* PatientInfoView.swift */,
 				737227472AD475840021EFC6 /* TextFormView.swift */,
+				735ADB2E2AD5AC4E0069B94B /* MediConditionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 				70D299482AC40E49009F536A /* Camera */,
 				AEB33E752AC2B0ED0082A3E7 /* PDFManager.swift */,
 				AEB33E782AC2BDAC0082A3E7 /* PDFViewer.swift */,
+				7389872E2AD5E95A00688634 /* MediConditionViewModel.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -292,10 +298,12 @@
 				7337E1E82AD04B1700D91E6F /* TextStyle+Extension.swift in Sources */,
 				7372274F2AD476AD0021EFC6 /* FormTextField.swift in Sources */,
 				70D299552AC961BB009F536A /* ConfirmIDCardView.swift in Sources */,
+				7389872F2AD5E95A00688634 /* MediConditionViewModel.swift in Sources */,
 				7372273E2AD2FB340021EFC6 /* MediHistoryView.swift in Sources */,
 				AEB33E762AC2B0ED0082A3E7 /* PDFManager.swift in Sources */,
 				70D299512AC9617D009F536A /* PrepareIDCardView.swift in Sources */,
 				AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */,
+				735ADB2F2AD5AC4E0069B94B /* MediConditionView.swift in Sources */,
 				70D2994A2AC573B3009F536A /* CameraViewer.swift in Sources */,
 				70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */,
 				7372274C2AD476200021EFC6 /* ViewModifier.swift in Sources */,

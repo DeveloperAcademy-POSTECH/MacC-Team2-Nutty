@@ -108,7 +108,7 @@ struct PatientInfoView: View {
                     }
                     if(step[1] == true) {
                         VStack(spacing: 12){
-                            FormTextField("전화번호", "전화번호", textInput: $seniorPhoneNumber)
+                            FormTextField(formSubject: "전화번호", placeHolder: "전화번호", textInput: $seniorPhoneNumber)
                                 .validate{
                                     seniorPhoneNumber.count == 11 || !hasMobile
                                 }
@@ -153,7 +153,7 @@ struct PatientInfoView: View {
                         .animation(.easeInOut, value: step)
                         .appear(didAppear[1])
                     }
-                    FormTextField("어르신 성함", "성함", textInput: $seniorName)
+                    FormTextField(formSubject: "어르신 성함", placeHolder: "성함", textInput: $seniorName)
                         .validate{
                             !seniorName.isEmpty && step[2] == true
                         }
