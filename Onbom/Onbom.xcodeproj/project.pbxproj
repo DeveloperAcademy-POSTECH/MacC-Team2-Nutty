@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		03D759362ACDA17400495D7F /* PostCodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D759352ACDA17400495D7F /* PostCodeInputView.swift */; };
 		03FFF2A92ACDAE7A00B81D65 /* PostCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2A82ACDAE7A00B81D65 /* PostCodeView.swift */; };
+		70C423712AD41DF200D660B7 /* IDCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C423702AD41DF200D660B7 /* IDCardViewModel.swift */; };
+		70C423732AD4354000D660B7 /* TextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C423722AD4354000D660B7 /* TextRecognizer.swift */; };
+		70C423752AD4362400D660B7 /* RectangleDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C423742AD4362400D660B7 /* RectangleDetector.swift */; };
 		70D2994A2AC573B3009F536A /* CameraViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299492AC573B3009F536A /* CameraViewer.swift */; };
 		70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D2994B2AC573BC009F536A /* CameraManager.swift */; };
 		70D299512AC9617D009F536A /* PrepareIDCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299502AC9617D009F536A /* PrepareIDCardView.swift */; };
@@ -29,6 +32,9 @@
 /* Begin PBXFileReference section */
 		03D759352ACDA17400495D7F /* PostCodeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCodeInputView.swift; sourceTree = "<group>"; };
 		03FFF2A82ACDAE7A00B81D65 /* PostCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCodeView.swift; sourceTree = "<group>"; };
+		70C423702AD41DF200D660B7 /* IDCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardViewModel.swift; sourceTree = "<group>"; };
+		70C423722AD4354000D660B7 /* TextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizer.swift; sourceTree = "<group>"; };
+		70C423742AD4362400D660B7 /* RectangleDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleDetector.swift; sourceTree = "<group>"; };
 		70D299492AC573B3009F536A /* CameraViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewer.swift; sourceTree = "<group>"; };
 		70D2994B2AC573BC009F536A /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		70D299502AC9617D009F536A /* PrepareIDCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareIDCardView.swift; sourceTree = "<group>"; };
@@ -64,6 +70,8 @@
 			children = (
 				70D2994B2AC573BC009F536A /* CameraManager.swift */,
 				70D299492AC573B3009F536A /* CameraViewer.swift */,
+				70C423742AD4362400D660B7 /* RectangleDetector.swift */,
+				70C423722AD4354000D660B7 /* TextRecognizer.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -133,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				AE57BA122ABD695800F71B34 /* File.swift */,
+				70C423702AD41DF200D660B7 /* IDCardViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -250,9 +259,12 @@
 				AEB33E762AC2B0ED0082A3E7 /* PDFManager.swift in Sources */,
 				70D299512AC9617D009F536A /* PrepareIDCardView.swift in Sources */,
 				AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */,
+				70C423712AD41DF200D660B7 /* IDCardViewModel.swift in Sources */,
+				70C423732AD4354000D660B7 /* TextRecognizer.swift in Sources */,
 				70D2994A2AC573B3009F536A /* CameraViewer.swift in Sources */,
 				70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */,
 				03FFF2A92ACDAE7A00B81D65 /* PostCodeView.swift in Sources */,
+				70C423752AD4362400D660B7 /* RectangleDetector.swift in Sources */,
 				AEB33E762AC2B0ED0082A3E7 /* PDFManager.swift in Sources */,
 				03D759362ACDA17400495D7F /* PostCodeInputView.swift in Sources */,
 				AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */,
