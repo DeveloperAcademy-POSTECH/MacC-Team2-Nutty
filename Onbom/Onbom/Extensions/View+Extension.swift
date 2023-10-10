@@ -14,4 +14,10 @@ extension View {
         if hidden { self.hidden() }
         else { self }
     }
+    
+    @ViewBuilder
+    func appear(_ appear: Bool) -> some View {
+        if appear { self }
+        else { self.hidden() }
+    }
 }

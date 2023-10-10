@@ -17,8 +17,8 @@ struct PatientInfoView: View {
     }
     @Binding var path: [Int]
     
-    @State private var step:                    [Bool] = [false, false, false]
-    @State private var onWait:                  [Bool] = [true, true, true]
+    @State private var step:                    [Bool] = [true, false, false]
+    @State private var didAppear:               [Bool] = [true, false, false]
     @State private var hasMobile:               Bool = true
     
     @State private var seniorSSN1:              String = ""
@@ -30,7 +30,7 @@ struct PatientInfoView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Text("김순옥님의\n정보를 입력해주세요")
+            Text(step[1] == false ? "어르신의\n성함을 입력해주세요" : seniorName + getTitle())
                 .H2()
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 20)
@@ -46,7 +46,7 @@ struct PatientInfoView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(RoundedRectangle(cornerRadius: 10).fill(Color.PB1))
             .padding(20)
-            .isHidden(onWait[2])
+            .appear(didAppear[2])
 
             TextFormView { validate in
                 ScrollView {
@@ -57,7 +57,7 @@ struct PatientInfoView: View {
                                     seniorSSN1.count == 6
                                 }
                                 .onChange(of: seniorSSN1) { newValue in
-                                    if newValue.count >= 6 {
+                                    if newValue.count == 6 {
                                         focusedField = .seniorSSN2
                                     }
                                 }
@@ -76,7 +76,7 @@ struct PatientInfoView: View {
                                         seniorSSN2.count == 7
                                     }
                                     .onChange(of: seniorSSN2) { newValue in
-                                        if newValue.count >= 7 {
+                                        if newValue.count == 7 {
                                             didFinishTypingAll()
                                         }
                                     }
@@ -88,7 +88,7 @@ struct PatientInfoView: View {
                             }
                         }
                         .padding(.bottom, 36)
-                        .isHidden(onWait[2])
+                        .appear(didAppear[2])
                     }
                     if(step[1] == true) {
                         VStack(spacing: 12){
@@ -97,7 +97,7 @@ struct PatientInfoView: View {
                                     seniorPhoneNumber.count == 11 || !hasMobile
                                 }
                                 .onChange(of: seniorPhoneNumber) { newValue in
-                                    if newValue.count >= 11 {
+                                    if newValue.count == 11 {
                                         didFinishTypingPhoneNumber()
                                     }
                                 }
@@ -130,7 +130,7 @@ struct PatientInfoView: View {
                         }
                         .padding(.bottom, 36)
                         .animation(.easeInOut, value: step)
-                        .isHidden(onWait[1])
+                        .appear(didAppear[1])
                     }
                     FormTextField("어르신 성함", "성함", textInput: $seniorName)
                         .validate{
@@ -162,11 +162,21 @@ struct PatientInfoView: View {
         }
     }
     
+    private func getTitle() -> String {
+        if(step[2] == true){
+            return "님의\n주민등록번호를 입력해 주세요"
+        } else if(step[1] == true) {
+            return "님의\n전화번호를 입력해 주세요"
+        }
+        return ""
+    }
+    
+
     private func didFinishTypingName() {
         step[1] = true
         focusedField = .seniorPhoneNumber
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-            onWait[1] = false
+            didAppear[1] = true
         }
     }
     
@@ -174,7 +184,7 @@ struct PatientInfoView: View {
         step[2] = true
         focusedField = .seniorSSN1
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-            onWait[2] = false
+            didAppear[2] = true
         }
     }
     
