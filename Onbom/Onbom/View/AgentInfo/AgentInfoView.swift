@@ -11,17 +11,11 @@ struct AgentInfoView: View {
     @State private var isGuardian = false
     @State private var agentDetailType = false
     var body: some View {
-        VStack {
-            HStack {
-                Text("환자분과의\n상세 관계를 선택해 주세요")
-                    .H1()
-                Spacer()
-            }
-            HStack {
-                Text("보호자이신가요?")
-                    .Label()
-                Spacer()
-            }
+        VStack(alignment: .leading) {
+            Text("환자분과의\n상세 관계를 선택해 주세요")
+                .H1()
+            Text("보호자이신가요?")
+                .Label()
             HStack {
                 Button {
                     isGuardian = true
@@ -36,11 +30,8 @@ struct AgentInfoView: View {
                         .B3()
                 }
             }
-            HStack {
-                Text("대리인 상세 관계")
-                    .Label()
-                Spacer()
-            }
+            Text("대리인 상세 관계")
+                .Label()
             HStack {
                 Button {
                     agentDetailType = true
@@ -56,16 +47,20 @@ struct AgentInfoView: View {
                 }
             }
             Spacer()
-            Text("상세 관계를 모르겠어요")
-                .Label()
-                .foregroundColor(.G5)
-                .underline()
+            HStack {
+                Spacer()
+                Text("상세 관계를 모르겠어요")
+                    .Label()
+                    .foregroundColor(.G5)
+                    .underline()
+                Spacer()
+            }
             Button {
                 
             } label: {
                 Text("다음")
             }
-
+            
         }
         .padding(20)
         
