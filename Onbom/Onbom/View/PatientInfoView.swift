@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 
 struct PatientInfoView: View {
@@ -62,6 +63,11 @@ struct PatientInfoView: View {
                                     .validate{
                                         seniorSSN1.count == 6
                                     }
+                                    .onReceive(Just(seniorSSN1)) { _ in
+                                        if seniorSSN1.count > 6 {
+                                            seniorSSN1 = String(seniorSSN1.prefix(6))
+                                        }
+                                    }
                                     .onChange(of: seniorSSN1) { newValue in
                                         if newValue.count == 6 {
                                             focusedField = .seniorSSN2
@@ -79,6 +85,11 @@ struct PatientInfoView: View {
                                 SecureField("뒤 7자리", text: $seniorSSN2)
                                     .validate {
                                         seniorSSN2.count == 7
+                                    }
+                                    .onReceive(Just(seniorSSN2)) { _ in
+                                        if seniorSSN2.count > 7 {
+                                            seniorSSN2 = String(seniorSSN2.prefix(7))
+                                        }
                                     }
                                     .onChange(of: seniorSSN2) { newValue in
                                         if newValue.count == 7 {
@@ -100,6 +111,11 @@ struct PatientInfoView: View {
                             FormTextField("전화번호", "전화번호", textInput: $seniorPhoneNumber)
                                 .validate{
                                     seniorPhoneNumber.count == 11 || !hasMobile
+                                }
+                                .onReceive(Just(seniorPhoneNumber)) { _ in
+                                    if seniorPhoneNumber.count > 11 {
+                                        seniorPhoneNumber = String(seniorPhoneNumber.prefix(11))
+                                    }
                                 }
                                 .onChange(of: seniorPhoneNumber) { newValue in
                                     if newValue.count == 11 {
@@ -140,6 +156,11 @@ struct PatientInfoView: View {
                     FormTextField("어르신 성함", "성함", textInput: $seniorName)
                         .validate{
                             !seniorName.isEmpty && step[2] == true
+                        }
+                        .onReceive(Just(seniorName)) { _ in
+                            if seniorName.count > 6 {
+                                seniorName = String(seniorName.prefix(6))
+                            }
                         }
                         .animation(.easeInOut, value: step)
                         .focused($focusedField, equals: .seniorName)
