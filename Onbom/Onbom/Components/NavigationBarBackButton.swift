@@ -23,7 +23,7 @@ struct NavigationBarBackButton: View {
 }
 
 extension View {
-    func navigationBarBackButton(color: Color) -> some View {
+    func navigationBarBackButton(color: Color = Color.G5) -> some View {
         self
             .navigationBarBackButtonHidden(true)
             .toolbar {
