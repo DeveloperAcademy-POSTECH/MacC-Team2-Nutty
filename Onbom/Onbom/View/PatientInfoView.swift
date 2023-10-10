@@ -51,25 +51,30 @@ struct PatientInfoView: View {
             TextFormView { validate in
                 ScrollView {
                     if(step[2]) {
-                        HStack(spacing: 0){
-                            FormTextField("주민번호", "앞 6자리", textInput: $seniorSSN1)
-                                .validate{
-                                    seniorSSN1.count == 6
-                                }
-                                .onChange(of: seniorSSN1) { newValue in
-                                    if newValue.count == 6 {
-                                        focusedField = .seniorSSN2
+                        VStack(spacing: 10) {
+                            Text("주민번호")
+                                .foregroundColor(focusedField == .seniorSSN1 || focusedField == .seniorSSN2 ? Color.PB4 : Color.G6)
+                                .Label()
+                                .frame(maxWidth: .infinity, alignment: .leading)
+
+                            HStack(spacing: 0){
+                                TextField("앞 6자리", text: $seniorSSN1)
+                                    .validate{
+                                        seniorSSN1.count == 6
                                     }
-                                }
-                                .keyboardType(.numberPad)
-                                .focused($focusedField, equals: .seniorSSN1)
-                            Text("-")
-                                .padding(.top, 30)
-                                .padding(.horizontal, 7)
-                            
-                            VStack(spacing: 10) {
-                                Text("")
-                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .onChange(of: seniorSSN1) { newValue in
+                                        if newValue.count == 6 {
+                                            focusedField = .seniorSSN2
+                                        }
+                                    }
+                                    .focused($focusedField, equals: .seniorSSN1)
+                                    .keyboardType(.numberPad)
+                                    .padding(16)
+                                    .background(RoundedRectangle(cornerRadius: 10)
+                                        .stroke(focusedField == .seniorSSN1 ? Color.PB4 : Color.PB1, lineWidth: 1.5))
+                                    .tint(Color.PB4)
+                                Text("-")
+                                    .padding(.horizontal, 7)
                                 
                                 SecureField("뒤 7자리", text: $seniorSSN2)
                                     .validate {
