@@ -11,13 +11,13 @@ struct TakeIDCardView: View {
     let backgroundOpacity = 0.7
     let frameRadius = 16.0
     let cardRatio = 1.6
-    let cameraViewer = CameraViewer()
-    @State private var captureImage: UIImage? = nil
+    @EnvironmentObject var idCardViewModel: IDCardViewModel
 
+    let guidelineRect = CGRect(x: 0, y: 0.25, width: 1, height: 0.35)
     var body: some View {
         NavigationStack {
             ZStack {
-                cameraViewer
+                CameraViewer(viewModel: idCardViewModel)
                     .edgesIgnoringSafeArea(.all)
                 
                 Color.black.opacity(backgroundOpacity)
@@ -29,18 +29,7 @@ struct TakeIDCardView: View {
                         .blendMode(.destinationOut)
                         .padding()
                     
-                    Button {
-                        cameraViewer.cameraManager.takePhoto()
-                    } label: {
-                        Image(systemName: "circle.circle")
-                            .font(.largeTitle)
-                    }
-                    .onAppear {
-                        cameraViewer.cameraManager.capturedImage = { image in
-                            captureImage = image
-                        }
-                    }
-                    NavigationLink(destination: ConfirmIDCardView(image: $captureImage)) {
+                    NavigationLink(destination: ConfirmIDCardView()) {
                         Text("다음")
                     }
                     .padding()
