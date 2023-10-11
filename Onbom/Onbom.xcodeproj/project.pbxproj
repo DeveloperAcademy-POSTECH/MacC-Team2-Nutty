@@ -27,7 +27,6 @@
 		737227402AD30BBE0021EFC6 /* RejectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372273F2AD30BBE0021EFC6 /* RejectView.swift */; };
 		737227422AD323360021EFC6 /* PatientInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737227412AD323360021EFC6 /* PatientInfoView.swift */; };
 		737227442AD474E50021EFC6 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737227432AD474E50021EFC6 /* View+Extension.swift */; };
-		737227462AD475460021EFC6 /* TextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737227452AD475460021EFC6 /* TextField+Extension.swift */; };
 		7372274C2AD476200021EFC6 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372274B2AD476200021EFC6 /* ViewModifier.swift */; };
 		7372274F2AD476AD0021EFC6 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372274E2AD476AD0021EFC6 /* FormTextField.swift */; };
 		737B62172AD6EAB30010444E /* PatientInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737B62162AD6EAB30010444E /* PatientInfoViewModel.swift */; };
@@ -70,7 +69,6 @@
 		7372273F2AD30BBE0021EFC6 /* RejectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RejectView.swift; sourceTree = "<group>"; };
 		737227412AD323360021EFC6 /* PatientInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientInfoView.swift; sourceTree = "<group>"; };
 		737227432AD474E50021EFC6 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
-		737227452AD475460021EFC6 /* TextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extension.swift"; sourceTree = "<group>"; };
 		7372274B2AD476200021EFC6 /* ViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifier.swift; sourceTree = "<group>"; };
 		7372274E2AD476AD0021EFC6 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		737B62162AD6EAB30010444E /* PatientInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientInfoViewModel.swift; sourceTree = "<group>"; };
@@ -207,7 +205,6 @@
 				7337E1E72AD04B1700D91E6F /* TextStyle+Extension.swift */,
 				7337E1EC2AD14D1200D91E6F /* UITabBarController+Extension.swift */,
 				737227432AD474E50021EFC6 /* View+Extension.swift */,
-				737227452AD475460021EFC6 /* TextField+Extension.swift */,
 				7372274B2AD476200021EFC6 /* ViewModifier.swift */,
 			);
 			path = Extensions;
@@ -387,7 +384,6 @@
 				70E047092AD5138300FC73A5 /* PhoneNumberInputField.swift in Sources */,
 				70E047052AD5023000FC73A5 /* NavigationBarBackButton.swift in Sources */,
 				7337E1ED2AD14D1200D91E6F /* UITabBarController+Extension.swift in Sources */,
-				737227462AD475460021EFC6 /* TextField+Extension.swift in Sources */,
 				737227402AD30BBE0021EFC6 /* RejectView.swift in Sources */,
 				737227442AD474E50021EFC6 /* View+Extension.swift in Sources */,
 				AEB33EAC2ACD3D010082A3E7 /* DigitalSignatureManager.swift in Sources */,
