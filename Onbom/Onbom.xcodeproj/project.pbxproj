@@ -21,6 +21,7 @@
 		70B136CA2AD589CB001208E3 /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70B136C12AD589CB001208E3 /* Pretendard-Thin.otf */; };
 		70B136CB2AD589CB001208E3 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70B136C22AD589CB001208E3 /* Pretendard-ExtraLight.otf */; };
 		70B136CC2AD589CB001208E3 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70B136C32AD589CB001208E3 /* Pretendard-SemiBold.otf */; };
+		70B136CF2AD62EF5001208E3 /* ApplicationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B136CE2AD62EF5001208E3 /* ApplicationViewModel.swift */; };
 		70D2994A2AC573B3009F536A /* CameraViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299492AC573B3009F536A /* CameraViewer.swift */; };
 		70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D2994B2AC573BC009F536A /* CameraManager.swift */; };
 		70D299512AC9617D009F536A /* IDCardDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299502AC9617D009F536A /* IDCardDescriptionView.swift */; };
@@ -76,6 +77,7 @@
 		70B136C22AD589CB001208E3 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		70B136C32AD589CB001208E3 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		70B136CD2AD589D6001208E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		70B136CE2AD62EF5001208E3 /* ApplicationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationViewModel.swift; sourceTree = "<group>"; };
 		70D299492AC573B3009F536A /* CameraViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewer.swift; sourceTree = "<group>"; };
 		70D2994B2AC573BC009F536A /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		70D299502AC9617D009F536A /* IDCardDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardDescriptionView.swift; sourceTree = "<group>"; };
@@ -225,10 +227,10 @@
 		AE57BA0B2ABD68E600F71B34 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				737EE3552ABD646100D224FC /* ContentView.swift */,
 				7372274D2AD476960021EFC6 /* Component */,
 				AEB33EA22ACAA9820082A3E7 /* DigitalSignature */,
 				AEB33E9F2ACAA9020082A3E7 /* Form */,
-				737EE3552ABD646100D224FC /* ContentView.swift */,
 				70D2994F2AC96163009F536A /* IDCard */,
 				708891E92AD5515B005B67AB /* Address */,
 				7396F4622AD034D6000E8F1A /* MainView.swift */,
@@ -247,6 +249,7 @@
 			children = (
 				AE57BA122ABD695800F71B34 /* File.swift */,
 				737227492AD475E40021EFC6 /* ValidationPreferenceKey.swift */,
+				70B136CE2AD62EF5001208E3 /* ApplicationViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				70D299512AC9617D009F536A /* IDCardDescriptionView.swift in Sources */,
 				AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */,
 				708891F12AD55607005B67AB /* CityAddressInputField.swift in Sources */,
+				70B136CF2AD62EF5001208E3 /* ApplicationViewModel.swift in Sources */,
 				70D2994A2AC573B3009F536A /* CameraViewer.swift in Sources */,
 				70E0470B2AD5139200FC73A5 /* IDNumberInputField.swift in Sources */,
 				70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */,
