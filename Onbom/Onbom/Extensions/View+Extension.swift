@@ -14,4 +14,8 @@ extension View {
         if hidden { self.hidden() }
         else { self }
     }
+    
+    func ckerning(_ kerning: CGFloat) -> some View {
+        modifier(CKerning(kerning: kerning))
+    }
 }
