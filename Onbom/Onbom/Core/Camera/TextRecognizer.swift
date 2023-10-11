@@ -9,7 +9,7 @@ import Vision
 import UIKit
 
 class TextRecognizer {
-    func recognizeText(from image: UIImage, completion: @escaping (NameID?) -> Void) {
+    func recognizeText(from image: UIImage, completion: @escaping (String?) -> Void) {
         guard let cgImage = image.cgImage else {
             completion(nil)
             return
@@ -46,7 +46,7 @@ class TextRecognizer {
         }
     }
     
-    private func filterNameID(from texts: [String]) -> NameID? {
+    private func filterNameID(from texts: [String]) -> String? {
         var name = ""
         var id = ""
         
@@ -69,7 +69,7 @@ class TextRecognizer {
         }
         
         if !name.isEmpty && !id.isEmpty {
-            return NameID(name: name, idNumber: id)
+            return id
         } else {
             return nil
         }

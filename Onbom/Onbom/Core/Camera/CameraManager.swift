@@ -69,8 +69,8 @@ class CameraManager: UIViewController {
     private func recognizeText(from image: UIImage) {
         textRecognizer.recognizeText(from: image) { recognizedNameID in
             if let text = recognizedNameID {
-                self.recognizedID?(text.idNumber)
-                self.recognizedName?(text.name)
+                self.recognizedID?(text)
+//                self.recognizedName?(text.name)
                 print("Recognized Text: \(text)")
             } else {
                 print("CameraManager failed recognization")
