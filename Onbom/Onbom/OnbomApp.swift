@@ -23,7 +23,6 @@ struct OnbomApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
-            }
         }
     }
 }
