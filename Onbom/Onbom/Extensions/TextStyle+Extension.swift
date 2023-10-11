@@ -69,3 +69,9 @@ extension Text {
         self.font(.custom("Pretendard-Regular", size: 11))
     }
 }
+
+extension Text {
+    func Title() -> some View {
+        self.H2().foregroundColor(.B)
+    }
+}
