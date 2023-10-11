@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct CameraViewer: UIViewControllerRepresentable {
-    @ObservedObject var viewModel: IDCardViewModel
-    
+    let cameraManager = CameraManager()
+    var capturedImage: ((UIImage) -> Void)?
+    var recognizedID: ((String) -> Void)?
+
     func makeUIViewController(context: Context) -> CameraManager {
-        return viewModel.cameraManager
+        cameraManager.capturedIDCard = capturedImage
+        cameraManager.recognizedID = recognizedID
+        return cameraManager
     }
 
     func updateUIViewController(_ uiViewController: CameraManager, context: Context) { }
 }
-
