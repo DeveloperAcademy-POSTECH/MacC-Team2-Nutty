@@ -11,7 +11,6 @@
 		03FFF2A92ACDAE7A00B81D65 /* PostCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2A82ACDAE7A00B81D65 /* PostCodeView.swift */; };
 		70D2994A2AC573B3009F536A /* CameraViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299492AC573B3009F536A /* CameraViewer.swift */; };
 		70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D2994B2AC573BC009F536A /* CameraManager.swift */; };
-		70D299512AC9617D009F536A /* IDCardDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299502AC9617D009F536A /* IDCardDescriptionView.swift */; };
 		70D299532AC961AB009F536A /* IDCardOCRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299522AC961AB009F536A /* IDCardOCRView.swift */; };
 		70D299552AC961BB009F536A /* ConfirmIDCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299542AC961BB009F536A /* ConfirmIDCardView.swift */; };
 		70E047052AD5023000FC73A5 /* NavigationBarBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E047042AD5023000FC73A5 /* NavigationBarBackButton.swift */; };
@@ -358,13 +357,10 @@
 				70D299552AC961BB009F536A /* ConfirmIDCardView.swift in Sources */,
 				7389872F2AD5E95A00688634 /* MediConditionViewModel.swift in Sources */,
 				7372273E2AD2FB340021EFC6 /* MediHistoryView.swift in Sources */,
-				70D299512AC9617D009F536A /* IDCardDescriptionView.swift in Sources */,
 				735ADB2F2AD5AC4E0069B94B /* MediConditionView.swift in Sources */,
 				70D2994A2AC573B3009F536A /* CameraViewer.swift in Sources */,
 				738987332AD5FA9500688634 /* PDFViewer.swift in Sources */,
 				737B62172AD6EAB30010444E /* PatientInfoViewModel.swift in Sources */,
-				70D299512AC9617D009F536A /* IDCardDescriptionView.swift in Sources */,
-				70D2994A2AC573B3009F536A /* CameraViewer.swift in Sources */,
 				70E0470B2AD5139200FC73A5 /* IDNumberInputField.swift in Sources */,
 				70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */,
 				7372274C2AD476200021EFC6 /* ViewModifier.swift in Sources */,
