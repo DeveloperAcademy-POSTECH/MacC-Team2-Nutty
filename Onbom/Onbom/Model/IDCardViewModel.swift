@@ -19,19 +19,18 @@ class IDCardViewModel: ObservableObject {
         cameraManager.capturedIDCard = { [weak self] image in
             self?.idCard.image = image
         }
-        
-        cameraManager.recognizedNameID = { [weak self] namdID in
-            self?.idCard.nameID = namdID
+        cameraManager.recognizedName = { [weak self] name in
+            self?.idCard.name = name
         }
+        cameraManager.recognizedID = { [weak self] id in
+            self?.idCard.name = id
+        }
+
     }
 }
 
 struct IDCard {
     var image: UIImage?
-    var nameID = NameID()
-}
-
-struct NameID {
     var name: String = ""
     var idNumber: String = ""
 }
