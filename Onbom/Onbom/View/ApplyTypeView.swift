@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ApplyTypeView: View {
-    @Binding var path: [Int]
+    @Binding var navigationPath: [Int]
     
     var body: some View {
         VStack {
@@ -18,7 +18,7 @@ struct ApplyTypeView: View {
                 .padding(.bottom, 48)
             
             Button{
-                path.append(2)
+                navigationPath.append(2)
             } label: {
                 VStack (spacing: 13){
                     Text("신청")
@@ -86,5 +86,5 @@ struct ApplyTypeView: View {
 }
 
 #Preview {
-    ApplyTypeView(path: .constant([]))
+    ApplyTypeView(navigationPath: .constant([]))
 }

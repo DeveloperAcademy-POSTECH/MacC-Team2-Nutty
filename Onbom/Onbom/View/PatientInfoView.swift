@@ -16,14 +16,14 @@ struct PatientInfoView: View {
         case seniorSSN1
         case seniorSSN2
     }
-    @Binding var path: [Int]
+    @Binding var navigationPath: [Int]
     
     @State private var step:                    [Bool] = [true, false, false]
     @State private var didAppear:               [Bool] = [true, false, false]
     @State private var hasMobile:               Bool = true
     
-    @State private var seniorSSN1:              String = ""
-    @State private var seniorSSN2:              String = ""
+    @State private var seniorIDNumber1:         String = ""
+    @State private var seniorIDNumber2:         String = ""
     @State private var seniorPhoneNumber:       String = ""
     @State private var seniorName:              String = ""
     
@@ -59,16 +59,16 @@ struct PatientInfoView: View {
                                 .frame(maxWidth: .infinity, alignment: .leading)
 
                             HStack(spacing: 0){
-                                TextField("앞 6자리", text: $seniorSSN1)
+                                TextField("앞 6자리", text: $seniorIDNumber1)
                                     .validate{
-                                        seniorSSN1.count == 6
+                                        seniorIDNumber1.count == 6
                                     }
-                                    .onReceive(Just(seniorSSN1)) { _ in
-                                        if seniorSSN1.count > 6 {
-                                            seniorSSN1 = String(seniorSSN1.prefix(6))
+                                    .onReceive(Just(seniorIDNumber1)) { _ in
+                                        if seniorIDNumber1.count > 6 {
+                                            seniorIDNumber1 = String(seniorIDNumber1.prefix(6))
                                         }
                                     }
-                                    .onChange(of: seniorSSN1) { newValue in
+                                    .onChange(of: seniorIDNumber1) { newValue in
                                         if newValue.count == 6 {
                                             focusedField = .seniorSSN2
                                         }
@@ -82,16 +82,16 @@ struct PatientInfoView: View {
                                 Text("-")
                                     .padding(.horizontal, 7)
                                 
-                                SecureField("뒤 7자리", text: $seniorSSN2)
+                                SecureField("뒤 7자리", text: $seniorIDNumber2)
                                     .validate {
-                                        seniorSSN2.count == 7
+                                        seniorIDNumber2.count == 7
                                     }
-                                    .onReceive(Just(seniorSSN2)) { _ in
-                                        if seniorSSN2.count > 7 {
-                                            seniorSSN2 = String(seniorSSN2.prefix(7))
+                                    .onReceive(Just(seniorIDNumber2)) { _ in
+                                        if seniorIDNumber2.count > 7 {
+                                            seniorIDNumber2 = String(seniorIDNumber2.prefix(7))
                                         }
                                     }
-                                    .onChange(of: seniorSSN2) { newValue in
+                                    .onChange(of: seniorIDNumber2) { newValue in
                                         if newValue.count == 7 {
                                             didFinishTypingAll()
                                         }
@@ -220,5 +220,5 @@ struct PatientInfoView: View {
 }
 
 #Preview {
-    PatientInfoView(path: .constant([]))
+    PatientInfoView(navigationPath: .constant([]))
 }
