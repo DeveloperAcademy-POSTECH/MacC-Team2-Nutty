@@ -11,9 +11,14 @@
 		03FFF2A92ACDAE7A00B81D65 /* PostCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2A82ACDAE7A00B81D65 /* PostCodeView.swift */; };
 		70D2994A2AC573B3009F536A /* CameraViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299492AC573B3009F536A /* CameraViewer.swift */; };
 		70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D2994B2AC573BC009F536A /* CameraManager.swift */; };
-		70D299512AC9617D009F536A /* PrepareIDCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299502AC9617D009F536A /* PrepareIDCardView.swift */; };
-		70D299532AC961AB009F536A /* TakeIDCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299522AC961AB009F536A /* TakeIDCardView.swift */; };
+		70D299512AC9617D009F536A /* IDCardDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299502AC9617D009F536A /* IDCardDescriptionView.swift */; };
+		70D299532AC961AB009F536A /* IDCardOCRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299522AC961AB009F536A /* IDCardOCRView.swift */; };
 		70D299552AC961BB009F536A /* ConfirmIDCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299542AC961BB009F536A /* ConfirmIDCardView.swift */; };
+		70E047052AD5023000FC73A5 /* NavigationBarBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E047042AD5023000FC73A5 /* NavigationBarBackButton.swift */; };
+		70E047072AD5135F00FC73A5 /* NumberInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E047062AD5135F00FC73A5 /* NumberInputField.swift */; };
+		70E047092AD5138300FC73A5 /* PhoneNumberInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E047082AD5138300FC73A5 /* PhoneNumberInputField.swift */; };
+		70E0470B2AD5139200FC73A5 /* IDNumberInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E0470A2AD5139200FC73A5 /* IDNumberInputField.swift */; };
+		70E0470D2AD513BC00FC73A5 /* AddressInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E0470C2AD513BC00FC73A5 /* AddressInputField.swift */; };
 		7337E1E82AD04B1700D91E6F /* TextStyle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337E1E72AD04B1700D91E6F /* TextStyle+Extension.swift */; };
 		7337E1ED2AD14D1200D91E6F /* UITabBarController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337E1EC2AD14D1200D91E6F /* UITabBarController+Extension.swift */; };
 		7337E1EF2AD1531700D91E6F /* ApplyTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */; };
@@ -50,9 +55,14 @@
 		03FFF2A82ACDAE7A00B81D65 /* PostCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCodeView.swift; sourceTree = "<group>"; };
 		70D299492AC573B3009F536A /* CameraViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewer.swift; sourceTree = "<group>"; };
 		70D2994B2AC573BC009F536A /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
-		70D299502AC9617D009F536A /* PrepareIDCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareIDCardView.swift; sourceTree = "<group>"; };
-		70D299522AC961AB009F536A /* TakeIDCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeIDCardView.swift; sourceTree = "<group>"; };
+		70D299502AC9617D009F536A /* IDCardDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardDescriptionView.swift; sourceTree = "<group>"; };
+		70D299522AC961AB009F536A /* IDCardOCRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardOCRView.swift; sourceTree = "<group>"; };
 		70D299542AC961BB009F536A /* ConfirmIDCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmIDCardView.swift; sourceTree = "<group>"; };
+		70E047042AD5023000FC73A5 /* NavigationBarBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarBackButton.swift; sourceTree = "<group>"; };
+		70E047062AD5135F00FC73A5 /* NumberInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberInputField.swift; sourceTree = "<group>"; };
+		70E047082AD5138300FC73A5 /* PhoneNumberInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberInputField.swift; sourceTree = "<group>"; };
+		70E0470A2AD5139200FC73A5 /* IDNumberInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDNumberInputField.swift; sourceTree = "<group>"; };
+		70E0470C2AD513BC00FC73A5 /* AddressInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressInputField.swift; sourceTree = "<group>"; };
 		7337E1E72AD04B1700D91E6F /* TextStyle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextStyle+Extension.swift"; sourceTree = "<group>"; };
 		7337E1EC2AD14D1200D91E6F /* UITabBarController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extension.swift"; sourceTree = "<group>"; };
 		7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyTypeView.swift; sourceTree = "<group>"; };
@@ -109,8 +119,8 @@
 		70D2994F2AC96163009F536A /* IDCard */ = {
 			isa = PBXGroup;
 			children = (
-				70D299502AC9617D009F536A /* PrepareIDCardView.swift */,
-				70D299522AC961AB009F536A /* TakeIDCardView.swift */,
+				70D299502AC9617D009F536A /* IDCardDescriptionView.swift */,
+				70D299522AC961AB009F536A /* IDCardOCRView.swift */,
 				70D299542AC961BB009F536A /* ConfirmIDCardView.swift */,
 			);
 			path = IDCard;
@@ -231,6 +241,11 @@
 			isa = PBXGroup;
 			children = (
 				AEB33E9D2AC40C470082A3E7 /* InputField.swift */,
+				70E0470C2AD513BC00FC73A5 /* AddressInputField.swift */,
+				70E047062AD5135F00FC73A5 /* NumberInputField.swift */,
+				70E047082AD5138300FC73A5 /* PhoneNumberInputField.swift */,
+				70E0470A2AD5139200FC73A5 /* IDNumberInputField.swift */,
+				70E047042AD5023000FC73A5 /* NavigationBarBackButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -342,7 +357,8 @@
 			files = (
 				738987322AD5FA9500688634 /* PDFManager.swift in Sources */,
 				737EE3562ABD646100D224FC /* ContentView.swift in Sources */,
-				70D299532AC961AB009F536A /* TakeIDCardView.swift in Sources */,
+				70E047072AD5135F00FC73A5 /* NumberInputField.swift in Sources */,
+				70D299532AC961AB009F536A /* IDCardOCRView.swift in Sources */,
 				7337E1E82AD04B1700D91E6F /* TextStyle+Extension.swift in Sources */,
 				7372274F2AD476AD0021EFC6 /* FormTextField.swift in Sources */,
 				70D299552AC961BB009F536A /* ConfirmIDCardView.swift in Sources */,
@@ -352,9 +368,15 @@
 				735ADB2F2AD5AC4E0069B94B /* MediConditionView.swift in Sources */,
 				70D2994A2AC573B3009F536A /* CameraViewer.swift in Sources */,
 				738987332AD5FA9500688634 /* PDFViewer.swift in Sources */,
+				AEB33E762AC2B0ED0082A3E7 /* PDFManager.swift in Sources */,
+				70D299512AC9617D009F536A /* IDCardDescriptionView.swift in Sources */,
+				AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */,
+				70D2994A2AC573B3009F536A /* CameraViewer.swift in Sources */,
+				70E0470B2AD5139200FC73A5 /* IDNumberInputField.swift in Sources */,
 				70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */,
 				7372274C2AD476200021EFC6 /* ViewModifier.swift in Sources */,
 				03FFF2A92ACDAE7A00B81D65 /* PostCodeView.swift in Sources */,
+				70E0470D2AD513BC00FC73A5 /* AddressInputField.swift in Sources */,
 				7372274A2AD475E40021EFC6 /* ValidationPreferenceKey.swift in Sources */,
 				7396F4632AD034D6000E8F1A /* MainView.swift in Sources */,
 				737227422AD323360021EFC6 /* PatientInfoView.swift in Sources */,
@@ -368,6 +390,8 @@
 				AEB33E9B2AC406600082A3E7 /* Color+Palette.swift in Sources */,
 				737EE3542ABD646100D224FC /* OnbomApp.swift in Sources */,
 				AEB33E9E2AC40C470082A3E7 /* InputField.swift in Sources */,
+				70E047092AD5138300FC73A5 /* PhoneNumberInputField.swift in Sources */,
+				70E047052AD5023000FC73A5 /* NavigationBarBackButton.swift in Sources */,
 				7337E1ED2AD14D1200D91E6F /* UITabBarController+Extension.swift in Sources */,
 				737227462AD475460021EFC6 /* TextField+Extension.swift in Sources */,
 				737227402AD30BBE0021EFC6 /* RejectView.swift in Sources */,

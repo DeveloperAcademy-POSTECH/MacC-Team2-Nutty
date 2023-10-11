@@ -9,9 +9,12 @@ import SwiftUI
 
 extension Text {
     func H1() -> some View {
-        self.font(.system(size:22, weight: .bold))
+        self.font(.system(size:28, weight: .bold))
     }
     func H2() -> some View {
+        self.font(.system(size:22, weight: .bold)).lineSpacing(0.3 * 22 / 2).kerning(-0.3)
+    }
+    func H3() -> some View {
         self.font(.system(size:18, weight: .heavy))
     }
     
@@ -49,7 +52,7 @@ extension Text {
         self.font(.system(size:16, weight: .medium))
     }
     func Cap2() -> some View {
-        self.font(.system(size:15, weight: .medium))
+        self.font(.system(size:15, weight: .medium)).lineSpacing(0.4 * 15 / 2).kerning(-0.2)
     }
     func Cap3() -> some View {
         self.font(.system(size:14, weight: .medium))
