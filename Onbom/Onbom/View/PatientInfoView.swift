@@ -183,6 +183,3 @@ struct PatientInfoView: View {
     }
 }
 
-#Preview {
-    PatientInfoView(path: .constant([]))
-}

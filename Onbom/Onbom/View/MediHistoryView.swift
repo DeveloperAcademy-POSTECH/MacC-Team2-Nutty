@@ -50,6 +50,3 @@ struct MediHistoryView: View {
     }
 }
 
-#Preview {
-    MediHistoryView(path: .constant([]))
-}

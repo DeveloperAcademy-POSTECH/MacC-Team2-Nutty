@@ -90,6 +90,3 @@ struct ApplyTypeView: View {
     }
 }
 
-#Preview {
-    ApplyTypeView(path: .constant([]))
-}

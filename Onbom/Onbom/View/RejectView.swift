@@ -48,7 +48,3 @@ struct RejectView: View {
         .padding(20)
     }
 }
-
-#Preview {
-    RejectView(path: .constant([]))
-}

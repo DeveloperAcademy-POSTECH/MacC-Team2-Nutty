@@ -180,7 +180,3 @@ struct MainView: View {
         .tint(Color.PB4)
     }
 }
-
-#Preview {
-    MainView()
-}
