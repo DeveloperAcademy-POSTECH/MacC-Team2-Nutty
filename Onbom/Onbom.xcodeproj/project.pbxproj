@@ -19,8 +19,9 @@
 		737EE3562ABD646100D224FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737EE3552ABD646100D224FC /* ContentView.swift */; };
 		737EE3582ABD646200D224FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737EE3572ABD646200D224FC /* Assets.xcassets */; };
 		737EE35B2ABD646200D224FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737EE35A2ABD646200D224FC /* Preview Assets.xcassets */; };
-		AEB33E762AC2B0ED0082A3E7 /* PDFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33E752AC2B0ED0082A3E7 /* PDFManager.swift */; };
-		AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33E782AC2BDAC0082A3E7 /* PDFViewer.swift */; };
+		AE06D29F2AD68CD80051AC3F /* PDFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33E752AC2B0ED0082A3E7 /* PDFManager.swift */; };
+		AE06D2A02AD68CD80051AC3F /* PDFViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33E782AC2BDAC0082A3E7 /* PDFViewer.swift */; };
+		AE10D3922AD4E1C900D9ED3C /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */; };
 		AEB33E992AC3F7CE0082A3E7 /* LTCIForm.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AEB33E982AC3F7CE0082A3E7 /* LTCIForm.pdf */; };
 		AEB33E9B2AC406600082A3E7 /* Color+Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33E9A2AC406600082A3E7 /* Color+Palette.swift */; };
 		AEB33E9E2AC40C470082A3E7 /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33E9D2AC40C470082A3E7 /* InputField.swift */; };
@@ -45,6 +46,7 @@
 		737EE3552ABD646100D224FC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		737EE3572ABD646200D224FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		737EE35A2ABD646200D224FC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		AE57BA122ABD695800F71B34 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		AEB33E752AC2B0ED0082A3E7 /* PDFManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFManager.swift; sourceTree = "<group>"; };
 		AEB33E782AC2BDAC0082A3E7 /* PDFViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewer.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			children = (
 				AEB33EA42ACAAB4C0082A3E7 /* TempPDFView.swift */,
 				AEB33EA62ACAABAC0082A3E7 /* TempWriteFormView.swift */,
+				AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */,
 			);
 			path = Form;
 			sourceTree = "<group>";
@@ -290,21 +293,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE06D29F2AD68CD80051AC3F /* PDFManager.swift in Sources */,
+				AE06D2A02AD68CD80051AC3F /* PDFViewer.swift in Sources */,
 				737EE3562ABD646100D224FC /* ContentView.swift in Sources */,
 				70D299532AC961AB009F536A /* TakeIDCardView.swift in Sources */,
 				7337E1E82AD04B1700D91E6F /* TextStyle+Extension.swift in Sources */,
 				70D299552AC961BB009F536A /* ConfirmIDCardView.swift in Sources */,
-				AEB33E762AC2B0ED0082A3E7 /* PDFManager.swift in Sources */,
 				70D299512AC9617D009F536A /* PrepareIDCardView.swift in Sources */,
-				AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */,
 				70D2994A2AC573B3009F536A /* CameraViewer.swift in Sources */,
 				70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */,
 				03FFF2A92ACDAE7A00B81D65 /* PostCodeView.swift in Sources */,
-				AEB33E762AC2B0ED0082A3E7 /* PDFManager.swift in Sources */,
 				AEB33EA72ACAABAC0082A3E7 /* TempWriteFormView.swift in Sources */,
 				03D759362ACDA17400495D7F /* PostCodeInputView.swift in Sources */,
-				AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */,
 				AEB33EA52ACAAB4C0082A3E7 /* TempPDFView.swift in Sources */,
+				AE10D3922AD4E1C900D9ED3C /* PrivacyPolicyView.swift in Sources */,
 				AEB33EAE2ACD3D680082A3E7 /* TempWriteSignatureView.swift in Sources */,
 				AEB33EA92ACAADE00082A3E7 /* PDFFormLocation.swift in Sources */,
 				AEB33E9B2AC406600082A3E7 /* Color+Palette.swift in Sources */,
