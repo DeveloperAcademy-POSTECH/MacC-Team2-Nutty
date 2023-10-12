@@ -12,8 +12,7 @@ struct PrivacyPolicyView: View {
     private let policyTextArray = ["개인정보 제3자 제공 동의 (필수)", "민감정보 처리 동의 (필수)", "고유식별정보 처리 동의 (필수)"]
     @State private var isCheckArray = Array(repeating: false, count: 3)
     @State private var isAllCheck = false
-    @State private var isShowPrivacyPolicyDetail = false
-    
+
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading) {
@@ -24,17 +23,6 @@ struct PrivacyPolicyView: View {
                 ForEach(Array(policyTextArray.enumerated()), id: \.element) { index, policyText in
                     HStack {
                         PrivacyPolicyLow(policyText: policyText, isCheck: $isCheckArray[index], isAllCheck: $isAllCheck)
-                        Spacer()
-                        Button {
-                            isShowPrivacyPolicyDetail = true
-                        } label: {
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.G4)
-                        }
-                        // TODO: 왜인진 모르겠지만 policyText가 안바뀜
-                        .fullScreenCover(isPresented: $isShowPrivacyPolicyDetail) {
-                            PrivacyPolicyDetailView(detail: policyText, isShowPrivacyPolicyDetail: $isShowPrivacyPolicyDetail)
-                        }
                     }
                     .padding(.bottom,18)
                 }
@@ -82,6 +70,7 @@ struct PrivacyPolicyView: View {
 
 struct PrivacyPolicyLow: View {
     var policyText: String
+    @State private var isShowPrivacyPolicyDetail = false
     @Binding var isCheck: Bool
     @Binding var isAllCheck: Bool
     var body: some View {
@@ -91,6 +80,16 @@ struct PrivacyPolicyLow: View {
             Text(policyText)
                 .Cap2()
                 .foregroundColor(.B)
+            Spacer()
+            Button {
+                isShowPrivacyPolicyDetail = true
+            } label: {
+                Image(systemName: "chevron.right")
+                    .foregroundColor(.G4)
+            }
+        }
+        .fullScreenCover(isPresented: $isShowPrivacyPolicyDetail) {
+            PrivacyPolicyDetailView(detail: policyText, isShowPrivacyPolicyDetail: $isShowPrivacyPolicyDetail)
         }
         .onTapGesture {
             if isAllCheck {
