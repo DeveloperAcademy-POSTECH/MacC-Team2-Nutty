@@ -15,43 +15,37 @@ enum CTAButtonStyle {
 }
 
 struct CTAButton {
-    struct CustomButtonView<CustomLabelType: View>: View {
+    struct CustomButtonView: View {
         let style: CTAButtonStyle
         let action: () -> Void
-        let label: CustomLabelType?
+        let label: Text
         
         var body: some View {
             switch style {
             case .primary(let isDisabled):
                 Button(action: action) {
-                    if let label {
                         label
-                    }
+                            .B1()
                 }
                 .buttonStyle(CTAButtonStyleModifiers(style: style))
                 .disabled(isDisabled)
             case .secondary:
                 Button(action: action) {
-                    if let label {
                         label
-                    }
+                            .B1()
                 }
                 .buttonStyle(CTAButtonStyleModifiers(style: style))
             case .expanded(let isDisabled):
                 Button(action: action) {
-                    if let label {
                         label
-
-                    }
+                            .B1()
                 }
                 .buttonStyle(CTAButtonStyleModifiers(style: style))
                 .disabled(isDisabled)
             case .main:
                 Button(action: action) {
-                    if let label {
                         label
-
-                    }
+                            .B1()
                 }
                 .buttonStyle(CTAButtonStyleModifiers(style: style))
             }
@@ -59,7 +53,7 @@ struct CTAButton {
         init(
             style: CTAButtonStyle,
             action: @escaping () -> Void,
-            @ViewBuilder label: () -> CustomLabelType
+            @ViewBuilder label: () -> Text
         ) {
             self.style = style
             self.action = action
@@ -80,9 +74,6 @@ public struct CTAButtonStyleModifiers: ButtonStyle {
                 .padding(.vertical, 19)
                 .foregroundColor(.white)
                 .background(RoundedRectangle(cornerRadius: 16).fill(isDisabled ? Color.PB2 : configuration.isPressed ? Color.PB5 : Color.PB4))
-            // TODO: - Text로 적용이 안 되서 직접 박음. 추후 수정 필요
-                .font(.system(size:16, weight: .bold))
-                .kerning(-0.3)
             
         case .secondary:
             configuration.label
@@ -90,8 +81,6 @@ public struct CTAButtonStyleModifiers: ButtonStyle {
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 19)
                 .background(RoundedRectangle(cornerRadius: 16).fill( configuration.isPressed ? Color.PB3 : Color.PB2))
-                .font(.system(size:16, weight: .bold))
-                .kerning(-0.3)
             
         case let .expanded(isDisabled):
             configuration.label
@@ -99,16 +88,13 @@ public struct CTAButtonStyleModifiers: ButtonStyle {
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 19)
                 .background(isDisabled ? Color.PB2 : configuration.isPressed ? Color.PB5 : Color.PB4)
-                .font(.system(size:16, weight: .bold))
-                .kerning(-0.3)
+            
         case .main:
             configuration.label
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 19)
                 .background(RoundedRectangle(cornerRadius: 16).fill(configuration.isPressed ? Color.PB5 : Color.PB4))
-                .font(.system(size:16, weight: .bold))
-                .kerning(-0.3)
         }
     }
 }
@@ -203,7 +189,6 @@ struct CTAButtonExampleView: View {
             .padding(.horizontal, 20)
             
             // IDCardHorizontalCTAButton
-            // TODO: - 버튼 크기 조정하는 방법 다시 생각하기
             HStack {
                 CTAButton.CustomButtonView(style: .secondary(isDisabled: isDisabled))
                 {
