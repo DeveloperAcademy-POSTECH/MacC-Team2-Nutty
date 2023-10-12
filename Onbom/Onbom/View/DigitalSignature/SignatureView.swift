@@ -14,7 +14,9 @@ struct SignatureView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("서명을 해주세요")
-                .H1()
+                .H2()
+            // Alert 넣기
+            // TODO: 신청인/대리인 케이스 나누기
             Text("신청인 본인")
                 .Label()
             ZStack {
@@ -45,7 +47,6 @@ struct SignatureView: View {
             Spacer()
             Button("완료") {
             }
-            
         }
         .padding(.horizontal, 20.0)
     }
