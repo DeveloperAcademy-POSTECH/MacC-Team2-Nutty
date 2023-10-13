@@ -8,39 +8,25 @@
 import SwiftUI
 
 struct AgentInfoView: View {
-    @State private var isGuardian = false
-    @State private var agentDetailType = false
+    let agentName = "김유진"
+    let patientName = "김순옥"
+    @State private var agentDetailType = ""
     var body: some View {
+        NavigationStack {
         VStack(alignment: .leading) {
-            Text("환자분과의\n상세 관계를 선택해 주세요")
+            Text("\(agentName)님과 \(patientName)님의\n상세 관계를 선택해 주세요")
                 .H2()
-            Text("보호자이신가요?")
+            Text("상세 관계")
                 .Label()
             HStack {
                 Button {
-                    isGuardian = true
-                } label: {
-                    Text("네")
-                        .B3()
-                }
-                Button {
-                    isGuardian = false
-                } label: {
-                    Text("아니요")
-                        .B3()
-                }
-            }
-            Text("대리인 상세 관계")
-                .Label()
-            HStack {
-                Button {
-                    agentDetailType = true
+                    agentDetailType = "가족"
                 } label: {
                     Text("가족")
                         .B3()
                 }
                 Button {
-                    agentDetailType = false
+                    agentDetailType = "친족"
                 } label: {
                     Text("친족")
                         .B3()
@@ -49,10 +35,14 @@ struct AgentInfoView: View {
             Spacer()
             HStack {
                 Spacer()
-                Text("상세 관계를 모르겠어요")
-                    .Label()
-                    .foregroundColor(.G5)
-                    .underline()
+                NavigationLink {
+                    AgentInfoDetailView()
+                } label: {
+                    Text("상세 관계를 모르겠어요")
+                        .Label()
+                        .foregroundColor(.G5)
+                        .underline()
+                }
                 Spacer()
             }
             Button {
@@ -63,8 +53,8 @@ struct AgentInfoView: View {
             
         }
         .padding(20)
-        
     }
+}
 }
 
 struct AgentInfoView_Previews: PreviewProvider {
