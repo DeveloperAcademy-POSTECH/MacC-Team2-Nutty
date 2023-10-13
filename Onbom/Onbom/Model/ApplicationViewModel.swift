@@ -8,18 +8,22 @@
 import SwiftUI
 
 class ApplicationViewModel: ObservableObject {
-    @Published var image: UIImage?
-    @Published var patientName = "김순옥"
-    @Published var patientID = "123456-1234567"
-    @Published var patientAddress = Address()
-    @Published var patientActualAddress = Address()
-    @Published var patientPhoneNumber: String?
+    @Published var application = ApplicationModel()
+}
+
+struct ApplicationModel {
+    var image: UIImage?
+    var patientName = "김순옥"
+    var patientID = "123456-1234567"
+    var patientAddress = Address()
+    var patientActualAddress = Address()
+    var patientPhoneNumber: String?
     
-    @Published var agentName = "김유진"
-    @Published var agentRelation = "가족"
-    @Published var agentID = "123456-1234567"
-    @Published var agentAddress = Address()
-    @Published var agentPhoneNumber = "010-1234-5678"
+    var agentName = "김유진"
+    var agentRelation = "가족"
+    var agentID = "123456-1234567"
+    var agentAddress = Address()
+    var agentPhoneNumber = "010-1234-5678"
 }
 
 struct Address {
