@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SignatureView: View {
     @ObservedObject var digitalSignatureManager = DigitalSignatureManager()
-    @EnvironmentObject var pdfManager: PDFManager
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -32,15 +31,9 @@ struct SignatureView: View {
                     .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round))
                     .foregroundColor(.blue)
             }
-            .overlay {
-                VStack {
-                    HStack {
-                        Spacer()
-                        deleteButton
-                            .padding(20)
-                    }
-                    Spacer()
-                }
+            .overlay(alignment: .topTrailing) {
+                deleteButton
+                    .padding(20)
             }
             .frame(height: 250)
             .gesture(digitalSignatureManager.gesture())
