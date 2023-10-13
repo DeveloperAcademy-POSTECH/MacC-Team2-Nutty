@@ -443,7 +443,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Onbom/Preview Content\"";
-				DEVELOPMENT_TEAM = 3FD7AHY7SL;
+				DEVELOPMENT_TEAM = RV2W6Y7UMT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "신분증을 인식하기 위해 카메라를 사용합니다";
@@ -473,7 +473,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Onbom/Preview Content\"";
-				DEVELOPMENT_TEAM = 3FD7AHY7SL;
+				DEVELOPMENT_TEAM = RV2W6Y7UMT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "신분증을 인식하기 위해 카메라를 사용합니다";
