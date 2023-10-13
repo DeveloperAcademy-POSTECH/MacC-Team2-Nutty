@@ -13,7 +13,7 @@ struct AgentInfoView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("환자분과의\n상세 관계를 선택해 주세요")
-                .H1()
+                .H2()
             Text("보호자이신가요?")
                 .Label()
             HStack {
