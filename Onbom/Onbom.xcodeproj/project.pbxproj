@@ -57,6 +57,8 @@
 		739F9FAC2AC1DF2300523110 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 739F9FAB2AC1DF2300523110 /* KakaoSDKUser */; };
 		73A708892ACEC605004B462B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73A708882ACEC605004B462B /* GoogleService-Info.plist */; };
 		73FD46D52ADAA3CC002ED839 /* ViewID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FD46D42ADAA3CB002ED839 /* ViewID.swift */; };
+		73FD46D72ADAADCF002ED839 /* HomeNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FD46D62ADAADCF002ED839 /* HomeNavigationViewModel.swift */; };
+		73FD46D92ADADF8C002ED839 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FD46D82ADADF8C002ED839 /* HomeView.swift */; };
 		AE10D3902AD4D33C00D9ED3C /* SignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10D38F2AD4D33C00D9ED3C /* SignatureView.swift */; };
 		AE10D3922AD4E1C900D9ED3C /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */; };
 		AE933EDC2AD42E36003D87E6 /* AgentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE933EDB2AD42E36003D87E6 /* AgentInfoView.swift */; };
@@ -124,6 +126,8 @@
 		739F9FAA2AC1DB4300523110 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		73A708882ACEC605004B462B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		73FD46D42ADAA3CB002ED839 /* ViewID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewID.swift; sourceTree = "<group>"; };
+		73FD46D62ADAADCF002ED839 /* HomeNavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationViewModel.swift; sourceTree = "<group>"; };
+		73FD46D82ADADF8C002ED839 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		AE10D38F2AD4D33C00D9ED3C /* SignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureView.swift; sourceTree = "<group>"; };
 		AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		AE57BA122ABD695800F71B34 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
@@ -284,6 +288,7 @@
 				7372273F2AD30BBE0021EFC6 /* RejectView.swift */,
 				737227412AD323360021EFC6 /* PatientInfoView.swift */,
 				731609672AD838FB00399476 /* StepView.swift */,
+				73FD46D82ADADF8C002ED839 /* HomeView.swift */,
 				735ADB2E2AD5AC4E0069B94B /* MediConditionView.swift */,
 			);
 			path = View;
@@ -320,6 +325,7 @@
 				70D299482AC40E49009F536A /* Camera */,
 				7389872E2AD5E95A00688634 /* MediConditionViewModel.swift */,
 				737B62162AD6EAB30010444E /* PatientInfoViewModel.swift */,
+				73FD46D62ADAADCF002ED839 /* HomeNavigationViewModel.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -509,6 +515,7 @@
 				AEB33E762AC2B0ED0082A3E7 /* PDFManager.swift in Sources */,
 				735EE1B62AC02AA200AD8B8D /* AuthenticationViewModel.swift in Sources */,
 				735EE1B42AC029A900AD8B8D /* LoginView.swift in Sources */,
+				73FD46D92ADADF8C002ED839 /* HomeView.swift in Sources */,
 				737EE3562ABD646100D224FC /* ContentView.swift in Sources */,
 				737D49032ACB3F4F008AC5EC /* MainView.swift in Sources */,
 				70E047072AD5135F00FC73A5 /* NumberInputField.swift in Sources */,
@@ -525,6 +532,7 @@
 				708891F12AD55607005B67AB /* CityAddressInputField.swift in Sources */,
 				70B136CF2AD62EF5001208E3 /* ApplicationViewModel.swift in Sources */,
 				70D2994A2AC573B3009F536A /* CameraViewer.swift in Sources */,
+				73FD46D72ADAADCF002ED839 /* HomeNavigationViewModel.swift in Sources */,
 				731609682AD838FB00399476 /* StepView.swift in Sources */,
 				AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */,
 				737B62172AD6EAB30010444E /* PatientInfoViewModel.swift in Sources */,
