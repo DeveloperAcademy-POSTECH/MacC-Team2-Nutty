@@ -49,6 +49,3 @@ struct RejectView: View {
     }
 }
 
-#Preview {
-    RejectView(navigationPath: .constant([]))
-}
