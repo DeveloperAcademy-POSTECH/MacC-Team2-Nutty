@@ -12,6 +12,7 @@
 		<string>Pretendard-Regular.otf</string>
 		<string>Pretendard-Thin.otf</string>
 		<string>Pretendard-ExtraLight.otf</string>
+	</array>
 	<key>KAKAO_NATIVE_APP_KEY</key>
 	<string>b14f81b206a7fe1238b07f89b7c39d00</string>
 	<key>CFBundleURLTypes</key>
