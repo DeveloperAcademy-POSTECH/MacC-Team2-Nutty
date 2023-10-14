@@ -43,6 +43,9 @@ extension Text {
     func B3() -> some View {
         self.font(.system(size:13, weight: .medium))
     }
+    func B4() -> some View {
+        self.font(.system(size:12, weight: .medium))
+    }
     
     func Label() -> some View {
         self.font(.system(size:14, weight: .semibold))

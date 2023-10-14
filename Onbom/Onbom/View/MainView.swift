@@ -9,11 +9,11 @@ import SwiftUI
 
 struct MainView: View {
     @State private var selectedPage = 0
-    @State private var path: [Int] = []
+    @State private var navigationPath: [Int] = []
     
     var body: some View {
         TabView {
-            NavigationStack(path: $path) {
+            NavigationStack(path: $navigationPath) {
                 ScrollView(showsIndicators: false) {
                     TabView(selection: $selectedPage){
                         Rectangle().fill(Color.G4)
@@ -50,7 +50,7 @@ struct MainView: View {
                             .padding(.bottom, 33)
                         
                         Button {
-                            path.append(1)
+                            navigationPath.append(1)
                         } label: {
                             Text("지금 바로 신청하기")
                                 .foregroundColor(Color.white)
@@ -127,21 +127,21 @@ struct MainView: View {
                 .navigationDestination(for: Int.self) { viewId in
                     switch(viewId){
                     case 1:
-                        ApplyTypeView(path: $path)
+                        ApplyTypeView(navigationPath: $navigationPath)
                             .toolbar(.hidden, for: .tabBar)
                             .navigationTitle("")
                     case 2:
-                        MediHistoryView(path: $path)
+                        MediHistoryView(navigationPath: $navigationPath)
                             .navigationTitle("")
                     case 3:
-                        RejectView(path: $path)
+                        RejectView(navigationPath: $navigationPath)
                             .navigationTitle("")
                     case 4:
-                        PatientInfoView(path: $path)
+                        PatientInfoView(navigationPath: $navigationPath)
                             .toolbar(.hidden, for: .tabBar)
                             .navigationTitle("")
                     default:
-                        RejectView(path: $path)
+                        RejectView(navigationPath: $navigationPath)
                             .navigationTitle("")
                     }
                 }

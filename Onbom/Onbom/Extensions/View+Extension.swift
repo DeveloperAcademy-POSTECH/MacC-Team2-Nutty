@@ -15,6 +15,12 @@ extension View {
         else { self }
     }
     
+    @ViewBuilder
+    func appear(_ appear: Bool) -> some View {
+        if appear { self }
+        else { self.hidden() }
+    }
+        
     func ckerning(_ kerning: CGFloat) -> some View {
         modifier(CKerning(kerning: kerning))
     }
