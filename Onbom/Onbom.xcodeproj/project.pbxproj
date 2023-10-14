@@ -24,8 +24,9 @@
 		70B136CF2AD62EF5001208E3 /* ApplicationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B136CE2AD62EF5001208E3 /* ApplicationViewModel.swift */; };
 		70D2994A2AC573B3009F536A /* CameraViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299492AC573B3009F536A /* CameraViewer.swift */; };
 		70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D2994B2AC573BC009F536A /* CameraManager.swift */; };
+		70D299512AC9617D009F536A /* IDCardDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299502AC9617D009F536A /* IDCardDescriptionView.swift */; };
 		70D299532AC961AB009F536A /* IDCardOCRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299522AC961AB009F536A /* IDCardOCRView.swift */; };
-		70D299552AC961BB009F536A /* ConfirmIDCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299542AC961BB009F536A /* ConfirmIDCardView.swift */; };
+		70D299552AC961BB009F536A /* IDCardConfirmEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299542AC961BB009F536A /* IDCardConfirmEditView.swift */; };
 		70E047052AD5023000FC73A5 /* NavigationBarBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E047042AD5023000FC73A5 /* NavigationBarBackButton.swift */; };
 		70E047072AD5135F00FC73A5 /* NumberInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E047062AD5135F00FC73A5 /* NumberInputField.swift */; };
 		70E047092AD5138300FC73A5 /* PhoneNumberInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E047082AD5138300FC73A5 /* PhoneNumberInputField.swift */; };
@@ -52,13 +53,14 @@
 		737EE3582ABD646200D224FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737EE3572ABD646200D224FC /* Assets.xcassets */; };
 		737EE35B2ABD646200D224FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737EE35A2ABD646200D224FC /* Preview Assets.xcassets */; };
 		7389872F2AD5E95A00688634 /* MediConditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389872E2AD5E95A00688634 /* MediConditionViewModel.swift */; };
+		739F9FA12AC1DA0D00523110 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 739F9FA02AC1DA0D00523110 /* KakaoSDK */; };
+		739F9FAC2AC1DF2300523110 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 739F9FAB2AC1DF2300523110 /* KakaoSDKUser */; };
+		73A708892ACEC605004B462B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73A708882ACEC605004B462B /* GoogleService-Info.plist */; };
+		73FD46D52ADAA3CC002ED839 /* ViewID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FD46D42ADAA3CB002ED839 /* ViewID.swift */; };
 		AE10D3902AD4D33C00D9ED3C /* SignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10D38F2AD4D33C00D9ED3C /* SignatureView.swift */; };
 		AE10D3922AD4E1C900D9ED3C /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */; };
 		AE933EDC2AD42E36003D87E6 /* AgentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE933EDB2AD42E36003D87E6 /* AgentInfoView.swift */; };
 		AE933EDE2AD42E60003D87E6 /* AgentInfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE933EDD2AD42E60003D87E6 /* AgentInfoDetailView.swift */; };
-		739F9FA12AC1DA0D00523110 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 739F9FA02AC1DA0D00523110 /* KakaoSDK */; };
-		739F9FAC2AC1DF2300523110 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 739F9FAB2AC1DF2300523110 /* KakaoSDKUser */; };
-		73A708892ACEC605004B462B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73A708882ACEC605004B462B /* GoogleService-Info.plist */; };
 		AEB33E762AC2B0ED0082A3E7 /* PDFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33E752AC2B0ED0082A3E7 /* PDFManager.swift */; };
 		AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33E782AC2BDAC0082A3E7 /* PDFViewer.swift */; };
 		AEB33E992AC3F7CE0082A3E7 /* LTCIForm.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AEB33E982AC3F7CE0082A3E7 /* LTCIForm.pdf */; };
@@ -69,7 +71,6 @@
 		AEB33EA92ACAADE00082A3E7 /* PDFFormLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33EA82ACAADE00082A3E7 /* PDFFormLocation.swift */; };
 		AEB33EAC2ACD3D010082A3E7 /* DigitalSignatureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33EAB2ACD3D010082A3E7 /* DigitalSignatureManager.swift */; };
 		AEB33EAE2ACD3D680082A3E7 /* TempWriteSignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33EAD2ACD3D680082A3E7 /* TempWriteSignatureView.swift */; };
-		70D299512AC9617D009F536A /* IDCardDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299502AC9617D009F536A /* IDCardDescriptionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,7 +93,7 @@
 		70D2994B2AC573BC009F536A /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		70D299502AC9617D009F536A /* IDCardDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardDescriptionView.swift; sourceTree = "<group>"; };
 		70D299522AC961AB009F536A /* IDCardOCRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardOCRView.swift; sourceTree = "<group>"; };
-		70D299542AC961BB009F536A /* ConfirmIDCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmIDCardView.swift; sourceTree = "<group>"; };
+		70D299542AC961BB009F536A /* IDCardConfirmEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardConfirmEditView.swift; sourceTree = "<group>"; };
 		70E047042AD5023000FC73A5 /* NavigationBarBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarBackButton.swift; sourceTree = "<group>"; };
 		70E047062AD5135F00FC73A5 /* NumberInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberInputField.swift; sourceTree = "<group>"; };
 		70E047082AD5138300FC73A5 /* PhoneNumberInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberInputField.swift; sourceTree = "<group>"; };
@@ -120,11 +121,11 @@
 		737EE3572ABD646200D224FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		737EE35A2ABD646200D224FC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7389872E2AD5E95A00688634 /* MediConditionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediConditionViewModel.swift; sourceTree = "<group>"; };
-		AE57BA122ABD695800F71B34 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		AE10D38F2AD4D33C00D9ED3C /* SignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureView.swift; sourceTree = "<group>"; };
-		AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		739F9FAA2AC1DB4300523110 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		73A708882ACEC605004B462B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		73FD46D42ADAA3CB002ED839 /* ViewID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewID.swift; sourceTree = "<group>"; };
+		AE10D38F2AD4D33C00D9ED3C /* SignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureView.swift; sourceTree = "<group>"; };
+		AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		AE57BA122ABD695800F71B34 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		AE933EDB2AD42E36003D87E6 /* AgentInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentInfoView.swift; sourceTree = "<group>"; };
 		AE933EDD2AD42E60003D87E6 /* AgentInfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentInfoDetailView.swift; sourceTree = "<group>"; };
@@ -157,7 +158,6 @@
 		708891E92AD5515B005B67AB /* Address */ = {
 			isa = PBXGroup;
 			children = (
-				03FFF2A82ACDAE7A00B81D65 /* PostCodeView.swift */,
 				03D759352ACDA17400495D7F /* PostCodeInputView.swift */,
 				708891EA2AD55191005B67AB /* AddressFormView.swift */,
 			);
@@ -194,7 +194,7 @@
 			children = (
 				70D299502AC9617D009F536A /* IDCardDescriptionView.swift */,
 				70D299522AC961AB009F536A /* IDCardOCRView.swift */,
-				70D299542AC961BB009F536A /* ConfirmIDCardView.swift */,
+				70D299542AC961BB009F536A /* IDCardConfirmEditView.swift */,
 			);
 			path = IDCard;
 			sourceTree = "<group>";
@@ -257,6 +257,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		73FD46D32ADAA3C1002ED839 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				73FD46D42ADAA3CB002ED839 /* ViewID.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		AE57BA0B2ABD68E600F71B34 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,7 +283,6 @@
 				7372273D2AD2FB340021EFC6 /* MediHistoryView.swift */,
 				7372273F2AD30BBE0021EFC6 /* RejectView.swift */,
 				737227412AD323360021EFC6 /* PatientInfoView.swift */,
-				737227472AD475840021EFC6 /* TextFormView.swift */,
 				731609672AD838FB00399476 /* StepView.swift */,
 				735ADB2E2AD5AC4E0069B94B /* MediConditionView.swift */,
 			);
@@ -285,6 +292,7 @@
 		AE57BA0C2ABD68ED00F71B34 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				73FD46D32ADAA3C1002ED839 /* Enum */,
 				AE57BA122ABD695800F71B34 /* File.swift */,
 				70B136CE2AD62EF5001208E3 /* ApplicationViewModel.swift */,
 			);
@@ -509,7 +517,7 @@
 				AE933EDE2AD42E60003D87E6 /* AgentInfoDetailView.swift in Sources */,
 				AE933EDC2AD42E36003D87E6 /* AgentInfoView.swift in Sources */,
 				7372274F2AD476AD0021EFC6 /* FormTextField.swift in Sources */,
-				70D299552AC961BB009F536A /* ConfirmIDCardView.swift in Sources */,
+				70D299552AC961BB009F536A /* IDCardConfirmEditView.swift in Sources */,
 				7389872F2AD5E95A00688634 /* MediConditionViewModel.swift in Sources */,
 				7372273E2AD2FB340021EFC6 /* MediHistoryView.swift in Sources */,
 				735ADB2F2AD5AC4E0069B94B /* MediConditionView.swift in Sources */,
@@ -529,6 +537,7 @@
 				03D759362ACDA17400495D7F /* PostCodeInputView.swift in Sources */,
 				70E0470D2AD513BC00FC73A5 /* AddressInputField.swift in Sources */,
 				737227422AD323360021EFC6 /* PatientInfoView.swift in Sources */,
+				73FD46D52ADAA3CC002ED839 /* ViewID.swift in Sources */,
 				AEB33EA72ACAABAC0082A3E7 /* TempWriteFormView.swift in Sources */,
 				7337E1EF2AD1531700D91E6F /* ApplyTypeView.swift in Sources */,
 				AEB33EA52ACAAB4C0082A3E7 /* TempPDFView.swift in Sources */,
