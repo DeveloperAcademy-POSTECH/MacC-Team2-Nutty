@@ -433,7 +433,6 @@
 				70D299532AC961AB009F536A /* IDCardOCRView.swift in Sources */,
 				7337E1E82AD04B1700D91E6F /* TextStyle+Extension.swift in Sources */,
 				AE933EDE2AD42E60003D87E6 /* AgentInfoDetailView.swift in Sources */,
-				70D299512AC9617D009F536A /* PrepareIDCardView.swift in Sources */,
 				AE933EDC2AD42E36003D87E6 /* AgentInfoView.swift in Sources */,
 				7372274F2AD476AD0021EFC6 /* FormTextField.swift in Sources */,
 				70D299552AC961BB009F536A /* ConfirmIDCardView.swift in Sources */,
