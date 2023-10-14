@@ -14,7 +14,7 @@ struct FormTextField: View {
     let formSubject: String
     let placeHolder: String
     
-    init(_ formSubject: String, _ placeHolder: String, textInput: Binding<String>) {
+    init(formSubject: String, placeHolder: String, textInput: Binding<String>) {
         self.formSubject = formSubject
         self.placeHolder = placeHolder
         _textInput = textInput
