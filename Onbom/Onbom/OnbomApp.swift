@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import FirebaseCore
+import KakaoSDKCommon
+import KakaoSDKAuth
 
 @main
 struct OnbomApp: App {
+    
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
                 .environmentObject(ApplicationInfo())
         }
     }

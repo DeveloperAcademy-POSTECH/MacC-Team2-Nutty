@@ -24,7 +24,6 @@
 		70B136CF2AD62EF5001208E3 /* ApplicationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B136CE2AD62EF5001208E3 /* ApplicationViewModel.swift */; };
 		70D2994A2AC573B3009F536A /* CameraViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299492AC573B3009F536A /* CameraViewer.swift */; };
 		70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D2994B2AC573BC009F536A /* CameraManager.swift */; };
-		70D299512AC9617D009F536A /* IDCardDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299502AC9617D009F536A /* IDCardDescriptionView.swift */; };
 		70D299532AC961AB009F536A /* IDCardOCRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299522AC961AB009F536A /* IDCardOCRView.swift */; };
 		70D299552AC961BB009F536A /* ConfirmIDCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299542AC961BB009F536A /* ConfirmIDCardView.swift */; };
 		70E047052AD5023000FC73A5 /* NavigationBarBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E047042AD5023000FC73A5 /* NavigationBarBackButton.swift */; };
@@ -32,23 +31,34 @@
 		70E047092AD5138300FC73A5 /* PhoneNumberInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E047082AD5138300FC73A5 /* PhoneNumberInputField.swift */; };
 		70E0470B2AD5139200FC73A5 /* IDNumberInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E0470A2AD5139200FC73A5 /* IDNumberInputField.swift */; };
 		70E0470D2AD513BC00FC73A5 /* AddressInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E0470C2AD513BC00FC73A5 /* AddressInputField.swift */; };
+		731609682AD838FB00399476 /* StepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731609672AD838FB00399476 /* StepView.swift */; };
 		7337E1E82AD04B1700D91E6F /* TextStyle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337E1E72AD04B1700D91E6F /* TextStyle+Extension.swift */; };
 		7337E1ED2AD14D1200D91E6F /* UITabBarController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337E1EC2AD14D1200D91E6F /* UITabBarController+Extension.swift */; };
 		7337E1EF2AD1531700D91E6F /* ApplyTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */; };
+		735ADB2F2AD5AC4E0069B94B /* MediConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735ADB2E2AD5AC4E0069B94B /* MediConditionView.swift */; };
+		735EE1AF2AC0274400AD8B8D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 735EE1AE2AC0274400AD8B8D /* FirebaseAuth */; };
+		735EE1B42AC029A900AD8B8D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735EE1B32AC029A900AD8B8D /* LoginView.swift */; };
+		735EE1B62AC02AA200AD8B8D /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735EE1B52AC02AA200AD8B8D /* AuthenticationViewModel.swift */; };
 		7372273E2AD2FB340021EFC6 /* MediHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372273D2AD2FB340021EFC6 /* MediHistoryView.swift */; };
 		737227402AD30BBE0021EFC6 /* RejectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372273F2AD30BBE0021EFC6 /* RejectView.swift */; };
 		737227422AD323360021EFC6 /* PatientInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737227412AD323360021EFC6 /* PatientInfoView.swift */; };
 		737227442AD474E50021EFC6 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737227432AD474E50021EFC6 /* View+Extension.swift */; };
-		737227462AD475460021EFC6 /* TextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737227452AD475460021EFC6 /* TextField+Extension.swift */; };
-		737227482AD475840021EFC6 /* TextFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737227472AD475840021EFC6 /* TextFormView.swift */; };
-		7372274A2AD475E40021EFC6 /* ValidationPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737227492AD475E40021EFC6 /* ValidationPreferenceKey.swift */; };
 		7372274C2AD476200021EFC6 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372274B2AD476200021EFC6 /* ViewModifier.swift */; };
 		7372274F2AD476AD0021EFC6 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372274E2AD476AD0021EFC6 /* FormTextField.swift */; };
+		737B62172AD6EAB30010444E /* PatientInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737B62162AD6EAB30010444E /* PatientInfoViewModel.swift */; };
+		737D49032ACB3F4F008AC5EC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D49022ACB3F4F008AC5EC /* MainView.swift */; };
 		737EE3542ABD646100D224FC /* OnbomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737EE3532ABD646100D224FC /* OnbomApp.swift */; };
 		737EE3562ABD646100D224FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737EE3552ABD646100D224FC /* ContentView.swift */; };
 		737EE3582ABD646200D224FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737EE3572ABD646200D224FC /* Assets.xcassets */; };
 		737EE35B2ABD646200D224FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737EE35A2ABD646200D224FC /* Preview Assets.xcassets */; };
-		7396F4632AD034D6000E8F1A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7396F4622AD034D6000E8F1A /* MainView.swift */; };
+		7389872F2AD5E95A00688634 /* MediConditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389872E2AD5E95A00688634 /* MediConditionViewModel.swift */; };
+		AE10D3902AD4D33C00D9ED3C /* SignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10D38F2AD4D33C00D9ED3C /* SignatureView.swift */; };
+		AE10D3922AD4E1C900D9ED3C /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */; };
+		AE933EDC2AD42E36003D87E6 /* AgentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE933EDB2AD42E36003D87E6 /* AgentInfoView.swift */; };
+		AE933EDE2AD42E60003D87E6 /* AgentInfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE933EDD2AD42E60003D87E6 /* AgentInfoDetailView.swift */; };
+		739F9FA12AC1DA0D00523110 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 739F9FA02AC1DA0D00523110 /* KakaoSDK */; };
+		739F9FAC2AC1DF2300523110 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 739F9FAB2AC1DF2300523110 /* KakaoSDKUser */; };
+		73A708892ACEC605004B462B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73A708882ACEC605004B462B /* GoogleService-Info.plist */; };
 		AEB33E762AC2B0ED0082A3E7 /* PDFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33E752AC2B0ED0082A3E7 /* PDFManager.swift */; };
 		AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33E782AC2BDAC0082A3E7 /* PDFViewer.swift */; };
 		AEB33E992AC3F7CE0082A3E7 /* LTCIForm.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AEB33E982AC3F7CE0082A3E7 /* LTCIForm.pdf */; };
@@ -59,6 +69,7 @@
 		AEB33EA92ACAADE00082A3E7 /* PDFFormLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33EA82ACAADE00082A3E7 /* PDFFormLocation.swift */; };
 		AEB33EAC2ACD3D010082A3E7 /* DigitalSignatureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33EAB2ACD3D010082A3E7 /* DigitalSignatureManager.swift */; };
 		AEB33EAE2ACD3D680082A3E7 /* TempWriteSignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33EAD2ACD3D680082A3E7 /* TempWriteSignatureView.swift */; };
+		70D299512AC9617D009F536A /* IDCardDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299502AC9617D009F536A /* IDCardDescriptionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,7 +87,6 @@
 		70B136C12AD589CB001208E3 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		70B136C22AD589CB001208E3 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		70B136C32AD589CB001208E3 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
-		70B136CD2AD589D6001208E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		70B136CE2AD62EF5001208E3 /* ApplicationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationViewModel.swift; sourceTree = "<group>"; };
 		70D299492AC573B3009F536A /* CameraViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewer.swift; sourceTree = "<group>"; };
 		70D2994B2AC573BC009F536A /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
@@ -88,25 +98,36 @@
 		70E047082AD5138300FC73A5 /* PhoneNumberInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberInputField.swift; sourceTree = "<group>"; };
 		70E0470A2AD5139200FC73A5 /* IDNumberInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDNumberInputField.swift; sourceTree = "<group>"; };
 		70E0470C2AD513BC00FC73A5 /* AddressInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressInputField.swift; sourceTree = "<group>"; };
+		731609672AD838FB00399476 /* StepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepView.swift; sourceTree = "<group>"; };
 		7337E1E72AD04B1700D91E6F /* TextStyle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextStyle+Extension.swift"; sourceTree = "<group>"; };
 		7337E1EC2AD14D1200D91E6F /* UITabBarController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extension.swift"; sourceTree = "<group>"; };
 		7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyTypeView.swift; sourceTree = "<group>"; };
+		735ADB2E2AD5AC4E0069B94B /* MediConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediConditionView.swift; sourceTree = "<group>"; };
+		735EE1B22AC027EA00AD8B8D /* Onbom.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Onbom.entitlements; sourceTree = "<group>"; };
+		735EE1B32AC029A900AD8B8D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		735EE1B52AC02AA200AD8B8D /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		7372273D2AD2FB340021EFC6 /* MediHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediHistoryView.swift; sourceTree = "<group>"; };
 		7372273F2AD30BBE0021EFC6 /* RejectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RejectView.swift; sourceTree = "<group>"; };
 		737227412AD323360021EFC6 /* PatientInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientInfoView.swift; sourceTree = "<group>"; };
 		737227432AD474E50021EFC6 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
-		737227452AD475460021EFC6 /* TextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extension.swift"; sourceTree = "<group>"; };
-		737227472AD475840021EFC6 /* TextFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormView.swift; sourceTree = "<group>"; };
-		737227492AD475E40021EFC6 /* ValidationPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationPreferenceKey.swift; sourceTree = "<group>"; };
 		7372274B2AD476200021EFC6 /* ViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifier.swift; sourceTree = "<group>"; };
 		7372274E2AD476AD0021EFC6 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
+		737B62162AD6EAB30010444E /* PatientInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientInfoViewModel.swift; sourceTree = "<group>"; };
+		737D49022ACB3F4F008AC5EC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		737EE3502ABD646100D224FC /* Onbom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Onbom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		737EE3532ABD646100D224FC /* OnbomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbomApp.swift; sourceTree = "<group>"; };
 		737EE3552ABD646100D224FC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		737EE3572ABD646200D224FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		737EE35A2ABD646200D224FC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		7396F4622AD034D6000E8F1A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		7389872E2AD5E95A00688634 /* MediConditionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediConditionViewModel.swift; sourceTree = "<group>"; };
 		AE57BA122ABD695800F71B34 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		AE10D38F2AD4D33C00D9ED3C /* SignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureView.swift; sourceTree = "<group>"; };
+		AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
+		739F9FAA2AC1DB4300523110 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		73A708882ACEC605004B462B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AE57BA122ABD695800F71B34 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		AE933EDB2AD42E36003D87E6 /* AgentInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentInfoView.swift; sourceTree = "<group>"; };
+		AE933EDD2AD42E60003D87E6 /* AgentInfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentInfoDetailView.swift; sourceTree = "<group>"; };
 		AEB33E752AC2B0ED0082A3E7 /* PDFManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFManager.swift; sourceTree = "<group>"; };
 		AEB33E782AC2BDAC0082A3E7 /* PDFViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewer.swift; sourceTree = "<group>"; };
 		AEB33E982AC3F7CE0082A3E7 /* LTCIForm.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = LTCIForm.pdf; sourceTree = "<group>"; };
@@ -124,6 +145,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				739F9FAC2AC1DF2300523110 /* KakaoSDKUser in Frameworks */,
+				735EE1AF2AC0274400AD8B8D /* FirebaseAuth in Frameworks */,
+				739F9FA12AC1DA0D00523110 /* KakaoSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +199,13 @@
 			path = IDCard;
 			sourceTree = "<group>";
 		};
+		735EE1AD2AC0274400AD8B8D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<unknown>";
+		};
 		7372274D2AD476960021EFC6 /* Component */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +219,7 @@
 			children = (
 				737EE3522ABD646100D224FC /* Onbom */,
 				737EE3512ABD646100D224FC /* Products */,
+				735EE1AD2AC0274400AD8B8D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -202,7 +234,8 @@
 		737EE3522ABD646100D224FC /* Onbom */ = {
 			isa = PBXGroup;
 			children = (
-				70B136CD2AD589D6001208E3 /* Info.plist */,
+				739F9FAA2AC1DB4300523110 /* Info.plist */,
+				735EE1B22AC027EA00AD8B8D /* Onbom.entitlements */,
 				AEB33E9C2AC40C360082A3E7 /* Components */,
 				AE57BA0F2ABD690700F71B34 /* Resources */,
 				AE57BA0E2ABD690100F71B34 /* Core */,
@@ -228,18 +261,23 @@
 			isa = PBXGroup;
 			children = (
 				737EE3552ABD646100D224FC /* ContentView.swift */,
+				AE933EDA2AD41B44003D87E6 /* AgentInfo */,
+				735EE1B32AC029A900AD8B8D /* LoginView.swift */,
+				737D49022ACB3F4F008AC5EC /* MainView.swift */,
 				7372274D2AD476960021EFC6 /* Component */,
 				AEB33EA22ACAA9820082A3E7 /* DigitalSignature */,
 				AEB33E9F2ACAA9020082A3E7 /* Form */,
 				70D2994F2AC96163009F536A /* IDCard */,
 				708891E92AD5515B005B67AB /* Address */,
-				7396F4622AD034D6000E8F1A /* MainView.swift */,
 				708891F22AD57B91005B67AB /* SubmitCheckListView.swift */,
+				03FFF2A82ACDAE7A00B81D65 /* PostCodeView.swift */,
 				7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */,
 				7372273D2AD2FB340021EFC6 /* MediHistoryView.swift */,
 				7372273F2AD30BBE0021EFC6 /* RejectView.swift */,
 				737227412AD323360021EFC6 /* PatientInfoView.swift */,
 				737227472AD475840021EFC6 /* TextFormView.swift */,
+				731609672AD838FB00399476 /* StepView.swift */,
+				735ADB2E2AD5AC4E0069B94B /* MediConditionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -248,7 +286,6 @@
 			isa = PBXGroup;
 			children = (
 				AE57BA122ABD695800F71B34 /* File.swift */,
-				737227492AD475E40021EFC6 /* ValidationPreferenceKey.swift */,
 				70B136CE2AD62EF5001208E3 /* ApplicationViewModel.swift */,
 			);
 			path = Model;
@@ -261,7 +298,6 @@
 				7337E1E72AD04B1700D91E6F /* TextStyle+Extension.swift */,
 				7337E1EC2AD14D1200D91E6F /* UITabBarController+Extension.swift */,
 				737227432AD474E50021EFC6 /* View+Extension.swift */,
-				737227452AD475460021EFC6 /* TextField+Extension.swift */,
 				7372274B2AD476200021EFC6 /* ViewModifier.swift */,
 			);
 			path = Extensions;
@@ -270,9 +306,12 @@
 		AE57BA0E2ABD690100F71B34 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				735EE1B52AC02AA200AD8B8D /* AuthenticationViewModel.swift */,
 				AEB33EAF2ACFDE740082A3E7 /* PDF */,
 				AEB33EAA2ACD3BFA0082A3E7 /* DigitalSignature */,
 				70D299482AC40E49009F536A /* Camera */,
+				7389872E2AD5E95A00688634 /* MediConditionViewModel.swift */,
+				737B62162AD6EAB30010444E /* PatientInfoViewModel.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -281,10 +320,20 @@
 			isa = PBXGroup;
 			children = (
 				70B136BA2AD589CB001208E3 /* Font */,
+				73A708882ACEC605004B462B /* GoogleService-Info.plist */,
 				AEB33E982AC3F7CE0082A3E7 /* LTCIForm.pdf */,
 				AEB33EA82ACAADE00082A3E7 /* PDFFormLocation.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		AE933EDA2AD41B44003D87E6 /* AgentInfo */ = {
+			isa = PBXGroup;
+			children = (
+				AE933EDB2AD42E36003D87E6 /* AgentInfoView.swift */,
+				AE933EDD2AD42E60003D87E6 /* AgentInfoDetailView.swift */,
+			);
+			path = AgentInfo;
 			sourceTree = "<group>";
 		};
 		AEB33E9C2AC40C360082A3E7 /* Components */ = {
@@ -306,6 +355,7 @@
 			children = (
 				AEB33EA42ACAAB4C0082A3E7 /* TempPDFView.swift */,
 				AEB33EA62ACAABAC0082A3E7 /* TempWriteFormView.swift */,
+				AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */,
 			);
 			path = Form;
 			sourceTree = "<group>";
@@ -314,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				AEB33EAD2ACD3D680082A3E7 /* TempWriteSignatureView.swift */,
+				AE10D38F2AD4D33C00D9ED3C /* SignatureView.swift */,
 			);
 			path = DigitalSignature;
 			sourceTree = "<group>";
@@ -345,12 +396,18 @@
 				737EE34C2ABD646100D224FC /* Sources */,
 				737EE34D2ABD646100D224FC /* Frameworks */,
 				737EE34E2ABD646100D224FC /* Resources */,
+				73A7088A2ACEC614004B462B /* Setup Firebase Environment Variables */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Onbom;
+			packageProductDependencies = (
+				735EE1AE2AC0274400AD8B8D /* FirebaseAuth */,
+				739F9FA02AC1DA0D00523110 /* KakaoSDK */,
+				739F9FAB2AC1DF2300523110 /* KakaoSDKUser */,
+			);
 			productName = Onbom;
 			productReference = 737EE3502ABD646100D224FC /* Onbom.app */;
 			productType = "com.apple.product-type.application";
@@ -379,6 +436,10 @@
 				Base,
 			);
 			mainGroup = 737EE3472ABD646100D224FC;
+			packageReferences = (
+				735EE1A22AC01BDE00AD8B8D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				739F9F9F2AC1DA0D00523110 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+			);
 			productRefGroup = 737EE3512ABD646100D224FC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -398,6 +459,7 @@
 				70B136C42AD589CB001208E3 /* Pretendard-Regular.otf in Resources */,
 				70B136CC2AD589CB001208E3 /* Pretendard-SemiBold.otf in Resources */,
 				70B136C82AD589CB001208E3 /* Pretendard-ExtraBold.otf in Resources */,
+				73A708892ACEC605004B462B /* GoogleService-Info.plist in Resources */,
 				737EE35B2ABD646200D224FC /* Preview Assets.xcassets in Resources */,
 				737EE3582ABD646200D224FC /* Assets.xcassets in Resources */,
 				70B136C72AD589CB001208E3 /* Pretendard-Light.otf in Resources */,
@@ -410,50 +472,76 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		73A7088A2ACEC614004B462B /* Setup Firebase Environment Variables */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Setup Firebase Environment Variables";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# cp -r \"$SRCROOT/Resources/GoogleService-Info.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\" ;;\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		737EE34C2ABD646100D224FC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEB33E762AC2B0ED0082A3E7 /* PDFManager.swift in Sources */,
+				735EE1B62AC02AA200AD8B8D /* AuthenticationViewModel.swift in Sources */,
+				735EE1B42AC029A900AD8B8D /* LoginView.swift in Sources */,
 				737EE3562ABD646100D224FC /* ContentView.swift in Sources */,
+				737D49032ACB3F4F008AC5EC /* MainView.swift in Sources */,
 				70E047072AD5135F00FC73A5 /* NumberInputField.swift in Sources */,
 				70D299532AC961AB009F536A /* IDCardOCRView.swift in Sources */,
 				7337E1E82AD04B1700D91E6F /* TextStyle+Extension.swift in Sources */,
+				AE933EDE2AD42E60003D87E6 /* AgentInfoDetailView.swift in Sources */,
+				AE933EDC2AD42E36003D87E6 /* AgentInfoView.swift in Sources */,
 				7372274F2AD476AD0021EFC6 /* FormTextField.swift in Sources */,
 				70D299552AC961BB009F536A /* ConfirmIDCardView.swift in Sources */,
+				7389872F2AD5E95A00688634 /* MediConditionViewModel.swift in Sources */,
 				7372273E2AD2FB340021EFC6 /* MediHistoryView.swift in Sources */,
-				AEB33E762AC2B0ED0082A3E7 /* PDFManager.swift in Sources */,
+				735ADB2F2AD5AC4E0069B94B /* MediConditionView.swift in Sources */,
 				70D299512AC9617D009F536A /* IDCardDescriptionView.swift in Sources */,
-				AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */,
 				708891F12AD55607005B67AB /* CityAddressInputField.swift in Sources */,
 				70B136CF2AD62EF5001208E3 /* ApplicationViewModel.swift in Sources */,
 				70D2994A2AC573B3009F536A /* CameraViewer.swift in Sources */,
+				731609682AD838FB00399476 /* StepView.swift in Sources */,
+				AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */,
+				737B62172AD6EAB30010444E /* PatientInfoViewModel.swift in Sources */,
 				70E0470B2AD5139200FC73A5 /* IDNumberInputField.swift in Sources */,
 				70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */,
 				7372274C2AD476200021EFC6 /* ViewModifier.swift in Sources */,
 				03FFF2A92ACDAE7A00B81D65 /* PostCodeView.swift in Sources */,
 				708891F32AD57B91005B67AB /* SubmitCheckListView.swift in Sources */,
-				70E0470D2AD513BC00FC73A5 /* AddressInputField.swift in Sources */,
-				7372274A2AD475E40021EFC6 /* ValidationPreferenceKey.swift in Sources */,
-				7396F4632AD034D6000E8F1A /* MainView.swift in Sources */,
 				708891EB2AD55191005B67AB /* AddressFormView.swift in Sources */,
-				737227422AD323360021EFC6 /* PatientInfoView.swift in Sources */,
-				AEB33E762AC2B0ED0082A3E7 /* PDFManager.swift in Sources */,
-				AEB33EA72ACAABAC0082A3E7 /* TempWriteFormView.swift in Sources */,
 				03D759362ACDA17400495D7F /* PostCodeInputView.swift in Sources */,
+				70E0470D2AD513BC00FC73A5 /* AddressInputField.swift in Sources */,
+				737227422AD323360021EFC6 /* PatientInfoView.swift in Sources */,
+				AEB33EA72ACAABAC0082A3E7 /* TempWriteFormView.swift in Sources */,
 				7337E1EF2AD1531700D91E6F /* ApplyTypeView.swift in Sources */,
-				737227482AD475840021EFC6 /* TextFormView.swift in Sources */,
-				AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */,
 				AEB33EA52ACAAB4C0082A3E7 /* TempPDFView.swift in Sources */,
+				AE10D3922AD4E1C900D9ED3C /* PrivacyPolicyView.swift in Sources */,
 				AEB33EAE2ACD3D680082A3E7 /* TempWriteSignatureView.swift in Sources */,
 				AEB33EA92ACAADE00082A3E7 /* PDFFormLocation.swift in Sources */,
 				AEB33E9B2AC406600082A3E7 /* Color+Palette.swift in Sources */,
 				737EE3542ABD646100D224FC /* OnbomApp.swift in Sources */,
+				AE10D3902AD4D33C00D9ED3C /* SignatureView.swift in Sources */,
 				AEB33E9E2AC40C470082A3E7 /* InputField.swift in Sources */,
 				70E047092AD5138300FC73A5 /* PhoneNumberInputField.swift in Sources */,
 				70E047052AD5023000FC73A5 /* NavigationBarBackButton.swift in Sources */,
 				7337E1ED2AD14D1200D91E6F /* UITabBarController+Extension.swift in Sources */,
-				737227462AD475460021EFC6 /* TextField+Extension.swift in Sources */,
 				737227402AD30BBE0021EFC6 /* RejectView.swift in Sources */,
 				737227442AD474E50021EFC6 /* View+Extension.swift in Sources */,
 				AEB33EAC2ACD3D010082A3E7 /* DigitalSignatureManager.swift in Sources */,
@@ -582,10 +670,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Onbom/Onbom.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Onbom/Preview Content\"";
-				DEVELOPMENT_TEAM = 3FD7AHY7SL;
+				DEVELOPMENT_TEAM = RV2W6Y7UMT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Onbom/Info.plist;
@@ -614,10 +703,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Onbom/Onbom.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Onbom/Preview Content\"";
-				DEVELOPMENT_TEAM = 3FD7AHY7SL;
+				DEVELOPMENT_TEAM = RV2W6Y7UMT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Onbom/Info.plist;
@@ -663,6 +753,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		735EE1A22AC01BDE00AD8B8D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.15.0;
+			};
+		};
+		739F9F9F2AC1DA0D00523110 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.17.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		735EE1AE2AC0274400AD8B8D /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 735EE1A22AC01BDE00AD8B8D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		739F9FA02AC1DA0D00523110 /* KakaoSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 739F9F9F2AC1DA0D00523110 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
+		};
+		739F9FAB2AC1DF2300523110 /* KakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 739F9F9F2AC1DA0D00523110 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKUser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 737EE3482ABD646100D224FC /* Project object */;
 }

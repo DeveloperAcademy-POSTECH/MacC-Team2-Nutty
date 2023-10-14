@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RejectView: View {
-    @Binding var path: [Int]
+    @Binding var navigationPath: [Int]
     
     var body: some View {
         VStack(spacing: 0) {
@@ -34,7 +34,7 @@ struct RejectView: View {
             Spacer()
             
             Button {
-                path = []
+                navigationPath = []
             } label: {
                 Text("메인화면으로 가기")
                     .foregroundColor(Color.white)
@@ -49,6 +49,3 @@ struct RejectView: View {
     }
 }
 
-#Preview {
-    RejectView(path: .constant([]))
-}
