@@ -55,6 +55,7 @@
 		AEB33EA92ACAADE00082A3E7 /* PDFFormLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33EA82ACAADE00082A3E7 /* PDFFormLocation.swift */; };
 		AEB33EAC2ACD3D010082A3E7 /* DigitalSignatureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33EAB2ACD3D010082A3E7 /* DigitalSignatureManager.swift */; };
 		AEB33EAE2ACD3D680082A3E7 /* TempWriteSignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33EAD2ACD3D680082A3E7 /* TempWriteSignatureView.swift */; };
+		70D299512AC9617D009F536A /* IDCardDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299502AC9617D009F536A /* IDCardDescriptionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
