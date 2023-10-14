@@ -27,7 +27,7 @@ struct IDCardOCRView: View {
                         captureImage = image
                     }
                 }
-                NavigationLink(destination: ConfirmIDCardView(image: $captureImage)) {
+                NavigationLink(destination: IDCardConfirmEditView(image: $captureImage)) {
                     Text("다음")
                 }
             }
