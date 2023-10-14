@@ -46,9 +46,6 @@ extension Text {
     func B4() -> some View {
         self.font(.custom("Pretendard-Medium", size: 16))
     }
-    func B4() -> some View {
-        self.font(.system(size:12, weight: .medium))
-    }
     
     func Label() -> some View {
         self.font(.custom("Pretendard-Semibold", size: 16))
