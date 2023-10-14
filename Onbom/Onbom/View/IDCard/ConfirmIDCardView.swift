@@ -24,6 +24,10 @@ struct ConfirmIDCardView: View {
                     Spacer()
                 }
                 .padding()
+                
+                Text("신분증 정보는 저장되지 않고, 신청 즉시 파기돼요")
+                    .padding(.bottom)
+                    .padding(.bottom)
 
                 IDNumberInputField(frontNumber: $frontIDNumber, backNumber: $backIDNumber)
                 

@@ -9,6 +9,19 @@
 /* Begin PBXBuildFile section */
 		03D759362ACDA17400495D7F /* PostCodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D759352ACDA17400495D7F /* PostCodeInputView.swift */; };
 		03FFF2A92ACDAE7A00B81D65 /* PostCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2A82ACDAE7A00B81D65 /* PostCodeView.swift */; };
+		708891EB2AD55191005B67AB /* AddressFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708891EA2AD55191005B67AB /* AddressFormView.swift */; };
+		708891F12AD55607005B67AB /* CityAddressInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708891F02AD55607005B67AB /* CityAddressInputField.swift */; };
+		708891F32AD57B91005B67AB /* SubmitCheckListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708891F22AD57B91005B67AB /* SubmitCheckListView.swift */; };
+		70B136C42AD589CB001208E3 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70B136BB2AD589CB001208E3 /* Pretendard-Regular.otf */; };
+		70B136C52AD589CB001208E3 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70B136BC2AD589CB001208E3 /* Pretendard-Black.otf */; };
+		70B136C62AD589CB001208E3 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70B136BD2AD589CB001208E3 /* Pretendard-Medium.otf */; };
+		70B136C72AD589CB001208E3 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70B136BE2AD589CB001208E3 /* Pretendard-Light.otf */; };
+		70B136C82AD589CB001208E3 /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70B136BF2AD589CB001208E3 /* Pretendard-ExtraBold.otf */; };
+		70B136C92AD589CB001208E3 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70B136C02AD589CB001208E3 /* Pretendard-Bold.otf */; };
+		70B136CA2AD589CB001208E3 /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70B136C12AD589CB001208E3 /* Pretendard-Thin.otf */; };
+		70B136CB2AD589CB001208E3 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70B136C22AD589CB001208E3 /* Pretendard-ExtraLight.otf */; };
+		70B136CC2AD589CB001208E3 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70B136C32AD589CB001208E3 /* Pretendard-SemiBold.otf */; };
+		70B136CF2AD62EF5001208E3 /* ApplicationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B136CE2AD62EF5001208E3 /* ApplicationViewModel.swift */; };
 		70D2994A2AC573B3009F536A /* CameraViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299492AC573B3009F536A /* CameraViewer.swift */; };
 		70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D2994B2AC573BC009F536A /* CameraManager.swift */; };
 		70D299532AC961AB009F536A /* IDCardOCRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299522AC961AB009F536A /* IDCardOCRView.swift */; };
@@ -62,6 +75,19 @@
 /* Begin PBXFileReference section */
 		03D759352ACDA17400495D7F /* PostCodeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCodeInputView.swift; sourceTree = "<group>"; };
 		03FFF2A82ACDAE7A00B81D65 /* PostCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCodeView.swift; sourceTree = "<group>"; };
+		708891EA2AD55191005B67AB /* AddressFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressFormView.swift; sourceTree = "<group>"; };
+		708891F02AD55607005B67AB /* CityAddressInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityAddressInputField.swift; sourceTree = "<group>"; };
+		708891F22AD57B91005B67AB /* SubmitCheckListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitCheckListView.swift; sourceTree = "<group>"; };
+		70B136BB2AD589CB001208E3 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		70B136BC2AD589CB001208E3 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
+		70B136BD2AD589CB001208E3 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		70B136BE2AD589CB001208E3 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
+		70B136BF2AD589CB001208E3 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
+		70B136C02AD589CB001208E3 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		70B136C12AD589CB001208E3 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
+		70B136C22AD589CB001208E3 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
+		70B136C32AD589CB001208E3 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		70B136CE2AD62EF5001208E3 /* ApplicationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationViewModel.swift; sourceTree = "<group>"; };
 		70D299492AC573B3009F536A /* CameraViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewer.swift; sourceTree = "<group>"; };
 		70D2994B2AC573BC009F536A /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		70D299502AC9617D009F536A /* IDCardDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardDescriptionView.swift; sourceTree = "<group>"; };
@@ -128,6 +154,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		708891E92AD5515B005B67AB /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				03FFF2A82ACDAE7A00B81D65 /* PostCodeView.swift */,
+				03D759352ACDA17400495D7F /* PostCodeInputView.swift */,
+				708891EA2AD55191005B67AB /* AddressFormView.swift */,
+			);
+			path = Address;
+			sourceTree = "<group>";
+		};
+		70B136BA2AD589CB001208E3 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				70B136BB2AD589CB001208E3 /* Pretendard-Regular.otf */,
+				70B136BC2AD589CB001208E3 /* Pretendard-Black.otf */,
+				70B136BD2AD589CB001208E3 /* Pretendard-Medium.otf */,
+				70B136BE2AD589CB001208E3 /* Pretendard-Light.otf */,
+				70B136BF2AD589CB001208E3 /* Pretendard-ExtraBold.otf */,
+				70B136C02AD589CB001208E3 /* Pretendard-Bold.otf */,
+				70B136C12AD589CB001208E3 /* Pretendard-Thin.otf */,
+				70B136C22AD589CB001208E3 /* Pretendard-ExtraLight.otf */,
+				70B136C32AD589CB001208E3 /* Pretendard-SemiBold.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		70D299482AC40E49009F536A /* Camera */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,15 +260,16 @@
 		AE57BA0B2ABD68E600F71B34 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				737EE3552ABD646100D224FC /* ContentView.swift */,
 				AE933EDA2AD41B44003D87E6 /* AgentInfo */,
 				735EE1B32AC029A900AD8B8D /* LoginView.swift */,
 				737D49022ACB3F4F008AC5EC /* MainView.swift */,
 				7372274D2AD476960021EFC6 /* Component */,
 				AEB33EA22ACAA9820082A3E7 /* DigitalSignature */,
 				AEB33E9F2ACAA9020082A3E7 /* Form */,
-				737EE3552ABD646100D224FC /* ContentView.swift */,
 				70D2994F2AC96163009F536A /* IDCard */,
-				03D759352ACDA17400495D7F /* PostCodeInputView.swift */,
+				708891E92AD5515B005B67AB /* Address */,
+				708891F22AD57B91005B67AB /* SubmitCheckListView.swift */,
 				03FFF2A82ACDAE7A00B81D65 /* PostCodeView.swift */,
 				7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */,
 				7372273D2AD2FB340021EFC6 /* MediHistoryView.swift */,
@@ -233,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				AE57BA122ABD695800F71B34 /* File.swift */,
+				70B136CE2AD62EF5001208E3 /* ApplicationViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -265,6 +319,7 @@
 		AE57BA0F2ABD690700F71B34 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				70B136BA2AD589CB001208E3 /* Font */,
 				73A708882ACEC605004B462B /* GoogleService-Info.plist */,
 				AEB33E982AC3F7CE0082A3E7 /* LTCIForm.pdf */,
 				AEB33EA82ACAADE00082A3E7 /* PDFFormLocation.swift */,
@@ -285,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				AEB33E9D2AC40C470082A3E7 /* InputField.swift */,
+				708891F02AD55607005B67AB /* CityAddressInputField.swift */,
 				70E0470C2AD513BC00FC73A5 /* AddressInputField.swift */,
 				70E047062AD5135F00FC73A5 /* NumberInputField.swift */,
 				70E047082AD5138300FC73A5 /* PhoneNumberInputField.swift */,
@@ -399,9 +455,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEB33E992AC3F7CE0082A3E7 /* LTCIForm.pdf in Resources */,
+				70B136CA2AD589CB001208E3 /* Pretendard-Thin.otf in Resources */,
+				70B136C42AD589CB001208E3 /* Pretendard-Regular.otf in Resources */,
+				70B136CC2AD589CB001208E3 /* Pretendard-SemiBold.otf in Resources */,
+				70B136C82AD589CB001208E3 /* Pretendard-ExtraBold.otf in Resources */,
 				73A708892ACEC605004B462B /* GoogleService-Info.plist in Resources */,
 				737EE35B2ABD646200D224FC /* Preview Assets.xcassets in Resources */,
 				737EE3582ABD646200D224FC /* Assets.xcassets in Resources */,
+				70B136C72AD589CB001208E3 /* Pretendard-Light.otf in Resources */,
+				70B136C52AD589CB001208E3 /* Pretendard-Black.otf in Resources */,
+				70B136C92AD589CB001208E3 /* Pretendard-Bold.otf in Resources */,
+				70B136C62AD589CB001208E3 /* Pretendard-Medium.otf in Resources */,
+				70B136CB2AD589CB001208E3 /* Pretendard-ExtraLight.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +514,8 @@
 				7372273E2AD2FB340021EFC6 /* MediHistoryView.swift in Sources */,
 				735ADB2F2AD5AC4E0069B94B /* MediConditionView.swift in Sources */,
 				70D299512AC9617D009F536A /* IDCardDescriptionView.swift in Sources */,
+				708891F12AD55607005B67AB /* CityAddressInputField.swift in Sources */,
+				70B136CF2AD62EF5001208E3 /* ApplicationViewModel.swift in Sources */,
 				70D2994A2AC573B3009F536A /* CameraViewer.swift in Sources */,
 				731609682AD838FB00399476 /* StepView.swift in Sources */,
 				AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */,
@@ -457,6 +524,8 @@
 				70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */,
 				7372274C2AD476200021EFC6 /* ViewModifier.swift in Sources */,
 				03FFF2A92ACDAE7A00B81D65 /* PostCodeView.swift in Sources */,
+				708891F32AD57B91005B67AB /* SubmitCheckListView.swift in Sources */,
+				708891EB2AD55191005B67AB /* AddressFormView.swift in Sources */,
 				03D759362ACDA17400495D7F /* PostCodeInputView.swift in Sources */,
 				70E0470D2AD513BC00FC73A5 /* AddressInputField.swift in Sources */,
 				737227422AD323360021EFC6 /* PatientInfoView.swift in Sources */,
