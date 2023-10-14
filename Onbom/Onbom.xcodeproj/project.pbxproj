@@ -39,6 +39,7 @@
 		737EE3562ABD646100D224FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737EE3552ABD646100D224FC /* ContentView.swift */; };
 		737EE3582ABD646200D224FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737EE3572ABD646200D224FC /* Assets.xcassets */; };
 		737EE35B2ABD646200D224FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737EE35A2ABD646200D224FC /* Preview Assets.xcassets */; };
+		AE10D3902AD4D33C00D9ED3C /* SignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10D38F2AD4D33C00D9ED3C /* SignatureView.swift */; };
 		AE10D3922AD4E1C900D9ED3C /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */; };
 		AE933EDC2AD42E36003D87E6 /* AgentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE933EDB2AD42E36003D87E6 /* AgentInfoView.swift */; };
 		AE933EDE2AD42E60003D87E6 /* AgentInfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE933EDD2AD42E60003D87E6 /* AgentInfoDetailView.swift */; };
@@ -91,6 +92,7 @@
 		737EE3552ABD646100D224FC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		737EE3572ABD646200D224FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		737EE35A2ABD646200D224FC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AE10D38F2AD4D33C00D9ED3C /* SignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureView.swift; sourceTree = "<group>"; };
 		AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		739F9FAA2AC1DB4300523110 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		73A708882ACEC605004B462B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				AEB33EAD2ACD3D680082A3E7 /* TempWriteSignatureView.swift */,
+				AE10D38F2AD4D33C00D9ED3C /* SignatureView.swift */,
 			);
 			path = DigitalSignature;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				AEB33EA92ACAADE00082A3E7 /* PDFFormLocation.swift in Sources */,
 				AEB33E9B2AC406600082A3E7 /* Color+Palette.swift in Sources */,
 				737EE3542ABD646100D224FC /* OnbomApp.swift in Sources */,
+				AE10D3902AD4D33C00D9ED3C /* SignatureView.swift in Sources */,
 				AEB33E9E2AC40C470082A3E7 /* InputField.swift in Sources */,
 				70E047092AD5138300FC73A5 /* PhoneNumberInputField.swift in Sources */,
 				70E047052AD5023000FC73A5 /* NavigationBarBackButton.swift in Sources */,
