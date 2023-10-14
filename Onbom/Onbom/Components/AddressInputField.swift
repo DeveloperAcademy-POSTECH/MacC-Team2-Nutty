@@ -33,8 +33,8 @@ struct AddressInputField: View {
     }
 }
 
-struct AddressInputField_Previews: PreviewProvider {
-    static var previews: some View {
-        AddressInputField(label: "주민등록지", cityAddress: .constant("포항"), detailAddress: .constant("포공"), isPostCodeViewPresented: .constant(false))
-    }
-}
+//struct AddressInputField_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddressInputField(label: "주민등록지", cityAddress: .constant("포항"), detailAddress: .constant("포공"), isPostCodeViewPresented: .constant(false))
+//    }
+//}
