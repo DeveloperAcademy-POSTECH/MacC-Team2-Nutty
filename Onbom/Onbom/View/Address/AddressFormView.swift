@@ -8,41 +8,98 @@
 import SwiftUI
 
 struct AddressFormView: View {
-    @State private var cityAddress = ""
-    @State private var detailAddress = ""
+    var formType: AddressFormType
     @State private var isPostCodeViewPresented = false
     @State private var showActualAddressCheckView = false
-    @EnvironmentObject var application: ApplicationViewModel
-
+    @State private var address = Address(cityAddress: "", detailAddress: "")
+    @EnvironmentObject var application: ApplicationInfo
+    
     @Binding var path: [Int]
-
+    
+    var name: String {
+        switch formType {
+        case .patient, .actualPatient:
+            return application.patientName
+        case .agent:
+            return application.agentName
+        }
+    }
+    
+    var alertMessage: String {
+        switch formType {
+        case .patient:
+            return "주민등록증에 적혀 있는 가장 최근 주소를 이야기해요"
+        case .actualPatient:
+            return "방문조사와 우편물 수령을 위한 주소가 필요해요"
+        default:
+            return ""
+        }
+    }
+    
+    var alertImage: Image {
+        switch formType {
+        case .patient, .actualPatient:
+            return Image(systemName: "exclamationmark.circle.fill")
+        default:
+            return Image("")
+        }
+    }
+    
+    var titleMessage: String {
+        switch formType {
+        case .patient:
+            return "\(name)님의\n주민등록지를 입력해 주세요"
+        case .actualPatient:
+            return "\(name)님이 현재 살고 계신\n주소지를 입력해 주세요"
+        case .agent:
+            return "\(name)님의\n주소지를 입력해 주세요"
+        }
+    }
+    
     var body: some View {
         NavigationStack {
             ZStack {
                 VStack {
                     Group {
                         HStack {
-                            Text("\(application.patientName)님이 현재 살고 계신\n주소지를 입력해 주세요")
+                            Text(titleMessage)
                                 .H2()
                                 .foregroundColor(.B)
                             Spacer()
                         }
                         .padding()
-                        
-                        Text("방문조사와 우편물 수령을 위한 주소가 필요해요")
-                        .padding()
-                        .padding(.bottom)
+                        if formType != .agent {
+                            HStack(spacing: 4) {
+                                alertImage
+                                    .padding(.leading, 13)
+                                    .foregroundColor(.PB4)
+                                Text(alertMessage)
+                                    .foregroundColor(Color.G6)
+                                    .Cap4()
+                                    .padding(.vertical)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(RoundedRectangle(cornerRadius: 10).fill(Color.PB1))
+                            .padding()
+                            .padding(.bottom)
+                        }
                     }
-
+                    
                     AddressInputField(label: "현재 살고 계신 주소지",
-                                      cityAddress: $application.patientActualAddress.cityAddress,
-                                      detailAddress: $application.patientActualAddress.detailAddress, isPostCodeViewPresented: $isPostCodeViewPresented)
+                                      cityAddress: $address.cityAddress,
+                                      detailAddress: $address.detailAddress,
+                                      isPostCodeViewPresented: $isPostCodeViewPresented)
                     
                     Spacer()
                     
                     //CTA Button
                     Button {
-                        showActualAddressCheckView = true
+                        if formType == .actualPatient {
+                            showActualAddressCheckView = true
+                        } else {
+                            //                            path.append()
+                        }
                     } label: {
                         Text("다음")
                             .foregroundColor(Color.white)
@@ -55,7 +112,7 @@ struct AddressFormView: View {
                     .padding()
                     .navigationDestination(isPresented: $isPostCodeViewPresented) {
                         PostCodeInputView(isPostCodeViewPresented: $isPostCodeViewPresented,
-                                          cityAddress: $application.patientActualAddress.cityAddress)
+                                          cityAddress: $address.cityAddress)
                     }
                 }
                 if showActualAddressCheckView {
@@ -91,8 +148,17 @@ struct AddressFormView: View {
                     
                     Spacer()
                     Button {
-                        showActualAddressCheckView.toggle()
-//                        path.append()
+                        switch formType {
+                            case .actualPatient:
+                                application.updatePatientActualAddress(actualAddress: address)
+                                showActualAddressCheckView = true
+                            case .patient:
+                                application.updatePatientAddress(address: address)
+                            case .agent:
+                                application.updateAgentAddress(address: address)
+                            }
+                        print(application.patientActualAddress)
+                        //                            path.append()
                     } label: {
                         Text("네, 같은 곳이에요")
                             .B1()
@@ -101,7 +167,7 @@ struct AddressFormView: View {
                             .padding()
                     }
                     .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB4))
-
+                    
                 }
                 .padding(.horizontal)
                 .padding(.top)
@@ -111,11 +177,17 @@ struct AddressFormView: View {
             .presentationCornerRadius(12)
         }
     }
+    
+    enum AddressFormType {
+        case patient
+        case actualPatient
+        case agent
+    }
 }
 
 struct AddressFormView_Previews: PreviewProvider {
     static var previews: some View {
-        AddressFormView(path: .constant([]))
-            .environmentObject(ApplicationViewModel())
+        AddressFormView(formType: .patient, path: .constant([]))
+            .environmentObject(ApplicationInfo())
     }
 }

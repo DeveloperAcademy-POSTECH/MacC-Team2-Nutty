@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SubmitCheckListView: View {
-    @EnvironmentObject var application: ApplicationViewModel
+    @EnvironmentObject var application: ApplicationInfo
     
     var body: some View {
         NavigationStack {
@@ -218,6 +218,6 @@ struct SubmitCheckListView: View {
 struct SubmitCheckListView_Previews: PreviewProvider {
     static var previews: some View {
         SubmitCheckListView()
-            .environmentObject(ApplicationViewModel())
+            .environmentObject(ApplicationInfo())
     }
 }
