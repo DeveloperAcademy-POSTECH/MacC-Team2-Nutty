@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyARaTo24SMU2pKkzLLFoNld9oTLTIVT7js</string>
+	<key>GCM_SENDER_ID</key>
+	<string>349207644054</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Nutty.Onbom</string>
+	<key>PROJECT_ID</key>
+	<string>swift-firebase-example-12b92</string>
+	<key>STORAGE_BUCKET</key>
+	<string>swift-firebase-example-12b92.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:349207644054:ios:71f455f29832d34f7a3fb7</string>
+</dict>
+</plist>

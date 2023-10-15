@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct InputField: View {
-    var label: String
+    var label: String?
+    var buttonAction: (() -> Void)?
     var placeholder: String
     @Binding var content: String
     // TODO: 다른 곳을 탭했을 때, isFocused가 false 되야 하는데 이건 추후에 다시 좀 해야할듯
     @FocusState private var isFocused: Bool
     var body: some View {
         VStack(alignment:.leading) {
-            Text(label)
-                .foregroundColor(.G6)
-                .bold()
+            if let label = label {
+                Text(label)
+                    .foregroundColor(.G6)
+                    .bold()
+            }
             TextField(placeholder, text: $content)
                 .focused($isFocused)
                 .padding()
@@ -25,10 +28,22 @@ struct InputField: View {
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(isFocused ? Color.PB3 : Color.G3, lineWidth: 1.5)
                         .animation(.easeIn, value: isFocused)
-                    
+                }
+                .overlay {
+                    if let buttonAction = buttonAction {
+                        HStack {
+                            Spacer()
+                            Button {
+                                buttonAction()
+                            } label: {
+                                Image(systemName: "magnifyingglass")
+                                    .padding()
+                                    .tint(.black)
+                            }
+                        }
+                    }
                 }
         }
-        .padding()
     }
 }
 
