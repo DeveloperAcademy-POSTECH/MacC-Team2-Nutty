@@ -156,6 +156,7 @@ struct PatientInfoView: View {
             .scrollDismissesKeyboard(.immediately)
             
             Button{
+                homeNavigation.navigate(.AddressFormView_Patient)
             } label: {
                 Text("다음")
                     .foregroundColor(.white)

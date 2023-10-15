@@ -55,7 +55,7 @@ struct IDCardConfirmEditView: View {
                     }
                     Spacer()
                     Button {
-                        homeNavigation.navigate(.AddressFormView)
+                        homeNavigation.navigate(.AddressFormView_Agent)
                     } label: {
                         Text("다음")
                     }

@@ -27,7 +27,7 @@ struct MediConditionView: View {
             Spacer()
             
             Button {
-                homeNavigation.navigate(.IDCardDescriptionView)
+                homeNavigation.navigate(.PatientInfoView)
             } label: {
                 Text("다음")
                     .foregroundColor(Color.white)

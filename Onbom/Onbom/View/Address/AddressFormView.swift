@@ -97,7 +97,12 @@ struct AddressFormView: View {
                         if formType == .actualPatient {
                             showActualAddressCheckView = true
                         } else {
-                            //                            path.append()
+                            if formType == .patient {
+                                homeNavigation.navigate(.StepView_Second)
+                            } else {
+                                homeNavigation.navigate(.SignatureView)
+                            }
+                            
                         }
                     } label: {
                         Text("다음")
@@ -156,7 +161,11 @@ struct AddressFormView: View {
                                 application.updateAgentAddress(address: address)
                             }
                         print(application.patientActualAddress)
-                        homeNavigation.navigate(.SignatureView)
+                        if formType == .patient {
+                            homeNavigation.navigate(.StepView_Second)
+                        } else {
+                            homeNavigation.navigate(.SignatureView)
+                        }
                     } label: {
                         Text("네, 같은 곳이에요")
                             .B1()

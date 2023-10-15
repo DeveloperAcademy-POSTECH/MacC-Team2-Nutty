@@ -80,6 +80,11 @@ struct StepView: View {
             Spacer()
             
             Button {
+                if state == .FIRST {
+                    homeNavigation.navigate(.MediHistoryView)
+                } else {
+                    homeNavigation.navigate(.AgentInfoView)
+                }
             } label: {
                 Text("다음")
                     .foregroundColor(Color.white)

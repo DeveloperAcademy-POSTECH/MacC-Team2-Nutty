@@ -200,9 +200,9 @@ struct SubmitCheckListView: View {
             
             //CTA Button
             Button {
-                homeNavigation.pop()
+                homeNavigation.popToRoot()
             } label: {
-                Text("뒤로가기")
+                Text("메인으로 가기")
                     .foregroundColor(Color.white)
                     .B1()
                     .padding(.vertical, 20)
