@@ -13,10 +13,8 @@ struct PostCodeInputView: View {
     @Binding var cityAddress: String
 
     var body: some View {
-        NavigationStack {
-            PostCodeView(isPostCodeViewPresented: $isPostCodeViewPresented,
-                         selectedAddress: $cityAddress)
-        }
+        PostCodeView(isPostCodeViewPresented: $isPostCodeViewPresented,
+                     selectedAddress: $cityAddress)
         .navigationBarBackButton()
     }
 }
