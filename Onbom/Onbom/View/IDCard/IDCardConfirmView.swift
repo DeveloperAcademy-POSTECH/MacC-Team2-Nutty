@@ -78,6 +78,7 @@ struct IDCardConfirmView: View {
 struct IDCardConfirmView_Previews: PreviewProvider {
     static var previews: some View {
         IDCardConfirmView()
+            .environmentObject(ApplicationInfo())
     }
 }
 
