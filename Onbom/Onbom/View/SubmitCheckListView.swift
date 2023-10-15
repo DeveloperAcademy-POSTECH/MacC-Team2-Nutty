@@ -9,9 +9,9 @@ import SwiftUI
 
 struct SubmitCheckListView: View {
     @EnvironmentObject var application: ApplicationInfo
+    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     
     var body: some View {
-        NavigationStack {
             HStack {
                 Text("마지막으로\n신청 정보를 확인해 주세요")
                     .H2()
@@ -200,9 +200,9 @@ struct SubmitCheckListView: View {
             
             //CTA Button
             Button {
-                //
+                homeNavigation.pop()
             } label: {
-                Text("신청하기")
+                Text("뒤로가기")
                     .foregroundColor(Color.white)
                     .B1()
                     .padding(.vertical, 20)
@@ -210,7 +210,6 @@ struct SubmitCheckListView: View {
             }
             .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB4))
             .padding()
-        }
         .navigationBarBackButton()
     }
 }

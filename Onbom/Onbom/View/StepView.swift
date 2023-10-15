@@ -13,6 +13,7 @@ struct StepView: View {
         case SECOND
     }
     let state: StepViewState
+    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     
     init(state: StepViewState) {
         self.state = state

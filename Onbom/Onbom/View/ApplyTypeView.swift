@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ApplyTypeView: View {
-    @Binding var navigationPath: [Int]
+    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     
     var body: some View {
         VStack {
@@ -18,7 +18,7 @@ struct ApplyTypeView: View {
                 .padding(.bottom, 48)
             
             Button{
-                navigationPath.append(2)
+                homeNavigation.navigate(.MediHistoryView)
             } label: {
                 VStack (spacing: 13){
                     Text("신청")
@@ -37,7 +37,6 @@ struct ApplyTypeView: View {
             .background(RoundedRectangle(cornerRadius: 10).fill(Color.G2))
             
             Button{
-                
             } label: {
                 VStack (spacing: 13){
                     Text("갱신")

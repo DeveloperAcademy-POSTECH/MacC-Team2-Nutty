@@ -37,7 +37,7 @@ struct IDCardDescriptionView: View {
             
             //CTA Button
             Button{
-                
+                homeNavigation.navigate(.IDCardOCRView)
             } label: {
                 Text("다음")
             }

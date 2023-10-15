@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SignatureView: View {
     @ObservedObject var digitalSignatureManager = DigitalSignatureManager()
+    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -39,6 +40,7 @@ struct SignatureView: View {
             .gesture(digitalSignatureManager.gesture())
             Spacer()
             Button("완료") {
+                homeNavigation.navigate(.SubmitCheckListView)
             }
         }
         .padding(.horizontal, 20.0)

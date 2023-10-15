@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct RejectView: View {
-    @Binding var navigationPath: [Int]
+    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+
     
     var body: some View {
         VStack(spacing: 0) {
@@ -34,7 +35,7 @@ struct RejectView: View {
             Spacer()
             
             Button {
-                navigationPath = []
+                homeNavigation.popToRoot()
             } label: {
                 Text("메인화면으로 가기")
                     .foregroundColor(Color.white)

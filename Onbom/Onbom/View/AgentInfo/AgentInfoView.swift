@@ -11,6 +11,7 @@ struct AgentInfoView: View {
     let agentName = "김유진"
     let patientName = "김순옥"
     @State private var agentDetailType = ""
+    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     var body: some View {
         NavigationStack {
         VStack(alignment: .leading) {
