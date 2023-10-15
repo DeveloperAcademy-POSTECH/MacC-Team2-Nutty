@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ConfirmIDCardView: View {
+struct IDCardConfirmEditView: View {
     @Binding var image: UIImage?
     @State private var frontIDNumber = ""
     @State private var backIDNumber = ""
@@ -65,9 +65,9 @@ struct ConfirmIDCardView: View {
     }
 }
 
-struct ConfirmIDCardView_Previews: PreviewProvider {
+struct IDCardConfirmEditView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfirmIDCardView(image: Binding.constant(UIImage()))
+        IDCardConfirmEditView(image: Binding.constant(UIImage()))
     }
 }
 
