@@ -12,27 +12,27 @@ struct IDCardOCRView: View {
     let cameraViewer = CameraViewer()
     @State private var captureImage: UIImage? = nil
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
-
+    
     var body: some View {
-            ZStack {
-//                cameraViewer
-//                    .edgesIgnoringSafeArea(.all)
-                
-//                Color.black.opacity(backgroundOpacity)
-//                    .edgesIgnoringSafeArea(.all)
-//                
-//                CaptureIDCardVIew()
-//                .onAppear {
-//                    cameraViewer.cameraManager.capturedImage = { image in
-//                        captureImage = image
-//                    }
-//                }
-                Text("이 뷰는 IDCardOCRView입니다")
-                    .padding(.bottom, 60)
-                NavigationLink(destination: IDCardConfirmEditView(image: $captureImage)) {
-                    Text("다음")
-                }
+        ZStack {
+            //                cameraViewer
+            //                    .edgesIgnoringSafeArea(.all)
+            
+            //                Color.black.opacity(backgroundOpacity)
+            //                    .edgesIgnoringSafeArea(.all)
+            //
+            //                CaptureIDCardVIew()
+            //                .onAppear {
+            //                    cameraViewer.cameraManager.capturedImage = { image in
+            //                        captureImage = image
+            //                    }
+            //                }
+            Text("이 뷰는 IDCardOCRView입니다")
+                .padding(.bottom, 60)
+            NavigationLink(destination: IDCardConfirmEditView(image: $captureImage)) {
+                Text("다음")
             }
+        }
         .navigationBarBackButton(color: .white)
     }
 }
