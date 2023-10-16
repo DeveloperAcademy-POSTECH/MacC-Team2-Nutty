@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct IDCardDescriptionView: View {
-    @State var name = "환자"
-    
     var body: some View {
         NavigationStack {
             VStack {

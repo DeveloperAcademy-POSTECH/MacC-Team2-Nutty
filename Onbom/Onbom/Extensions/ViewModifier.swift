@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct ValidationModifier : ViewModifier {
-    let validation : () -> Bool
+struct CKerning: ViewModifier {
+    let kerning: CGFloat
     
     func body(content: Content) -> some View {
         content
-            .preference(
-                key: ValidationPreferenceKey.self,
-                value: [validation()]
-            )
+            .padding(.horizontal, 1000)
+            .kerning(kerning)
+            .drawingGroup()
+            .padding(.horizontal, -1000)
     }
 }

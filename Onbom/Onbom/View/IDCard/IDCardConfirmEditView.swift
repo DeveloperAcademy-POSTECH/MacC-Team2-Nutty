@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ConfirmIDCardView: View {
+struct IDCardConfirmEditView: View {
     @Binding var image: UIImage?
     @State private var frontIDNumber = ""
     @State private var backIDNumber = ""
@@ -24,6 +24,10 @@ struct ConfirmIDCardView: View {
                     Spacer()
                 }
                 .padding()
+                
+                Text("신분증 정보는 저장되지 않고, 신청 즉시 파기돼요")
+                    .padding(.bottom)
+                    .padding(.bottom)
 
                 IDNumberInputField(frontNumber: $frontIDNumber, backNumber: $backIDNumber)
                 
@@ -61,9 +65,9 @@ struct ConfirmIDCardView: View {
     }
 }
 
-struct ConfirmIDCardView_Previews: PreviewProvider {
+struct IDCardConfirmEditView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfirmIDCardView(image: Binding.constant(UIImage()))
+        IDCardConfirmEditView(image: Binding.constant(UIImage()))
     }
 }
 
