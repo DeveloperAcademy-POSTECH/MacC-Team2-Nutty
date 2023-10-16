@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		03D759362ACDA17400495D7F /* PostCodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D759352ACDA17400495D7F /* PostCodeInputView.swift */; };
 		03FFF2A92ACDAE7A00B81D65 /* PostCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2A82ACDAE7A00B81D65 /* PostCodeView.swift */; };
+		03FFF2BB2AD5B74E00B81D65 /* CTAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2BA2AD5B74E00B81D65 /* CTAButton.swift */; };
 		708891EB2AD55191005B67AB /* AddressFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708891EA2AD55191005B67AB /* AddressFormView.swift */; };
 		708891F12AD55607005B67AB /* CityAddressInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708891F02AD55607005B67AB /* CityAddressInputField.swift */; };
 		708891F32AD57B91005B67AB /* SubmitCheckListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708891F22AD57B91005B67AB /* SubmitCheckListView.swift */; };
@@ -75,6 +76,7 @@
 /* Begin PBXFileReference section */
 		03D759352ACDA17400495D7F /* PostCodeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCodeInputView.swift; sourceTree = "<group>"; };
 		03FFF2A82ACDAE7A00B81D65 /* PostCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCodeView.swift; sourceTree = "<group>"; };
+		03FFF2BA2AD5B74E00B81D65 /* CTAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTAButton.swift; sourceTree = "<group>"; };
 		708891EA2AD55191005B67AB /* AddressFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressFormView.swift; sourceTree = "<group>"; };
 		708891F02AD55607005B67AB /* CityAddressInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityAddressInputField.swift; sourceTree = "<group>"; };
 		708891F22AD57B91005B67AB /* SubmitCheckListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitCheckListView.swift; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				70E047082AD5138300FC73A5 /* PhoneNumberInputField.swift */,
 				70E0470A2AD5139200FC73A5 /* IDNumberInputField.swift */,
 				70E047042AD5023000FC73A5 /* NavigationBarBackButton.swift */,
+				03FFF2BA2AD5B74E00B81D65 /* CTAButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				708891F12AD55607005B67AB /* CityAddressInputField.swift in Sources */,
 				70B136CF2AD62EF5001208E3 /* ApplicationViewModel.swift in Sources */,
 				70D2994A2AC573B3009F536A /* CameraViewer.swift in Sources */,
+				03FFF2BB2AD5B74E00B81D65 /* CTAButton.swift in Sources */,
 				731609682AD838FB00399476 /* StepView.swift in Sources */,
 				AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */,
 				737B62172AD6EAB30010444E /* PatientInfoViewModel.swift in Sources */,
