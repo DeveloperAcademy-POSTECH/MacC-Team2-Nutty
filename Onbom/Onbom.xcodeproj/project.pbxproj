@@ -11,6 +11,7 @@
 		03FFF2A92ACDAE7A00B81D65 /* PostCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2A82ACDAE7A00B81D65 /* PostCodeView.swift */; };
 		03FFF2BB2AD5B74E00B81D65 /* CTAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2BA2AD5B74E00B81D65 /* CTAButton.swift */; };
 		03FFF2C92ADD60EF00B81D65 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2C82ADD60EF00B81D65 /* RadioButton.swift */; };
+		03FFF2CB2ADD614900B81D65 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2CA2ADD614900B81D65 /* Alert.swift */; };
 		708891EB2AD55191005B67AB /* AddressFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708891EA2AD55191005B67AB /* AddressFormView.swift */; };
 		708891F12AD55607005B67AB /* CityAddressInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708891F02AD55607005B67AB /* CityAddressInputField.swift */; };
 		708891F32AD57B91005B67AB /* SubmitCheckListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708891F22AD57B91005B67AB /* SubmitCheckListView.swift */; };
@@ -79,6 +80,7 @@
 		03FFF2A82ACDAE7A00B81D65 /* PostCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCodeView.swift; sourceTree = "<group>"; };
 		03FFF2BA2AD5B74E00B81D65 /* CTAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTAButton.swift; sourceTree = "<group>"; };
 		03FFF2C82ADD60EF00B81D65 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		03FFF2CA2ADD614900B81D65 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		708891EA2AD55191005B67AB /* AddressFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressFormView.swift; sourceTree = "<group>"; };
 		708891F02AD55607005B67AB /* CityAddressInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityAddressInputField.swift; sourceTree = "<group>"; };
 		708891F22AD57B91005B67AB /* SubmitCheckListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitCheckListView.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				70E047042AD5023000FC73A5 /* NavigationBarBackButton.swift */,
 				03FFF2BA2AD5B74E00B81D65 /* CTAButton.swift */,
 				03FFF2C82ADD60EF00B81D65 /* RadioButton.swift */,
+				03FFF2CA2ADD614900B81D65 /* Alert.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */,
 				7372274C2AD476200021EFC6 /* ViewModifier.swift in Sources */,
 				03FFF2A92ACDAE7A00B81D65 /* PostCodeView.swift in Sources */,
+				03FFF2CB2ADD614900B81D65 /* Alert.swift in Sources */,
 				708891F32AD57B91005B67AB /* SubmitCheckListView.swift in Sources */,
 				708891EB2AD55191005B67AB /* AddressFormView.swift in Sources */,
 				03D759362ACDA17400495D7F /* PostCodeInputView.swift in Sources */,
