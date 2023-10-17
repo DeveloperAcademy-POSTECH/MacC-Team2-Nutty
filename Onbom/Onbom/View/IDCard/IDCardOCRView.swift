@@ -65,6 +65,9 @@ struct IDCardOCRView: View {
                         IDCardConfirmView()
                     }
                 }
+                NavigationLink(destination: IDCardConfirmEditView(image: $captureImage)) {
+                    Text("다음")
+                }
             }
         }
     }
