@@ -50,7 +50,7 @@ struct TempWriteSignatureView: View {
     
     func completeForm() {
         guard !answerInputs.contains(where: { $0.isEmpty }) else { return }
-        pdfManager.createPDF(documentURL: LTCIFormResource, newText: answerInputs, signature: digitalSignatureManager.paths)
+        pdfManager.createPDF(documentURL: LTCIFormResource, newText: answerInputs, signature: digitalSignatureManager.paths, image: UIImage(systemName: "person.text.rectangle")!, imageSize: UIImage(systemName: "person.text.rectangle")!.size)
     }
 }
 
