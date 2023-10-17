@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct IDCardDescriptionView: View {
-    @State var presentCamera = false
+    @State private var presentIDCardOCR = false
     
     var body: some View {
         NavigationStack {
@@ -29,17 +29,16 @@ struct IDCardDescriptionView: View {
                     }
                     .padding(.leading)
                 }
-
+                
                 Spacer()
                 
                 //신분증 안내 사진?
                 Rectangle()
                     .foregroundColor(.gray)
                     .padding()
-                
                 //CTA Button
                 Button {
-                    presentCamera.toggle()
+                    presentIDCardOCR.toggle()
                 } label: {
                     Text("다음")
                         .foregroundColor(Color.white)
@@ -50,8 +49,8 @@ struct IDCardDescriptionView: View {
                 .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB4))
                 .padding()
             }
-            .fullScreenCover(isPresented: $presentCamera) {
-                IDCardOCRView()
+            .fullScreenCover(isPresented: $presentIDCardOCR) {
+                IDCardOCRView(presentIDCardOCR: $presentIDCardOCR)
             }
         }
         .navigationBarBackButton()

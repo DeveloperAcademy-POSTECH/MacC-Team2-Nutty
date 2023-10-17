@@ -13,7 +13,6 @@ class CameraManager: UIViewController {
     private var photoOutput = AVCapturePhotoOutput()
     private var previewLayer = AVCaptureVideoPreviewLayer()
     private let videoDataOutput = AVCaptureVideoDataOutput()
-    private let rectangleDetector = RectangleDetector()
     private let textRecognizer = TextRecognizer()
     private var isTaken = false
     var capturedIDCard: ((UIImage) -> Void)?
@@ -51,12 +50,6 @@ class CameraManager: UIViewController {
                 captureSession.addOutput(photoOutput)
             }
             
-            if captureSession.canAddOutput(videoDataOutput) {
-                captureSession.addOutput(videoDataOutput)
-                videoDataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "videoQueue"))
-                videoDataOutput.alwaysDiscardsLateVideoFrames = true
-            }
-            
             previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
             previewLayer.videoGravity = .resizeAspectFill
             previewLayer.frame = view.bounds
@@ -77,6 +70,26 @@ class CameraManager: UIViewController {
             }
         }
         capturedIDCard?(image)
+    }
+    
+    private func cropImage(from originalImage: CIImage) -> UIImage? {
+        let imageSize = originalImage.extent.size
+        //720, 110, (imageSize.height * 0.5), (imageSize.width * 0.45) 기기대응을 위해 수식 만들기
+        print(imageSize) //iPhone14: (1920.0, 1080.0)
+        let cropRect = CGRect(
+            x: 720,
+            y: 110,
+            width: imageSize.height * 0.5,
+            height: imageSize.width * 0.45
+        )
+        
+        let croppedCIImage = originalImage.cropped(to: cropRect)
+        
+        if let cgImage = CIContext().createCGImage(croppedCIImage, from: croppedCIImage.extent) {
+            let rotatedImage = UIImage(cgImage: cgImage, scale: 1.0, orientation: .right)
+            return rotatedImage
+        }
+        return nil
     }
     
     override func viewDidLayoutSubviews() {
@@ -105,31 +118,16 @@ extension CameraManager: AVCapturePhotoCaptureDelegate {
             return
         }
         
-        guard let croppedImage = processCapturedImage(fullImage) else {
+        guard let croppedImage = processCropImage(fullImage) else {
             print("CameraManager failed to crop")
             return
         }
+//        capturedIDCard?(croppedImage)
         recognizeText(from: croppedImage)
     }
     
-    private func processCapturedImage(_ image: UIImage) -> UIImage? {
-        guard let rectangleObservation = rectangleDetector.detectedRectangle,
-              let ciImage = CIImage(image: image) else {
-            return nil
-        }
-        
-        return rectangleDetector.croppedImage(from: ciImage, rectangleObservation: rectangleObservation)
-    }
-}
-
-extension CameraManager:AVCaptureVideoDataOutputSampleBufferDelegate {
-    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        guard !isTaken else { return }
-
-        guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-        let image = CIImage(cvPixelBuffer: imageBuffer)
-        if rectangleDetector.detectRectangle(from: image) {
-            takePhoto()
-        }
+    private func processCropImage(_ image: UIImage) -> UIImage? {
+        guard let ciImage = CIImage(image: image) else { return nil }
+        return cropImage(from: ciImage)
     }
 }

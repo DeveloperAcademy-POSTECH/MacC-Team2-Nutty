@@ -11,8 +11,9 @@ struct IDCardOCRView: View {
     let backgroundOpacity = 0.8
     let cameraViewer = CameraViewer()
     @State private var captureImage: UIImage? = nil
-    @Environment(\.dismiss) private var dismiss
+    @Binding var presentIDCardOCR: Bool
     @EnvironmentObject var application: ApplicationInfo
+    @State private var temp: Bool = false
 
     var body: some View {
         NavigationStack {
@@ -24,15 +25,28 @@ struct IDCardOCRView: View {
                 Color.black.opacity(backgroundOpacity)
                     .edgesIgnoringSafeArea(.all)
                 
-                CaptureIDCardVIew()
+                IDCardGuideLineView()
                 
                 VStack {
+                    HStack {
+                        Button {
+                            presentIDCardOCR = false
+                        } label: {
+                            Image(systemName: "xmark")
+                                .font(.system(size: 24))
+                                .padding()
+                                .foregroundColor(.white)
+                        }
+                        Spacer()
+                    }
                     Spacer()
                     Button {
+                        //navigationstack append
                         cameraViewer.cameraManager.takePhoto()
                         cameraViewer.cameraManager.capturedIDCard = { image in
                             application.image = image
                         }
+                        temp = true
                     } label: {
                         Circle()
                             .frame(width: 56, height: 56)
@@ -43,9 +57,9 @@ struct IDCardOCRView: View {
                                     .strokeBorder(.white, lineWidth: 3)
                             }
                     }
-                    NavigationLink(destination: IDCardConfirmView()) {
-                        Text("다음(임시)")
-                            .foregroundColor(.white)
+                    //임시
+                    .navigationDestination(isPresented: $temp) {
+                        IDCardConfirmView()
                     }
                 }
             }
@@ -53,7 +67,7 @@ struct IDCardOCRView: View {
     }
 }
 
-struct CaptureIDCardVIew: View {
+fileprivate struct IDCardGuideLineView: View {
     let cardRatio = 1.6
     @State private var presentCameraGuideSheet = false
 
@@ -103,7 +117,7 @@ struct CaptureIDCardVIew: View {
     }
 }
 
-struct IDCardOCRSheet: View {
+fileprivate struct IDCardOCRSheet: View {
     
     let sheetString = ["인쇄물이 아닌 실제 신분증을 촬영해 주세요",
                        "얼굴 사진과 글자가 모두 잘 보여야 해요",
@@ -156,6 +170,6 @@ struct IDCardOCRSheet: View {
 
 struct IDCardOCRView_Previews: PreviewProvider {
     static var previews: some View {
-        IDCardOCRView()
+        IDCardOCRView(presentIDCardOCR: .constant(true))
     }
 }
