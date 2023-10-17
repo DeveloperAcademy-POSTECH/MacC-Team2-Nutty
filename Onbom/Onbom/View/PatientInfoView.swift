@@ -93,6 +93,7 @@ struct PatientInfoView: View {
                         }
                     }
                     .padding(.bottom, 36)
+                    .padding(.horizontal, 20)
                     .appear(didAppear[2])
                 }
                 if(step[1] == true) {
@@ -136,6 +137,7 @@ struct PatientInfoView: View {
                         }
                     }
                     .padding(.bottom, 36)
+                    .padding(.horizontal, 20)
                     .animation(.easeInOut, value: step)
                     .appear(didAppear[1])
                 }
@@ -151,8 +153,8 @@ struct PatientInfoView: View {
                         if(viewModel.seniorName.isEmpty) { return }
                         didFinishTypingName()
                     }
+                    .padding(.horizontal, 20)
             }
-            .padding(.horizontal, 20)
             .scrollDismissesKeyboard(.immediately)
             
             Button{
