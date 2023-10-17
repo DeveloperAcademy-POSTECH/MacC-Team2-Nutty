@@ -79,6 +79,7 @@ struct ApplyTypeView: View {
             
             Spacer()
         }
+        .navigationBarBackButton()
         .padding(20)
         
     }

@@ -95,6 +95,7 @@ struct StepView: View {
             .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB4))
             .padding(.bottom, 10)
         }
+        .navigationBarBackButton()
         .padding(20)
     }
 }

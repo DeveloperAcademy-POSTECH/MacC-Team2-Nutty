@@ -37,6 +37,7 @@ struct MediConditionView: View {
             }
             .background(RoundedRectangle(cornerRadius: 16).fill(viewModel.formIsValid ? Color.PB4 : Color.PB3))
         }
+        .navigationBarBackButton()
         .padding(20)
     }
 }

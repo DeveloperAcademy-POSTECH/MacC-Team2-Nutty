@@ -43,6 +43,7 @@ struct SignatureView: View {
                 homeNavigation.navigate(.SubmitCheckListView)
             }
         }
+        .navigationBarBackButton()
         .padding(.horizontal, 20.0)
     }
     

@@ -46,6 +46,7 @@ struct MediHistoryView: View {
             }
             .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB2))
         }
+        .navigationBarBackButton()
         .padding(20)
     }
 }

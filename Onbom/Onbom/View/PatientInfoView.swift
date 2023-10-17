@@ -166,6 +166,7 @@ struct PatientInfoView: View {
             .background(viewModel.formIsValid ? Color.PB4 : Color.PB3)
             .disabled(!viewModel.formIsValid)
         }
+        .navigationBarBackButton()
         .onAppear {
             focusedField = .seniorName
         }
