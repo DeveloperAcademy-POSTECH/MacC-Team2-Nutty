@@ -55,7 +55,7 @@ public struct RadioButtonStyleModifiers: ButtonStyle {
                 .padding(.vertical, 22)
                 .background(RoundedRectangle(cornerRadius: 16).fill(configuration.isPressed ? Color.PB3 : Color.G2))
                 .overlay(RoundedRectangle(cornerRadius: 16)
-                .stroke(configuration.isPressed ? Color.TPB : Color.G2, lineWidth: 2))
+                    .stroke(configuration.isPressed ? Color.TPB : Color.G2, lineWidth: 1.2))
             
         case .oneSelected:
             configuration.label
@@ -65,7 +65,7 @@ public struct RadioButtonStyleModifiers: ButtonStyle {
                 .padding(.vertical, 22)
                 .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB2))
                 .overlay(RoundedRectangle(cornerRadius: 16)
-                .stroke(Color.PB4, lineWidth: 2))
+                    .stroke(Color.PB4, lineWidth: 1.2))
             
         case .twoUnselected:
             configuration.label
@@ -74,7 +74,7 @@ public struct RadioButtonStyleModifiers: ButtonStyle {
                 .padding(.vertical, 16)
                 .background(RoundedRectangle(cornerRadius: 10).fill(configuration.isPressed ? Color.PB3 : Color.G2))
                 .overlay(RoundedRectangle(cornerRadius: 10)
-                .stroke(configuration.isPressed ? Color.TPB : Color.G2, lineWidth: 2))
+                    .stroke(configuration.isPressed ? Color.TPB : Color.G2, lineWidth: 1.2))
             
         case .twoSelected:
             configuration.label
@@ -83,30 +83,35 @@ public struct RadioButtonStyleModifiers: ButtonStyle {
                 .padding(.vertical, 16)
                 .background(RoundedRectangle(cornerRadius: 10).fill(Color.PB2))
                 .overlay(RoundedRectangle(cornerRadius: 10)
-                .stroke(Color.PB4, lineWidth: 2))
+                    .stroke(Color.PB4, lineWidth: 1.2))
         }
     }
 }
 
 struct RadioButtonExampleView: View {
-    @State var isSelected = false
+    let title: [String] = ["신청", "갱신", "등급 변경"]
+    let description: [String] = ["노인성 질병이 있는 경우에만 신청할 수 있어요", "2년에 한 번씩 갱신해 주세요", "환자의 상태가 변했을 때 신청할 수 있어요"]
+    @State var oneSelectedIndex : Int = -1
+    
+    let yesNo: [String] = ["네", "아니오"]
+    @State var twoSelectedIndex : Int = -1
     
     var body: some View {
         VStack {
             // RadioOne
-            let oneStyle: RadioButtonStyle = isSelected ? .oneSelected : .oneUnselected
             VStack(spacing: 10) {
-                ForEach(0..<3) { _ in
+                ForEach(0..<title.count, id: \.self) { index in
+                    let oneStyle: RadioButtonStyle = oneSelectedIndex == index ? .oneSelected : .oneUnselected
+                    
                     RadioButton.CustomButtonView(style: oneStyle) {
-                        isSelected.toggle()
+                        oneSelectedIndex = index
                     } label: {
                         HStack {
                             VStack(alignment: .leading, spacing: 13) {
-                                Text("타이틀")
+                                Text("\(title[index])")
                                     .T3()
-                                Text("설명")
+                                Text("\(description[index])")
                                     .Cap3()
-                                
                             }
                             Spacer()
                         }
@@ -116,17 +121,14 @@ struct RadioButtonExampleView: View {
             }
             
             //RadioTwo
-            let twoStyle: RadioButtonStyle = isSelected ? .twoSelected : .twoUnselected
             HStack(spacing: 10) {
-                RadioButton.CustomButtonView(style: twoStyle) {
-                    isSelected.toggle()
-                } label: {
-                    Text("네")
-                }
-                RadioButton.CustomButtonView(style: twoStyle) {
-                    isSelected.toggle()
-                } label: {
-                    Text("아니오")
+                ForEach(0..<yesNo.count, id: \.self) { index in
+                    let twoStyle: RadioButtonStyle = twoSelectedIndex == index ? .twoSelected : .twoUnselected
+                    RadioButton.CustomButtonView(style: twoStyle) {
+                        twoSelectedIndex = index
+                    } label: {
+                        Text("\(yesNo[index])")
+                    }
                 }
             }
             .padding(.horizontal, 20)
