@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct AgentInfoDetailView: View {
-    @State private var isShowSheet = false
     var body: some View {
         VStack(alignment: .leading, spacing: 45) {
             Text("상세 관계를 모르겠어요")
@@ -51,19 +50,9 @@ struct AgentInfoDetailView: View {
             .frame(maxWidth: .infinity)
             .background(RoundedRectangle(cornerRadius: 12).fill(Color.G2))
             .onTapGesture {
-                isShowSheet = true
-            }
-            .confirmationDialog("타이틀", isPresented: $isShowSheet) {
-                Button {
-                    // 통화 기능 추가 예정
-                } label: {
-                    HStack {
-                        // TODO: Dialog에 Image가 안나오는 이슈 있음. -> 커스텀하거나 UIKit 써야하는 듯
-                        Image(systemName: "phone.fill")
-                        Text("통화 1577-1000")
-                    }
+                if let url = URL(string: "tel://15771000") {
+                    UIApplication.shared.open(url)
                 }
-                Button("취소", role: .cancel) {}
             }
             Spacer()
         }
