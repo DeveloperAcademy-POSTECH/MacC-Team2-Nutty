@@ -20,6 +20,7 @@ struct PatientInfoView: View {
     
     @State private var step:                    [Bool] = [true, false, false]
     @State private var didAppear:               [Bool] = [true, false, false]
+    @State private var isKeyboardVisible:       Bool = false
     
     @ObservedObject private var viewModel = PatientInfoViewModel()
     
@@ -157,18 +158,55 @@ struct PatientInfoView: View {
             }
             .scrollDismissesKeyboard(.immediately)
             
-            Button{
-            } label: {
-                Text("다음")
-                    .foregroundColor(.white)
-                    .padding(20)
+            if isKeyboardVisible {
+                Button{
+                    onClickButton()
+                } label: {
+                    Text("다음")
+                        .foregroundColor(.white)
+                        .padding(20)
+                }
+                .frame(maxWidth: .infinity)
+                .background(isActiveButton() ? Color.PB4 : Color.PB3)
+                .disabled(!isActiveButton())
+            } else {
+                Button {
+                    onClickButton()
+                } label: {
+                    Text("다음")
+                        .foregroundColor(Color.white)
+                        .B1()
+                        .padding(.vertical, 20)
+                        .frame(maxWidth: .infinity)
+                }
+                .background(RoundedRectangle(cornerRadius: 12).fill(isActiveButton() ? Color.PB4 : Color.PB3))
+                .padding(.horizontal, 20)
+                .padding(.bottom, 20)
+                .disabled(!isActiveButton())
             }
-            .frame(maxWidth: .infinity)
-            .background(viewModel.formIsValid ? Color.PB4 : Color.PB3)
-            .disabled(!viewModel.formIsValid)
+        }
+        .onAppear {
+            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notification in
+                self.isKeyboardVisible = true
+            }
+            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { notification in
+                self.isKeyboardVisible = false
+            }
         }
         .onAppear {
             focusedField = .seniorName
+        }
+    }
+    
+    private func isActiveButton() -> Bool {
+        return (!step[1] && viewModel.seniorName.count > 0) || viewModel.formIsValid
+    }
+    
+    private func onClickButton() {
+        if(!step[1]) {
+            didFinishTypingName()
+        } else {
+            print("homeNavigation.navigate()")
         }
     }
     
@@ -191,8 +229,10 @@ struct PatientInfoView: View {
     }
     
     private func didFinishTypingPhoneNumber() {
+        if(step[2] == false) {
+            focusedField = .seniorIDNumber1
+        }
         step[2] = true
-        focusedField = .seniorIDNumber1
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             didAppear[2] = true
         }
