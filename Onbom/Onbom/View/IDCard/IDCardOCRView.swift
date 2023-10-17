@@ -46,6 +46,9 @@ struct IDCardOCRView: View {
                         cameraViewer.cameraManager.capturedIDCard = { image in
                             application.image = image
                         }
+                        cameraViewer.cameraManager.recognizedID = { idNumber in
+                            application.agentID = idNumber
+                        }
                         temp = true
                     } label: {
                         Circle()

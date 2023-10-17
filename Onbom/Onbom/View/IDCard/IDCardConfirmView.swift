@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct IDCardConfirmView: View {
-//    @Binding var image: UIImage?
     @State private var frontIDNumber = ""
     @State private var backIDNumber = ""
     @State private var isValid = false
@@ -50,9 +49,13 @@ struct IDCardConfirmView: View {
                         }
                     }
                     .padding()
-                    .frame(height: 300)
+                    .frame(height: 250)
 
                 IDNumberInputField(frontNumber: $frontIDNumber, backNumber: $backIDNumber)
+                    .onAppear {
+                        frontIDNumber = application.agentID
+                        backIDNumber = application.agentID
+                    }
 
                 Spacer()
 
