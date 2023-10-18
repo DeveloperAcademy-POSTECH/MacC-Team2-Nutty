@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		03D759362ACDA17400495D7F /* PostCodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D759352ACDA17400495D7F /* PostCodeInputView.swift */; };
 		03FFF2A92ACDAE7A00B81D65 /* PostCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2A82ACDAE7A00B81D65 /* PostCodeView.swift */; };
+		03FFF2BB2AD5B74E00B81D65 /* CTAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2BA2AD5B74E00B81D65 /* CTAButton.swift */; };
+		03FFF2C92ADD60EF00B81D65 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2C82ADD60EF00B81D65 /* RadioButton.swift */; };
+		03FFF2CB2ADD614900B81D65 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2CA2ADD614900B81D65 /* Alert.swift */; };
 		708891EB2AD55191005B67AB /* AddressFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708891EA2AD55191005B67AB /* AddressFormView.swift */; };
 		708891F12AD55607005B67AB /* CityAddressInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708891F02AD55607005B67AB /* CityAddressInputField.swift */; };
 		708891F32AD57B91005B67AB /* SubmitCheckListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708891F22AD57B91005B67AB /* SubmitCheckListView.swift */; };
@@ -77,6 +80,9 @@
 /* Begin PBXFileReference section */
 		03D759352ACDA17400495D7F /* PostCodeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCodeInputView.swift; sourceTree = "<group>"; };
 		03FFF2A82ACDAE7A00B81D65 /* PostCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCodeView.swift; sourceTree = "<group>"; };
+		03FFF2BA2AD5B74E00B81D65 /* CTAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTAButton.swift; sourceTree = "<group>"; };
+		03FFF2C82ADD60EF00B81D65 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		03FFF2CA2ADD614900B81D65 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		708891EA2AD55191005B67AB /* AddressFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressFormView.swift; sourceTree = "<group>"; };
 		708891F02AD55607005B67AB /* CityAddressInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityAddressInputField.swift; sourceTree = "<group>"; };
 		708891F22AD57B91005B67AB /* SubmitCheckListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitCheckListView.swift; sourceTree = "<group>"; };
@@ -116,7 +122,6 @@
 		7372274E2AD476AD0021EFC6 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		737B62162AD6EAB30010444E /* PatientInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientInfoViewModel.swift; sourceTree = "<group>"; };
 		737D49022ACB3F4F008AC5EC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		737EE3502ABD646100D224FC /* Onbom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Onbom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		737EE3532ABD646100D224FC /* OnbomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbomApp.swift; sourceTree = "<group>"; };
 		737EE3552ABD646100D224FC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		737EE3572ABD646200D224FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -129,6 +134,7 @@
 		AE10D38F2AD4D33C00D9ED3C /* SignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureView.swift; sourceTree = "<group>"; };
 		AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		AE57BA122ABD695800F71B34 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		AE70A4282ADAE7500006125E /* Onbom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Onbom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE933EDB2AD42E36003D87E6 /* AgentInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentInfoView.swift; sourceTree = "<group>"; };
 		AE933EDD2AD42E60003D87E6 /* AgentInfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentInfoDetailView.swift; sourceTree = "<group>"; };
 		AEB33E752AC2B0ED0082A3E7 /* PDFManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFManager.swift; sourceTree = "<group>"; };
@@ -201,13 +207,6 @@
 			path = IDCard;
 			sourceTree = "<group>";
 		};
-		735EE1AD2AC0274400AD8B8D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<unknown>";
-		};
 		7372274D2AD476960021EFC6 /* Component */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,17 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				737EE3522ABD646100D224FC /* Onbom */,
-				737EE3512ABD646100D224FC /* Products */,
-				735EE1AD2AC0274400AD8B8D /* Frameworks */,
+				AE70A4282ADAE7500006125E /* Onbom.app */,
 			);
-			sourceTree = "<group>";
-		};
-		737EE3512ABD646100D224FC /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				737EE3502ABD646100D224FC /* Onbom.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		737EE3522ABD646100D224FC /* Onbom */ = {
@@ -349,6 +339,9 @@
 				70E047082AD5138300FC73A5 /* PhoneNumberInputField.swift */,
 				70E0470A2AD5139200FC73A5 /* IDNumberInputField.swift */,
 				70E047042AD5023000FC73A5 /* NavigationBarBackButton.swift */,
+				03FFF2BA2AD5B74E00B81D65 /* CTAButton.swift */,
+				03FFF2C82ADD60EF00B81D65 /* RadioButton.swift */,
+				03FFF2CA2ADD614900B81D65 /* Alert.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -412,7 +405,7 @@
 				739F9FAB2AC1DF2300523110 /* KakaoSDKUser */,
 			);
 			productName = Onbom;
-			productReference = 737EE3502ABD646100D224FC /* Onbom.app */;
+			productReference = AE70A4282ADAE7500006125E /* Onbom.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -443,7 +436,7 @@
 				735EE1A22AC01BDE00AD8B8D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				739F9F9F2AC1DA0D00523110 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 			);
-			productRefGroup = 737EE3512ABD646100D224FC /* Products */;
+			productRefGroup = 737EE3472ABD646100D224FC;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -502,6 +495,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEB33E762AC2B0ED0082A3E7 /* PDFManager.swift in Sources */,
+				03FFF2C92ADD60EF00B81D65 /* RadioButton.swift in Sources */,
 				735EE1B62AC02AA200AD8B8D /* AuthenticationViewModel.swift in Sources */,
 				735EE1B42AC029A900AD8B8D /* LoginView.swift in Sources */,
 				73FD46D92ADADF8C002ED839 /* HomeView.swift in Sources */,
@@ -522,6 +516,7 @@
 				70B136CF2AD62EF5001208E3 /* ApplicationViewModel.swift in Sources */,
 				70D2994A2AC573B3009F536A /* CameraViewer.swift in Sources */,
 				73FD46D72ADAADCF002ED839 /* HomeNavigationViewModel.swift in Sources */,
+				03FFF2BB2AD5B74E00B81D65 /* CTAButton.swift in Sources */,
 				731609682AD838FB00399476 /* StepView.swift in Sources */,
 				AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */,
 				737B62172AD6EAB30010444E /* PatientInfoViewModel.swift in Sources */,
@@ -529,6 +524,7 @@
 				70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */,
 				7372274C2AD476200021EFC6 /* ViewModifier.swift in Sources */,
 				03FFF2A92ACDAE7A00B81D65 /* PostCodeView.swift in Sources */,
+				03FFF2CB2ADD614900B81D65 /* Alert.swift in Sources */,
 				708891F32AD57B91005B67AB /* SubmitCheckListView.swift in Sources */,
 				708891EB2AD55191005B67AB /* AddressFormView.swift in Sources */,
 				03D759362ACDA17400495D7F /* PostCodeInputView.swift in Sources */,
