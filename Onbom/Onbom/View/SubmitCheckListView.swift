@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct SubmitCheckListView: View {
-    @EnvironmentObject var application: ApplicationInfo
-    
+    @EnvironmentObject var patient: Patient
+    @EnvironmentObject var agent: Agent
+
     var body: some View {
         NavigationStack {
             HStack {
@@ -28,23 +29,9 @@ struct SubmitCheckListView: View {
                             .foregroundColor(.G5)
                         Spacer()
                         Button {
-                            //
+                            //관계 설정 페이지
                         } label: {
                             Text("신규")
-                                .foregroundColor(.G5)
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.G4)
-                        }
-                    }
-                    HStack {
-                        Text("\(application.patientName)님과의 관계")
-                            .B1()
-                            .foregroundColor(.G5)
-                        Spacer()
-                        Button {
-                            //
-                        } label: {
-                            Text(application.agentRelation)
                                 .foregroundColor(.G5)
                             Image(systemName: "chevron.right")
                                 .foregroundColor(.G4)
@@ -54,7 +41,7 @@ struct SubmitCheckListView: View {
                     .padding(.bottom)
                 }
                 .padding()
-                
+
                 HStack {
                     Text("신청인")
                         .Cap5()
@@ -62,17 +49,17 @@ struct SubmitCheckListView: View {
                         .padding(4)
                         .padding(.horizontal, 3)
                         .background(Capsule().fill(Color.PB2))
-                    Text("\(application.patientName)님 정보")
+                    Text("\(patient.name)님 정보")
                         .T2()
                         .foregroundColor(.G6)
                         .padding(.leading, -4)
                     Spacer()
                 }
                 .padding(.leading)
-                
+
                 Divider()
                     .padding(.horizontal)
-                
+
                 Group {
                     HStack {
                         Text("신청인 주민등록번호")
@@ -82,7 +69,7 @@ struct SubmitCheckListView: View {
                         Button {
                             //
                         } label: {
-                            Text(application.patientID)
+                            Text(patient.id)
                                 .foregroundColor(.G5)
                             Image(systemName: "chevron.right")
                                 .foregroundColor(.G4)
@@ -102,10 +89,10 @@ struct SubmitCheckListView: View {
                             }
                         }
                         .padding(.bottom, 2)
-                        Text(application.patientAddress.cityAddress)
-                        Text(application.patientAddress.detailAddress)
+                        Text(patient.address.cityAddress)
+                        Text(patient.address.detailAddress)
                     }
-                    
+
                     VStack(alignment: .leading) {
                         HStack {
                             Text("신청인이 현재 살고 계신 주소지")
@@ -120,16 +107,16 @@ struct SubmitCheckListView: View {
                             }
                         }
                         .padding(.bottom, 2)
-                        Text(application.patientActualAddress.cityAddress)
-                        Text(application.patientActualAddress.detailAddress)
+                        Text(patient.actualAddress.cityAddress)
+                        Text(patient.actualAddress.detailAddress)
                     }
                     .padding(.bottom)
                     .padding(.bottom)
-                    
+
                 }
                 .padding()
-                
-                
+
+
                 HStack {
                     Text("대리인")
                         .Cap5()
@@ -137,7 +124,7 @@ struct SubmitCheckListView: View {
                         .padding(4)
                         .padding(.horizontal, 3)
                         .background(Capsule().fill(Color.PB2))
-                    Text("\(application.agentName)님 정보")
+                    Text("\(agent.name)님 정보")
                         .T2()
                         .foregroundColor(.G6)
                         .padding(.leading, -4)
@@ -146,8 +133,22 @@ struct SubmitCheckListView: View {
                 .padding(.leading)
                 Divider()
                     .padding(.horizontal)
-                
+
                 Group {
+                    HStack {
+                        Text("\(patient.name)님과의 관계")
+                            .B1()
+                            .foregroundColor(.G5)
+                        Spacer()
+                        Button {
+                            //관계 설정 페이지
+                        } label: {
+                            Text(agent.relation)
+                                .foregroundColor(.G5)
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.G4)
+                        }
+                    }
                     HStack {
                         Text("대리인 주민등록번호")
                             .B1()
@@ -156,7 +157,7 @@ struct SubmitCheckListView: View {
                         Button {
                             //
                         } label: {
-                            Text(application.agentID)
+                            Text(agent.id)
                                 .foregroundColor(.G5)
                             Image(systemName: "chevron.right")
                                 .foregroundColor(.G4)
@@ -176,14 +177,14 @@ struct SubmitCheckListView: View {
                             }
                         }
                         .padding(.bottom, 2)
-                        Text(application.agentAddress.cityAddress)
-                        Text(application.agentAddress.detailAddress)
+                        Text(agent.address.cityAddress)
+                        Text(agent.address.detailAddress)
                     }
                 }
                 .padding()
                 Spacer()
-                
-                
+
+
                 HStack() {
                     Button {
                         //
@@ -200,7 +201,7 @@ struct SubmitCheckListView: View {
             
             //CTA Button
             Button {
-                //
+                //pdf로 업데이트
             } label: {
                 Text("신청하기")
                     .foregroundColor(Color.white)
@@ -218,6 +219,7 @@ struct SubmitCheckListView: View {
 struct SubmitCheckListView_Previews: PreviewProvider {
     static var previews: some View {
         SubmitCheckListView()
-            .environmentObject(ApplicationInfo())
+            .environmentObject(Patient())
+            .environmentObject(Agent())
     }
 }

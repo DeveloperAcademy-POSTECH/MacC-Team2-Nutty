@@ -12,16 +12,18 @@ struct AddressFormView: View {
     @State private var isPostCodeViewPresented = false
     @State private var showActualAddressCheckView = false
     @State private var address = Address(cityAddress: "", detailAddress: "")
-    @EnvironmentObject var application: ApplicationInfo
+    @EnvironmentObject var patient: Patient
+    @EnvironmentObject var agent: Agent
+    
     
     @Binding var path: [Int]
     
     var name: String {
         switch formType {
         case .patient, .actualPatient:
-            return application.patientName
+            return patient.name
         case .agent:
-            return application.agentName
+            return agent.name
         }
     }
     
@@ -150,14 +152,13 @@ struct AddressFormView: View {
                     Button {
                         switch formType {
                             case .actualPatient:
-                                application.updatePatientActualAddress(actualAddress: address)
+                                patient.actualAddress = address
                                 showActualAddressCheckView = true
                             case .patient:
-                                application.updatePatientAddress(address: address)
+                                patient.address = address
                             case .agent:
-                                application.updateAgentAddress(address: address)
+                                agent.address = address
                             }
-                        print(application.patientActualAddress)
                         //                            path.append()
                     } label: {
                         Text("네, 같은 곳이에요")
@@ -188,6 +189,7 @@ struct AddressFormView: View {
 struct AddressFormView_Previews: PreviewProvider {
     static var previews: some View {
         AddressFormView(formType: .patient, path: .constant([]))
-            .environmentObject(ApplicationInfo())
+            .environmentObject(Patient())
+            .environmentObject(Agent())
     }
 }

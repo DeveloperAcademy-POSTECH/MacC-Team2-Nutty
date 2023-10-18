@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct IDCardDescriptionView: View {
+    @State private var name = ""
+    @EnvironmentObject var patient: Patient
+
     var body: some View {
         NavigationStack {
             VStack {
                 Group {
                     HStack {
-                        Text("김순옥님의 신분증을\n촬영할 수 있도록 준비해 주세요")
+                        Text("\(name)님의 신분증을\n촬영할 수 있도록 준비해 주세요")
                             .H2()
                             .foregroundColor(.B)
                         Spacer()
@@ -42,11 +45,15 @@ struct IDCardDescriptionView: View {
             }
         }
         .navigationBarBackButton()
+        .onAppear {
+            name = patient.name
+        }
     }
 }
 
 struct IDCardDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
         IDCardDescriptionView()
+            .environmentObject(Patient())
     }
 }
