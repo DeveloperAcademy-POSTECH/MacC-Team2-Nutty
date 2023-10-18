@@ -23,7 +23,9 @@ struct TempPDFView: View {
                         PDFViewer(pdfData: pdfdata)
                     } label: {
                         Text("PDF 보기 \(index)")
-                    }.padding()
+                    }
+                    .padding()
+                    .foregroundColor(.red)
                 }
                 Text("신청한 수 : \(pdfManager.PDFDatas.count)")
                     .padding()

@@ -13,8 +13,8 @@ struct AddressFormView: View {
     @State private var showActualAddressCheckView = false
     @State private var address = Address(cityAddress: "", detailAddress: "")
     @EnvironmentObject var application: ApplicationInfo
+    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     
-    @Binding var path: [Int]
     
     var name: String {
         switch formType {
@@ -57,7 +57,6 @@ struct AddressFormView: View {
     }
     
     var body: some View {
-        NavigationStack {
             ZStack {
                 VStack {
                     Group {
@@ -98,7 +97,12 @@ struct AddressFormView: View {
                         if formType == .actualPatient {
                             showActualAddressCheckView = true
                         } else {
-                            //                            path.append()
+                            if formType == .patient {
+                                homeNavigation.navigate(.StepView_Second)
+                            } else {
+                                homeNavigation.navigate(.SignatureView)
+                            }
+                            
                         }
                     } label: {
                         Text("다음")
@@ -119,7 +123,6 @@ struct AddressFormView: View {
                     Color.black.opacity(0.5).ignoresSafeArea()
                 }
             }
-        }
         .navigationBarBackButton()
         .sheet(isPresented: $showActualAddressCheckView) {
             VStack{
@@ -158,7 +161,11 @@ struct AddressFormView: View {
                                 application.updateAgentAddress(address: address)
                             }
                         print(application.patientActualAddress)
-                        //                            path.append()
+                        if formType == .patient {
+                            homeNavigation.navigate(.StepView_Second)
+                        } else {
+                            homeNavigation.navigate(.SignatureView)
+                        }
                     } label: {
                         Text("네, 같은 곳이에요")
                             .B1()
@@ -187,7 +194,7 @@ struct AddressFormView: View {
 
 struct AddressFormView_Previews: PreviewProvider {
     static var previews: some View {
-        AddressFormView(formType: .patient, path: .constant([]))
+        AddressFormView(formType: .patient)
             .environmentObject(ApplicationInfo())
     }
 }

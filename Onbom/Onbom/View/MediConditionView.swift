@@ -9,8 +9,8 @@ import SwiftUI
 import Combine
 
 struct MediConditionView: View {
-    
     @ObservedObject private var viewModel = MediConditionViewModel()
+    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     
     var body: some View {
         VStack(spacing: 0){
@@ -27,6 +27,7 @@ struct MediConditionView: View {
             Spacer()
             
             Button {
+                homeNavigation.navigate(.PatientInfoView)
             } label: {
                 Text("다음")
                     .foregroundColor(Color.white)
@@ -36,6 +37,7 @@ struct MediConditionView: View {
             }
             .background(RoundedRectangle(cornerRadius: 16).fill(viewModel.formIsValid ? Color.PB4 : Color.PB3))
         }
+        .navigationBarBackButton()
         .padding(20)
     }
 }

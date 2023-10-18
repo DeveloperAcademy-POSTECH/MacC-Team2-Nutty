@@ -16,8 +16,6 @@ struct IDCardOCRView: View {
     @State private var temp: Bool = false
 
     var body: some View {
-        NavigationStack {
-            
             ZStack {
                 cameraViewer
                     .edgesIgnoringSafeArea(.all)
@@ -69,7 +67,7 @@ struct IDCardOCRView: View {
                     Text("다음")
                 }
             }
-        }
+        
     }
 }
 
