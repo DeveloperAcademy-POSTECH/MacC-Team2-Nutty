@@ -10,12 +10,16 @@ import SwiftUI
 class DigitalSignatureManager: ObservableObject {
     @Published var paths: [[CGPoint]] = []
     @Published var currentPath: [CGPoint] = []
-    let rectangle = Rectangle().path(in: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width-40, height: 250))
-    
+    @Published var isStart = false
+    let rectangle = Rectangle().path(in: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width-40, height: 146))
+
     func gesture() -> some Gesture {
         DragGesture()
             .onChanged { value in
                 if self.rectangle.contains(value.location) {
+                    if !self.isStart {
+                        self.isStart = true
+                        }
                     self.addNewCurrentPath(value)
                 }
             }

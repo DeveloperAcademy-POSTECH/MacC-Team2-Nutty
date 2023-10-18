@@ -17,7 +17,8 @@ struct OnbomApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
-                .environmentObject(ApplicationInfo())
+                .environmentObject(Patient())
+                .environmentObject(Agent())
         }
     }
 }

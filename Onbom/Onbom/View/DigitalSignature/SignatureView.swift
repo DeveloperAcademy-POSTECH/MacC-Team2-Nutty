@@ -9,7 +9,8 @@ import SwiftUI
 
 struct SignatureView: View {
     @ObservedObject var digitalSignatureManager = DigitalSignatureManager()
-    
+    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+
     var body: some View {
         VStack(alignment: .leading) {
             Text("서명을 해주세요")
@@ -24,23 +25,37 @@ struct SignatureView: View {
                     .cornerRadius(10)
                 ForEach(digitalSignatureManager.paths.indices, id: \.self) { index in
                     DrawLine(currentPath: digitalSignatureManager.paths[index])
-                        .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round))
-                        .foregroundColor(.blue)
+                        .stroke(style: StrokeStyle(lineWidth: 5, lineCap: .round))
+                        .foregroundColor(.B)
                 }
                 DrawLine(currentPath: digitalSignatureManager.currentPath)
-                    .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round))
-                    .foregroundColor(.blue)
+                    .stroke(style: StrokeStyle(lineWidth: 5, lineCap: .round))
+                    .foregroundColor(.B)
             }
-            .overlay(alignment: .topTrailing) {
-                deleteButton
-                    .padding(20)
+            .overlay {
+                if digitalSignatureManager.isStart {
+                    VStack {
+                        HStack {
+                            Spacer()
+                            deleteButton
+                                .padding(20)
+                        }
+                        Spacer()
+                    }
+                } else {
+                    Text("서명을 입력해 주세요")
+                        .Cap2()
+                        .foregroundColor(.G4)
+                }
             }
-            .frame(height: 250)
+            .frame(height: 146)
             .gesture(digitalSignatureManager.gesture())
             Spacer()
             Button("완료") {
+                homeNavigation.navigate(.SubmitCheckListView)
             }
         }
+        .navigationBarBackButton()
         .padding(.horizontal, 20.0)
     }
     

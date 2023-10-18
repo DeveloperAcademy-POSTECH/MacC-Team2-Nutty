@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct IDCardDescriptionView: View {
+    @State private var name = ""
+    @State private var presentIDCardOCR = false
+    @EnvironmentObject var patient: Patient
+
     var body: some View {
         NavigationStack {
             VStack {
                 Group {
                     HStack {
-                        Text("김순옥님의 신분증을\n촬영할 수 있도록 준비해 주세요")
+                        Text("\(name)님의 신분증을\n촬영할 수 있도록 준비해 주세요")
                             .H2()
                             .foregroundColor(.B)
                         Spacer()
@@ -27,26 +31,40 @@ struct IDCardDescriptionView: View {
                     }
                     .padding(.leading)
                 }
-
+                
                 Spacer()
                 
                 //신분증 안내 사진?
                 Rectangle()
                     .foregroundColor(.gray)
                     .padding()
-                
                 //CTA Button
-                NavigationLink(destination: IDCardOCRView()) {
+                Button {
+                    presentIDCardOCR.toggle()
+                } label: {
                     Text("다음")
+                        .foregroundColor(Color.white)
+                        .B1()
+                        .padding(.vertical, 20)
+                        .frame(maxWidth: .infinity)
                 }
+                .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB4))
+                .padding()
+            }
+            .fullScreenCover(isPresented: $presentIDCardOCR) {
+                IDCardOCRView(presentIDCardOCR: $presentIDCardOCR)
             }
         }
         .navigationBarBackButton()
+        .onAppear {
+            name = patient.name
+        }
     }
 }
 
 struct IDCardDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
         IDCardDescriptionView()
+            .environmentObject(Patient())
     }
 }

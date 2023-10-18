@@ -16,7 +16,8 @@ struct PatientInfoView: View {
         case seniorIDNumber1
         case seniorIDNumber2
     }
-    @Binding var navigationPath: [Int]
+    @EnvironmentObject var patient: Patient
+    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     
     @State private var step:                    [Bool] = [true, false, false]
     @State private var didAppear:               [Bool] = [true, false, false]
@@ -157,7 +158,6 @@ struct PatientInfoView: View {
                     .padding(.horizontal, 20)
             }
             .scrollDismissesKeyboard(.immediately)
-            
             if isKeyboardVisible {
                 Button{
                     onClickButton()
@@ -193,8 +193,10 @@ struct PatientInfoView: View {
                 self.isKeyboardVisible = false
             }
         }
+        .navigationBarBackButton()
         .onAppear {
             focusedField = .seniorName
+            
         }
     }
     
@@ -206,7 +208,7 @@ struct PatientInfoView: View {
         if(!step[1]) {
             didFinishTypingName()
         } else {
-            print("homeNavigation.navigate()")
+            homeNavigation.navigate(.AddressFormView_Patient)
         }
     }
     
@@ -239,6 +241,8 @@ struct PatientInfoView: View {
     }
     
     private func didFinishTypingAll() {
+        patient.name = viewModel.seniorName;
+        patient.combineID(frontID: viewModel.seniorIDNumber1, backID: viewModel.seniorIDNumber2)
         focusedField = nil
     }
 }
