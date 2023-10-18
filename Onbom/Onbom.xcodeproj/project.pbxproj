@@ -158,6 +158,7 @@
 		708891E92AD5515B005B67AB /* Address */ = {
 			isa = PBXGroup;
 			children = (
+				03FFF2A82ACDAE7A00B81D65 /* PostCodeView.swift */,
 				03D759352ACDA17400495D7F /* PostCodeInputView.swift */,
 				708891EA2AD55191005B67AB /* AddressFormView.swift */,
 			);
@@ -254,7 +255,6 @@
 				70D2994F2AC96163009F536A /* IDCard */,
 				708891E92AD5515B005B67AB /* Address */,
 				708891F22AD57B91005B67AB /* SubmitCheckListView.swift */,
-				03FFF2A82ACDAE7A00B81D65 /* PostCodeView.swift */,
 				7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */,
 				7372273D2AD2FB340021EFC6 /* MediHistoryView.swift */,
 				7372273F2AD30BBE0021EFC6 /* RejectView.swift */,
