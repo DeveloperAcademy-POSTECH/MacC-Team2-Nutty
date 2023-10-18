@@ -2,7 +2,7 @@
 //  ApplicationViewModel.swift
 //  Onbom
 //
-//  Created by Junyoo on 2023/10/11.
+//  Created by Junyoo on 2023/10/09.
 //
 
 import SwiftUI
@@ -26,8 +26,8 @@ class ApplicationInfo: ObservableObject {
         self.image = newImage
     }
     
-    func updatePatientID(id: String) {
-        self.patientID = id
+    func combinePatientID(frontID: String, backID: String) {
+        self.patientID = "\(frontID)-\(backID)"
     }
     func updatePatientAddress(address: Address) {
         self.patientAddress = address
@@ -36,11 +36,19 @@ class ApplicationInfo: ObservableObject {
         self.patientActualAddress = actualAddress
     }
     
-    func updateAgentID(id: String) {
-        self.agentID = id
+    func combineAgentID(frontID: String, backID: String) {
+        self.agentID = "\(frontID)-\(backID)"
     }
     func updateAgentAddress(address: Address) {
         self.agentAddress = address
+    }
+    
+    func splitID(id: String) -> (frontID: String, backID: String)? {
+        let components = id.split(separator: "-")
+        if components.count == 2 {
+            return (String(components[0]), String(components[1]))
+        }
+        return nil
     }
 }
 
@@ -79,15 +87,10 @@ struct Address {
 //}
 
 
-/*
+
 class UserViewModel {
-    @Published var patient: Patient
-    @Published var agent: Agent
-    
-    init(patient: Patient, agent: Agent) {
-        self.patient = patient
-        self.agent = agent
-    }
+    @Published var patient: Patient = Patient()
+    @Published var agent: Agent = Agent()
     
     func updateAgentAddress(city: String, detail: String) {
         agent.updateAddress(city: city, detail: detail)
@@ -100,31 +103,30 @@ class UserViewModel {
     func updatePatientActualAddress(city: String, detail: String) {
         patient.updateActualAddress(city: city, detail: detail)
     }
+    
+//    func updateAgentInfo(name: , id, phonenumber){
+//        
+//    }
+//    func updatePatientInfo(id ) {
+//        
+//    }
 }
 
 protocol UserProtocol {
-    var name: String { get set }
-    var id: String { get set }
-    var address: Address { get set }
+    var name: String? { get set }
+    var id: String? { get set }
+    var address: Address? { get set }
     
     func updateAddress(city: String, detail: String)
 }
 
 class Patient: UserProtocol {
-    var name: String
-    var id: String
-    var address: Address
-    var actualAddress: Address
+    var name: String?
+    var id: String?
+    var address: Address?
+    var actualAddress: Address?
     var phoneNumber: String?
-    
-    init(name: String, id: String, address: Address, actualAddress: Address, phoneNumber: String? = nil) {
-        self.name = name
-        self.id = id
-        self.address = address
-        self.actualAddress = actualAddress
-        self.phoneNumber = phoneNumber
-    }
-    
+        
     func updateAddress(city: String, detail: String) {
         address = Address(cityAddress: city, detailAddress: detail)
     }
@@ -135,20 +137,12 @@ class Patient: UserProtocol {
 }
 
 class Agent: UserProtocol {
-    var name: String
-    var id: String
-    var address: Address
-    var phoneNumber: String
-    
-    init(name: String, id: String, address: Address, phoneNumber: String) {
-        self.name = name
-        self.id = id
-        self.address = address
-        self.phoneNumber = phoneNumber
-    }
+    var name: String? = "김유진"
+    var id: String?
+    var address: Address?
+    var phoneNumber: String? = "010-1234-5678"
     
     func updateAddress(city: String, detail: String) {
         address = Address(cityAddress: city, detailAddress: detail)
     }
 }
- */
