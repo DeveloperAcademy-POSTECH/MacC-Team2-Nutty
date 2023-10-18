@@ -13,6 +13,7 @@ struct StepView: View {
         case SECOND
     }
     let state: StepViewState
+    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     
     init(state: StepViewState) {
         self.state = state
@@ -79,6 +80,11 @@ struct StepView: View {
             Spacer()
             
             Button {
+                if state == .FIRST {
+                    homeNavigation.navigate(.MediHistoryView)
+                } else {
+                    homeNavigation.navigate(.AgentInfoView)
+                }
             } label: {
                 Text("다음")
                     .foregroundColor(Color.white)
@@ -89,6 +95,7 @@ struct StepView: View {
             .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB4))
             .padding(.bottom, 10)
         }
+        .navigationBarBackButton()
         .padding(20)
     }
 }

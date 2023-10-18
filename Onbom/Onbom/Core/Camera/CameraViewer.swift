@@ -9,8 +9,12 @@ import SwiftUI
 
 struct CameraViewer: UIViewControllerRepresentable {
     let cameraManager = CameraManager()
-    
+    var capturedImage: ((UIImage) -> Void)?
+    var recognizedID: ((String) -> Void)?
+
     func makeUIViewController(context: Context) -> CameraManager {
+        cameraManager.capturedIDCard = capturedImage
+        cameraManager.recognizedID = recognizedID
         return cameraManager
     }
 

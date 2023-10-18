@@ -11,8 +11,8 @@ struct AgentInfoView: View {
     let agentName = "김유진"
     let patientName = "김순옥"
     @State private var agentDetailType = ""
+    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     var body: some View {
-        NavigationStack {
         VStack(alignment: .leading) {
             Text("\(agentName)님과 \(patientName)님의\n상세 관계를 선택해 주세요")
                 .H2()
@@ -46,14 +46,14 @@ struct AgentInfoView: View {
                 Spacer()
             }
             Button {
-                
+                homeNavigation.navigate(.IDCardDescriptionView)
             } label: {
                 Text("다음")
             }
             
         }
+        .navigationBarBackButton()
         .padding(20)
-    }
 }
 }
 

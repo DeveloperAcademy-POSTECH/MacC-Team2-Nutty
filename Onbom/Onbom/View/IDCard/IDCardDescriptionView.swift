@@ -9,6 +9,7 @@ import SwiftUI
 
 struct IDCardDescriptionView: View {
     @State private var name = ""
+    @State private var presentIDCardOCR = false
     @EnvironmentObject var patient: Patient
 
     var body: some View {
@@ -30,18 +31,28 @@ struct IDCardDescriptionView: View {
                     }
                     .padding(.leading)
                 }
-
+                
                 Spacer()
                 
                 //신분증 안내 사진?
                 Rectangle()
                     .foregroundColor(.gray)
                     .padding()
-                
                 //CTA Button
-                NavigationLink(destination: IDCardOCRView()) {
+                Button {
+                    presentIDCardOCR.toggle()
+                } label: {
                     Text("다음")
+                        .foregroundColor(Color.white)
+                        .B1()
+                        .padding(.vertical, 20)
+                        .frame(maxWidth: .infinity)
                 }
+                .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB4))
+                .padding()
+            }
+            .fullScreenCover(isPresented: $presentIDCardOCR) {
+                IDCardOCRView(presentIDCardOCR: $presentIDCardOCR)
             }
         }
         .navigationBarBackButton()

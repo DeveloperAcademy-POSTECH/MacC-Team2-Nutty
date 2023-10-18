@@ -22,6 +22,7 @@ class Patient: ObservableObject {
 class Agent: ObservableObject {
     @Published var name: String = ""
     @Published var id: String = ""
+    @Published var idCardImage: UIImage = UIImage()
     @Published var relation: String = ""
     @Published var address: Address = Address()
     @Published var phoneNumber: String = ""

@@ -14,10 +14,7 @@ struct AddressFormView: View {
     @State private var address = Address(cityAddress: "", detailAddress: "")
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
-    
-    
-    @Binding var path: [Int]
-    
+        
     var name: String {
         switch formType {
         case .patient, .actualPatient:
@@ -188,7 +185,7 @@ struct AddressFormView: View {
 
 struct AddressFormView_Previews: PreviewProvider {
     static var previews: some View {
-        AddressFormView(formType: .patient, path: .constant([]))
+        AddressFormView(formType: .patient)
             .environmentObject(Patient())
             .environmentObject(Agent())
     }

@@ -16,9 +16,8 @@ struct PatientInfoView: View {
         case seniorIDNumber1
         case seniorIDNumber2
     }
-    @Binding var navigationPath: [Int]
     @EnvironmentObject var patient: Patient
-    
+    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     
     @State private var step:                    [Bool] = [true, false, false]
     @State private var didAppear:               [Bool] = [true, false, false]
@@ -158,6 +157,7 @@ struct PatientInfoView: View {
             .scrollDismissesKeyboard(.immediately)
             
             Button{
+                homeNavigation.navigate(.AddressFormView_Patient)
             } label: {
                 Text("다음")
                     .foregroundColor(.white)
@@ -167,6 +167,7 @@ struct PatientInfoView: View {
             .background(viewModel.formIsValid ? Color.PB4 : Color.PB3)
             .disabled(!viewModel.formIsValid)
         }
+        .navigationBarBackButton()
         .onAppear {
             focusedField = .seniorName
             
