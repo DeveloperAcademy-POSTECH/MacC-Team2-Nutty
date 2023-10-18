@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MediHistoryView: View {
-    @Binding var navigationPath: [Int]
+    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     
     var body: some View {
         VStack(spacing: 0) {
@@ -24,7 +24,7 @@ struct MediHistoryView: View {
             Spacer()
             
             Button {
-                navigationPath.append(3)
+                homeNavigation.navigate(.MediConditionView)
             } label: {
                 Text("아니요, 없어요")
                     .foregroundColor(Color.white)
@@ -36,7 +36,7 @@ struct MediHistoryView: View {
             .padding(.bottom, 10)
             
             Button {
-                navigationPath.append(3)
+                homeNavigation.navigate(.RejectView)
             } label: {
                 Text("입원 또는 수술 이력이 있어요")
                     .foregroundColor(Color.PB4)
@@ -46,6 +46,7 @@ struct MediHistoryView: View {
             }
             .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB2))
         }
+        .navigationBarBackButton()
         .padding(20)
     }
 }

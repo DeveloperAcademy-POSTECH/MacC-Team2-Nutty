@@ -11,9 +11,9 @@ struct IDCardOCRView: View {
     let backgroundOpacity = 0.8
     let cameraViewer = CameraViewer()
     @State private var captureImage: UIImage? = nil
-
+    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    
     var body: some View {
-        NavigationStack {
             ZStack {
                 cameraViewer
                     .edgesIgnoringSafeArea(.all)
@@ -31,7 +31,6 @@ struct IDCardOCRView: View {
                     Text("다음")
                 }
             }
-        }
         .navigationBarBackButton(color: .white)
     }
 }

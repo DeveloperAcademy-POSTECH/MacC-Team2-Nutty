@@ -13,9 +13,9 @@ struct IDCardConfirmEditView: View {
     @State private var backIDNumber = ""
     @State private var isValid = false
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
 
     var body: some View {
-        NavigationStack {
             VStack {
                 HStack {
                     Text("신분증 정보를 확인해 주세요")
@@ -60,7 +60,6 @@ struct IDCardConfirmEditView: View {
                 }
                 .padding()
             }
-        }
         .navigationBarBackButton()
     }
 }
