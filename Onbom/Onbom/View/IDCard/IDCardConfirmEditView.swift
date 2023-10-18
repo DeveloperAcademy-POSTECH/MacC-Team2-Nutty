@@ -11,7 +11,7 @@ struct IDCardConfirmEditView: View {
     @Binding var image: UIImage?
     @State private var frontIDNumber = ""
     @State private var backIDNumber = ""
-    @State private var isValid = false
+    @EnvironmentObject var patient: Patient
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
 
@@ -53,8 +53,14 @@ struct IDCardConfirmEditView: View {
                     } label: {
                         Text("재촬영")
                     }
+                    
                     Spacer()
-                    NavigationLink(destination: EmptyView()) {
+                    
+                    Button {
+                        //path append
+                        patient.combineID(frontID: frontIDNumber, backID: backIDNumber)
+                        print(patient.id)
+                    } label: {
                         Text("다음")
                     }
                 }
@@ -67,6 +73,7 @@ struct IDCardConfirmEditView: View {
 struct IDCardConfirmEditView_Previews: PreviewProvider {
     static var previews: some View {
         IDCardConfirmEditView(image: Binding.constant(UIImage()))
+            .environmentObject(Patient())
     }
 }
 

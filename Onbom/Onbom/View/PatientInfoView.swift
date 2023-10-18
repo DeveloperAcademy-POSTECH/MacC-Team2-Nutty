@@ -16,6 +16,7 @@ struct PatientInfoView: View {
         case seniorIDNumber1
         case seniorIDNumber2
     }
+    @EnvironmentObject var patient: Patient
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     
     @State private var step:                    [Bool] = [true, false, false]
@@ -169,6 +170,7 @@ struct PatientInfoView: View {
         .navigationBarBackButton()
         .onAppear {
             focusedField = .seniorName
+            
         }
     }
     
@@ -199,6 +201,8 @@ struct PatientInfoView: View {
     }
     
     private func didFinishTypingAll() {
+        patient.name = viewModel.seniorName;
+        patient.combineID(frontID: viewModel.seniorIDNumber1, backID: viewModel.seniorIDNumber2)
         focusedField = nil
     }
 }

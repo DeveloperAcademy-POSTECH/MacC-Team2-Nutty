@@ -12,7 +12,8 @@ struct IDCardConfirmView: View {
     @State private var backIDNumber = ""
     @State private var isValid = false
     @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject var application: ApplicationInfo
+    @EnvironmentObject var patient: Patient
+    @EnvironmentObject var agent: Agent
 
     var body: some View {
         NavigationStack {
@@ -40,21 +41,17 @@ struct IDCardConfirmView: View {
                 Rectangle()
                     .foregroundColor(.gray)
                     .overlay {
-                        if let image = application.image {
-                            Image(uiImage: image)
-                                .resizable()
-                                .scaledToFit()
-                        } else {
-                            Text("사진없음")
-                        }
+                        Image(uiImage: agent.idCardImage)
+                            .resizable()
+                            .scaledToFit()
                     }
                     .padding()
                     .frame(height: 250)
 
                 IDNumberInputField(frontNumber: $frontIDNumber, backNumber: $backIDNumber)
                     .onAppear {
-                        frontIDNumber = application.agentID
-                        backIDNumber = application.agentID
+                        frontIDNumber = agent.id
+                        backIDNumber = agent.id
                     }
 
                 Spacer()
@@ -81,7 +78,8 @@ struct IDCardConfirmView: View {
 struct IDCardConfirmView_Previews: PreviewProvider {
     static var previews: some View {
         IDCardConfirmView()
-            .environmentObject(ApplicationInfo())
+            .environmentObject(Patient())
+            .environmentObject(Agent())
     }
 }
 

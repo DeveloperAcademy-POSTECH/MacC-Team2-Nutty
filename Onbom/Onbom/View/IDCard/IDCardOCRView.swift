@@ -10,10 +10,10 @@ import SwiftUI
 struct IDCardOCRView: View {
     let backgroundOpacity = 0.8
     let cameraViewer = CameraViewer()
-    @State private var captureImage: UIImage? = nil
     @Binding var presentIDCardOCR: Bool
-    @EnvironmentObject var application: ApplicationInfo
+    @State private var captureImage: UIImage? = nil
     @State private var temp: Bool = false
+    @EnvironmentObject var agent: Agent
 
     var body: some View {
             ZStack {
@@ -42,10 +42,10 @@ struct IDCardOCRView: View {
                         //navigationstack append
                         cameraViewer.cameraManager.takePhoto()
                         cameraViewer.cameraManager.capturedIDCard = { image in
-                            application.image = image
+                            agent.idCardImage = image
                         }
                         cameraViewer.cameraManager.recognizedID = { idNumber in
-                            application.agentID = idNumber
+                            agent.id = idNumber
                         }
                         temp = true
                     } label: {
@@ -174,6 +174,6 @@ fileprivate struct IDCardOCRSheet: View {
 
 struct IDCardOCRView_Previews: PreviewProvider {
     static var previews: some View {
-        IDCardOCRView(presentIDCardOCR: .constant(true))
+        IDCardOCRView(presentIDCardOCR: .constant(false))
     }
 }

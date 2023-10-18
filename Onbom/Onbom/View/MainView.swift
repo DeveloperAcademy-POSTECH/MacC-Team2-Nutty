@@ -20,7 +20,6 @@ struct MainView: View {
                         case .MediHistoryView:                  MediHistoryView()
                         case .MediConditionView:                MediConditionView()
                         case .IDCardDescriptionView:            IDCardDescriptionView()
-                        case .IDCardOCRView:                    IDCardOCRView()
                         case .IDCardConfirmEditView:            IDCardConfirmEditView(image: .constant(UIImage()))
                         case .AddressFormView_Patient:          AddressFormView(formType: .patient)
                         case .AddressFormView_Agent:            AddressFormView(formType: .agent)
