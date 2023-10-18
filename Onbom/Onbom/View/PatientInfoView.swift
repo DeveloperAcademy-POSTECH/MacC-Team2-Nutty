@@ -17,6 +17,8 @@ struct PatientInfoView: View {
         case seniorIDNumber2
     }
     @Binding var navigationPath: [Int]
+    @EnvironmentObject var patient: Patient
+    
     
     @State private var step:                    [Bool] = [true, false, false]
     @State private var didAppear:               [Bool] = [true, false, false]
@@ -167,6 +169,7 @@ struct PatientInfoView: View {
         }
         .onAppear {
             focusedField = .seniorName
+            
         }
     }
     
@@ -197,6 +200,8 @@ struct PatientInfoView: View {
     }
     
     private func didFinishTypingAll() {
+        patient.name = viewModel.seniorName;
+        patient.combineID(frontID: viewModel.seniorIDNumber1, backID: viewModel.seniorIDNumber2)
         focusedField = nil
     }
 }
