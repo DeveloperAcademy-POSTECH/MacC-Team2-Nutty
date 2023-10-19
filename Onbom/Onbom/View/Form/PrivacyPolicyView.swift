@@ -8,41 +8,39 @@
 import SwiftUI
 
 struct PrivacyPolicyView: View {
-
+    
     private let policyTextArray = ["개인정보 제3자 제공 동의 (필수)", "민감정보 처리 동의 (필수)", "고유식별정보 처리 동의 (필수)"]
     @State private var isCheckArray = Array(repeating: false, count: 3)
     @State private var isAllCheck = false
-
+    
     var body: some View {
-        NavigationStack {
-            VStack(alignment: .leading) {
-                allCheckButton
-                Divider()
-                    .padding(.bottom, 18)
-                    .padding(.top, 8)
-                ForEach(Array(policyTextArray.enumerated()), id: \.element) { index, policyText in
-                    HStack {
-                        PrivacyPolicyLow(policyText: policyText, isCheck: $isCheckArray[index], isAllCheck: $isAllCheck)
-                    }
-                    .padding(.bottom,18)
+        VStack(alignment: .leading) {
+            allCheckButton
+            Divider()
+                .padding(.bottom, 18)
+                .padding(.top, 8)
+            ForEach(Array(policyTextArray.enumerated()), id: \.element) { index, policyText in
+                HStack {
+                    PrivacyPolicyLow(policyText: policyText, isCheck: $isCheckArray[index], isAllCheck: $isAllCheck)
                 }
-                .onChange(of: isCheckArray) { newValue in
-                    for i in 0..<3 {
-                        if isCheckArray[i] == false {
-                            return
-                        }
-                    }
-                    isAllCheck = true
-                }
-                Button {
-                    if isAllCheck {
-                        // Date() 저장하기
-                    }
-                } label: {
-                    Text("다음")
-                }
-                .disabled(!isAllCheck)
+                .padding(.bottom,18)
             }
+            .onChange(of: isCheckArray) { newValue in
+                for i in 0..<3 {
+                    if isCheckArray[i] == false {
+                        return
+                    }
+                }
+                isAllCheck = true
+            }
+            Button {
+                if isAllCheck {
+                    // Date() 저장하기
+                }
+            } label: {
+                Text("다음")
+            }
+            .disabled(!isAllCheck)
         }
         .padding(20)
     }

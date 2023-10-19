@@ -20,7 +20,7 @@ class Patient: ObservableObject {
 }
 
 class Agent: ObservableObject {
-    @Published var name: String = ""
+    @Published var name: String = "대리인"
     @Published var id: String = ""
     @Published var idCardImage: UIImage = UIImage()
     @Published var relation: String = ""

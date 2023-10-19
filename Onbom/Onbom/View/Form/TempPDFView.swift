@@ -11,30 +11,28 @@ struct TempPDFView: View {
     @EnvironmentObject var pdfManager: PDFManager
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                NavigationLink {
-                    TempWriteFormView()
-                } label: {
-                    Text("신청서 작성하기")
-                }
-                ForEach(Array(pdfManager.PDFDatas.enumerated()), id:\.1) { index, pdfdata in
-                    NavigationLink {
-                        PDFViewer(pdfData: pdfdata)
-                    } label: {
-                        Text("PDF 보기 \(index)")
-                    }
-                    .padding()
-                    .foregroundColor(.red)
-                }
-                Text("신청한 수 : \(pdfManager.PDFDatas.count)")
-                    .padding()
-                NavigationLink {
-                    PDFViewer()
-                } label: {
-                    Text("PDF 원본")
-                }.padding()
+        VStack {
+            NavigationLink {
+                TempWriteFormView()
+            } label: {
+                Text("신청서 작성하기")
             }
+            ForEach(Array(pdfManager.PDFDatas.enumerated()), id:\.1) { index, pdfdata in
+                NavigationLink {
+                    PDFViewer(pdfData: pdfdata)
+                } label: {
+                    Text("PDF 보기 \(index)")
+                }
+                .padding()
+                .foregroundColor(.red)
+            }
+            Text("신청한 수 : \(pdfManager.PDFDatas.count)")
+                .padding()
+            NavigationLink {
+                PDFViewer()
+            } label: {
+                Text("PDF 원본")
+            }.padding()
         }
     }
 }

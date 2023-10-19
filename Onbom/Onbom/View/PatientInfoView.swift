@@ -208,6 +208,7 @@ struct PatientInfoView: View {
         if(!step[1]) {
             didFinishTypingName()
         } else {
+            patient.combineID(frontID: viewModel.seniorIDNumber1, backID: viewModel.seniorIDNumber2)
             homeNavigation.navigate(.AddressFormView_Patient)
         }
     }
@@ -242,7 +243,6 @@ struct PatientInfoView: View {
     
     private func didFinishTypingAll() {
         patient.name = viewModel.seniorName;
-        patient.combineID(frontID: viewModel.seniorIDNumber1, backID: viewModel.seniorIDNumber2)
         focusedField = nil
     }
 }

@@ -56,6 +56,7 @@ struct AgentInfoDetailView: View {
             }
             Spacer()
         }
+        .navigationBarBackButton()
         .padding(.horizontal, 20)
     }
 }

@@ -14,6 +14,9 @@ struct IDCardOCRView: View {
     @State private var captureImage: UIImage? = nil
     @State private var temp: Bool = false
     @EnvironmentObject var agent: Agent
+    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    
+    var onFinishCapture: () -> Void
 
     var body: some View {
             ZStack {
@@ -39,7 +42,7 @@ struct IDCardOCRView: View {
                     }
                     Spacer()
                     Button {
-                        //navigationstack append
+                        
                         cameraViewer.cameraManager.takePhoto()
                         cameraViewer.cameraManager.capturedIDCard = { image in
                             agent.idCardImage = image
@@ -47,7 +50,9 @@ struct IDCardOCRView: View {
                         cameraViewer.cameraManager.recognizedID = { idNumber in
                             agent.id = idNumber
                         }
-                        temp = true
+                        
+                        onFinishCapture()
+                        
                     } label: {
                         Circle()
                             .frame(width: 56, height: 56)
@@ -58,13 +63,6 @@ struct IDCardOCRView: View {
                                     .strokeBorder(.white, lineWidth: 3)
                             }
                     }
-                    //임시
-                    .navigationDestination(isPresented: $temp) {
-                        IDCardConfirmView()
-                    }
-                }
-                NavigationLink(destination: IDCardConfirmEditView(image: $captureImage)) {
-                    Text("다음")
                 }
             }
         
@@ -174,6 +172,6 @@ fileprivate struct IDCardOCRSheet: View {
 
 struct IDCardOCRView_Previews: PreviewProvider {
     static var previews: some View {
-        IDCardOCRView(presentIDCardOCR: .constant(false))
+        IDCardOCRView(presentIDCardOCR: .constant(false), onFinishCapture: {})
     }
 }
