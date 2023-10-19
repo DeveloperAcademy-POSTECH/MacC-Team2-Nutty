@@ -159,30 +159,22 @@ struct PatientInfoView: View {
             }
             .scrollDismissesKeyboard(.immediately)
             if isKeyboardVisible {
-                Button{
+                CTAButton.CustomButtonView(
+                    style: .expanded(isDisabled: !isActiveButton()))
+                {
                     onClickButton()
                 } label: {
                     Text("다음")
-                        .foregroundColor(.white)
-                        .padding(20)
                 }
-                .frame(maxWidth: .infinity)
-                .background(isActiveButton() ? Color.PB4 : Color.PB3)
-                .disabled(!isActiveButton())
             } else {
-                Button {
+                CTAButton.CustomButtonView(
+                    style: .primary(isDisabled: !isActiveButton()))
+                {
                     onClickButton()
                 } label: {
                     Text("다음")
-                        .foregroundColor(Color.white)
-                        .B1()
-                        .padding(.vertical, 20)
-                        .frame(maxWidth: .infinity)
                 }
-                .background(RoundedRectangle(cornerRadius: 12).fill(isActiveButton() ? Color.PB4 : Color.PB3))
                 .padding(.horizontal, 20)
-                .padding(.bottom, 20)
-                .disabled(!isActiveButton())
             }
         }
         .onAppear {

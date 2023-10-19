@@ -54,18 +54,22 @@ struct IDCardConfirmView: View {
                 }
             
             Spacer()
-            
-            //CTA Button
+
             HStack {
-                Button {
+                CTAButton.CustomButtonView(style: .secondary(isDisabled: false)) {
                     dismiss()
                 } label: {
                     Text("재촬영")
                 }
-                Spacer()
-                NavigationLink(destination: EmptyView()) {
+                .frame(maxWidth: 120)
+
+                
+                CTAButton.CustomButtonView(style: .main) {
+                    patient.combineID(frontID: frontIDNumber, backID: backIDNumber)
+                } label: {
                     Text("다음")
                 }
+
             }
             .padding()
         }

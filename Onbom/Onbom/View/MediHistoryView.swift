@@ -23,28 +23,25 @@ struct MediHistoryView: View {
                 .padding(30)
             Spacer()
             
-            Button {
+            CTAButton.CustomButtonView(
+                style: .main)
+            {
                 homeNavigation.navigate(.MediConditionView)
             } label: {
-                Text("아니요, 없어요")
-                    .foregroundColor(Color.white)
-                    .B1()
-                    .padding(.vertical, 20)
-                    .frame(maxWidth: .infinity)
+                   Text("아니요, 없어요")
             }
-            .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB4))
             .padding(.bottom, 10)
             
-            Button {
+            CTAButton.CustomButtonView(
+                style: .secondary(isDisabled: false))
+            {
                 homeNavigation.navigate(.RejectView)
             } label: {
-                Text("입원 또는 수술 이력이 있어요")
-                    .foregroundColor(Color.PB4)
-                    .B1()
-                    .padding(.vertical, 20)
-                    .frame(maxWidth: .infinity)
+                   Text("입원 또는 수술 이력이 있어요")
             }
-            .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB2))
+            .padding(.bottom, 10)
+            
+
         }
         .navigationBarBackButton()
         .padding(20)

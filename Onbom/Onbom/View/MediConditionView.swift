@@ -26,16 +26,13 @@ struct MediConditionView: View {
             
             Spacer()
             
-            Button {
+            CTAButton.CustomButtonView(
+                style: .primary(isDisabled: !viewModel.formIsValid))
+            {
                 homeNavigation.navigate(.PatientInfoView)
             } label: {
-                Text("다음")
-                    .foregroundColor(Color.white)
-                    .B1()
-                    .padding(.vertical, 20)
-                    .frame(maxWidth: .infinity)
+                   Text("다음")
             }
-            .background(RoundedRectangle(cornerRadius: 16).fill(viewModel.formIsValid ? Color.PB4 : Color.PB3))
         }
         .navigationBarBackButton()
         .padding(20)

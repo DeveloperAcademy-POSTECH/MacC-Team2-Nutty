@@ -115,7 +115,7 @@ struct CTAButtonExampleView: View {
             {
                 print()
             } label: {
-                   Text("다음")
+                Text("다음")
             }
             .padding(.horizontal, 20)
             
@@ -125,7 +125,7 @@ struct CTAButtonExampleView: View {
             {
                 print()
             } label: {
-                   Text("다음")
+                Text("다음")
             }
             .padding(.horizontal, 20)
 
@@ -136,7 +136,7 @@ struct CTAButtonExampleView: View {
             {
                 print()
             } label: {
-                   Text("다음")
+                Text("다음")
             }
             .padding(.horizontal, 20)
             
@@ -146,7 +146,7 @@ struct CTAButtonExampleView: View {
             {
                 print()
             } label: {
-                   Text("다음")
+                Text("다음")
             }
             .padding(.horizontal, 20)
             

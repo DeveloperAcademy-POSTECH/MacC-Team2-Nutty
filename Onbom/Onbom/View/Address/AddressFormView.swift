@@ -92,8 +92,7 @@ struct AddressFormView: View {
                 
                 Spacer()
                 
-                //CTA Button
-                Button {
+                CTAButton.CustomButtonView(style: .main) {
                     if formType == .patient {
                         showActualAddressCheckView = true
                     } else if formType == .actualPatient {
@@ -105,12 +104,7 @@ struct AddressFormView: View {
                     }
                 } label: {
                     Text("다음")
-                        .foregroundColor(Color.white)
-                        .B1()
-                        .padding(.vertical, 20)
-                        .frame(maxWidth: .infinity)
                 }
-                .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB4))
                 .padding(.bottom, 10)
                 .padding()
                 .navigationDestination(isPresented: $isPostCodeViewPresented) {

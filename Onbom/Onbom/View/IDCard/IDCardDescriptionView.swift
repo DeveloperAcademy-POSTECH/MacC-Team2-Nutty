@@ -38,18 +38,14 @@ struct IDCardDescriptionView: View {
             Rectangle()
                 .foregroundColor(.gray)
                 .padding()
-            //CTA Button
-            Button {
+            
+            CTAButton.CustomButtonView(style: .main) {
                 presentIDCardOCR.toggle()
             } label: {
                 Text("다음")
-                    .foregroundColor(Color.white)
-                    .B1()
-                    .padding(.vertical, 20)
-                    .frame(maxWidth: .infinity)
             }
-            .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB4))
             .padding()
+
         }
         .fullScreenCover(isPresented: $presentIDCardOCR) {
             IDCardOCRView(presentIDCardOCR: $presentIDCardOCR, onFinishCapture: onFinishCapture)

@@ -79,7 +79,7 @@ struct StepView: View {
             
             Spacer()
             
-            Button {
+            CTAButton.CustomButtonView(style: .main) {
                 if state == .FIRST {
                     homeNavigation.navigate(.MediHistoryView)
                 } else {
@@ -87,12 +87,8 @@ struct StepView: View {
                 }
             } label: {
                 Text("다음")
-                    .foregroundColor(Color.white)
-                    .B1()
-                    .padding(.vertical, 20)
-                    .frame(maxWidth: .infinity)
             }
-            .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB4))
+
             .padding(.bottom, 10)
         }
         .navigationBarBackButton()
