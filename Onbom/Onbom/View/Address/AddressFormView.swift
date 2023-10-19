@@ -138,7 +138,9 @@ struct AddressFormView: View {
                 
                 HStack {
                     Button {
-                        showActualAddressCheckView.toggle()
+                        showActualAddressCheckView = false
+                        patient.address = address
+                        homeNavigation.navigate(.AddressFormView_ActualPatient)
                     } label: {
                         Text("아니오 달라요")
                             .B1()
@@ -151,8 +153,9 @@ struct AddressFormView: View {
                     Spacer()
                     Button {
                         patient.address = address
+                        patient.actualAddress = address
                         showActualAddressCheckView = false
-                        homeNavigation.navigate(.AddressFormView_ActualPatient)
+                        homeNavigation.navigate(.StepView_Second)
                     } label: {
                         Text("네, 같은 곳이에요")
                             .B1()
