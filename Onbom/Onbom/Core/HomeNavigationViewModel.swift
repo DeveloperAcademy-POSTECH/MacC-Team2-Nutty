@@ -32,6 +32,7 @@ public enum HomeRoute {
     case IDCardOCRView
     case IDCardConfirmEditView
     case AddressFormView_Patient
+    case AddressFormView_ActualPatient
     case AddressFormView_Agent
     case SignatureView
     case SubmitCheckListView

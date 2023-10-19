@@ -57,9 +57,8 @@ struct IDCardConfirmEditView: View {
                     Spacer()
                     
                     Button {
-                        //path append
                         patient.combineID(frontID: frontIDNumber, backID: backIDNumber)
-                        print(patient.id)
+                        homeNavigation.navigate(.AddressFormView_Agent)
                     } label: {
                         Text("다음")
                     }
