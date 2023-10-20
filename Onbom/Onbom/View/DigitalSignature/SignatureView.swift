@@ -54,7 +54,7 @@ struct SignatureView: View {
             
             Spacer()
             
-            CTAButton.CustomButtonView(style: .main) {
+            CTAButton.CustomButtonView(style: .primary(isDisabled: digitalSignatureManager.paths.count == 0)) {
                 homeNavigation.navigate(.SubmitCheckListView)
             } label: {
                 Text("다음")

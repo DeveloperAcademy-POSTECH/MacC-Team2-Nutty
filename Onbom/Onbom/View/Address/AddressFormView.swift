@@ -73,8 +73,7 @@ struct AddressFormView: View {
                                 .padding(.leading, 13)
                                 .foregroundColor(.PB4)
                             Text(alertMessage)
-                                .foregroundColor(Color.G6)
-                                .Cap4()
+                                .Cap5()
                                 .padding(.vertical)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
@@ -119,7 +118,8 @@ struct AddressFormView: View {
         .navigationBarBackButton()
         .sheet(isPresented: $showActualAddressCheckView) {
             VStack{
-                Rectangle().frame(width: 70, height: 70).foregroundColor(.gray)
+                Image("warning")
+                    .frame(width: 70, height: 70)
                 
                 Text("작성하신 주민등록지가 현재\n어르신이 머무르고 계신 곳인가요?")
                     .T2()

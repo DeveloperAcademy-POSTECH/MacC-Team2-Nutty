@@ -35,9 +35,11 @@ struct IDCardDescriptionView: View {
             Spacer()
             
             //신분증 안내 사진?
-            Rectangle()
+            Image("IDCardDescriptionView")
                 .foregroundColor(.gray)
                 .padding()
+            
+            Spacer()
             
             CTAButton.CustomButtonView(style: .main) {
                 presentIDCardOCR.toggle()

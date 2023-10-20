@@ -17,10 +17,7 @@ struct MediHistoryView: View {
                 .H2()
                 .frame(maxWidth: .infinity, alignment: .leading)
             Spacer()
-            Rectangle()
-                .fill(Color.G2)
-                .frame(maxHeight: 270)
-                .padding(30)
+            Image("MediHistoryView")
             Spacer()
             
             CTAButton.CustomButtonView(

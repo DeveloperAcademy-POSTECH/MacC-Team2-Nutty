@@ -33,19 +33,11 @@ struct PatientInfoView: View {
                 .H2()
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 20)
-            HStack(spacing: 4) {
-                Image("security")
-                    .padding(.leading, 13)
-                Text("입력한 주민등록번호는 저장되지 않으니 안심하세요")
-                    .foregroundColor(Color.G6)
-                    .Cap4()
-                    .padding(.vertical, 14)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .background(RoundedRectangle(cornerRadius: 10).fill(Color.PB1))
-            .padding(20)
-            .appear(didAppear[2])
+                .padding(.bottom, 20)
+            Alert(image: "security", label: "입력한 주민등록번호는 저장되지 않으니 안심하세요")
+                .padding(.horizontal, 20)
+                .padding(.bottom, 48)
+                .appear(didAppear[2])
             
             ScrollView {
                 if(step[2]) {

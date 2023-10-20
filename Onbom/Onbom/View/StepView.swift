@@ -21,8 +21,7 @@ struct StepView: View {
     
     var body: some View {
         VStack (alignment: .leading, spacing: 0) {
-            Rectangle()
-                .fill(Color.G3)
+            Image("StepView")
                 .frame(width:60, height: 60)
                 .padding(.bottom, 20)
             Text("장기요양등급 신규 신청을 위해")
