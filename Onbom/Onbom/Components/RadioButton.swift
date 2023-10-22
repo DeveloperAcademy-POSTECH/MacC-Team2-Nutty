@@ -49,11 +49,11 @@ public struct RadioButtonStyleModifiers: ButtonStyle {
         switch style {
         case .oneUnselected:
             configuration.label
-                .foregroundColor(configuration.isPressed ? Color.PB4 : .black)
+                .foregroundColor(configuration.isPressed ? Color.PB4 : .B)
                 .frame(maxWidth: .infinity)
                 .padding(.leading, 20.0)
                 .padding(.vertical, 22)
-                .background(RoundedRectangle(cornerRadius: 16).fill(configuration.isPressed ? Color.PB3 : Color.G2))
+                .background(RoundedRectangle(cornerRadius: 10).fill(configuration.isPressed ? Color.PB3 : Color.G2))
                 .overlay(RoundedRectangle(cornerRadius: 16)
                     .stroke(configuration.isPressed ? Color.TPB : Color.G2, lineWidth: 1.2))
             
@@ -63,13 +63,13 @@ public struct RadioButtonStyleModifiers: ButtonStyle {
                 .frame(maxWidth: .infinity)
                 .padding(.leading, 20.0)
                 .padding(.vertical, 22)
-                .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB2))
+                .background(RoundedRectangle(cornerRadius: 10).fill(Color.PB2))
                 .overlay(RoundedRectangle(cornerRadius: 16)
                     .stroke(Color.PB4, lineWidth: 1.2))
             
         case .twoUnselected:
             configuration.label
-                .foregroundColor(configuration.isPressed ? Color.PB4 : .black)
+                .foregroundColor(configuration.isPressed ? Color.PB4 : .B)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 16)
                 .background(RoundedRectangle(cornerRadius: 10).fill(configuration.isPressed ? Color.PB3 : Color.G2))
@@ -84,6 +84,7 @@ public struct RadioButtonStyleModifiers: ButtonStyle {
                 .background(RoundedRectangle(cornerRadius: 10).fill(Color.PB2))
                 .overlay(RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.PB4, lineWidth: 1.2))
+            
         }
     }
 }
@@ -112,6 +113,7 @@ struct RadioButtonExampleView: View {
                                     .T3()
                                 Text("\(description[index])")
                                     .Cap3()
+                                    .foregroundColor(.G5)
                             }
                             Spacer()
                         }
