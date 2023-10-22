@@ -11,7 +11,7 @@ import PDFKit
 class PDFManager: ObservableObject {
     @Published var PDFDatas: [Data] = []
 
-    let signatureRect: CGRect = CGRect(x: 454, y: 430, width: 140, height: 100)
+    let signatureRect: CGRect = CGRect(x: 280, y: 250, width: 500, height: 250)
     
     enum FixedPositionItems: CaseIterable {
             case apply
@@ -57,6 +57,9 @@ class PDFManager: ObservableObject {
             
             // MARK: 두번째 페이지
             if let secondPage = pdfDocument.page(at: 1) {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy        MM        dd"
+                let currentDate = formatter.string(from: Date())
                 // 고정된 정보
                 for item in Array(FixedPositionItems.allCases.suffix(3)) {
                     switch item {
@@ -65,7 +68,7 @@ class PDFManager: ObservableObject {
                     case .mailAddress:
                         addTextAnnotation(page: secondPage, bounds:CGRect(x: 429, y: 690, width: 140, height: 20), content: "✓")
                     case .todayDate:
-                        addTextAnnotation(page: secondPage, bounds:CGRect(x: 450, y: 480, width: 140, height: 20), content: "날짜날짜")
+                        addTextAnnotation(page: secondPage, bounds:CGRect(x: 400, y: 482, width: 140, height: 20), content: currentDate)
                     default:
                         continue
                     }
