@@ -10,14 +10,14 @@ import SwiftUI
 struct SignatureView: View {
     @ObservedObject var digitalSignatureManager = DigitalSignatureManager()
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
-
+    @EnvironmentObject var agent: Agent
     var body: some View {
         VStack(alignment: .leading) {
             Text("서명을 해주세요")
                 .H2()
             // Alert 넣기
             // TODO: 신청인/대리인 케이스 나누기
-            Text("신청인 본인")
+            Text(agent.name)
                 .Label()
             ZStack {
                 digitalSignatureManager.rectangle
@@ -52,6 +52,7 @@ struct SignatureView: View {
             .gesture(digitalSignatureManager.gesture())
             Spacer()
             Button("완료") {
+                agent.signature = digitalSignatureManager.paths
                 homeNavigation.navigate(.SubmitCheckListView)
             }
         }
@@ -78,5 +79,6 @@ struct SignatureView: View {
 struct SignatureView_Previews: PreviewProvider {
     static var previews: some View {
         SignatureView()
+            .environmentObject(Agent())
     }
 }

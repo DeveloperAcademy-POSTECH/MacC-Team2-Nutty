@@ -11,7 +11,7 @@ struct IDCardConfirmEditView: View {
     @Binding var image: UIImage?
     @State private var frontIDNumber = ""
     @State private var backIDNumber = ""
-    @EnvironmentObject var patient: Patient
+    @EnvironmentObject var agent: Agent
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
 
@@ -57,7 +57,10 @@ struct IDCardConfirmEditView: View {
                     Spacer()
                     
                     Button {
-                        patient.combineID(frontID: frontIDNumber, backID: backIDNumber)
+                        agent.combineID(frontID: frontIDNumber, backID: backIDNumber)
+                        if let image {
+                            agent.idCardImage = image
+                        }
                         homeNavigation.navigate(.AddressFormView_Agent)
                     } label: {
                         Text("다음")
