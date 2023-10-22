@@ -24,28 +24,28 @@ struct CTAButton {
             switch style {
             case .primary(let isDisabled):
                 Button(action: action) {
-                        label
-                            .B1()
+                    label
+                        .B1()
                 }
                 .buttonStyle(CTAButtonStyleModifiers(style: style))
                 .disabled(isDisabled)
             case .secondary:
                 Button(action: action) {
-                        label
-                            .B1()
+                    label
+                        .B1()
                 }
                 .buttonStyle(CTAButtonStyleModifiers(style: style))
             case .expanded(let isDisabled):
                 Button(action: action) {
-                        label
-                            .B1()
+                    label
+                        .B1()
                 }
                 .buttonStyle(CTAButtonStyleModifiers(style: style))
                 .disabled(isDisabled)
             case .main:
                 Button(action: action) {
-                        label
-                            .B1()
+                    label
+                        .B1()
                 }
                 .buttonStyle(CTAButtonStyleModifiers(style: style))
             }
@@ -67,6 +67,7 @@ public struct CTAButtonStyleModifiers: ButtonStyle {
     
     @ViewBuilder
     public func makeBody(configuration: Self.Configuration) -> some View {
+        
         switch style {
         case let .primary(isDisabled):
             configuration.label
@@ -103,110 +104,169 @@ struct CTAButtonExampleView: View {
     @State private var isDisabled = false
     
     var body: some View {
-        VStack {
-            // 비활성화 체크를 위한 버튼
-            Button("check") {
-                isDisabled.toggle()
-            }
-            
-            // PrimaryButton
-            CTAButton.CustomButtonView(
-                style: .primary(isDisabled: isDisabled))
-            {
-                print()
-            } label: {
-                   Text("다음")
-            }
-            .padding(.horizontal, 20)
-            
-            // SecondaryButton
-            CTAButton.CustomButtonView(
-                style: .secondary(isDisabled: isDisabled))
-            {
-                print()
-            } label: {
-                   Text("다음")
-            }
-            .padding(.horizontal, 20)
-
-            
-            // ExpandedButton
-            CTAButton.CustomButtonView(
-                style: .expanded(isDisabled: isDisabled))
-            {
-                print()
-            } label: {
-                   Text("다음")
-            }
-            .padding(.horizontal, 20)
-            
-            // MainCTAButton
-            CTAButton.CustomButtonView(
-                style: .main)
-            {
-                print()
-            } label: {
-                   Text("다음")
-            }
-            .padding(.horizontal, 20)
-            
-            // VerticalCTAButton
-            VStack {
-                CTAButton.CustomButtonView(
-                    style: .main)
-                {
-                    print()
-                } label: {
-                    Text("다음")
+        ZStack {
+            Color.black
+                .edgesIgnoringSafeArea(.all)
+            ScrollView {
+                VStack {
+                    // 비활성화 체크를 위한 버튼
+                    Button("check") {
+                        isDisabled.toggle()
+                    }
+                    
+                    // PrimaryButton
+                    CTAButton.CustomButtonView(
+                        style: .primary(isDisabled: isDisabled))
+                    {
+                        print()
+                    } label: {
+                        Text("다음")
+                    }
+                    .padding(.horizontal, 20)
+                    
+                    // SecondaryButton
+                    CTAButton.CustomButtonView(
+                        style: .secondary(isDisabled: isDisabled))
+                    {
+                        print()
+                    } label: {
+                        Text("다음")
+                    }
+                    .padding(.horizontal, 20)
+                    
+                    // ExpandedButton
+                    ZStack(alignment: .bottom) {
+                        LinearGradient(
+                            stops: [
+                                .init(color: .TPW, location : 0),
+                                .init(color: .W, location : 0.48)
+                            ],
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                        .frame(maxWidth: .infinity, minHeight: 104)
+                        CTAButton.CustomButtonView(
+                            style: .expanded(isDisabled: isDisabled))
+                        {
+                            print()
+                        } label: {
+                            Text("다음")
+                        }
+                    }
+                    
+                    // MainCTAButton
+                    ZStack {
+                        LinearGradient(
+                            stops: [
+                                .init(color: .TPW, location : 0),
+                                .init(color: .W, location : 0.28)
+                            ],
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                        .frame(maxWidth: .infinity, minHeight: 122)
+                        CTAButton.CustomButtonView(
+                            style: .main)
+                        {
+                            print()
+                        } label: {
+                            Text("다음")
+                        }
+                        .padding(.horizontal, 20)
+                    }
+                    
+                    // VerticalCTAButton
+                    ZStack {
+                        LinearGradient(
+                            stops: [
+                                .init(color: .TPW, location : 0),
+                                .init(color: .W, location : 0.16)
+                            ],
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                        .frame(maxWidth: .infinity, minHeight: 186)
+                        VStack(spacing: 10) {
+                            CTAButton.CustomButtonView(
+                                style: .main)
+                            {
+                                print()
+                            } label: {
+                                Text("버튼 텍스트")
+                            }
+                            CTAButton.CustomButtonView(
+                                style: .secondary(isDisabled: isDisabled))
+                            {
+                                print()
+                            } label: {
+                                Text("버튼 텍스트")
+                            }
+                        }
+                        .padding(.horizontal, 20)
+                    }
+                    
+                    // HorizontalCTAButton
+                    ZStack {
+                        LinearGradient(
+                            stops: [
+                                .init(color: .TPW, location : 0),
+                                .init(color: .W, location : 0.28)
+                            ],
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                        .frame(maxWidth: .infinity, minHeight: 122)
+                        HStack {
+                            CTAButton.CustomButtonView(
+                                style: .secondary(isDisabled: isDisabled))
+                            {
+                                print()
+                            } label: {
+                                Text("아니요")
+                            }
+                            CTAButton.CustomButtonView(
+                                style: .main)
+                            {
+                                print()
+                            } label: {
+                                Text("네")
+                            }
+                        }
+                        .padding(.horizontal, 20)
+                    }
+                    
+                    // IDCardHorizontalCTAButton
+                    ZStack {
+                        LinearGradient(
+                            stops: [
+                                .init(color: .TPW, location : 0),
+                                .init(color: .W, location : 0.28)
+                            ],
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                        .frame(maxWidth: .infinity, minHeight: 122)
+                        HStack {
+                            CTAButton.CustomButtonView(style: .secondary(isDisabled: isDisabled))
+                            {
+                                print()
+                            } label: {
+                                Text("재촬영")
+                            }
+                            .frame(width: 103)
+                            
+                            CTAButton.CustomButtonView(style: .main)
+                            {
+                                print()
+                            } label: {
+                                Text("다음")
+                            }
+                            .frame(maxWidth: .infinity)
+                        }
+                        .padding(.horizontal, 20)
+                    }
                 }
-                CTAButton.CustomButtonView(
-                    style: .secondary(isDisabled: isDisabled))
-                {
-                    print()
-                } label: {
-                    Text("다음")
-                }
             }
-            .padding(.horizontal, 20)
-            
-            // HorizontalCTAButton
-            HStack {
-                CTAButton.CustomButtonView(
-                    style: .secondary(isDisabled: isDisabled))
-                {
-                    print()
-                } label: {
-                    Text("아니요")
-                }
-                CTAButton.CustomButtonView(
-                    style: .main)
-                {
-                    print()
-                } label: {
-                    Text("네")
-                }
-            }
-            .padding(.horizontal, 20)
-            
-            // IDCardHorizontalCTAButton
-            HStack {
-                CTAButton.CustomButtonView(style: .secondary(isDisabled: isDisabled))
-                {
-                    print()
-                } label: {
-                    Text("재촬영")
-                }
-                .frame(width: 103)
-                
-                CTAButton.CustomButtonView(style: .main)
-                {
-                    print()
-                } label: {
-                    Text("다음")
-                }
-                .frame(maxWidth: .infinity)
-            }
-            .padding(.horizontal, 20)
         }
     }
 }
