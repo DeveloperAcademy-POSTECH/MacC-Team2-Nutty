@@ -14,13 +14,26 @@ struct HomeView: View {
     var body: some View {
         
         ScrollView(showsIndicators: false) {
+            // 쇼케이스용 pdfViewer
             TabView(selection: $selectedPage){
-                Rectangle().fill(Color.G4)
-                    .tag(0)
-                Rectangle().fill(Color.G3)
-                    .tag(1)
-                Rectangle().fill(Color.G4)
-                    .tag(2)
+                NavigationLink {
+                    PDFViewer(pdfData: pdfManager.PDFDatas.first )
+                } label: {
+                    Rectangle().fill(Color.G4)
+                        .tag(0)
+                }
+                NavigationLink {
+                    PDFViewer(pdfData: pdfManager.PDFDatas.first )
+                } label: {
+                    Rectangle().fill(Color.G3)
+                        .tag(1)
+                }
+                NavigationLink {
+                    PDFViewer(pdfData: pdfManager.PDFDatas.first )
+                } label: {
+                    Rectangle().fill(Color.G4)
+                        .tag(2)
+                }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .frame(width: UIScreen.main.bounds.width, height: 84)
@@ -47,11 +60,6 @@ struct HomeView: View {
                     .fill(Color.G2)
                     .frame(width: 150, height: 120)
                     .padding(.bottom, 33)
-                NavigationLink {
-                    PDFViewer(pdfData: pdfManager.PDFDatas.first )
-                } label: {
-                    Text("PDF보기")
-                }
                 Button {
                     homeNavigation.navigate(.ApplyTypeView)
                 } label: {
