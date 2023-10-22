@@ -61,3 +61,11 @@ struct MainView: View {
         .tint(Color.PB4)
     }
 }
+
+struct MainView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView()
+            .environmentObject(HomeNavigationViewModel())
+            .environmentObject(PDFManager())
+    }
+}
