@@ -8,28 +8,33 @@
 import SwiftUI
 
 struct AgentInfoView: View {
-    let agentName = "김유진"
-    let patientName = "김순옥"
-    @State private var agentDetailType = ""
+    let relation: [String] = ["가족", "친족"]
+    @State var twoSelectedIndex : Int = -1
+    @State private var isDisabled = true
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    @EnvironmentObject var agent: Agent
+    @EnvironmentObject var patient: Patient
+    
     var body: some View {
         VStack(alignment: .leading) {
-            Text("\(agentName)님과 \(patientName)님의\n상세 관계를 선택해 주세요")
+            Text("\(agent.name)님과 \(patient.name)님의\n상세 관계를 선택해 주세요")
                 .H2()
+                .foregroundColor(Color.B)
+                .padding(.bottom, 48)
             Text("상세 관계")
                 .Label()
+                .foregroundColor(Color.G6)
             HStack {
-                Button {
-                    agentDetailType = "가족"
-                } label: {
-                    Text("가족")
-                        .B3()
-                }
-                Button {
-                    agentDetailType = "친족"
-                } label: {
-                    Text("친족")
-                        .B3()
+                ForEach(0..<2, id: \.self) { index in
+                    let twoStyle: RadioButtonStyle = twoSelectedIndex == index ? .twoSelected : .twoUnselected
+                    RadioButton.CustomButtonView(style: twoStyle) {
+                        twoSelectedIndex = index
+                        isDisabled = false
+                        agent.relation = relation[index]
+                        print("\(relation[index])")
+                    } label: {
+                        Text(relation[index])
+                    }
                 }
             }
             Spacer()
@@ -45,20 +50,24 @@ struct AgentInfoView: View {
                 }
                 Spacer()
             }
-            Button {
+            .padding(.bottom, 10)
+            CTAButton.CustomButtonView(
+                style: .primary(isDisabled: isDisabled))
+            {
                 homeNavigation.navigate(.IDCardDescriptionView)
             } label: {
                 Text("다음")
             }
-            
         }
         .navigationBarBackButton()
         .padding(20)
-}
+    }
 }
 
 struct AgentInfoView_Previews: PreviewProvider {
     static var previews: some View {
         AgentInfoView()
+            .environmentObject(Agent())
+            .environmentObject(Patient())
     }
 }

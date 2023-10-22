@@ -11,7 +11,7 @@ import Combine
 struct MediConditionView: View {
     @ObservedObject private var viewModel = MediConditionViewModel()
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
-    
+    @EnvironmentObject var patient: Patient
     var body: some View {
         VStack(spacing: 0){
             Text("현재 전염성 질병 또는\n정신질환을 가지고 계신가요?")
@@ -27,6 +27,8 @@ struct MediConditionView: View {
             Spacer()
             
             Button {
+                patient.hasInfectiousDisease = viewModel.hasInfectiousDisease ?? false
+                patient.hasMentalDisorder = viewModel.hasMentalDisorder ?? false
                 homeNavigation.navigate(.PatientInfoView)
             } label: {
                 Text("다음")

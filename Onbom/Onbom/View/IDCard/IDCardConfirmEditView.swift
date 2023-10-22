@@ -61,7 +61,6 @@ struct IDCardConfirmEditView: View {
                     Text("재촬영")
                 }
                 .frame(width: 100)
-                
                 CTAButton.CustomButtonView(style: .main) {
                     agent.combineID(frontID: frontIDNumber, backID: backIDNumber)
                     homeNavigation.navigate(.AddressFormView_Agent)

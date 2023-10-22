@@ -10,15 +10,19 @@ import SwiftUI
 struct SignatureView: View {
     @ObservedObject var digitalSignatureManager = DigitalSignatureManager()
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
-
+    @EnvironmentObject var agent: Agent
+    @State private var isDisabled = true
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("서명을 해주세요")
                 .H2()
-            // Alert 넣기
-            // TODO: 신청인/대리인 케이스 나누기
-            Text("신청인 본인")
+            Alert(image: "security", label: "입력한 주민등록번호는 저장되지 않으니 안심하세요")
+                .padding(.vertical, 8)
+                .padding(.bottom, 30)
+            Text("대리인 본인")
                 .Label()
+                .foregroundColor(Color.G6)
             ZStack {
                 digitalSignatureManager.rectangle
                     .fill(Color.G2)
@@ -51,8 +55,13 @@ struct SignatureView: View {
             .frame(height: 146)
             .gesture(digitalSignatureManager.gesture())
             Spacer()
-            Button("완료") {
+            CTAButton.CustomButtonView(
+                style: .primary(isDisabled: digitalSignatureManager.paths.isEmpty))
+            {
+                agent.signature = digitalSignatureManager.paths
                 homeNavigation.navigate(.SubmitCheckListView)
+            } label: {
+                Text("다음")
             }
         }
         .navigationBarBackButton()
@@ -78,5 +87,6 @@ struct SignatureView: View {
 struct SignatureView_Previews: PreviewProvider {
     static var previews: some View {
         SignatureView()
+            .environmentObject(Agent())
     }
 }
