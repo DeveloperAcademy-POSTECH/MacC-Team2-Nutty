@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject private var homeNavigation = HomeNavigationViewModel()
-    
+    @StateObject private var pdfManager = PDFManager()
     var body: some View {
         TabView {
             NavigationStack(path: $homeNavigation.homePath) {
@@ -36,6 +36,7 @@ struct MainView: View {
                     }
             }
             .environmentObject(homeNavigation)
+            .environmentObject(pdfManager)
             .tint(Color.G5)
             .tabItem {
                 Image("home")

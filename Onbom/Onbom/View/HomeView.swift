@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @State private var selectedPage = 0
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
-    
+    @EnvironmentObject var pdfManager: PDFManager
     var body: some View {
         
         ScrollView(showsIndicators: false) {
@@ -47,7 +47,11 @@ struct HomeView: View {
                     .fill(Color.G2)
                     .frame(width: 150, height: 120)
                     .padding(.bottom, 33)
-                
+                NavigationLink {
+                    PDFViewer(pdfData: pdfManager.PDFDatas.first )
+                } label: {
+                    Text("PDF보기")
+                }
                 Button {
                     homeNavigation.navigate(.ApplyTypeView)
                 } label: {
