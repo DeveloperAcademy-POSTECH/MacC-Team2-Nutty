@@ -20,20 +20,22 @@ struct HomeView: View {
                     PDFViewer(pdfData: pdfManager.PDFDatas.first )
                 } label: {
                     Rectangle().fill(Color.G4)
-                        .tag(0)
                 }
+                .tag(0)
                 NavigationLink {
                     PDFViewer(pdfData: pdfManager.PDFDatas.first )
                 } label: {
                     Rectangle().fill(Color.G3)
-                        .tag(1)
+                        
                 }
+                .tag(1)
                 NavigationLink {
                     PDFViewer(pdfData: pdfManager.PDFDatas.first )
                 } label: {
                     Rectangle().fill(Color.G4)
-                        .tag(2)
+                        
                 }
+                .tag(2)
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .frame(width: UIScreen.main.bounds.width, height: 84)
