@@ -23,7 +23,6 @@ struct Alert: View {
             }
             .padding(13)
         }
-        .padding(20)
     }
 }
 
