@@ -20,6 +20,8 @@ class Patient: ObservableObject {
     @Published var address: Address = Address()
     @Published var actualAddress: Address = Address()
     @Published var phoneNumber: String = ""
+    @Published var hasInfectiousDisease = false
+    @Published var hasMentalDisorder = false
     
     func combineID(frontID: String, backID: String) {
         id = "\(frontID)-\(backID)"
@@ -48,6 +50,7 @@ class Agent: ObservableObject {
     @Published var relation: String = ""
     @Published var address: Address = Address()
     @Published var phoneNumber: String = ""
+    @Published var signature: [[CGPoint]] = []
     
     func combineID(frontID: String, backID: String) {
         id = "\(frontID)-\(backID)"
