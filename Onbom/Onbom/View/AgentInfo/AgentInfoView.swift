@@ -12,6 +12,8 @@ struct AgentInfoView: View {
     let patientName = "김순옥"
     @State private var agentDetailType = ""
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    @EnvironmentObject var agent: Agent
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("\(agentName)님과 \(patientName)님의\n상세 관계를 선택해 주세요")
@@ -21,12 +23,14 @@ struct AgentInfoView: View {
             HStack {
                 Button {
                     agentDetailType = "가족"
+                    agent.relation = "가족"
                 } label: {
                     Text("가족")
                         .B3()
                 }
                 Button {
                     agentDetailType = "친족"
+                    agent.relation = "친족"
                 } label: {
                     Text("친족")
                         .B3()
