@@ -10,7 +10,6 @@ import SwiftUI
 struct IDCardConfirmEditView: View {
     @State private var frontIDNumber = ""
     @State private var backIDNumber = ""
-
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var agent: Agent
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
@@ -54,7 +53,7 @@ struct IDCardConfirmEditView: View {
                 }
             
             Spacer()
-
+            
             HStack {
                 CTAButton.CustomButtonView(style: .secondary(isDisabled: false)) {
                     dismiss()
@@ -62,7 +61,6 @@ struct IDCardConfirmEditView: View {
                     Text("재촬영")
                 }
                 .frame(width: 100)
-                
                 CTAButton.CustomButtonView(style: .main) {
                     agent.combineID(frontID: frontIDNumber, backID: backIDNumber)
                     homeNavigation.navigate(.AddressFormView_Agent)
