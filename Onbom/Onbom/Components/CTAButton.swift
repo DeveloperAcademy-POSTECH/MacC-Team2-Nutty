@@ -9,7 +9,7 @@ import SwiftUI
 
 enum CTAButtonStyle {
     case primary(isDisabled: Bool)
-    case secondary(isDisabled: Bool)
+    case secondary
     case expanded(isDisabled: Bool)
     case main
 }
@@ -126,7 +126,7 @@ struct CTAButtonExampleView: View {
                     
                     // SecondaryButton
                     CTAButton.CustomButtonView(
-                        style: .secondary(isDisabled: isDisabled))
+                        style: .secondary)
                     {
                         print()
                     } label: {
@@ -195,7 +195,7 @@ struct CTAButtonExampleView: View {
                                 Text("버튼 텍스트")
                             }
                             CTAButton.CustomButtonView(
-                                style: .secondary(isDisabled: isDisabled))
+                                style: .secondary)
                             {
                                 print()
                             } label: {
@@ -218,7 +218,7 @@ struct CTAButtonExampleView: View {
                         .frame(maxWidth: .infinity, minHeight: 122)
                         HStack {
                             CTAButton.CustomButtonView(
-                                style: .secondary(isDisabled: isDisabled))
+                                style: .secondary)
                             {
                                 print()
                             } label: {
@@ -247,7 +247,7 @@ struct CTAButtonExampleView: View {
                         )
                         .frame(maxWidth: .infinity, minHeight: 122)
                         HStack {
-                            CTAButton.CustomButtonView(style: .secondary(isDisabled: isDisabled))
+                            CTAButton.CustomButtonView(style: .secondary)
                             {
                                 print()
                             } label: {
