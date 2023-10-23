@@ -73,7 +73,7 @@ struct OnboardingView: View {
         CTAButton.CustomButtonView(style: .main) {
             onClickButton()
         } label: {
-            Text("다음")
+            Text(selectedTab == 2 ? "시작하기" : "다음")
         }
         .frame(maxWidth: .infinity)
         .padding(20)
