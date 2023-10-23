@@ -82,21 +82,10 @@ struct AddressFormView: View {
                         Spacer()
                     }
                     .padding()
+                    
                     if formType != .agent {
-                        HStack(spacing: 4) {
-                            alertImage
-                                .padding(.leading, 13)
-                                .foregroundColor(.PB4)
-                            Text(alertMessage)
-                                .foregroundColor(Color.G6)
-                                .Cap4()
-                                .padding(.vertical)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.PB1))
-                        .padding()
-                        .padding(.bottom)
+                        Alert(image: "check", label: alertMessage)
+                            .padding()
                     }
                 }
                 
@@ -107,7 +96,6 @@ struct AddressFormView: View {
                 
                 Spacer()
                 
-                //CTA Button
                 CTAButton.CustomButtonView(style: .expanded(isDisabled: !isAddressFilled)) {
                     if formType == .patient {
                         showActualAddressCheckView = true
