@@ -17,31 +17,35 @@ struct HomeView: View {
         ScrollView(showsIndicators: false) {
             // 쇼케이스용 pdfViewer
             TabView(selection: $selectedPage){
-                NavigationLink {
-                    PDFViewer(pdfData: pdfManager.PDFDatas.first )
-                } label: {
-                    Rectangle().fill(Color.G4)
-                }
-                .tag(0)
-                NavigationLink {
-                    PDFViewer(pdfData: pdfManager.PDFDatas.first )
-                } label: {
-                    Rectangle().fill(Color.G3)
-                        
-                }
-                .tag(1)
-                NavigationLink {
-                    PDFViewer(pdfData: pdfManager.PDFDatas.first )
-                } label: {
-                    Rectangle().fill(Color.G4)
-                        
-                }
-                .tag(2)
+                Rectangle().fill(Color.G4)
+                    .tag(0)
+                Rectangle().fill(Color.G3)
+                    .tag(1)
+//                NavigationLink {
+//                    PDFViewer(pdfData: pdfManager.PDFDatas.first )
+//                } label: {
+//                    Rectangle().fill(Color.G4)
+//                }
+//                .tag(0)
+//                NavigationLink {
+//                    PDFViewer(pdfData: pdfManager.PDFDatas.first )
+//                } label: {
+//                    Rectangle().fill(Color.G3)
+//
+//                }
+//                .tag(1)
+//                NavigationLink {
+//                    PDFViewer(pdfData: pdfManager.PDFDatas.first )
+//                } label: {
+//                    Rectangle().fill(Color.G4)
+//
+//                }
+//                .tag(2)
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .frame(width: UIScreen.main.bounds.width, height: 84)
             .overlay(
-                Text("\(selectedPage + 1) / 3")
+                Text("\(selectedPage + 1) / 2")
                     .foregroundStyle(Color.white)
                     .font(.system(size: 10, weight: .regular))
                     .padding(.vertical, 4)
@@ -51,18 +55,16 @@ struct HomeView: View {
                 alignment: .bottomTrailing
             )
             VStack(spacing: 0) {
+                Spacer()
                 Text("집에서 간편하게\n장기요양등급 신청해 보세요")
                     .T1()
                     .foregroundColor(Color.B)
                     .lineSpacing(4)
                     .multilineTextAlignment(.center)
-                    .padding(.top, 10)
                     .padding(.bottom, 28)
                     .frame(maxWidth: .infinity)
-                Rectangle()
-                    .fill(Color.G2)
-                    .frame(width: 150, height: 120)
-                    .padding(.bottom, 33)
+                Image("MainView")
+                    .padding(.bottom, 15)
                 CTAButton.CustomButtonView(
                     style: .main)
                 {
@@ -70,8 +72,7 @@ struct HomeView: View {
                 } label: {
                        Text("지금 바로 신청하기")
                 }
-                .padding(.horizontal, 20)
-                .padding(.bottom, 4)
+                .padding(20)
             }
             .frame(width: width, height: width)
             .background(RoundedRectangle(cornerRadius: 20).fill(.white)
@@ -105,12 +106,24 @@ struct HomeView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 0) {
+                    let images = [Image("MainView_Green"),
+                                  Image("MainView_Blue"),
+                                  Image("MainView_Purple"),
+                                  Image("MainView_Yellow"),
+                                  Image("MainView_Pink"),
+                                  Image("MainView_Brown"),]
                     let colors = [Color.init(hex: "E2F6E2"),
                                   Color.init(hex: "D6EDF8"),
                                   Color.init(hex: "DDDEF9"),
                                   Color.init(hex: "FFFBD4"),
                                   Color.init(hex: "FFE7F7"),
                                   Color.init(hex: "DFD6CE"),]
+                    let circleColors = [Color.init(hex: "B4E8B4"),
+                                        Color.init(hex: "9FD4ED"),
+                                        Color.init(hex: "BFC1F6"),
+                                        Color.init(hex: "FAF1A4"),
+                                        Color.init(hex: "FECBED"),
+                                        Color.init(hex: "D6C4B5"),]
                     let contents = ["치매가족휴가제로\n한 숨 돌려보세요",
                                     "부담을 덜어드리는\n노인돌봄종합서비스",
                                     "가장 가까운\n치매상담센터 찾기",
@@ -120,16 +133,19 @@ struct HomeView: View {
                     
                     ForEach(0..<6) { i in
                         VStack(alignment: .leading, spacing: 0) {
-                            Circle()
-                                .fill(Color.white)
-                                .frame(maxWidth: 64, maxHeight: 64)
-                                .padding(.bottom, 31)
+                            ZStack {
+                                Circle()
+                                    .fill(circleColors[i])
+                                    .frame(maxWidth: 64, maxHeight: 64)
+                                images[i]
+                            }
+                            .padding(.bottom, 31)
                             Text(contents[i])
                                 .foregroundColor(Color.B)
                                 .T4()
                             Text("알림 설정하기")
                                 .foregroundColor(Color.G5)
-                                .Cap3()
+                                .Cap4()
                                 .padding(.top, 5)
                         }
                         .padding(20)
