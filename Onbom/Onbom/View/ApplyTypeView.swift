@@ -12,6 +12,8 @@ struct ApplyTypeView: View {
     let title: [String] = ["신청", "갱신", "등급 변경"]
     let description: [String] = ["노인성 질병이 있는 경우에만 신청할 수 있어요", "2년에 한 번씩 갱신해 주세요", "환자의 상태가 변했을 때 신청할 수 있어요"]
     
+    @State private var isPrivacyPolicyViewPresented = false
+    
     // 한 버튼만 선택되기 위해서 만들어 놓은 변수. 현재 사용하지는 않음.
     @State var oneSelectedIndex : Int = -1
     
@@ -30,17 +32,25 @@ struct ApplyTypeView: View {
                     
                     RadioButton.CustomButtonView(style: oneStyle) {
                         oneSelectedIndex = index
-                        homeNavigation.navigate(.MediHistoryView)
+                        isPrivacyPolicyViewPresented = true
                     } label: {
                         HStack {
                             VStack(alignment: .leading, spacing: 13) {
-                                Text("\(title[index])")
-                                    .T3()
-                                // 비활성화 후 텍스트 색상 임시 변경
-                                    .foregroundColor(index > 0 ? .G3 : .B)
-                                Text("\(description[index])")
-                                    .Cap3()
-                                    .foregroundColor(index >= 1 ? .G3 : .G5)
+                                if index == 0 {
+                                    Text("\(title[index])")
+                                        .T3()
+                                    Text("\(description[index])")
+                                        .Cap3()
+                                }
+                                else {
+                                    Text("\(title[index])")
+                                        .T3()
+                                    // 비활성화 후 텍스트 색상 임시 변경
+                                        .foregroundColor(.G3)
+                                    Text("\(description[index])")
+                                        .Cap3()
+                                        .foregroundColor(.G3)
+                                }
                             }
                             Spacer()
                         }
@@ -53,6 +63,11 @@ struct ApplyTypeView: View {
         }
         .navigationBarBackButton()
         .padding(20)
+        // TODO: - 모달 뒤 화면의 색상 더 진하게 변경
+        .sheet(isPresented: $isPrivacyPolicyViewPresented) {
+                PrivacyPolicyView(isPrivacyPolicyViewPresented: $isPrivacyPolicyViewPresented)
+                  .presentationDetents([.fraction(0.4)])
+        }
     }
 }
 struct ApplyTypeView_Previews: PreviewProvider {

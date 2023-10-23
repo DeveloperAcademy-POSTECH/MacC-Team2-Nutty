@@ -13,6 +13,7 @@ struct PrivacyPolicyView: View {
     private let policyTextArray = ["개인정보 제3자 제공 동의 (필수)", "민감정보 처리 동의 (필수)", "고유식별정보 처리 동의 (필수)"]
     @State private var isCheckArray = Array(repeating: false, count: 3)
     @State private var isAllCheck = false
+    @Binding var isPrivacyPolicyViewPresented: Bool
     
     var body: some View {
         VStack(spacing: 41) {
@@ -42,13 +43,15 @@ struct PrivacyPolicyView: View {
             {
                 if isAllCheck {
                     // Date() 저장하기
-                    homeNavigation.navigate(.MediHistoryView)
+                    isPrivacyPolicyViewPresented = false
+                    homeNavigation.navigate(.StepView_First)
                 }
             } label: {
                 Text("다음")
             }
         }
-        .padding(20)
+        .padding(.horizontal, 20.0)
+        .padding(.top, 37)
     }
     
     private var allCheckButton: some View {
@@ -78,12 +81,12 @@ struct PrivacyPolicyLow: View {
     @Binding var isCheck: Bool
     @Binding var isAllCheck: Bool
     var body: some View {
-        HStack(spacing: 13.5) {
+        HStack(spacing: 18) {
             Image(systemName: "checkmark")
                 .foregroundColor(isAllCheck || isCheck ? .PB4 : .G4)
                 .font(.system(size: 12, weight: .bold))
             Text(policyText)
-                .Cap2()
+                .Cap3()
                 .foregroundColor(.B)
             Spacer()
             Button {
@@ -132,6 +135,6 @@ struct PrivacyPolicyDetailView: View {
 
 struct PrivacyPolicyView_Previews: PreviewProvider {
     static var previews: some View {
-        PrivacyPolicyView()
+        PrivacyPolicyView(isPrivacyPolicyViewPresented: .constant(false))
     }
 }

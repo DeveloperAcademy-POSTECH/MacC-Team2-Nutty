@@ -54,6 +54,7 @@ public struct RadioButtonStyleModifiers: ButtonStyle {
                 .padding(.leading, 20.0)
                 .padding(.vertical, 22)
                 .background(RoundedRectangle(cornerRadius: 10).fill(configuration.isPressed ? Color.PB3 : Color.G2))
+                .foregroundColor(configuration.isPressed ? .PB4 : .B)
                 .overlay(RoundedRectangle(cornerRadius: 16)
                     .stroke(configuration.isPressed ? Color.TPB : Color.G2, lineWidth: 1.2))
             
@@ -64,6 +65,7 @@ public struct RadioButtonStyleModifiers: ButtonStyle {
                 .padding(.leading, 20.0)
                 .padding(.vertical, 22)
                 .background(RoundedRectangle(cornerRadius: 10).fill(Color.PB2))
+                .foregroundColor(configuration.isPressed ? .PB4 : .B)
                 .overlay(RoundedRectangle(cornerRadius: 16)
                     .stroke(Color.PB4, lineWidth: 1.2))
             
@@ -113,7 +115,6 @@ struct RadioButtonExampleView: View {
                                     .T3()
                                 Text("\(description[index])")
                                     .Cap3()
-                                    .foregroundColor(.G5)
                             }
                             Spacer()
                         }
