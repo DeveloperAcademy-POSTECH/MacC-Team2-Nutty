@@ -8,39 +8,45 @@
 import SwiftUI
 
 struct PrivacyPolicyView: View {
+    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     
     private let policyTextArray = ["개인정보 제3자 제공 동의 (필수)", "민감정보 처리 동의 (필수)", "고유식별정보 처리 동의 (필수)"]
     @State private var isCheckArray = Array(repeating: false, count: 3)
     @State private var isAllCheck = false
     
     var body: some View {
-        VStack(alignment: .leading) {
-            allCheckButton
-            Divider()
-                .padding(.bottom, 18)
-                .padding(.top, 8)
-            ForEach(Array(policyTextArray.enumerated()), id: \.element) { index, policyText in
-                HStack {
-                    PrivacyPolicyLow(policyText: policyText, isCheck: $isCheckArray[index], isAllCheck: $isAllCheck)
-                }
-                .padding(.bottom,18)
-            }
-            .onChange(of: isCheckArray) { newValue in
-                for i in 0..<3 {
-                    if isCheckArray[i] == false {
-                        return
+        VStack(spacing: 41) {
+            VStack(alignment: .leading) {
+                allCheckButton
+                Divider()
+                    .padding(.bottom, 18)
+                    .padding(.top, 8)
+                VStack(spacing: 18) {
+                    ForEach(Array(policyTextArray.enumerated()), id: \.element) { index, policyText in
+                        HStack() {
+                            PrivacyPolicyLow(policyText: policyText, isCheck: $isCheckArray[index], isAllCheck: $isAllCheck)
+                        }
                     }
                 }
-                isAllCheck = true
+                .onChange(of: isCheckArray) { newValue in
+                    for i in 0..<3 {
+                        if isCheckArray[i] == false {
+                            return
+                        }
+                    }
+                    isAllCheck = true
+                }
             }
-            Button {
+            CTAButton.CustomButtonView(
+                style: .primary(isDisabled: !isAllCheck))
+            {
                 if isAllCheck {
                     // Date() 저장하기
+                    homeNavigation.navigate(.MediHistoryView)
                 }
             } label: {
                 Text("다음")
             }
-            .disabled(!isAllCheck)
         }
         .padding(20)
     }
@@ -53,7 +59,7 @@ struct PrivacyPolicyView: View {
                 .frame(width: 20)
                 .foregroundColor(isAllCheck ? .PB4 : .G3)
             Text("개인정보 처리에 모두 동의합니다.")
-                .H2()
+                .H3()
                 .foregroundColor(.B)
             Spacer()
         }.onTapGesture {
@@ -72,9 +78,10 @@ struct PrivacyPolicyLow: View {
     @Binding var isCheck: Bool
     @Binding var isAllCheck: Bool
     var body: some View {
-        HStack {
+        HStack(spacing: 13.5) {
             Image(systemName: "checkmark")
-                .foregroundColor(isAllCheck || isCheck ? .PB4 : .G3)
+                .foregroundColor(isAllCheck || isCheck ? .PB4 : .G4)
+                .font(.system(size: 12, weight: .bold))
             Text(policyText)
                 .Cap2()
                 .foregroundColor(.B)
@@ -85,6 +92,8 @@ struct PrivacyPolicyLow: View {
                 Image(systemName: "chevron.right")
                     .foregroundColor(.G4)
             }
+            // TODO: 현재 약관에 대한 페이지가 없어서 비활성화 처리. 근데 오른쪽 chevron을 눌러도 체크가 됨. 약관이 무조건 있을 꺼니까 상관 없을려나요?
+            .disabled(true)
         }
         .fullScreenCover(isPresented: $isShowPrivacyPolicyDetail) {
             PrivacyPolicyDetailView(detail: policyText, isShowPrivacyPolicyDetail: $isShowPrivacyPolicyDetail)

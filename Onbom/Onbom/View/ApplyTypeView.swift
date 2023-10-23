@@ -9,6 +9,11 @@ import SwiftUI
 
 struct ApplyTypeView: View {
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    let title: [String] = ["신청", "갱신", "등급 변경"]
+    let description: [String] = ["노인성 질병이 있는 경우에만 신청할 수 있어요", "2년에 한 번씩 갱신해 주세요", "환자의 상태가 변했을 때 신청할 수 있어요"]
+    
+    // 한 버튼만 선택되기 위해서 만들어 놓은 변수. 현재 사용하지는 않음.
+    @State var oneSelectedIndex : Int = -1
     
     var body: some View {
         VStack {
@@ -17,72 +22,43 @@ struct ApplyTypeView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.bottom, 48)
             
-            Button{
-                homeNavigation.navigate(.MediHistoryView)
-            } label: {
-                VStack (spacing: 13){
-                    Text("대리인 신청")
-                        .foregroundColor(Color.B)
-                        .T3()
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("노인성 질병이 있는 경우에만 신청할 수 있어요")
-                        .foregroundColor(Color.G5)
-                        .Cap3()
-                        .frame(maxWidth: .infinity, alignment: .leading)
+            // 임시로 비활성화 style 처리를 해 둠. 추후 삭제 필요.
+            // 신규 신청만 navigation 걸어 둠. 추후 갱신 / 등급 변경이 생기면 navigation 연결 필요.
+            VStack(spacing: 10) {
+                ForEach(0..<title.count, id: \.self) { index in
+                    let oneStyle: RadioButtonStyle = oneSelectedIndex == index ? .oneSelected : .oneUnselected
+                    
+                    RadioButton.CustomButtonView(style: oneStyle) {
+                        oneSelectedIndex = index
+                        homeNavigation.navigate(.MediHistoryView)
+                    } label: {
+                        HStack {
+                            VStack(alignment: .leading, spacing: 13) {
+                                Text("\(title[index])")
+                                    .T3()
+                                // 비활성화 후 텍스트 색상 임시 변경
+                                    .foregroundColor(index > 0 ? .G3 : .B)
+                                Text("\(description[index])")
+                                    .Cap3()
+                                    .foregroundColor(index >= 1 ? .G3 : .G5)
+                            }
+                            Spacer()
+                        }
+                    }
+                    // 임시 비활성화
+                    .disabled(index > 0)
                 }
-                .padding(.leading, 16)
-                .padding(.vertical, 22)
             }
-            .frame(maxWidth: .infinity)
-            .background(RoundedRectangle(cornerRadius: 10).fill(Color.G2))
-            
-            Button{
-                homeNavigation.navigate(.StepView_First)
-            } label: {
-                VStack (spacing: 13){
-                    Text("갱신")
-                        .foregroundColor(Color.G3)
-                        .T3()
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("2년에 한 번씩 갱신해 주세요")
-                        .foregroundColor(Color.G3)
-                        .Cap3()
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                }
-                .padding(.leading, 16)
-                .padding(.vertical, 22)
-            }
-            .disabled(true)
-            .frame(maxWidth: .infinity)
-            .background(RoundedRectangle(cornerRadius: 10).fill(Color.G1))
-            
-            Button {
-                
-            } label: {
-                VStack (spacing: 13){
-                    Text("등급 변경")
-                        .foregroundColor(Color.G3)
-                        .T3()
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("환자의 상태가 변했을 때 신청할 수 있어요")
-                        .foregroundColor(Color.G3)
-                        .Cap3()
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                }
-                .padding(.leading, 16)
-                .padding(.vertical, 22)
-
-            }
-            .disabled(true)
-            .frame(maxWidth: .infinity)
-            .background(RoundedRectangle(cornerRadius: 10).fill(Color.G1))
-            
-            
             Spacer()
         }
         .navigationBarBackButton()
         .padding(20)
-        
     }
 }
+struct ApplyTypeView_Previews: PreviewProvider {
+    static var previews: some View {
+        ApplyTypeView()
+    }
+}
+
 

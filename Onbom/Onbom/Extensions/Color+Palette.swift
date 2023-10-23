@@ -27,6 +27,9 @@ extension Color {
 extension Color {
     
     // MARK: Grayscale
+    static var W : Self {
+        .init(hex: "#FFFFFF")
+    }
     static var G1: Self {
         .init(hex: "#F9F9F9")
     }
@@ -96,6 +99,11 @@ extension Color {
     static var TPB: Self {
         .init(hex: "#575DE1", opacity: 0.7)
     }
+    
+    // MARK: Gradation
+    static var TPW: Self {
+        .init(hex: "FFFFFF", opacity: 0)
+    }
 }
 
 // MARK: Preview
@@ -103,6 +111,7 @@ struct Color_Previews: PreviewProvider {
     static var previews: some View {
         HStack{
             VStack {
+                Color.W
                 Color.G1
                 Color.G2
                 Color.G3
@@ -119,6 +128,16 @@ struct Color_Previews: PreviewProvider {
                 Color.PB3
                 Color.PB4
                 Color.PB5
+            }
+            VStack {
+                LinearGradient(
+                    colors: [
+                    .TPW,
+                    .W
+                ],
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
             }
             VStack {
                 Color.TG1
