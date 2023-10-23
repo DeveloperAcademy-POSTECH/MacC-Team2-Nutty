@@ -13,7 +13,7 @@ struct MediHistoryView: View {
     var body: some View {
         //TODO: - Gradient 배경 빠져 있음
         VStack {
-            Text("김순옥님께서 3개월 내\n입원 또는 수술 이력이 있으신가요?")
+            Text("어르신이 3개월 내\n입원 또는 수술 이력이 있으신가요?")
                 .foregroundColor(Color.B)
                 .H2()
                 .frame(maxWidth: .infinity, alignment: .leading)
