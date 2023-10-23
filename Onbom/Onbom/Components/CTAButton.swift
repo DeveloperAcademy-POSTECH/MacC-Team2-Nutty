@@ -95,7 +95,7 @@ public struct CTAButtonStyleModifiers: ButtonStyle {
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 19)
-                .background(RoundedRectangle(cornerRadius: 16).fill(configuration.isPressed ? Color.PB5 : Color.PB4))
+                .background(RoundedRectangle(cornerRadius: 12).fill(configuration.isPressed ? Color.PB5 : Color.PB4))
         }
     }
 }
