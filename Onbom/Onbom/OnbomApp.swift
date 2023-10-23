@@ -17,13 +17,13 @@ struct OnbomApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if(isOnboarding) {
-                OnboardingView(isOnboarding: $isOnboarding)
-            } else {
+//            if(isOnboarding) {
+//                OnboardingView(isOnboarding: $isOnboarding)
+//            } else {
                 MainView()
                     .environmentObject(Patient())
                     .environmentObject(Agent())
-            }
+//            }
         }
     }
 }
