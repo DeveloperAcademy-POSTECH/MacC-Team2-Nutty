@@ -10,43 +10,43 @@ import SwiftUI
 struct RejectView: View {
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
 
-    
     var body: some View {
         VStack(spacing: 0) {
             Text("지금은 어르신의 등급심사가 어려워요")
                 .foregroundColor(Color.B)
                 .H2()
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.bottom, 19)
             Text("최근 입원/수술 이력이 있으면 등급심사를 할 수 없어요")
                 .foregroundColor(Color.G5)
-                .Cap2()
+                .Cap3()
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.vertical, 20)
+                .padding(.bottom, 10)
             Text("장기요양등급을 신청할 수 있을 때까지 기다리는 동안\n온봄이 몇 가지 서비스를 추천해 드릴게요")
                 .foregroundColor(Color.G5)
-                .Cap2()
+                .Cap3()
                 .frame(maxWidth: .infinity, alignment: .leading)
-            
-            Spacer()
-            Rectangle()
-                .fill(Color.G2)
-                .frame(maxHeight: 270)
-                .padding(30)
+                .padding(.bottom, 70)
+                        
+            Image("RejectView")
+                
             Spacer()
             
-            Button {
+            CTAButton.CustomButtonView(
+                style: .primary(isDisabled: false))
+            {
                 homeNavigation.popToRoot()
             } label: {
-                Text("메인화면으로 가기")
-                    .foregroundColor(Color.white)
-                    .B1()
-                    .padding(.vertical, 20)
-                    .frame(maxWidth: .infinity)
+                Text("한 달 후 다시 알림 받기")
             }
-            .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB4))
-            .padding(.bottom, 10)
         }
-        .padding(20)
+        .padding([.top, .leading, .trailing], 20)
+        .navigationBarBackButton()
     }
 }
 
+struct RejectView_Previews: PreviewProvider {
+    static var previews: some View {
+        RejectView()
+    }
+}
