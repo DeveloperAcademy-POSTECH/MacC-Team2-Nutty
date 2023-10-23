@@ -12,6 +12,8 @@
 		03FFF2BB2AD5B74E00B81D65 /* CTAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2BA2AD5B74E00B81D65 /* CTAButton.swift */; };
 		03FFF2C92ADD60EF00B81D65 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2C82ADD60EF00B81D65 /* RadioButton.swift */; };
 		03FFF2CB2ADD614900B81D65 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2CA2ADD614900B81D65 /* Alert.swift */; };
+		03FFF2D12AE6AD2C00B81D65 /* SubmitLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2D02AE6AD2B00B81D65 /* SubmitLoadingView.swift */; };
+		03FFF2D32AE6B4A600B81D65 /* SubmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2D22AE6B4A600B81D65 /* SubmitView.swift */; };
 		702D35AA2ADBBD31008FE1F8 /* ApplicationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D35A92ADBBD31008FE1F8 /* ApplicationViewModel.swift */; };
 		708891EB2AD55191005B67AB /* AddressFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708891EA2AD55191005B67AB /* AddressFormView.swift */; };
 		708891F12AD55607005B67AB /* CityAddressInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708891F02AD55607005B67AB /* CityAddressInputField.swift */; };
@@ -86,6 +88,8 @@
 		03FFF2BA2AD5B74E00B81D65 /* CTAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTAButton.swift; sourceTree = "<group>"; };
 		03FFF2C82ADD60EF00B81D65 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		03FFF2CA2ADD614900B81D65 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		03FFF2D02AE6AD2B00B81D65 /* SubmitLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitLoadingView.swift; sourceTree = "<group>"; };
+		03FFF2D22AE6B4A600B81D65 /* SubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitView.swift; sourceTree = "<group>"; };
 		702D35A92ADBBD31008FE1F8 /* ApplicationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationViewModel.swift; sourceTree = "<group>"; };
 		708891EA2AD55191005B67AB /* AddressFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressFormView.swift; sourceTree = "<group>"; };
 		708891F02AD55607005B67AB /* CityAddressInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityAddressInputField.swift; sourceTree = "<group>"; };
@@ -278,6 +282,8 @@
 				731609672AD838FB00399476 /* StepView.swift */,
 				73FD46D82ADADF8C002ED839 /* HomeView.swift */,
 				735ADB2E2AD5AC4E0069B94B /* MediConditionView.swift */,
+				03FFF2D02AE6AD2B00B81D65 /* SubmitLoadingView.swift */,
+				03FFF2D22AE6B4A600B81D65 /* SubmitView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -528,6 +534,7 @@
 				03FFF2BB2AD5B74E00B81D65 /* CTAButton.swift in Sources */,
 				731609682AD838FB00399476 /* StepView.swift in Sources */,
 				AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */,
+				03FFF2D32AE6B4A600B81D65 /* SubmitView.swift in Sources */,
 				737B62172AD6EAB30010444E /* PatientInfoViewModel.swift in Sources */,
 				702D35AA2ADBBD31008FE1F8 /* ApplicationViewModel.swift in Sources */,
 				70E0470B2AD5139200FC73A5 /* IDNumberInputField.swift in Sources */,
@@ -546,6 +553,7 @@
 				AE10D3922AD4E1C900D9ED3C /* PrivacyPolicyView.swift in Sources */,
 				AEB33EAE2ACD3D680082A3E7 /* TempWriteSignatureView.swift in Sources */,
 				AEB33EA92ACAADE00082A3E7 /* PDFFormLocation.swift in Sources */,
+				03FFF2D12AE6AD2C00B81D65 /* SubmitLoadingView.swift in Sources */,
 				AEB33E9B2AC406600082A3E7 /* Color+Palette.swift in Sources */,
 				737EE3542ABD646100D224FC /* OnbomApp.swift in Sources */,
 				AE10D3902AD4D33C00D9ED3C /* SignatureView.swift in Sources */,
@@ -718,7 +726,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Onbom/Preview Content\"";
-				DEVELOPMENT_TEAM = RV2W6Y7UMT;
+				DEVELOPMENT_TEAM = RFZY2ACQ74;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Onbom/Info.plist;
