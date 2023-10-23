@@ -21,13 +21,17 @@ struct FormTextField: View {
     }
     
     var body: some View {
-        VStack(spacing: 10) {
+        VStack(spacing: 8) {
             Text(formSubject)
                 .foregroundColor(focused ? Color.PB4 : Color.G6)
                 .Label()
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             TextField(placeHolder, text: $textInput)
+                .font(.custom("Pretendard-Medium", size: 16))
+                .lineSpacing(16 / 2 * (100 - 100)/100)
+                .kerning(-3/10)
+                .foregroundColor(Color.B)
                 .focused($focused)
                 .padding(16)
                 .background(RoundedRectangle(cornerRadius: 10)
