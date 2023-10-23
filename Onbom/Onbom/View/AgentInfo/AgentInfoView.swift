@@ -60,7 +60,7 @@ struct AgentInfoView: View {
             }
         }
         .navigationBarBackButton()
-        .padding(20)
+        .padding([.top, .leading, .trailing], 20)
     }
 }
 

@@ -17,9 +17,9 @@ struct MediHistoryView: View {
                 .foregroundColor(Color.B)
                 .H2()
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.bottom, 89)
+            Spacer()
             Image("MediHistoryImage")
-                .padding(.bottom, 104)
+            Spacer()
             VStack(spacing: 10) {
                 CTAButton.CustomButtonView(
                     style: .main)
