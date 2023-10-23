@@ -20,7 +20,7 @@ struct AddressInputField: View {
                                   content: $cityAddress)
             .disabled(true)
             .onTapGesture {
-                isPostCodeViewPresented.toggle()
+                isPostCodeViewPresented = true
             }
             
             InputField(placeholder: "상세주소", content: $detailAddress)

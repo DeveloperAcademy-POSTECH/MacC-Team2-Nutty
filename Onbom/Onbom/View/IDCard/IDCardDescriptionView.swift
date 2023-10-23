@@ -34,13 +34,12 @@ struct IDCardDescriptionView: View {
             
             Spacer()
             
-            //신분증 안내 사진?
-            Rectangle()
-                .foregroundColor(.gray)
-                .padding()
-            //CTA Button
+            Image("IDCardDescriptionView")
+            
+            Spacer()
+            
             Button {
-                presentIDCardOCR.toggle()
+                presentIDCardOCR = true
             } label: {
                 Text("다음")
                     .foregroundColor(Color.white)

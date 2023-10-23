@@ -55,6 +55,11 @@ class Agent: ObservableObject {
     func combineID(frontID: String, backID: String) {
         id = "\(frontID)-\(backID)"
     }
+
+    func splitID() -> (frontID: String, backID: String) {
+        let splittedIDs = id.split(separator: "-").map { String($0) }
+        return (splittedIDs.count > 0 ? splittedIDs[0] : "", splittedIDs.count > 1 ? splittedIDs[1] : "")
+    }
     
     func updateDictionary() {
         dictionary["name"]?.answer = name
