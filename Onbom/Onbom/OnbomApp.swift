@@ -16,10 +16,9 @@ struct OnbomApp: App {
     
     var body: some Scene {
         WindowGroup {
-//            MainView()
-//                .environmentObject(Patient())
-//                .environmentObject(Agent())
-            IDCardConfirmEditView()
+            MainView()
+                .environmentObject(Patient())
+                .environmentObject(Agent())
         }
     }
 }
