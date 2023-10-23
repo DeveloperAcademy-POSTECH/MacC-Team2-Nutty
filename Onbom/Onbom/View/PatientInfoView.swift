@@ -36,19 +36,9 @@ struct PatientInfoView: View {
             
             ScrollView {
                 if(step[2]) {
-                    HStack(spacing: 4) {
-                        Image("security")
-                            .padding(.leading, 13)
-                        Text("입력한 주민등록번호는 저장되지 않으니 안심하세요")
-                            .foregroundColor(Color.G6)
-                            .Cap4()
-                            .padding(.vertical, 14)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(RoundedRectangle(cornerRadius: 10).fill(Color.PB1))
-                    .padding(20)
-                    .appear(didAppear[2])
+                    Alert(image: "security", label: "입력한 주민등록번호는 저장되지 않으니 안심하세요")
+                        .padding(20)
+                        .appear(didAppear[2])
                     
                     VStack(spacing: 8) {
                         Text("주민번호")
@@ -58,6 +48,10 @@ struct PatientInfoView: View {
                         
                         HStack(spacing: 0){
                             TextField("앞 6자리", text: $viewModel.seniorIDNumber1)
+                                .font(.custom("Pretendard-Medium", size: 16))
+                                .lineSpacing(16 / 2 * (100 - 100)/100)
+                                .kerning(-3/10)
+                                .foregroundColor(Color.B)
                                 .onReceive(Just(viewModel.seniorIDNumber1)) { _ in
                                     if viewModel.seniorIDNumber1.count > 6 {
                                         viewModel.seniorIDNumber1 = String(viewModel.seniorIDNumber1.prefix(6))
@@ -155,32 +149,21 @@ struct PatientInfoView: View {
             }
             .scrollDismissesKeyboard(.immediately)
             if isKeyboardVisible {
-                Button{
+                CTAButton.CustomButtonView(style: .expanded(isDisabled: !isActiveButton())) {
                     onClickButton()
                 } label: {
                     Text("다음")
-                        .foregroundColor(.white)
-                        .padding(20)
                 }
-                .frame(maxWidth: .infinity)
-                .background(isActiveButton() ? Color.PB4 : Color.PB3)
-                .disabled(!isActiveButton())
             } else {
-                Button {
+                CTAButton.CustomButtonView(style: .primary(isDisabled: !isActiveButton())) {
                     onClickButton()
                 } label: {
                     Text("다음")
-                        .foregroundColor(Color.white)
-                        .B1()
-                        .padding(.vertical, 20)
-                        .frame(maxWidth: .infinity)
                 }
-                .background(RoundedRectangle(cornerRadius: 12).fill(isActiveButton() ? Color.PB4 : Color.PB3))
                 .padding(.horizontal, 20)
-                .padding(.bottom, 20)
-                .disabled(!isActiveButton())
             }
         }
+        .padding(.top, 20)
         .onAppear {
             NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notification in
                 self.isKeyboardVisible = true
@@ -220,7 +203,7 @@ struct PatientInfoView: View {
         return ""
     }
     
-
+    
     private func didFinishTypingName() {
         step[1] = true
         focusedField = .seniorPhoneNumber

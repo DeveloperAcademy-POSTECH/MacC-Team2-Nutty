@@ -28,6 +28,10 @@ struct FormTextField: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             TextField(placeHolder, text: $textInput)
+                .font(.custom("Pretendard-Medium", size: 16))
+                .lineSpacing(16 / 2 * (100 - 100)/100)
+                .kerning(-3/10)
+                .foregroundColor(Color.B)
                 .focused($focused)
                 .padding(16)
                 .background(RoundedRectangle(cornerRadius: 10)
