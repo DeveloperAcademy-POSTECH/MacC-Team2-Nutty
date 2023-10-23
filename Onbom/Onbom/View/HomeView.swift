@@ -11,7 +11,7 @@ struct HomeView: View {
     @State private var selectedPage = 0
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     @EnvironmentObject var pdfManager: PDFManager
-    let width = UIScreen.main.bounds.width - 40
+    let width = UIScreen.main.bounds.width
     var body: some View {
         
         ScrollView(showsIndicators: false) {
@@ -27,7 +27,7 @@ struct HomeView: View {
                     .tag(1)
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            .frame(width: .infinity, height: 84)
+            .frame(width: width, height: 84)
             .overlay(
                 Text("\(selectedPage + 1) / 2")
                     .foregroundStyle(Color.white)
@@ -58,7 +58,7 @@ struct HomeView: View {
                 }
                 .padding(20)
             }
-            .frame(width: width, height: width)
+            .frame(width: width - 40, height: width - 40)
             .background(RoundedRectangle(cornerRadius: 20).fill(.white)
                 .shadow(color: .black.opacity(0.05), radius: 5))
             .padding(20)
