@@ -82,7 +82,8 @@ fileprivate struct IDCardGuideLineView: View {
             Text("가이드라인에 신분증을 맞춰주세요")
                 .T5()
                 .foregroundColor(.PB4)
-                .padding()
+                .padding(.vertical, 10)
+                .padding(.horizontal, 20)
                 .background {
                     RoundedRectangle(cornerRadius: 24)
                         .foregroundColor(.white)

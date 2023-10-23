@@ -127,11 +127,13 @@ struct AddressFormView: View {
                 
                 Text("작성하신 주민등록지가 현재\n어르신이 머무르고 계신 곳인가요?")
                     .T2()
+                    .foregroundColor(.B)
                     .multilineTextAlignment(.center)
                     .padding()
                 
                 Text("어르신이 병원이나 자녀 집 등 다른 곳에 계시다면\n추가 입력이 필요해요.")
                     .Cap3()
+                    .foregroundColor(.G5)
                     .multilineTextAlignment(.center)
                 
                 HStack(spacing: 5) {
