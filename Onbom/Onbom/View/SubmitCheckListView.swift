@@ -12,6 +12,9 @@ struct SubmitCheckListView: View {
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
     @EnvironmentObject var pdfManager: PDFManager
+    
+    @State private var isSubmitLoadingViewPresented = false
+    
     var body: some View {
         HStack {
             Text("신청 정보를 확인해 주세요")
@@ -237,7 +240,7 @@ struct SubmitCheckListView: View {
             patient.updateDictionary()
             agent.updateDictionary()
             pdfManager.createPDF(documentURL: LTCIFormResource, patient: patient.dictionary, agent: agent.dictionary, signature: agent.signature, image: agent.idCardImage, imageSize: agent.idCardImage.size, infectious: patient.hasInfectiousDisease, mental: patient.hasMentalDisorder)
-            homeNavigation.popToRoot()
+            isSubmitLoadingViewPresented = true
         } label: {
             Text("신청하기")
                 .foregroundColor(Color.white)
@@ -248,6 +251,9 @@ struct SubmitCheckListView: View {
         .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB4))
         .padding()
         .navigationBarBackButton()
+        .navigationDestination(isPresented: $isSubmitLoadingViewPresented) {
+            SubmitLoadingView()
+        }
     }
 }
 
