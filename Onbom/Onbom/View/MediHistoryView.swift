@@ -26,7 +26,7 @@ struct MediHistoryView: View {
                 {
                     homeNavigation.navigate(.MediConditionView)
                 } label: {
-                    Text("아니요, 없어요")
+                    Text("없어요")
                 }
                 CTAButton.CustomButtonView(
                     style: .secondary)
