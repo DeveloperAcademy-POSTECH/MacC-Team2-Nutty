@@ -11,6 +11,7 @@ struct HomeView: View {
     @State private var selectedPage = 0
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     @EnvironmentObject var pdfManager: PDFManager
+    let width = UIScreen.main.bounds.width - 40
     var body: some View {
         
         ScrollView(showsIndicators: false) {
@@ -62,19 +63,18 @@ struct HomeView: View {
                     .fill(Color.G2)
                     .frame(width: 150, height: 120)
                     .padding(.bottom, 33)
-                Button {
+                CTAButton.CustomButtonView(
+                    style: .main)
+                {
                     homeNavigation.navigate(.ApplyTypeView)
                 } label: {
-                    Text("지금 바로 신청하기")
-                        .foregroundColor(Color.white)
-                        .B1()
-                        .padding(.vertical, 20)
-                        .frame(maxWidth: .infinity)
+                       Text("지금 바로 신청하기")
                 }
                 .background(RoundedRectangle(cornerRadius: 12).fill(Color.PB4))
                 .padding(.horizontal, 20)
                 .padding(.bottom, 20)
             }
+            .frame(width: width, height: width)
             .background(RoundedRectangle(cornerRadius: 20).fill(.white)
                 .shadow(color: .black.opacity(0.05), radius: 5))
             .padding(20)
