@@ -10,7 +10,7 @@ import SwiftUI
 struct AddressFormView: View {
     var formType: AddressFormType
     @State private var isPostCodeViewPresented = false
-    @State private var showActualAddressCheckView = true
+    @State private var showActualAddressCheckView = false
     @State private var address = Address(cityAddress: "", detailAddress: "")
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
@@ -74,28 +74,28 @@ struct AddressFormView: View {
     var body: some View {
         ZStack {
             VStack {
-                Group {
-                    HStack {
-                        Text(titleMessage)
-                            .H2()
-                            .foregroundColor(.B)
-                        Spacer()
-                    }
-                    .padding()
+                HStack {
+                    Text(titleMessage)
+                        .H2()
+                        .foregroundColor(.B)
+                    Spacer()
+                }
+                .padding()
+                
+                ScrollView {
                     
                     if formType != .agent {
                         Alert(image: "check", label: alertMessage)
                             .padding()
                     }
+                    
+                    AddressInputField(label: addressInputFieldTitle,
+                                      cityAddress: $address.cityAddress,
+                                      detailAddress: $address.detailAddress,
+                                      isPostCodeViewPresented: $isPostCodeViewPresented)
+                    
+                    Spacer()
                 }
-                
-                AddressInputField(label: addressInputFieldTitle,
-                                  cityAddress: $address.cityAddress,
-                                  detailAddress: $address.detailAddress,
-                                  isPostCodeViewPresented: $isPostCodeViewPresented)
-                
-                Spacer()
-                
                 CTAButton.CustomButtonView(style: .expanded(isDisabled: !isAddressFilled)) {
                     if formType == .patient {
                         showActualAddressCheckView = true
@@ -107,13 +107,14 @@ struct AddressFormView: View {
                         homeNavigation.navigate(.SignatureView)
                     }
                 } label: {
-                       Text("다음")
+                    Text("다음")
                 }
                 .navigationDestination(isPresented: $isPostCodeViewPresented) {
                     PostCodeInputView(isPostCodeViewPresented: $isPostCodeViewPresented,
                                       cityAddress: $address.cityAddress)
                 }
             }
+            
             if showActualAddressCheckView {
                 Color.black.opacity(0.5).ignoresSafeArea()
             }
@@ -159,6 +160,9 @@ struct AddressFormView: View {
             .presentationDetents([.fraction(0.43)])
             .presentationDragIndicator(.hidden)
             .presentationCornerRadius(12)
+        }
+        .onTapGesture {
+            hideKeyboard()
         }
     }
     

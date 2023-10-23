@@ -71,6 +71,9 @@ struct IDCardConfirmEditView: View {
             .padding()
         }
         .navigationBarBackButton()
+        .onTapGesture {
+            hideKeyboard()
+        }
     }
 }
 
