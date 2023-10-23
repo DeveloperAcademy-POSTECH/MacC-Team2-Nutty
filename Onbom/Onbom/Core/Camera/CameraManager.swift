@@ -34,7 +34,9 @@ class CameraManager: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        captureSession.stopRunning()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.captureSession.stopRunning()
+        }
     }
     
     private func setupCamera() {
