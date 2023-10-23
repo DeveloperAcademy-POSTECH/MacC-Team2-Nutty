@@ -60,6 +60,17 @@ struct AddressFormView: View {
         }
     }
     
+    var addressInputFieldTitle: String {
+        switch formType {
+        case .patient:
+            return "주민등록지"
+        case .actualPatient:
+            return "현재 살고 계신 주소지"
+        case .agent:
+            return "주소지"
+        }
+    }
+    
     var body: some View {
         ZStack {
             VStack {
@@ -89,7 +100,7 @@ struct AddressFormView: View {
                     }
                 }
                 
-                AddressInputField(label: "현재 살고 계신 주소지",
+                AddressInputField(label: addressInputFieldTitle,
                                   cityAddress: $address.cityAddress,
                                   detailAddress: $address.detailAddress,
                                   isPostCodeViewPresented: $isPostCodeViewPresented)
