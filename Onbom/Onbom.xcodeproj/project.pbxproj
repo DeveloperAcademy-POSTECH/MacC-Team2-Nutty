@@ -42,6 +42,7 @@
 		7337E1ED2AD14D1200D91E6F /* UITabBarController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337E1EC2AD14D1200D91E6F /* UITabBarController+Extension.swift */; };
 		7337E1EF2AD1531700D91E6F /* ApplyTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */; };
 		73525BF52AE6445E00A73769 /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73525BF42AE6445E00A73769 /* CustomTabBarView.swift */; };
+		73525BF72AE68AF500A73769 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73525BF62AE68AF500A73769 /* OnboardingView.swift */; };
 		735ADB2F2AD5AC4E0069B94B /* MediConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735ADB2E2AD5AC4E0069B94B /* MediConditionView.swift */; };
 		735EE1AF2AC0274400AD8B8D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 735EE1AE2AC0274400AD8B8D /* FirebaseAuth */; };
 		735EE1B42AC029A900AD8B8D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735EE1B32AC029A900AD8B8D /* LoginView.swift */; };
@@ -116,6 +117,7 @@
 		7337E1EC2AD14D1200D91E6F /* UITabBarController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extension.swift"; sourceTree = "<group>"; };
 		7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyTypeView.swift; sourceTree = "<group>"; };
 		73525BF42AE6445E00A73769 /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
+		73525BF62AE68AF500A73769 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		735ADB2E2AD5AC4E0069B94B /* MediConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediConditionView.swift; sourceTree = "<group>"; };
 		735EE1B22AC027EA00AD8B8D /* Onbom.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Onbom.entitlements; sourceTree = "<group>"; };
 		735EE1B32AC029A900AD8B8D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 				73FD46D82ADADF8C002ED839 /* HomeView.swift */,
 				735ADB2E2AD5AC4E0069B94B /* MediConditionView.swift */,
 				73525BF42AE6445E00A73769 /* CustomTabBarView.swift */,
+				73525BF62AE68AF500A73769 /* OnboardingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				709697CE2ADBBF4000DB8B19 /* IDCardConfirmEditView.swift in Sources */,
 				AE933EDE2AD42E60003D87E6 /* AgentInfoDetailView.swift in Sources */,
 				AE933EDC2AD42E36003D87E6 /* AgentInfoView.swift in Sources */,
+				73525BF72AE68AF500A73769 /* OnboardingView.swift in Sources */,
 				7372274F2AD476AD0021EFC6 /* FormTextField.swift in Sources */,
 				70C423732AD4354000D660B7 /* TextRecognizer.swift in Sources */,
 				70C423752AD4362400D660B7 /* RectangleDetector.swift in Sources */,

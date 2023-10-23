@@ -13,12 +13,17 @@ import KakaoSDKAuth
 @main
 struct OnbomApp: App {
     
+    @State private var isOnboarding: Bool = true
     
     var body: some Scene {
         WindowGroup {
-            MainView()
-                .environmentObject(Patient())
-                .environmentObject(Agent())
+            if(isOnboarding) {
+                OnboardingView(isOnboarding: $isOnboarding)
+            } else {
+                MainView()
+                    .environmentObject(Patient())
+                    .environmentObject(Agent())
+            }
         }
     }
 }
