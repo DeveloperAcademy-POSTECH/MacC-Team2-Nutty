@@ -25,6 +25,7 @@ class HomeNavigationViewModel: ObservableObject{
 
 public enum HomeRoute {
     case MainView
+    case DescriptionView
     case ApplyTypeView
     case MediHistoryView
     case MediConditionView

@@ -43,6 +43,8 @@
 		7337E1E82AD04B1700D91E6F /* TextStyle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337E1E72AD04B1700D91E6F /* TextStyle+Extension.swift */; };
 		7337E1ED2AD14D1200D91E6F /* UITabBarController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337E1EC2AD14D1200D91E6F /* UITabBarController+Extension.swift */; };
 		7337E1EF2AD1531700D91E6F /* ApplyTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */; };
+		73525BF52AE6445E00A73769 /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73525BF42AE6445E00A73769 /* CustomTabBarView.swift */; };
+		73525BF72AE68AF500A73769 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73525BF62AE68AF500A73769 /* OnboardingView.swift */; };
 		735ADB2F2AD5AC4E0069B94B /* MediConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735ADB2E2AD5AC4E0069B94B /* MediConditionView.swift */; };
 		735EE1AF2AC0274400AD8B8D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 735EE1AE2AC0274400AD8B8D /* FirebaseAuth */; };
 		735EE1B42AC029A900AD8B8D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735EE1B32AC029A900AD8B8D /* LoginView.swift */; };
@@ -70,6 +72,7 @@
 		AE10D3922AD4E1C900D9ED3C /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */; };
 		AE933EDC2AD42E36003D87E6 /* AgentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE933EDB2AD42E36003D87E6 /* AgentInfoView.swift */; };
 		AE933EDE2AD42E60003D87E6 /* AgentInfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE933EDD2AD42E60003D87E6 /* AgentInfoDetailView.swift */; };
+		AEA098F42AE6B13800DE9BA8 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA098F32AE6B13800DE9BA8 /* DescriptionView.swift */; };
 		AEB33E762AC2B0ED0082A3E7 /* PDFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33E752AC2B0ED0082A3E7 /* PDFManager.swift */; };
 		AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33E782AC2BDAC0082A3E7 /* PDFViewer.swift */; };
 		AEB33E992AC3F7CE0082A3E7 /* LTCIForm.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AEB33E982AC3F7CE0082A3E7 /* LTCIForm.pdf */; };
@@ -119,6 +122,8 @@
 		7337E1E72AD04B1700D91E6F /* TextStyle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextStyle+Extension.swift"; sourceTree = "<group>"; };
 		7337E1EC2AD14D1200D91E6F /* UITabBarController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extension.swift"; sourceTree = "<group>"; };
 		7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyTypeView.swift; sourceTree = "<group>"; };
+		73525BF42AE6445E00A73769 /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
+		73525BF62AE68AF500A73769 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		735ADB2E2AD5AC4E0069B94B /* MediConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediConditionView.swift; sourceTree = "<group>"; };
 		735EE1B22AC027EA00AD8B8D /* Onbom.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Onbom.entitlements; sourceTree = "<group>"; };
 		735EE1B32AC029A900AD8B8D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -145,6 +150,7 @@
 		AE70A4282ADAE7500006125E /* Onbom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Onbom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE933EDB2AD42E36003D87E6 /* AgentInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentInfoView.swift; sourceTree = "<group>"; };
 		AE933EDD2AD42E60003D87E6 /* AgentInfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentInfoDetailView.swift; sourceTree = "<group>"; };
+		AEA098F32AE6B13800DE9BA8 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		AEB33E752AC2B0ED0082A3E7 /* PDFManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFManager.swift; sourceTree = "<group>"; };
 		AEB33E782AC2BDAC0082A3E7 /* PDFViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewer.swift; sourceTree = "<group>"; };
 		AEB33E982AC3F7CE0082A3E7 /* LTCIForm.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = LTCIForm.pdf; sourceTree = "<group>"; };
@@ -284,6 +290,9 @@
 				735ADB2E2AD5AC4E0069B94B /* MediConditionView.swift */,
 				03FFF2D02AE6AD2B00B81D65 /* SubmitLoadingView.swift */,
 				03FFF2D22AE6B4A600B81D65 /* SubmitView.swift */,
+				AEA098F32AE6B13800DE9BA8 /* DescriptionView.swift */,
+				73525BF42AE6445E00A73769 /* CustomTabBarView.swift */,
+				73525BF62AE68AF500A73769 /* OnboardingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -521,6 +530,7 @@
 				709697CE2ADBBF4000DB8B19 /* IDCardConfirmEditView.swift in Sources */,
 				AE933EDE2AD42E60003D87E6 /* AgentInfoDetailView.swift in Sources */,
 				AE933EDC2AD42E36003D87E6 /* AgentInfoView.swift in Sources */,
+				73525BF72AE68AF500A73769 /* OnboardingView.swift in Sources */,
 				7372274F2AD476AD0021EFC6 /* FormTextField.swift in Sources */,
 				70C423732AD4354000D660B7 /* TextRecognizer.swift in Sources */,
 				70C423752AD4362400D660B7 /* RectangleDetector.swift in Sources */,
@@ -538,11 +548,13 @@
 				737B62172AD6EAB30010444E /* PatientInfoViewModel.swift in Sources */,
 				702D35AA2ADBBD31008FE1F8 /* ApplicationViewModel.swift in Sources */,
 				70E0470B2AD5139200FC73A5 /* IDNumberInputField.swift in Sources */,
+				AEA098F42AE6B13800DE9BA8 /* DescriptionView.swift in Sources */,
 				70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */,
 				7372274C2AD476200021EFC6 /* ViewModifier.swift in Sources */,
 				03FFF2A92ACDAE7A00B81D65 /* PostCodeView.swift in Sources */,
 				03FFF2CB2ADD614900B81D65 /* Alert.swift in Sources */,
 				708891F32AD57B91005B67AB /* SubmitCheckListView.swift in Sources */,
+				73525BF52AE6445E00A73769 /* CustomTabBarView.swift in Sources */,
 				708891EB2AD55191005B67AB /* AddressFormView.swift in Sources */,
 				03D759362ACDA17400495D7F /* PostCodeInputView.swift in Sources */,
 				70E0470D2AD513BC00FC73A5 /* AddressInputField.swift in Sources */,
@@ -700,9 +712,9 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "신분증 촬영을 위해 카메라 권한이 필요합니다";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -733,9 +745,9 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "신분증 촬영을 위해 카메라 권한이 필요합니다";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -13,12 +13,12 @@ struct NumberInputField: View {
     var limitLength: Int
     var isSecure: Bool
     @Binding var content: String
-    @FocusState private var isFocused: Bool
+    @FocusState var isFocused: Bool
     
     var body: some View {
         VStack(alignment: .leading) {
             Text(label)
-                .foregroundColor(.G6)
+                .foregroundColor(isFocused ? .PB4 : .G6)
                 .bold()
             inputField
                 .focused($isFocused)
@@ -28,7 +28,6 @@ struct NumberInputField: View {
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(lineWidth: 1.5)
                         .foregroundColor(strokeColor)
-                        .animation(.easeIn, value: isFocused)
                 }
                 .onChange(of: content) { newValue in
                     if newValue.count > limitLength {
