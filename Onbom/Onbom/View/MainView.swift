@@ -20,6 +20,7 @@ struct MainView: View {
                     HomeView()
                         .navigationDestination(for: HomeRoute.self) { route in
                             switch(route) {
+                            case .DescriptionView:                  DescriptionView()
                             case .ApplyTypeView:                    ApplyTypeView().toolbar(.hidden, for: .tabBar)
                             case .MediHistoryView:                  MediHistoryView()
                             case .MediConditionView:                MediConditionView()

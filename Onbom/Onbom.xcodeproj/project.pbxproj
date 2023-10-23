@@ -70,6 +70,7 @@
 		AE10D3922AD4E1C900D9ED3C /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */; };
 		AE933EDC2AD42E36003D87E6 /* AgentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE933EDB2AD42E36003D87E6 /* AgentInfoView.swift */; };
 		AE933EDE2AD42E60003D87E6 /* AgentInfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE933EDD2AD42E60003D87E6 /* AgentInfoDetailView.swift */; };
+		AEA098F42AE6B13800DE9BA8 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA098F32AE6B13800DE9BA8 /* DescriptionView.swift */; };
 		AEB33E762AC2B0ED0082A3E7 /* PDFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33E752AC2B0ED0082A3E7 /* PDFManager.swift */; };
 		AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33E782AC2BDAC0082A3E7 /* PDFViewer.swift */; };
 		AEB33E992AC3F7CE0082A3E7 /* LTCIForm.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AEB33E982AC3F7CE0082A3E7 /* LTCIForm.pdf */; };
@@ -145,6 +146,7 @@
 		AE70A4282ADAE7500006125E /* Onbom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Onbom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE933EDB2AD42E36003D87E6 /* AgentInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentInfoView.swift; sourceTree = "<group>"; };
 		AE933EDD2AD42E60003D87E6 /* AgentInfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentInfoDetailView.swift; sourceTree = "<group>"; };
+		AEA098F32AE6B13800DE9BA8 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		AEB33E752AC2B0ED0082A3E7 /* PDFManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFManager.swift; sourceTree = "<group>"; };
 		AEB33E782AC2BDAC0082A3E7 /* PDFViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewer.swift; sourceTree = "<group>"; };
 		AEB33E982AC3F7CE0082A3E7 /* LTCIForm.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = LTCIForm.pdf; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				731609672AD838FB00399476 /* StepView.swift */,
 				73FD46D82ADADF8C002ED839 /* HomeView.swift */,
 				735ADB2E2AD5AC4E0069B94B /* MediConditionView.swift */,
+				AEA098F32AE6B13800DE9BA8 /* DescriptionView.swift */,
 				73525BF42AE6445E00A73769 /* CustomTabBarView.swift */,
 				73525BF62AE68AF500A73769 /* OnboardingView.swift */,
 			);
@@ -538,6 +541,7 @@
 				737B62172AD6EAB30010444E /* PatientInfoViewModel.swift in Sources */,
 				702D35AA2ADBBD31008FE1F8 /* ApplicationViewModel.swift in Sources */,
 				70E0470B2AD5139200FC73A5 /* IDNumberInputField.swift in Sources */,
+				AEA098F42AE6B13800DE9BA8 /* DescriptionView.swift in Sources */,
 				70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */,
 				7372274C2AD476200021EFC6 /* ViewModifier.swift in Sources */,
 				03FFF2A92ACDAE7A00B81D65 /* PostCodeView.swift in Sources */,
@@ -700,9 +704,9 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "신분증 촬영을 위해 카메라 권한이 필요합니다";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -733,9 +737,9 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "신분증 촬영을 위해 카메라 권한이 필요합니다";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

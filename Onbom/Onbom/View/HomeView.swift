@@ -52,7 +52,7 @@ struct HomeView: View {
                 CTAButton.CustomButtonView(
                     style: .main)
                 {
-                    homeNavigation.navigate(.ApplyTypeView)
+                    homeNavigation.navigate(.DescriptionView)
                 } label: {
                        Text("지금 바로 신청하기")
                 }
@@ -79,7 +79,6 @@ struct HomeView: View {
                 .shadow(color: .black.opacity(0.05), radius: 5))
             .padding(.horizontal, 20)
             .padding(.bottom, 25)
-            
             
             Text("복지정보 한눈에 보기")
                 .H3()
@@ -136,13 +135,12 @@ struct HomeView: View {
                         .frame(width: 160, height: 194, alignment: .topLeading)
                         .background(colors[i])
                         .cornerRadius(12)
-                        .padding(.trailing, 10)
-                        
+                        .padding(.leading, i == 0 ? 20 : 0)
+                        .padding(.trailing, i == 5 ? 0 : 10)
                     }
                     Spacer().frame(width: 20)
                 }
             }
-
             .padding(.leading, 20)
             Spacer().frame(height: 100)
         }
