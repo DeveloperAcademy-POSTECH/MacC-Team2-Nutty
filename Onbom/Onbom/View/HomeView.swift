@@ -136,13 +136,12 @@ struct HomeView: View {
                         .frame(width: 160, height: 194, alignment: .topLeading)
                         .background(colors[i])
                         .cornerRadius(12)
-                        .padding(.trailing, 10)
-                        
+                        .padding(.leading, i == 0 ? 20 : 0)
+                        .padding(.trailing, i == 5 ? 0 : 10)
                     }
                     Spacer().frame(width: 20)
                 }
             }
-            .padding(.leading, 20)
             Spacer().frame(height: 50)
         }
         .background(Color.G2)
