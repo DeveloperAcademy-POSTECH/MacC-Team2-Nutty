@@ -17,7 +17,7 @@ struct SignatureView: View {
         VStack(alignment: .leading) {
             Text("서명을 해주세요")
                 .H2()
-            Alert(image: "security", label: "입력한 주민등록번호는 저장되지 않으니 안심하세요")
+            Alert(image: "security", label: "입력한 서명은 저장되지 않으니 안심하세요")
                 .padding(.vertical, 8)
                 .padding(.bottom, 30)
             Text("대리인 본인")
@@ -65,7 +65,7 @@ struct SignatureView: View {
             }
         }
         .navigationBarBackButton()
-        .padding(.horizontal, 20.0)
+        .padding([.top, .leading, .trailing], 20)
     }
     
     var deleteButton: some View {
@@ -75,7 +75,7 @@ struct SignatureView: View {
             Text("삭제")
                 .B1()
         }
-        .foregroundColor(.B)
+        .foregroundColor(.G6)
         .background {
             RoundedRectangle(cornerRadius: 8)
                 .frame(width: 54, height: 40)
