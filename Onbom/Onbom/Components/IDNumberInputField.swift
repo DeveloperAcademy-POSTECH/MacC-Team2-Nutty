@@ -27,7 +27,7 @@ struct IDNumberInputField: View {
             NumberInputField(label: " ",
                              placeholder: "뒤 7자리",
                              limitLength: 7,
-                             isSecure: true,
+                             isSecure: false,
                              content: $backNumber)
             .padding(.trailing)
         }
