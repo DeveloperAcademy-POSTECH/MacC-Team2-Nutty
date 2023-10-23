@@ -34,7 +34,9 @@ class CameraManager: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        captureSession.stopRunning()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.captureSession.stopRunning()
+        }
     }
     
     private func setupCamera() {
@@ -77,8 +79,8 @@ class CameraManager: UIViewController {
         //720, 110, (imageSize.height * 0.5), (imageSize.width * 0.45) 기기대응을 위해 수식 만들기
         print(imageSize) //iPhone14: (1920.0, 1080.0)
         let cropRect = CGRect(
-            x: 720,
-            y: 110,
+            x: imageSize.width * 0.35,
+            y: imageSize.height * 0.1,
             width: imageSize.height * 0.5,
             height: imageSize.width * 0.45
         )
