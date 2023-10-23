@@ -50,13 +50,13 @@ struct HomeView: View {
                     .offset(x: -18, y: -12),
                 alignment: .bottomTrailing
             )
-            VStack(alignment: .center, spacing: 0) {
+            VStack(spacing: 0) {
                 Text("집에서 간편하게\n장기요양등급 신청해 보세요")
                     .T1()
                     .foregroundColor(Color.B)
                     .lineSpacing(4)
                     .multilineTextAlignment(.center)
-                    .padding(.top, 30)
+                    .padding(.top, 10)
                     .padding(.bottom, 28)
                     .frame(maxWidth: .infinity)
                 Rectangle()
@@ -70,9 +70,8 @@ struct HomeView: View {
                 } label: {
                        Text("지금 바로 신청하기")
                 }
-                .background(RoundedRectangle(cornerRadius: 12).fill(Color.PB4))
                 .padding(.horizontal, 20)
-                .padding(.bottom, 20)
+                .padding(.bottom, 4)
             }
             .frame(width: width, height: width)
             .background(RoundedRectangle(cornerRadius: 20).fill(.white)
@@ -94,14 +93,15 @@ struct HomeView: View {
             .background(RoundedRectangle(cornerRadius: 12).fill(Color.white)
                 .shadow(color: .black.opacity(0.05), radius: 5))
             .padding(.horizontal, 20)
-            .padding(.bottom, 36)
+            .padding(.bottom, 25)
             
             
             Text("복지정보 한눈에 보기")
-                .H2()
+                .H3()
+                .foregroundColor(Color.B)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 20)
-                .padding(.bottom, 14)
+                .padding(.bottom, 5)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 0) {
@@ -130,17 +130,19 @@ struct HomeView: View {
                             Text("알림 설정하기")
                                 .foregroundColor(Color.G5)
                                 .Cap3()
+                                .padding(.top, 5)
                         }
                         .padding(20)
                         .frame(width: 160, height: 194, alignment: .topLeading)
                         .background(colors[i])
                         .cornerRadius(12)
-                        .padding(.leading, 20)
+                        .padding(.trailing, 10)
                         
                     }
                     Spacer().frame(width: 20)
                 }
             }
+            .padding(.leading, 20)
             Spacer().frame(height: 50)
         }
         .background(Color.G2)
