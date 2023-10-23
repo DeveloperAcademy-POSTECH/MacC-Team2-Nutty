@@ -44,7 +44,7 @@ struct MainView: View {
                     .Cap5()
             }
             
-            Text("신청 내역 화면")
+            PDFViewer(pdfData: pdfManager.PDFDatas.first )
             .tabItem {
                 Image("form_history")
                 Text("신청 내역")
@@ -59,5 +59,13 @@ struct MainView: View {
             }
         }
         .tint(Color.PB4)
+    }
+}
+
+struct MainView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView()
+            .environmentObject(HomeNavigationViewModel())
+            .environmentObject(PDFManager())
     }
 }
