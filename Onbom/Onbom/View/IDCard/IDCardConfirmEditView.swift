@@ -24,27 +24,20 @@ struct IDCardConfirmEditView: View {
             }
             .padding()
             
-            HStack(spacing: 4) {
-                Image("security")
-                    .padding(.leading)
-                Text("신분증 정보는 저장되지 않고, 신청 즉시 파기돼요")
-                    .foregroundColor(Color.G6)
-                    .Cap4()
-                    .padding(.vertical)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .background(RoundedRectangle(cornerRadius: 10).fill(Color.PB1))
-            .padding(20)
+            Alert(image: "security",
+                  label: "신분증 정보는 저장되지 않고, 신청 즉시 파기돼요")
+            .padding(.horizontal)
+            .padding(.bottom)
             
             Rectangle()
-                .foregroundColor(.gray)
+                .foregroundColor(.white)
                 .overlay {
                     Image(uiImage: agent.idCardImage)
                         .resizable()
                         .scaledToFit()
                 }
                 .padding()
-                .frame(height: 250)
+                .frame(height: 240)
             
             IDNumberInputField(frontNumber: $frontIDNumber, backNumber: $backIDNumber)
                 .onAppear {

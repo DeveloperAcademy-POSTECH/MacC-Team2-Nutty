@@ -63,6 +63,8 @@ struct IDCardOCRView: View {
                                     .strokeBorder(.white, lineWidth: 3)
                             }
                     }
+                    .padding(.bottom)
+                    .padding(.bottom)
                 }
             }
         
