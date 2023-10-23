@@ -89,7 +89,7 @@ extension Color {
     
     // MARK: Opacity
     static var TG1: Self {
-        .init(hex: "#F9F9F9", opacity: 0.4)
+        .init(hex: "#000000", opacity: 0.4)
     }
     
     static var TG2: Self {
