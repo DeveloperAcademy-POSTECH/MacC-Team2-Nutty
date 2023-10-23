@@ -9,26 +9,28 @@ import SwiftUI
 
 struct NavigationBarBackButton: View {
     @Environment(\.dismiss) private var dismiss
-    var color: Color
     
     var body: some View {
         Button {
             dismiss()
         } label: {
-            Image(systemName: "chevron.left")
-                .aspectRatio(contentMode: .fit)
-                .foregroundColor(color)
+            // 백버튼이 묘하게 옆으로 치우쳐서 임시 처리. 좋은 방법 help 부탁해용
+            HStack() {
+                Text("")
+                Image("chevronLeft")
+                    .aspectRatio(contentMode: .fit)
+            }
         }
     }
 }
 
 extension View {
-    func navigationBarBackButton(color: Color = Color.G5) -> some View {
+    func navigationBarBackButton() -> some View {
         self
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    NavigationBarBackButton(color: color)
+                    NavigationBarBackButton()
                 }
             }
     }
@@ -39,7 +41,7 @@ extension UINavigationController: UIGestureRecognizerDelegate {
         super.viewDidLoad()
         interactivePopGestureRecognizer?.delegate = self
     }
-
+    
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return viewControllers.count > 1
     }
