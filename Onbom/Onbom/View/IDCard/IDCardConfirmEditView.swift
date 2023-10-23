@@ -13,7 +13,11 @@ struct IDCardConfirmEditView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var agent: Agent
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
-
+    
+    var isAddressFilled: Bool {
+        !frontIDNumber.isEmpty && !backIDNumber.isEmpty
+    }
+    
     var body: some View {
         VStack {
             HStack {
@@ -55,7 +59,8 @@ struct IDCardConfirmEditView: View {
                     Text("재촬영")
                 }
                 .frame(width: 100)
-                CTAButton.CustomButtonView(style: .main) {
+                
+                CTAButton.CustomButtonView(style: .primary(isDisabled: !isAddressFilled)) {
                     agent.combineID(frontID: frontIDNumber, backID: backIDNumber)
                     homeNavigation.navigate(.AddressFormView_Agent)
                 } label: {
