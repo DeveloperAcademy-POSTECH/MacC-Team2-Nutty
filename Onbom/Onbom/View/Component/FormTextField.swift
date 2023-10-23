@@ -21,7 +21,7 @@ struct FormTextField: View {
     }
     
     var body: some View {
-        VStack(spacing: 10) {
+        VStack(spacing: 8) {
             Text(formSubject)
                 .foregroundColor(focused ? Color.PB4 : Color.G6)
                 .Label()

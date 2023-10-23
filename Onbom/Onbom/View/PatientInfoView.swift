@@ -33,23 +33,24 @@ struct PatientInfoView: View {
                 .H2()
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 20)
-            HStack(spacing: 4) {
-                Image("security")
-                    .padding(.leading, 13)
-                Text("입력한 주민등록번호는 저장되지 않으니 안심하세요")
-                    .foregroundColor(Color.G6)
-                    .Cap4()
-                    .padding(.vertical, 14)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .background(RoundedRectangle(cornerRadius: 10).fill(Color.PB1))
-            .padding(20)
-            .appear(didAppear[2])
             
             ScrollView {
                 if(step[2]) {
-                    VStack(spacing: 10) {
+                    HStack(spacing: 4) {
+                        Image("security")
+                            .padding(.leading, 13)
+                        Text("입력한 주민등록번호는 저장되지 않으니 안심하세요")
+                            .foregroundColor(Color.G6)
+                            .Cap4()
+                            .padding(.vertical, 14)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(RoundedRectangle(cornerRadius: 10).fill(Color.PB1))
+                    .padding(20)
+                    .appear(didAppear[2])
+                    
+                    VStack(spacing: 8) {
                         Text("주민번호")
                             .foregroundColor(focusedField == .seniorIDNumber1 || focusedField == .seniorIDNumber2 ? Color.PB4 : Color.G6)
                             .Label()
@@ -94,7 +95,6 @@ struct PatientInfoView: View {
                                     .stroke(focusedField == .seniorIDNumber2 ? Color.PB4 : Color.PB1, lineWidth: 1.5))
                         }
                     }
-                    .padding(.bottom, 36)
                     .padding(.horizontal, 20)
                     .appear(didAppear[2])
                 }
@@ -104,11 +104,6 @@ struct PatientInfoView: View {
                             .onReceive(Just(viewModel.seniorPhoneNumber)) { _ in
                                 if viewModel.seniorPhoneNumber.count > 11 {
                                     viewModel.seniorPhoneNumber = String(viewModel.seniorPhoneNumber.prefix(11))
-                                }
-                            }
-                            .onChange(of: viewModel.seniorPhoneNumber) { newValue in
-                                if newValue.count == 11 {
-                                    didFinishTypingPhoneNumber()
                                 }
                             }
                             .keyboardType(.numberPad)
@@ -138,7 +133,7 @@ struct PatientInfoView: View {
                             viewModel.hasMobile.toggle()
                         }
                     }
-                    .padding(.bottom, 36)
+                    .padding(.top, 36)
                     .padding(.horizontal, 20)
                     .animation(.easeInOut, value: step)
                     .appear(didAppear[1])
@@ -156,6 +151,7 @@ struct PatientInfoView: View {
                         didFinishTypingName()
                     }
                     .padding(.horizontal, 20)
+                    .padding(.top, 36)
             }
             .scrollDismissesKeyboard(.immediately)
             if isKeyboardVisible {
@@ -201,12 +197,14 @@ struct PatientInfoView: View {
     }
     
     private func isActiveButton() -> Bool {
-        return (!step[1] && viewModel.seniorName.count > 0) || viewModel.formIsValid
+        return (!step[2] && viewModel.seniorPhoneNumber.count == 11) || (!step[1] && viewModel.seniorName.count > 0) || viewModel.formIsValid
     }
     
     private func onClickButton() {
         if(!step[1]) {
             didFinishTypingName()
+        } else if(!step[2]) {
+            didFinishTypingPhoneNumber()
         } else {
             patient.combineID(frontID: viewModel.seniorIDNumber1, backID: viewModel.seniorIDNumber2)
             homeNavigation.navigate(.AddressFormView_Patient)
@@ -227,7 +225,9 @@ struct PatientInfoView: View {
         step[1] = true
         focusedField = .seniorPhoneNumber
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-            didAppear[1] = true
+            withAnimation {
+                didAppear[1] = true
+            }
         }
     }
     
@@ -237,7 +237,9 @@ struct PatientInfoView: View {
         }
         step[2] = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-            didAppear[2] = true
+            withAnimation {
+                didAppear[2] = true
+            }
         }
     }
     
