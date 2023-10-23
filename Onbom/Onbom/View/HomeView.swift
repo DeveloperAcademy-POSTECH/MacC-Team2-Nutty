@@ -17,18 +17,22 @@ struct HomeView: View {
         ScrollView(showsIndicators: false) {
             // 쇼케이스용 pdfViewer
             TabView(selection: $selectedPage){
-                Rectangle().fill(Color.G4)
+                Image("Banner1")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
                     .tag(0)
-                Rectangle().fill(Color.G3)
+                Image("Banner2")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
                     .tag(1)
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            .frame(width: UIScreen.main.bounds.width, height: 84)
+            .frame(width: .infinity, height: 84)
             .overlay(
                 Text("\(selectedPage + 1) / 2")
                     .foregroundStyle(Color.white)
                     .font(.system(size: 10, weight: .regular))
-                    .padding(.vertical, 4)
+                    .padding(.vertical, 3.5)
                     .padding(.horizontal, 5)
                     .background(RoundedRectangle(cornerRadius: 10).fill(Color.TG1))
                     .offset(x: -18, y: -12),
