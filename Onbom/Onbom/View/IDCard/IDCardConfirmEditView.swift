@@ -55,7 +55,7 @@ struct IDCardConfirmEditView: View {
             Spacer()
             
             HStack {
-                CTAButton.CustomButtonView(style: .secondary(isDisabled: false)) {
+                CTAButton.CustomButtonView(style: .secondary) {
                     dismiss()
                 } label: {
                     Text("재촬영")
