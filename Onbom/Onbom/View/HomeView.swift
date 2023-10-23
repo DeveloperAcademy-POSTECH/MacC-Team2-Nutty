@@ -49,10 +49,10 @@ struct HomeView: View {
                     .offset(x: -18, y: -12),
                 alignment: .bottomTrailing
             )
-            
-            VStack(alignment: .center, spacing: 0){
+            VStack(alignment: .center, spacing: 0) {
                 Text("집에서 간편하게\n장기요양등급 신청해 보세요")
                     .T1()
+                    .foregroundColor(Color.B)
                     .lineSpacing(4)
                     .multilineTextAlignment(.center)
                     .padding(.top, 30)
@@ -75,21 +75,27 @@ struct HomeView: View {
                 .padding(.horizontal, 20)
                 .padding(.bottom, 20)
             }
-            .background(RoundedRectangle(cornerRadius: 20).fill(.white))
+            .background(RoundedRectangle(cornerRadius: 20).fill(.white)
+                .shadow(color: .black.opacity(0.05), radius: 5))
             .padding(20)
-            
+            .padding(.top, -8)
+             
             HStack(spacing: 0) {
                 Text("본인 부담금 계산기")
                     .B2()
+                    .foregroundColor(Color.B)
                     .padding(.leading, 19)
                     .padding(.vertical, 20)
                 Spacer()
                 Image(systemName: "chevron.right")
+                    .foregroundColor(Color.G4)
                     .padding(.trailing, 19)
             }
-            .background(RoundedRectangle(cornerRadius: 12).fill(Color.white))
+            .background(RoundedRectangle(cornerRadius: 12).fill(Color.white)
+                .shadow(color: .black.opacity(0.05), radius: 5))
             .padding(.horizontal, 20)
             .padding(.bottom, 36)
+            
             
             Text("복지정보 한눈에 보기")
                 .H2()
@@ -140,12 +146,14 @@ struct HomeView: View {
         .background(Color.G2)
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
-                Text("ONBOM")
+                Text("온봄")
                     .foregroundColor(Color.PB4)
-                    .font(.system(size:24, weight: .bold))
+                    .font(.custom("Dongle-Bold", size: 35))
+                    .padding(.leading, 7)
             }
             ToolbarItem(placement: .confirmationAction) {
                 Image("notification")
+                    .padding(.trailing, 7)
             }
         }
     }
