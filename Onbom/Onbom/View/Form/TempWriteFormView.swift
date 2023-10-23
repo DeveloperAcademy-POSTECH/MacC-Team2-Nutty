@@ -18,6 +18,7 @@ struct TempWriteFormView: View {
     @State private var answerInputs: [String] = Array(repeating: "", count: 4)
     @State var currentStep: Step = .one
     @State var modal = false
+
     var body: some View {
         VStack {
             HStack {
@@ -39,8 +40,7 @@ struct TempWriteFormView: View {
                         modal = true
                     }
                 }.sheet(isPresented: $modal) {
-                    PrivacyPolicyView()
-                        .presentationDetents([.fraction(0.4)])
+
                 }
                 
             case .two:

@@ -65,6 +65,7 @@
 		73A708892ACEC605004B462B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73A708882ACEC605004B462B /* GoogleService-Info.plist */; };
 		73FD46D72ADAADCF002ED839 /* HomeNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FD46D62ADAADCF002ED839 /* HomeNavigationViewModel.swift */; };
 		73FD46D92ADADF8C002ED839 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FD46D82ADADF8C002ED839 /* HomeView.swift */; };
+		AE0132D12AE5BFCF00347814 /* Dongle-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEDB39752AE5BE6F0034E57E /* Dongle-Bold.ttf */; };
 		AE10D3902AD4D33C00D9ED3C /* SignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10D38F2AD4D33C00D9ED3C /* SignatureView.swift */; };
 		AE10D3922AD4E1C900D9ED3C /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */; };
 		AE933EDC2AD42E36003D87E6 /* AgentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE933EDB2AD42E36003D87E6 /* AgentInfoView.swift */; };
@@ -154,6 +155,7 @@
 		AEB33EA82ACAADE00082A3E7 /* PDFFormLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFFormLocation.swift; sourceTree = "<group>"; };
 		AEB33EAB2ACD3D010082A3E7 /* DigitalSignatureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalSignatureManager.swift; sourceTree = "<group>"; };
 		AEB33EAD2ACD3D680082A3E7 /* TempWriteSignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempWriteSignatureView.swift; sourceTree = "<group>"; tabWidth = 4; };
+		AEDB39752AE5BE6F0034E57E /* Dongle-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dongle-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 		70B136BA2AD589CB001208E3 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				AEDB39752AE5BE6F0034E57E /* Dongle-Bold.ttf */,
 				70B136BB2AD589CB001208E3 /* Pretendard-Regular.otf */,
 				70B136BC2AD589CB001208E3 /* Pretendard-Black.otf */,
 				70B136BD2AD589CB001208E3 /* Pretendard-Medium.otf */,
@@ -460,6 +463,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE0132D12AE5BFCF00347814 /* Dongle-Bold.ttf in Resources */,
 				AEB33E992AC3F7CE0082A3E7 /* LTCIForm.pdf in Resources */,
 				70B136CA2AD589CB001208E3 /* Pretendard-Thin.otf in Resources */,
 				70B136C42AD589CB001208E3 /* Pretendard-Regular.otf in Resources */,

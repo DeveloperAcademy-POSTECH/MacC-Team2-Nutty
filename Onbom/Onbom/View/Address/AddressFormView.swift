@@ -16,6 +16,10 @@ struct AddressFormView: View {
     @EnvironmentObject var agent: Agent
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     
+    var isAddressFilled: Bool {
+        !address.cityAddress.isEmpty && !address.detailAddress.isEmpty
+    }
+
     var name: String {
         switch formType {
         case .patient, .actualPatient:
@@ -93,7 +97,7 @@ struct AddressFormView: View {
                 Spacer()
                 
                 //CTA Button
-                Button {
+                CTAButton.CustomButtonView(style: .expanded(isDisabled: !isAddressFilled)) {
                     if formType == .patient {
                         showActualAddressCheckView = true
                     } else if formType == .actualPatient {
@@ -104,15 +108,8 @@ struct AddressFormView: View {
                         homeNavigation.navigate(.SignatureView)
                     }
                 } label: {
-                    Text("다음")
-                        .foregroundColor(Color.white)
-                        .B1()
-                        .padding(.vertical, 20)
-                        .frame(maxWidth: .infinity)
+                       Text("다음")
                 }
-                .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB4))
-                .padding(.bottom, 10)
-                .padding()
                 .navigationDestination(isPresented: $isPostCodeViewPresented) {
                     PostCodeInputView(isPostCodeViewPresented: $isPostCodeViewPresented,
                                       cityAddress: $address.cityAddress)

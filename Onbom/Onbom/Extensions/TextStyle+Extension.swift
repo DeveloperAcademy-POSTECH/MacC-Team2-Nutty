@@ -47,7 +47,7 @@ extension Text {
     }
     
     func Label() -> some View {
-        customTextStyle(fontName: "SemiBold", fontSize: 14, lineSpacing: 100, kerning: -2)
+        customTextStyle(fontName: "Pretendard-SemiBold", fontSize: 14, lineSpacing: 100, kerning: -2)
     }
     func Cap1() -> some View {
         customTextStyle(fontName: "Pretendard-Medium", fontSize: 16, lineSpacing: 160, kerning: -2)

@@ -63,6 +63,8 @@ struct IDCardOCRView: View {
                                     .strokeBorder(.white, lineWidth: 3)
                             }
                     }
+                    .padding(.bottom)
+                    .padding(.bottom)
                 }
             }
         
@@ -93,7 +95,8 @@ fileprivate struct IDCardGuideLineView: View {
                     Rectangle()
                         .strokeBorder(.white, lineWidth: 5)
                 }
-                .padding(.top)
+                .padding(.vertical)
+                .padding(.bottom)
             
             Button {
                 presentCameraGuideSheet = true

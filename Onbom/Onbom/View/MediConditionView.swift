@@ -12,9 +12,10 @@ struct MediConditionView: View {
     @ObservedObject private var viewModel = MediConditionViewModel()
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     @EnvironmentObject var patient: Patient
+    
     var body: some View {
         VStack(spacing: 0){
-            Text("현재 전염성 질병 또는\n정신질환을 가지고 계신가요?")
+            Text("어르신이 현재 전염성 질병 또는\n정신질환을 가지고 계신가요?")
                 .H2()
                 .foregroundColor(Color.B)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -26,21 +27,18 @@ struct MediConditionView: View {
             
             Spacer()
             
-            Button {
+            CTAButton.CustomButtonView(
+                style: .primary(isDisabled: !viewModel.formIsValid))
+            {
                 patient.hasInfectiousDisease = viewModel.hasInfectiousDisease ?? false
                 patient.hasMentalDisorder = viewModel.hasMentalDisorder ?? false
                 homeNavigation.navigate(.PatientInfoView)
             } label: {
                 Text("다음")
-                    .foregroundColor(Color.white)
-                    .B1()
-                    .padding(.vertical, 20)
-                    .frame(maxWidth: .infinity)
             }
-            .background(RoundedRectangle(cornerRadius: 16).fill(viewModel.formIsValid ? Color.PB4 : Color.PB3))
         }
         .navigationBarBackButton()
-        .padding(20)
+        .padding([.top, .leading, .trailing], 20)
     }
 }
 
@@ -61,39 +59,18 @@ struct AlternativeForm: View {
                 .foregroundColor(Color.G6)
                 .frame(maxWidth: .infinity, alignment: .leading)
             HStack(spacing: 10) {
-                Button {
-                    self.answer = true
-                } label: {
-                    Text("네")
-                        .B4()
-                        .foregroundColor(isCheckedYES() ? Color.PB4 : Color.G4)
-                        .padding(16)
-                        .frame(maxWidth: .infinity)
-                }
-                .frame(maxWidth: .infinity)
-                .background(RoundedRectangle(cornerRadius: 10)
-                    .strokeBorder(isCheckedYES() ? Color.PB4 : Color.G2, lineWidth: 1.2))
-                    .background(RoundedRectangle(cornerRadius: 10).fill(isCheckedYES() ? Color.PB2 : Color.G2)
-                )
-                
-                
-                Button {
+                RadioButton.CustomButtonView(style: isCheckedYES() ? .twoSelected : .twoUnselected) {
+                        answer = true
+                    } label: {
+                        Text("예")
+                    }
+                RadioButton.CustomButtonView(style: isCheckedNO() ? .twoSelected : .twoUnselected) {
                     self.answer = false
                 } label: {
-                    Text("아니요")
-                        .B4()
-                        .foregroundColor(isCheckedNO() ? Color.PB4 : Color.G4)
-                        .padding(16)
-                        .frame(maxWidth: .infinity)
+                    Text("아니오")
                 }
-                .frame(maxWidth: .infinity)
-                .background(RoundedRectangle(cornerRadius: 10)
-                    .strokeBorder(isCheckedNO() ? Color.PB4 : Color.G2, lineWidth: 1.2))
-                    .background(RoundedRectangle(cornerRadius: 10).fill(isCheckedNO() ? Color.PB2 : Color.G2)
-                )
             }
         }
-        .frame(maxWidth: .infinity)
     }
     
     private func isCheckedYES() -> Bool {
@@ -108,5 +85,11 @@ struct AlternativeForm: View {
             return false
         }
         return answer == false
+    }
+}
+
+struct MediConditionView_Previews: PreviewProvider {
+    static var previews: some View {
+        MediConditionView()
     }
 }

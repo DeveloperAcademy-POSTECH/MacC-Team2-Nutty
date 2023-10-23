@@ -42,7 +42,7 @@ struct MainView: View {
                 .environmentObject(homeNavigation)
                 .environmentObject(pdfManager)
             case .history:
-                Text("신청 내역")
+                PDFViewer(pdfData: pdfManager.PDFDatas.first )
                     .frame(maxHeight: .infinity)
             case .profile:
                 Text("내 정보")
@@ -60,5 +60,13 @@ struct MainView: View {
         .ignoresSafeArea()
         
         
+    }
+}
+
+struct MainView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView()
+            .environmentObject(HomeNavigationViewModel())
+            .environmentObject(PDFManager())
     }
 }
