@@ -64,13 +64,7 @@ struct CustomTabBarView: View {
         .padding(.top, 13)
         .padding(.bottom, 33)
         .background(Color.white)
-        
-        .clipShape(
-            .rect(
-                topLeadingRadius: 24,
-                topTrailingRadius: 24
-            )
-        )
+        .cornerRadius(24, corners: [.topLeft, .topRight])
     }
 }
 
