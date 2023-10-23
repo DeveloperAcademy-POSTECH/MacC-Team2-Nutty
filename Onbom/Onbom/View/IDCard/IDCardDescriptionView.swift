@@ -10,7 +10,7 @@ import SwiftUI
 struct IDCardDescriptionView: View {
     @State private var name = ""
     @State private var presentIDCardOCR = false
-    @EnvironmentObject var patient: Patient
+    @EnvironmentObject var agent: Agent
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     
     var body: some View {
@@ -55,7 +55,7 @@ struct IDCardDescriptionView: View {
         }
         .navigationBarBackButton()
         .onAppear {
-            name = patient.name
+            name = agent.name
         }
     }
     
@@ -68,6 +68,6 @@ struct IDCardDescriptionView: View {
 struct IDCardDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
         IDCardDescriptionView()
-            .environmentObject(Patient())
+            .environmentObject(Agent())
     }
 }

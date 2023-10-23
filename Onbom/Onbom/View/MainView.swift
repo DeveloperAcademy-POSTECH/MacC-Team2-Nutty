@@ -10,57 +10,57 @@ import SwiftUI
 struct MainView: View {
     @StateObject private var homeNavigation = HomeNavigationViewModel()
     @StateObject private var pdfManager = PDFManager()
+    @State private var tab: Tabs = .home
+    
     var body: some View {
-        TabView {
-            NavigationStack(path: $homeNavigation.homePath) {
-                HomeView()
-                    .navigationDestination(for: HomeRoute.self) { route in
-                        switch(route) {
-                        case .DescriptionView:
-                            DescriptionView().toolbar(.hidden, for: .tabBar)
-                        case .ApplyTypeView:                    ApplyTypeView()
-                        case .MediHistoryView:                  MediHistoryView()
-                        case .MediConditionView:                MediConditionView()
-                        case .IDCardDescriptionView:            IDCardDescriptionView()
-                        case .IDCardConfirmEditView:            IDCardConfirmEditView()
-                        case .AddressFormView_Patient:          AddressFormView(formType: .patient)
-                        case .AddressFormView_ActualPatient:    AddressFormView(formType: .actualPatient)
-                        case .AddressFormView_Agent:            AddressFormView(formType: .agent)
-                        case .SignatureView:                    SignatureView()
-                        case .SubmitCheckListView:              SubmitCheckListView()
-                        case .StepView_First:                   StepView(state: .FIRST)
-                        case .StepView_Second:                  StepView(state: .SECOND)
-                        case .PatientInfoView:                  PatientInfoView()
-                        case .AgentInfoView:                    AgentInfoView()
-                        case .RejectView:                       RejectView()
-                        default:                                RejectView()
+        ZStack(alignment: .bottom){
+            switch(tab) {
+            case .home:
+                NavigationStack(path: $homeNavigation.homePath) {
+                    HomeView()
+                        .navigationDestination(for: HomeRoute.self) { route in
+                            switch(route) {
+                            case .DescriptionView:                  DescriptionView()
+                            case .ApplyTypeView:                    ApplyTypeView().toolbar(.hidden, for: .tabBar)
+                            case .MediHistoryView:                  MediHistoryView()
+                            case .MediConditionView:                MediConditionView()
+                            case .IDCardDescriptionView:            IDCardDescriptionView()
+                            case .IDCardConfirmEditView:            IDCardConfirmEditView()
+                            case .AddressFormView_Patient:          AddressFormView(formType: .patient)
+                            case .AddressFormView_ActualPatient:    AddressFormView(formType: .actualPatient)
+                            case .AddressFormView_Agent:            AddressFormView(formType: .agent)
+                            case .SignatureView:                    SignatureView()
+                            case .SubmitCheckListView:              SubmitCheckListView()
+                            case .StepView_First:                   StepView(state: .FIRST)
+                            case .StepView_Second:                  StepView(state: .SECOND)
+                            case .PatientInfoView:                  PatientInfoView()
+                            case .AgentInfoView:                    AgentInfoView()
+                            case .RejectView:                       RejectView()
+                            default:                                RejectView()
+                            }
                         }
-                    }
-            }
-            .environmentObject(homeNavigation)
-            .environmentObject(pdfManager)
-            .tint(Color.G5)
-            .tabItem {
-                Image("home")
-                Text("홈")
-                    .Cap5()
-            }
-            
-            PDFViewer(pdfData: pdfManager.PDFDatas.first )
-            .tabItem {
-                Image("form_history")
-                Text("신청 내역")
-                    .Cap5()
-            }
-            
-            Text("프로필 화면")
-            .tabItem {
-                Image("profile")
+                }
+                .environmentObject(homeNavigation)
+                .environmentObject(pdfManager)
+            case .history:
+                PDFViewer(pdfData: pdfManager.PDFDatas.first )
+                    .frame(maxHeight: .infinity)
+            case .profile:
                 Text("내 정보")
-                    .Cap5()
+                    .frame(maxHeight: .infinity)
+            }
+            
+            if(homeNavigation.homePath.count == 0){
+                CustomTabBarView(tab: $tab)
             }
         }
-        .tint(Color.PB4)
+        .onAppear() {
+            UINavigationBar.setAnimationsEnabled(false)
+        }
+    
+        .ignoresSafeArea()
+        
+        
     }
 }
 

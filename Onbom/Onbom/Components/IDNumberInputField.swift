@@ -10,15 +10,19 @@ import SwiftUI
 struct IDNumberInputField: View {
     @Binding var frontNumber: String
     @Binding var backNumber: String
-    
+    @FocusState var isFocused: Bool
+
     var body: some View {
         HStack {
             NumberInputField(label: "주민등록번호",
                              placeholder: "앞 6자리",
                              limitLength: 6,
                              isSecure: false,
-                             content: $frontNumber)
+                             content: $frontNumber,
+                             isFocused: _isFocused
+            )
             .padding(.leading)
+            .focused($isFocused)
             
             Image(systemName: "minus")
                 .padding(.top)
@@ -30,6 +34,7 @@ struct IDNumberInputField: View {
                              isSecure: false,
                              content: $backNumber)
             .padding(.trailing)
+            .focused($isFocused)
         }
     }
 }

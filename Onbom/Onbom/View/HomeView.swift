@@ -141,7 +141,8 @@ struct HomeView: View {
                     Spacer().frame(width: 20)
                 }
             }
-            Spacer().frame(height: 50)
+            .padding(.leading, 20)
+            Spacer().frame(height: 100)
         }
         .background(Color.G2)
         .toolbar {
