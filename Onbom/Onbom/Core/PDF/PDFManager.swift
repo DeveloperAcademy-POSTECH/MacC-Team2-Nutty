@@ -12,7 +12,7 @@ class PDFManager: ObservableObject {
     @Published var PDFDatas: [Data] = []
 
     let signatureRect: CGRect = CGRect(x: 280, y: 250, width: 500, height: 250)
-    
+    let imageSizeFloat: CGFloat = 0.5
     enum FixedPositionItems: CaseIterable {
             case apply
             case protector
@@ -127,7 +127,7 @@ class PDFManager: ObservableObject {
             
             let myImage = image
             // 이미지의 위치와 크기 지정하는 코드
-            myImage.draw(in: CGRect(x: (a4Bounds.width - imageSize.width * 10) / 2, y: (a4Bounds.height - imageSize.height * 10) / 2, width: imageSize.width*10, height: imageSize.height*10))
+            myImage.draw(in: CGRect(x: (a4Bounds.width - imageSize.width * imageSizeFloat) / 2, y: (a4Bounds.height - imageSize.height * imageSizeFloat) / 2, width: imageSize.width*imageSizeFloat, height: imageSize.height*imageSizeFloat))
         }
 
         let newPage = PDFPage(image: img)!
