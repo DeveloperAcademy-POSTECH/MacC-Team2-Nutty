@@ -52,7 +52,7 @@ struct HomeView: View {
                 CTAButton.CustomButtonView(
                     style: .main)
                 {
-                    homeNavigation.navigate(.ApplyTypeView)
+                    homeNavigation.navigate(.DescriptionView)
                 } label: {
                        Text("지금 바로 신청하기")
                 }
@@ -79,7 +79,6 @@ struct HomeView: View {
                 .shadow(color: .black.opacity(0.05), radius: 5))
             .padding(.horizontal, 20)
             .padding(.bottom, 25)
-            
             
             Text("복지정보 한눈에 보기")
                 .H3()
