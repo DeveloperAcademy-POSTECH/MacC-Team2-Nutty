@@ -10,7 +10,7 @@ import SwiftUI
 struct AddressFormView: View {
     var formType: AddressFormType
     @State private var isPostCodeViewPresented = false
-    @State private var showActualAddressCheckView = false
+    @State private var showActualAddressCheckView = true
     @State private var address = Address(cityAddress: "", detailAddress: "")
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
@@ -121,7 +121,8 @@ struct AddressFormView: View {
         .navigationBarBackButton()
         .sheet(isPresented: $showActualAddressCheckView) {
             VStack{
-                Rectangle().frame(width: 70, height: 70).foregroundColor(.gray)
+                Image("warning")
+                    .padding(.top)
                 
                 Text("작성하신 주민등록지가 현재\n어르신이 머무르고 계신 곳인가요?")
                     .T2()
@@ -129,43 +130,33 @@ struct AddressFormView: View {
                     .padding()
                 
                 Text("어르신이 병원이나 자녀 집 등 다른 곳에 계시다면\n추가 입력이 필요해요.")
-                    .Cap2()
+                    .Cap3()
                     .multilineTextAlignment(.center)
                 
-                HStack {
-                    Button {
-                        showActualAddressCheckView = false
-                        patient.address = address
-                        homeNavigation.navigate(.AddressFormView_ActualPatient)
-                    } label: {
-                        Text("아니오 달라요")
-                            .B1()
-                            .foregroundColor(.PB4)
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                    }
-                    .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB2))
-                    
-                    Spacer()
-                    Button {
+                HStack(spacing: 5) {
+                    CTAButton.CustomButtonView(style: .secondary) {
                         patient.address = address
                         patient.actualAddress = address
                         showActualAddressCheckView = false
                         homeNavigation.navigate(.StepView_Second)
                     } label: {
                         Text("네, 같은 곳이에요")
-                            .B1()
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .padding()
                     }
-                    .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB4))
                     
+                    Spacer()
+                    
+                    CTAButton.CustomButtonView(style: .secondary) {
+                        showActualAddressCheckView = false
+                        patient.address = address
+                        homeNavigation.navigate(.AddressFormView_ActualPatient)
+                    } label: {
+                        Text("아니오 달라요")
+                    }
                 }
                 .padding(.horizontal)
                 .padding(.top)
             }
-            .presentationDetents([.height(300)])
+            .presentationDetents([.fraction(0.43)])
             .presentationDragIndicator(.hidden)
             .presentationCornerRadius(12)
         }
