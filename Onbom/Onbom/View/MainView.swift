@@ -48,7 +48,10 @@ struct MainView: View {
                 Text("내 정보")
                     .frame(maxHeight: .infinity)
             }
-            CustomTabBarView(tab: $tab)
+            
+            if(homeNavigation.homePath.count == 0){
+                CustomTabBarView(tab: $tab)
+            }
         }
         .ignoresSafeArea()
         
