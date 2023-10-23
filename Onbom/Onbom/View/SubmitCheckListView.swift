@@ -14,7 +14,7 @@ struct SubmitCheckListView: View {
     @EnvironmentObject var pdfManager: PDFManager
     var body: some View {
         HStack {
-            Text("마지막으로\n신청 정보를 확인해 주세요")
+            Text("신청 정보를 확인해 주세요")
                 .H2()
                 .foregroundColor(.B)
             Spacer()
@@ -32,6 +32,7 @@ struct SubmitCheckListView: View {
                         //관계 설정 페이지
                     } label: {
                         Text("신규")
+                            .B4()
                             .foregroundColor(.G5)
                         Image(systemName: "chevron.right")
                             .foregroundColor(.G4)
@@ -44,7 +45,7 @@ struct SubmitCheckListView: View {
             
             HStack {
                 Text("신청인")
-                    .Cap5()
+                    .Cap7()
                     .foregroundColor(.PB4)
                     .padding(4)
                     .padding(.horizontal, 3)
@@ -62,6 +63,21 @@ struct SubmitCheckListView: View {
             
             Group {
                 HStack {
+                    Text("신청인 전화번호")
+                        .B1()
+                        .foregroundColor(.G5)
+                    Spacer()
+                    Button {
+                        //
+                    } label: {
+                        Text(patient.phoneNumber)
+                            .B4()
+                            .foregroundColor(.G5)
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(.G4)
+                    }
+                }
+                HStack {
                     Text("신청인 주민등록번호")
                         .B1()
                         .foregroundColor(.G5)
@@ -70,6 +86,7 @@ struct SubmitCheckListView: View {
                         //
                     } label: {
                         Text(patient.id)
+                            .B4()
                             .foregroundColor(.G5)
                         Image(systemName: "chevron.right")
                             .foregroundColor(.G4)
@@ -88,9 +105,13 @@ struct SubmitCheckListView: View {
                                 .foregroundColor(.G4)
                         }
                     }
-                    .padding(.bottom, 2)
+                    .padding(.bottom, 4)
                     Text(patient.address.cityAddress)
+                        .B3()
+                        .foregroundColor(.G5)
                     Text(patient.address.detailAddress)
+                        .B3()
+                        .foregroundColor(.G5)
                 }
                 
                 VStack(alignment: .leading) {
@@ -106,9 +127,13 @@ struct SubmitCheckListView: View {
                                 .foregroundColor(.G4)
                         }
                     }
-                    .padding(.bottom, 2)
+                    .padding(.bottom, 4)
                     Text(patient.actualAddress.cityAddress)
+                        .B3()
+                        .foregroundColor(.G5)
                     Text(patient.actualAddress.detailAddress)
+                        .B3()
+                        .foregroundColor(.G5)
                 }
                 .padding(.bottom)
                 .padding(.bottom)
@@ -119,7 +144,7 @@ struct SubmitCheckListView: View {
             
             HStack {
                 Text("대리인")
-                    .Cap5()
+                    .Cap7()
                     .foregroundColor(.PB4)
                     .padding(4)
                     .padding(.horizontal, 3)
@@ -136,7 +161,7 @@ struct SubmitCheckListView: View {
             
             Group {
                 HStack {
-                    Text("\(patient.name)님과의 관계")
+                    Text("신청인과의 관계")
                         .B1()
                         .foregroundColor(.G5)
                     Spacer()
@@ -144,6 +169,7 @@ struct SubmitCheckListView: View {
                         //관계 설정 페이지
                     } label: {
                         Text(agent.relation)
+                            .B4()
                             .foregroundColor(.G5)
                         Image(systemName: "chevron.right")
                             .foregroundColor(.G4)
@@ -158,6 +184,7 @@ struct SubmitCheckListView: View {
                         //
                     } label: {
                         Text(agent.id)
+                            .B4()
                             .foregroundColor(.G5)
                         Image(systemName: "chevron.right")
                             .foregroundColor(.G4)
@@ -176,9 +203,13 @@ struct SubmitCheckListView: View {
                                 .foregroundColor(.G4)
                         }
                     }
-                    .padding(.bottom, 2)
+                    .padding(.bottom, 4)
                     Text(agent.address.cityAddress)
+                        .B3()
+                        .foregroundColor(.G5)
                     Text(agent.address.detailAddress)
+                        .B3()
+                        .foregroundColor(.G5)
                 }
             }
             .padding()
@@ -194,6 +225,8 @@ struct SubmitCheckListView: View {
                         .foregroundColor(.PB4)
                 }
                 Text("입력한 정보를 다음에도 사용할게요")
+                    .Cap3()
+                    .foregroundColor(Color.B)
                 Spacer()
             }
             .padding()
