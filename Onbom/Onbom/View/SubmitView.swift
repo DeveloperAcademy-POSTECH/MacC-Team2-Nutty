@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct SubmitView: View {
+    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    @EnvironmentObject var patient: Patient
+    @EnvironmentObject var agent: Agent
+    @EnvironmentObject var pdfManager: PDFManager
+    
     var body: some View {
         VStack {
             VStack(spacing: 20) {
@@ -31,7 +36,10 @@ struct SubmitView: View {
                 CTAButton.CustomButtonView(
                     style: .primary(isDisabled: false))
                 {
-                    print()
+                    patient.updateDictionary()
+                    agent.updateDictionary()
+                    pdfManager.createPDF(documentURL: LTCIFormResource, patient: patient.dictionary, agent: agent.dictionary, signature: agent.signature, image: agent.idCardImage, imageSize: agent.idCardImage.size, infectious: patient.hasInfectiousDisease, mental: patient.hasMentalDisorder)
+                    homeNavigation.popToRoot()
                 } label: {
                     Text("신청 완료")
                 }

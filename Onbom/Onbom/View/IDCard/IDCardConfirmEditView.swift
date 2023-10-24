@@ -68,7 +68,7 @@ struct IDCardConfirmEditView: View {
                 }
                 .frame(maxWidth: .infinity)
             }
-            .padding()
+            .padding([.top, .leading, .trailing], 20)
         }
         .navigationBarBackButton()
         .onTapGesture {

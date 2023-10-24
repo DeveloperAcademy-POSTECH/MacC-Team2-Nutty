@@ -62,7 +62,7 @@ struct SignatureView: View {
                 homeNavigation.navigate(.SubmitCheckListView)
             } label: {
                 Text("다음")
-            }
+            }.padding(.bottom,0)
         }
         .navigationBarBackButton()
         .padding([.top, .leading, .trailing], 20)

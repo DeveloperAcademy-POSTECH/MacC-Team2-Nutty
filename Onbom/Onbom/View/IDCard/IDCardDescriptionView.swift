@@ -37,18 +37,24 @@ struct IDCardDescriptionView: View {
             Image("IDCardDescriptionView")
             
             Spacer()
-            
-            Button {
+            CTAButton.CustomButtonView(
+                style: .primary(isDisabled: false))
+            {
                 presentIDCardOCR = true
             } label: {
                 Text("다음")
-                    .foregroundColor(Color.white)
-                    .B1()
-                    .padding(.vertical, 20)
-                    .frame(maxWidth: .infinity)
             }
-            .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB4))
-            .padding()
+//            Button {
+//                presentIDCardOCR = true
+//            } label: {
+//                Text("다음")
+//                    .foregroundColor(Color.white)
+//                    .B1()
+//                    .padding(.vertical, 20)
+//                    .frame(maxWidth: .infinity)
+//            }
+//            .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB4))
+            .padding([.top, .leading, .trailing], 20)
         }
         .fullScreenCover(isPresented: $presentIDCardOCR) {
             IDCardOCRView(presentIDCardOCR: $presentIDCardOCR, onFinishCapture: onFinishCapture)

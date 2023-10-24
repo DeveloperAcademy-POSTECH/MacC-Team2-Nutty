@@ -38,6 +38,7 @@ struct PrivacyPolicyView: View {
                     isAllCheck = true
                 }
             }
+            .padding(.bottom, 8)
             CTAButton.CustomButtonView(
                 style: .primary(isDisabled: !isAllCheck))
             {
