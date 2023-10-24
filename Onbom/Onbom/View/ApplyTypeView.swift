@@ -18,55 +18,61 @@ struct ApplyTypeView: View {
     @State var oneSelectedIndex : Int = -1
     
     var body: some View {
-        VStack {
-            Text("장기요양등급\n신청 종류를 선택해 주세요")
-                .H2()
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.bottom, 48)
-            
-            // 임시로 비활성화 style 처리를 해 둠. 추후 삭제 필요.
-            // 신규 신청만 navigation 걸어 둠. 추후 갱신 / 등급 변경이 생기면 navigation 연결 필요.
-            VStack(spacing: 10) {
-                ForEach(0..<title.count, id: \.self) { index in
-                    let oneStyle: RadioButtonStyle = oneSelectedIndex == index ? .oneSelected : .oneUnselected
-                    
-                    RadioButton.CustomButtonView(style: oneStyle) {
-                        oneSelectedIndex = index
-                        isPrivacyPolicyViewPresented = true
-                    } label: {
-                        HStack {
-                            VStack(alignment: .leading, spacing: 13) {
-                                if index == 0 {
-                                    Text("\(title[index])")
-                                        .T3()
-                                    Text("\(description[index])")
-                                        .Cap3()
+        ZStack {
+            VStack {
+                Text("장기요양등급\n신청 종류를 선택해 주세요")
+                    .H2()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.bottom, 48)
+                
+                // 임시로 비활성화 style 처리를 해 둠. 추후 삭제 필요.
+                // 신규 신청만 navigation 걸어 둠. 추후 갱신 / 등급 변경이 생기면 navigation 연결 필요.
+                VStack(spacing: 10) {
+                    ForEach(0..<title.count, id: \.self) { index in
+                        let oneStyle: RadioButtonStyle = oneSelectedIndex == index ? .oneSelected : .oneUnselected
+                        
+                        RadioButton.CustomButtonView(style: oneStyle) {
+                            oneSelectedIndex = index
+                            isPrivacyPolicyViewPresented = true
+                        } label: {
+                            HStack {
+                                VStack(alignment: .leading, spacing: 13) {
+                                    if index == 0 {
+                                        Text("\(title[index])")
+                                            .T3()
+                                        Text("\(description[index])")
+                                            .Cap3()
+                                    }
+                                    else {
+                                        Text("\(title[index])")
+                                            .T3()
+                                        // 비활성화 후 텍스트 색상 임시 변경
+                                            .foregroundColor(.G3)
+                                        Text("\(description[index])")
+                                            .Cap3()
+                                            .foregroundColor(.G3)
+                                    }
                                 }
-                                else {
-                                    Text("\(title[index])")
-                                        .T3()
-                                    // 비활성화 후 텍스트 색상 임시 변경
-                                        .foregroundColor(.G3)
-                                    Text("\(description[index])")
-                                        .Cap3()
-                                        .foregroundColor(.G3)
-                                }
+                                Spacer()
                             }
-                            Spacer()
                         }
+                        // 임시 비활성화
+                        .disabled(index > 0)
                     }
-                    // 임시 비활성화
-                    .disabled(index > 0)
                 }
+                Spacer()
             }
-            Spacer()
-        }
-        .navigationBarBackButton()
-        .padding(20)
-        // TODO: - 모달 뒤 화면의 색상 더 진하게 변경
-        .sheet(isPresented: $isPrivacyPolicyViewPresented) {
+            .navigationBarBackButton()
+            .padding(20)
+            // TODO: - 모달 뒤 화면의 색상 더 진하게 변경
+            .sheet(isPresented: $isPrivacyPolicyViewPresented) {
                 PrivacyPolicyView(isPrivacyPolicyViewPresented: $isPrivacyPolicyViewPresented)
-                  .presentationDetents([.fraction(0.4)])
+                    .presentationDetents([.fraction(0.4)])
+            }
+            
+            if isPrivacyPolicyViewPresented {
+                Color.black.opacity(0.5).ignoresSafeArea()
+            }
         }
     }
 }
