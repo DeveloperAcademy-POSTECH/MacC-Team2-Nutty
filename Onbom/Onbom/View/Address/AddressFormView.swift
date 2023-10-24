@@ -12,6 +12,7 @@ struct AddressFormView: View {
     @State private var isPostCodeViewPresented = false
     @State private var showActualAddressCheckView = false
     @State private var address = Address(cityAddress: "", detailAddress: "")
+    @State private var isKeyboardVisible = false
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
@@ -73,20 +74,20 @@ struct AddressFormView: View {
     
     var body: some View {
         ZStack {
-            VStack {
+            VStack(spacing: 0) {
                 HStack {
                     Text(titleMessage)
                         .H2()
                         .foregroundColor(.B)
                     Spacer()
                 }
-                .padding()
+                .padding(20)
                 
                 ScrollView {
                     
                     if formType != .agent {
                         Alert(image: "check", label: alertMessage)
-                            .padding()
+                            .padding([.bottom, .trailing, .leading], 20)
                     }
                     
                     AddressInputField(label: addressInputFieldTitle,
@@ -96,23 +97,40 @@ struct AddressFormView: View {
                     
                     Spacer()
                 }
-                CTAButton.CustomButtonView(style: .expanded(isDisabled: !isAddressFilled)) {
-                    if formType == .patient {
-                        showActualAddressCheckView = true
-                    } else if formType == .actualPatient {
-                        patient.actualAddress = address
-                        homeNavigation.navigate(.StepView_Second)
-                    } else {
-                        agent.address = address
-                        homeNavigation.navigate(.SignatureView)
+                if isKeyboardVisible {
+                    CTAButton.CustomButtonView(style: .expanded(isDisabled: !isAddressFilled)) {
+                        if formType == .patient {
+                            showActualAddressCheckView = true
+                        } else if formType == .actualPatient {
+                            patient.actualAddress = address
+                            homeNavigation.navigate(.StepView_Second)
+                        } else {
+                            agent.address = address
+                            homeNavigation.navigate(.SignatureView)
+                        }
+                    } label: {
+                        Text("다음")
                     }
-                } label: {
-                    Text("다음")
+                } else {
+                    CTAButton.CustomButtonView(style: .primary(isDisabled: !isAddressFilled)) {
+                        if formType == .patient {
+                            showActualAddressCheckView = true
+                        } else if formType == .actualPatient {
+                            patient.actualAddress = address
+                            homeNavigation.navigate(.StepView_Second)
+                        } else {
+                            agent.address = address
+                            homeNavigation.navigate(.SignatureView)
+                        }
+                    } label: {
+                        Text("다음")
+                    }
+                    .padding(.horizontal, 20)
                 }
-                .navigationDestination(isPresented: $isPostCodeViewPresented) {
-                    PostCodeInputView(isPostCodeViewPresented: $isPostCodeViewPresented,
-                                      cityAddress: $address.cityAddress)
-                }
+            }
+            .navigationDestination(isPresented: $isPostCodeViewPresented) {
+                PostCodeInputView(isPostCodeViewPresented: $isPostCodeViewPresented,
+                                  cityAddress: $address.cityAddress)
             }
             
             if showActualAddressCheckView {
@@ -166,6 +184,15 @@ struct AddressFormView: View {
         .onTapGesture {
             hideKeyboard()
         }
+        .onAppear {
+            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notification in
+                self.isKeyboardVisible = true
+            }
+            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { notification in
+                self.isKeyboardVisible = false
+            }
+        }
+
     }
     
     enum AddressFormType {

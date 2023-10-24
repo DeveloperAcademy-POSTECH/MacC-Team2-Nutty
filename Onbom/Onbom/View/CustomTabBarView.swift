@@ -57,7 +57,6 @@ struct CustomTabBarView: View {
             }
             .frame(maxWidth: .infinity)
             .onTapGesture {
-                tab = .profile
             }
         }
         .padding(.horizontal, 25)

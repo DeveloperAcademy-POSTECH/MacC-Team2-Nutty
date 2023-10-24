@@ -31,6 +31,7 @@ struct PatientInfoView: View {
         VStack(spacing: 0) {
             Text(step[1] == false ? "어르신의\n성함을 입력해주세요" : viewModel.seniorName + getTitle())
                 .H2()
+                .foregroundColor(Color.B)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 20)
             
@@ -113,6 +114,7 @@ struct PatientInfoView: View {
                                 .padding(.trailing, 10)
                             Text("전화번호가 없어요")
                                 .Cap2()
+                                .foregroundColor(.B)
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .onTapGesture {
