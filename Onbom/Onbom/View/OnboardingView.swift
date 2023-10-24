@@ -76,7 +76,7 @@ struct OnboardingView: View {
             Text(selectedTab == 2 ? "시작하기" : "다음")
         }
         .frame(maxWidth: .infinity)
-        .padding(20)
+        .padding([.top, .leading, .trailing], 20)
     }
     
     func onClickButton() {
