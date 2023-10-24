@@ -121,22 +121,24 @@ struct AddressFormView: View {
         }
         .navigationBarBackButton()
         .sheet(isPresented: $showActualAddressCheckView) {
-            VStack{
+            VStack(spacing: 0){
                 Image("warning")
-                    .padding(.top)
+                    .padding(.top, 34)
                 
                 Text("작성하신 주민등록지가 현재\n어르신이 머무르고 계신 곳인가요?")
                     .T2()
                     .foregroundColor(.B)
                     .multilineTextAlignment(.center)
-                    .padding()
+                    .padding(20)
                 
                 Text("어르신이 병원이나 자녀 집 등 다른 곳에 계시다면\n추가 입력이 필요해요.")
                     .Cap3()
                     .foregroundColor(.G5)
                     .multilineTextAlignment(.center)
                 
-                HStack(spacing: 5) {
+                Spacer()
+                
+                HStack(spacing: 10) {
                     CTAButton.CustomButtonView(style: .secondary) {
                         patient.address = address
                         patient.actualAddress = address
@@ -145,19 +147,17 @@ struct AddressFormView: View {
                     } label: {
                         Text("네, 같은 곳이에요")
                     }
-                    
-                    Spacer()
-                    
+                                        
                     CTAButton.CustomButtonView(style: .secondary) {
                         showActualAddressCheckView = false
                         patient.address = address
                         homeNavigation.navigate(.AddressFormView_ActualPatient)
                     } label: {
-                        Text("아니오 달라요")
+                        Text("아니요, 달라요")
                     }
                 }
                 .padding(.horizontal)
-                .padding(.top)
+                .padding(.top, 34)
             }
             .presentationDetents([.fraction(0.43)])
             .presentationDragIndicator(.hidden)
