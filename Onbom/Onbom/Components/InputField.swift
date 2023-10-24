@@ -20,7 +20,7 @@ struct InputField: View {
             if let label = label {
                 Text(label)
                     .foregroundColor(.G6)
-                    .bold()
+                    .Label()
             }
             TextField(placeholder, text: $content)
                 .focused($isFocused)

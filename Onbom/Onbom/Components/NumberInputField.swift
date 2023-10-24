@@ -19,7 +19,8 @@ struct NumberInputField: View {
         VStack(alignment: .leading) {
             Text(label)
                 .foregroundColor(isFocused ? .PB4 : .G6)
-                .bold()
+                .Label()
+
             inputField
                 .focused($isFocused)
                 .padding()

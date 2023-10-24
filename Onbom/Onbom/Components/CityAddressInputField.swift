@@ -18,7 +18,7 @@ struct CityAddressInputField: View {
         VStack(alignment:.leading) {
             Text(label)
                 .foregroundColor(titleFocused ? .PB4 : .G6)
-                .bold()
+                .Label()
             
             TextField(placeholder, text: $content)
                 .focused($isFocused)
