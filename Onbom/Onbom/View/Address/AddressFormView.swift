@@ -74,7 +74,7 @@ struct AddressFormView: View {
     
     var body: some View {
         ZStack {
-            VStack {
+            VStack(spacing: 0) {
                 HStack {
                     Text(titleMessage)
                         .H2()
@@ -87,7 +87,7 @@ struct AddressFormView: View {
                     
                     if formType != .agent {
                         Alert(image: "check", label: alertMessage)
-                            .padding(20)
+                            .padding([.bottom, .trailing, .leading], 20)
                     }
                     
                     AddressInputField(label: addressInputFieldTitle,
