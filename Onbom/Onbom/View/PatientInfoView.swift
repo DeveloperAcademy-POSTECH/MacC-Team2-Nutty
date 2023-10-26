@@ -22,6 +22,7 @@ struct PatientInfoView: View {
     @State private var step:                    [Bool] = [true, false, false]
     @State private var didAppear:               [Bool] = [true, false, false]
     @State private var isKeyboardVisible:       Bool = false
+    @State private var isPressed:               Bool = false
     
     @ObservedObject private var viewModel = PatientInfoViewModel()
     
@@ -150,13 +151,7 @@ struct PatientInfoView: View {
                     .padding(.top, 36)
             }
             .scrollDismissesKeyboard(.immediately)
-            if isKeyboardVisible {
-                CTAButton.CustomButtonView(style: .expanded(isDisabled: !isActiveButton())) {
-                    onClickButton()
-                } label: {
-                    Text("다음")
-                }
-            } else {
+            if !isKeyboardVisible {
                 CTAButton.CustomButtonView(style: .primary(isDisabled: !isActiveButton())) {
                     onClickButton()
                 } label: {
@@ -177,7 +172,32 @@ struct PatientInfoView: View {
         .navigationBarBackButton()
         .onAppear {
             focusedField = .seniorName
-            
+        }
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Text("다음")
+                    .B1()
+                    .foregroundColor(Color.W)
+                    .padding(.bottom, 3)
+                    .frame(width: UIScreen.main.bounds.size.width + 100, height: 54)
+                    .background(!isActiveButton() ? Color.PB3 : self.isPressed ? Color.PB5 : Color.PB4)
+                    .simultaneousGesture(
+                        DragGesture(minimumDistance: 0)
+                            .onChanged { _ in
+                                withAnimation {
+                                    isPressed = true
+                                }
+                            }
+                            .onEnded { _ in 
+                                withAnimation{
+                                    isPressed = false
+                                }
+                                if isActiveButton() {
+                                    onClickButton()
+                                }
+                            }
+                    )
+            }
         }
     }
     
