@@ -149,18 +149,6 @@ struct HomeView: View {
             Spacer().frame(height: 100)
         }
         .background(Color.G2)
-        .toolbar {
-            ToolbarItem(placement: .cancellationAction) {
-                Text("온봄")
-                    .foregroundColor(Color.PB4)
-                    .font(.custom("Dongle-Bold", size: 35))
-                    .padding(.leading, 7)
-            }
-            ToolbarItem(placement: .confirmationAction) {
-                Image("notification")
-                    .padding(.trailing, 7)
-            }
-        }
     }
 }
 
