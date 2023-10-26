@@ -63,7 +63,7 @@ struct StepView: View {
                             .foregroundColor(state == .SECOND ? Color.PB4 : Color.G4)
                     }
                 }
-                VStack(spacing: 55) {
+                VStack(alignment: .leading, spacing: 52) {
                     VStack(alignment: .leading, spacing: 8) {
                         Text("어르신 정보")
                             .B1()

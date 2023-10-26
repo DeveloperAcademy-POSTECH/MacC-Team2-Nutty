@@ -35,6 +35,13 @@ struct IDNumberInputField: View {
                              content: $backNumber)
             .padding(.trailing)
             .focused($isFocused)
+            .toolbar {
+                ToolbarItem(placement: .keyboard) {
+                    Button(action: hideKeyboard, label: {
+                        Text("완료")
+                    })
+                }
+            }
         }
     }
 }
