@@ -29,11 +29,20 @@ final class PatientInfoViewModel: ObservableObject {
             .store(in: &publishers)
     }
     
+    private func isValidDateOfBirth(dateOfBirth: String) -> Bool {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyMMdd"
+        guard let _ = dateFormatter.date(from: dateOfBirth) else {
+            return false
+        }
+        return true
+    }
+    
     
     private var IDNumber1Publisher: AnyPublisher<Bool, Never> {
         $seniorIDNumber1
             .map { number in
-                return number.count == 6
+                return number.count == 6 && self.isValidDateOfBirth(dateOfBirth: number)
             }
             .eraseToAnyPublisher()
     }
