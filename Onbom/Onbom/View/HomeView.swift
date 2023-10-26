@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    private let timer = Timer.publish(every: 20, on: .main, in: .common).autoconnect()
     @State private var selectedPage = 0
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     @EnvironmentObject var pdfManager: PDFManager
@@ -38,6 +39,11 @@ struct HomeView: View {
                     .offset(x: -18, y: -12),
                 alignment: .bottomTrailing
             )
+            .onReceive(timer, perform: { _ in
+                withAnimation {
+                    selectedPage = (selectedPage + 1) % 2
+                }
+            })
             VStack(spacing: 0) {
                 Spacer()
                 Text("집에서 간편하게\n장기요양등급 신청해 보세요")
