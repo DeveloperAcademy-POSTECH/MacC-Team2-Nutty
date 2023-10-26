@@ -47,10 +47,20 @@ final class PatientInfoViewModel: ObservableObject {
     }
     
     private var phoneNumberPublisher: AnyPublisher<Bool, Never> {
-        $seniorPhoneNumber
-            .map { number in
-                return number.count == 11
-            }
+        Publishers
+            .CombineLatest(
+                $seniorPhoneNumber
+                    .map { number in
+                        return number.count == 11
+                    }
+                    .eraseToAnyPublisher(),
+                $hasMobile
+                    .map { hasMobile in
+                        return !hasMobile
+                    }
+                    .eraseToAnyPublisher()
+            )
+            .map { $0 || $1 }
             .eraseToAnyPublisher()
     }
     
@@ -77,7 +87,8 @@ final class PatientInfoViewModel: ObservableObject {
             IDNumber1Publisher,
             IDNumber2Publisher
         )
-        .map { $0 && ($1 || !self.hasMobile) && $2 && $3 }
+        .debounce(for: .milliseconds(50), scheduler: RunLoop.main)
+        .map { $0 && $1 && $2 && $3 }
         .eraseToAnyPublisher()
     }
     
