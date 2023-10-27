@@ -23,7 +23,6 @@ struct CustomNavigationBar<V, R>: View where V: View, R: View {
             Spacer()
             self.confirmation
         }
-        .ignoresSafeArea()
     }
 }
 
