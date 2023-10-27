@@ -21,7 +21,7 @@ class HomeNavigationViewModel: ObservableObject{
     func pop() {
         var transaction = Transaction()
         transaction.disablesAnimations = true
-        withTransaction(transaction) {
+        let _ = withTransaction(transaction) {
             homePath.removeLast()
         }
     }
