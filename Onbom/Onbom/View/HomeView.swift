@@ -19,7 +19,7 @@ struct HomeView: View {
             CustomNavigationBar {
                 Text("온봄")
                     .foregroundColor(Color.PB4)
-                    .font(.custom("Dongle-Bold", size: 38))
+                    .font(.custom("Dongle-Bold", size: 42))
                     .padding(.leading, 20)
             } confirmation: {
                 Image("notification")
@@ -56,16 +56,15 @@ struct HomeView: View {
                         }
                     })
                     
-                    VStack(spacing: 0) {
+                    VStack(spacing: 30) {
                         Text("집에서 간편하게\n장기요양등급 신청해 보세요")
                             .T1()
                             .foregroundColor(Color.B)
                             .lineSpacing(4)
                             .multilineTextAlignment(.center)
-                            .padding(.bottom, 28)
+                            .padding(.top, 30)
                             .frame(maxWidth: .infinity)
                         Image("MainView")
-                            .padding(.bottom, 15)
                         CTAButton.CustomButtonView(
                             style: .main)
                         {
@@ -73,13 +72,11 @@ struct HomeView: View {
                         } label: {
                             Text("지금 바로 신청하기")
                         }
-                        .padding(20)
+                        .padding([.horizontal, .bottom], 20)
                     }
-                    .frame(width: width - 40, height: width - 40)
                     .background(RoundedRectangle(cornerRadius: 20).fill(.white)
                         .shadow(color: .black.opacity(0.05), radius: 5))
                     .padding(20)
-                    .padding(.top, -8)
                     
                     HStack(spacing: 0) {
                         Text("본인 부담금 계산기")
