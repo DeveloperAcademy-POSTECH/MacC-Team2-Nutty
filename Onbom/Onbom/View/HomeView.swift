@@ -20,11 +20,11 @@ struct HomeView: View {
                 CustomNavigationBar {
                     Text("온봄")
                         .foregroundColor(Color.PB4)
-                        .font(.custom("Dongle-Bold", size: 50))
+                        .font(.custom("Dongle-Bold", size: 38))
                         .padding(.leading, 20)
                 } confirmation: {
                     Image("notification")
-                        .frame(width: 24, height: 24)
+                        .frame(width: 34, height: 34)
                         .padding(.trailing, 20)
                 }
                 // 쇼케이스용 pdfViewer
