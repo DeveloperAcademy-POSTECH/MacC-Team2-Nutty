@@ -54,9 +54,6 @@ struct OnboardingView: View {
             }
             .tag(2)
         }
-        .onAppear(){
-            UIScrollView.appearance().isScrollEnabled = false
-        }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         .overlay(
             HStack(spacing: 4){

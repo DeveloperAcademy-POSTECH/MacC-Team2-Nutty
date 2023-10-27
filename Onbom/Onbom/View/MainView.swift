@@ -54,10 +54,6 @@ struct MainView: View {
                 CustomTabBarView(tab: $tab)
             }
         }
-        .onAppear() {
-            UINavigationBar.setAnimationsEnabled(false)
-        }
-    
         .ignoresSafeArea()
         
         

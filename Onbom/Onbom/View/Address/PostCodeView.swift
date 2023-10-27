@@ -22,8 +22,17 @@ struct PostCodeView: UIViewRepresentable {
         let configuration = WKWebViewConfiguration()
         configuration.userContentController = userContentController
         
-        let webView = WKWebView(frame: .zero, configuration: configuration)
+        let label = UIActivityIndicatorView()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.startAnimating()
+        label.tag = 100
+        
+        let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height), configuration: configuration)
         webView.navigationDelegate = context.coordinator
+        webView.addSubview(label)
+        
+        label.centerXAnchor.constraint(equalTo: webView.centerXAnchor).isActive = true
+        label.centerYAnchor.constraint(equalTo: webView.centerYAnchor).isActive = true
 
         return webView
     }
@@ -50,6 +59,13 @@ struct PostCodeView: UIViewRepresentable {
             if let data = message.body as? [String: Any], let selectedAddress = data["roadAddress"] as? String {
                 parent.selectedAddress = selectedAddress
                 parent.isPostCodeViewPresented = false
+            }
+        }
+        func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+            if let viewWithTag = webView.viewWithTag(100) {
+                viewWithTag.removeFromSuperview()
+            }else{
+                print("viewWithTag not found")
             }
         }
     }

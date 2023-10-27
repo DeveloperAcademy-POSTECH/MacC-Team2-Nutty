@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct NavigationBarBackButton: View {
-    @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     
     var body: some View {
         Button {
-            dismiss()
+            homeNavigation.pop()
         } label: {
             // 백버튼이 묘하게 옆으로 치우쳐서 임시 처리. 좋은 방법 help 부탁해용
             HStack() {

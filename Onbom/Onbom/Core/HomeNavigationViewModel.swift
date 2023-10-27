@@ -11,11 +11,19 @@ class HomeNavigationViewModel: ObservableObject{
     @Published var homePath: [HomeRoute] = []
     
     func navigate(_ route: HomeRoute)  {
-        homePath.append(route)
+        var transaction = Transaction()
+        transaction.disablesAnimations = true
+        withTransaction(transaction) {
+            homePath.append(route)
+        }
     }
     
     func pop() {
-        homePath.removeLast()
+        var transaction = Transaction()
+        transaction.disablesAnimations = true
+        withTransaction(transaction) {
+            homePath.removeLast()
+        }
     }
     
     func popToRoot() {

@@ -24,7 +24,7 @@ struct AddressInputField: View {
             CityAddressInputField(label: label,
                                   placeholder: "예) C5, 남구 청암로 77",
                                   content: $cityAddress, titleFocused: _titleFocused)
-            .focused($focusField, equals: .cityAddress)
+//            .focused($focusField, equals: .cityAddress)
             .focused($titleFocused)
             .onTapGesture {
                 isPostCodeViewPresented = true

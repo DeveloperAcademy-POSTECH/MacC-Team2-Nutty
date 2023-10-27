@@ -160,6 +160,7 @@ struct AddressFormView: View {
                     CTAButton.CustomButtonView(style: .secondary) {
                         patient.address = address
                         patient.actualAddress = address
+                        hideKeyboard()
                         showActualAddressCheckView = false
                         homeNavigation.navigate(.StepView_Second)
                     } label: {
@@ -169,6 +170,7 @@ struct AddressFormView: View {
                     CTAButton.CustomButtonView(style: .secondary) {
                         showActualAddressCheckView = false
                         patient.address = address
+                        hideKeyboard()
                         homeNavigation.navigate(.AddressFormView_ActualPatient)
                     } label: {
                         Text("아니요, 달라요")
