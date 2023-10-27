@@ -8,7 +8,7 @@
 import SwiftUI
 import WebKit
 
-struct PostCodeView: UIViewRepresentable {
+struct PostCodeViewer: UIViewRepresentable {
     let urlString = "https://developeracademy-postech.github.io/MacC-Team2-Nutty/"
     @Binding var isPostCodeViewPresented: Bool
     @Binding var selectedAddress: String
@@ -49,9 +49,9 @@ struct PostCodeView: UIViewRepresentable {
     }
     
     class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler {
-        var parent: PostCodeView
+        var parent: PostCodeViewer
         
-        init(_ parent: PostCodeView) {
+        init(_ parent: PostCodeViewer) {
             self.parent = parent
         }
         
@@ -73,6 +73,6 @@ struct PostCodeView: UIViewRepresentable {
 
 struct PostCodeView_Previews: PreviewProvider {
     static var previews: some View {
-        PostCodeView(isPostCodeViewPresented: .constant(false), selectedAddress: .constant(""))
+        PostCodeViewer(isPostCodeViewPresented: .constant(false), selectedAddress: .constant(""))
     }
 }

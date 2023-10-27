@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		03D759362ACDA17400495D7F /* PostCodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D759352ACDA17400495D7F /* PostCodeInputView.swift */; };
-		03FFF2A92ACDAE7A00B81D65 /* PostCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2A82ACDAE7A00B81D65 /* PostCodeView.swift */; };
+		03FFF2A92ACDAE7A00B81D65 /* PostCodeViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2A82ACDAE7A00B81D65 /* PostCodeViewer.swift */; };
 		03FFF2BB2AD5B74E00B81D65 /* CTAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2BA2AD5B74E00B81D65 /* CTAButton.swift */; };
 		03FFF2C92ADD60EF00B81D65 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2C82ADD60EF00B81D65 /* RadioButton.swift */; };
 		03FFF2CB2ADD614900B81D65 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2CA2ADD614900B81D65 /* Alert.swift */; };
 		03FFF2D12AE6AD2C00B81D65 /* SubmitLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2D02AE6AD2B00B81D65 /* SubmitLoadingView.swift */; };
 		03FFF2D32AE6B4A600B81D65 /* SubmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2D22AE6B4A600B81D65 /* SubmitView.swift */; };
-		702D35AA2ADBBD31008FE1F8 /* ApplicationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D35A92ADBBD31008FE1F8 /* ApplicationViewModel.swift */; };
+		702D35AA2ADBBD31008FE1F8 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D35A92ADBBD31008FE1F8 /* Patient.swift */; };
 		708891EB2AD55191005B67AB /* AddressFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708891EA2AD55191005B67AB /* AddressFormView.swift */; };
 		708891F12AD55607005B67AB /* CityAddressInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708891F02AD55607005B67AB /* CityAddressInputField.swift */; };
 		708891F32AD57B91005B67AB /* SubmitCheckListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708891F22AD57B91005B67AB /* SubmitCheckListView.swift */; };
@@ -39,9 +39,10 @@
 		70E047092AD5138300FC73A5 /* PhoneNumberInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E047082AD5138300FC73A5 /* PhoneNumberInputField.swift */; };
 		70E0470B2AD5139200FC73A5 /* IDNumberInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E0470A2AD5139200FC73A5 /* IDNumberInputField.swift */; };
 		70E0470D2AD513BC00FC73A5 /* AddressInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E0470C2AD513BC00FC73A5 /* AddressInputField.swift */; };
+		73007CC12AEBA5B600376511 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73007CC02AEBA5B600376511 /* Agent.swift */; };
+		73007CC32AEBA5BB00376511 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73007CC22AEBA5BB00376511 /* Address.swift */; };
 		731609682AD838FB00399476 /* StepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731609672AD838FB00399476 /* StepView.swift */; };
 		7337E1E82AD04B1700D91E6F /* TextStyle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337E1E72AD04B1700D91E6F /* TextStyle+Extension.swift */; };
-		7337E1ED2AD14D1200D91E6F /* UITabBarController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337E1EC2AD14D1200D91E6F /* UITabBarController+Extension.swift */; };
 		7337E1EF2AD1531700D91E6F /* ApplyTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */; };
 		73525BF52AE6445E00A73769 /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73525BF42AE6445E00A73769 /* CustomTabBarView.swift */; };
 		73525BF72AE68AF500A73769 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73525BF62AE68AF500A73769 /* OnboardingView.swift */; };
@@ -58,7 +59,6 @@
 		737B62172AD6EAB30010444E /* PatientInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737B62162AD6EAB30010444E /* PatientInfoViewModel.swift */; };
 		737D49032ACB3F4F008AC5EC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D49022ACB3F4F008AC5EC /* MainView.swift */; };
 		737EE3542ABD646100D224FC /* OnbomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737EE3532ABD646100D224FC /* OnbomApp.swift */; };
-		737EE3562ABD646100D224FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737EE3552ABD646100D224FC /* ContentView.swift */; };
 		737EE3582ABD646200D224FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737EE3572ABD646200D224FC /* Assets.xcassets */; };
 		737EE35B2ABD646200D224FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737EE35A2ABD646200D224FC /* Preview Assets.xcassets */; };
 		7384DB082AEACB950034E7FD /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384DB072AEACB950034E7FD /* CustomNavigationBar.swift */; };
@@ -79,22 +79,19 @@
 		AEB33E992AC3F7CE0082A3E7 /* LTCIForm.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AEB33E982AC3F7CE0082A3E7 /* LTCIForm.pdf */; };
 		AEB33E9B2AC406600082A3E7 /* Color+Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33E9A2AC406600082A3E7 /* Color+Palette.swift */; };
 		AEB33E9E2AC40C470082A3E7 /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33E9D2AC40C470082A3E7 /* InputField.swift */; };
-		AEB33EA52ACAAB4C0082A3E7 /* TempPDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33EA42ACAAB4C0082A3E7 /* TempPDFView.swift */; };
-		AEB33EA72ACAABAC0082A3E7 /* TempWriteFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33EA62ACAABAC0082A3E7 /* TempWriteFormView.swift */; };
 		AEB33EA92ACAADE00082A3E7 /* PDFFormLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33EA82ACAADE00082A3E7 /* PDFFormLocation.swift */; };
 		AEB33EAC2ACD3D010082A3E7 /* DigitalSignatureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33EAB2ACD3D010082A3E7 /* DigitalSignatureManager.swift */; };
-		AEB33EAE2ACD3D680082A3E7 /* TempWriteSignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33EAD2ACD3D680082A3E7 /* TempWriteSignatureView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		03D759352ACDA17400495D7F /* PostCodeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCodeInputView.swift; sourceTree = "<group>"; };
-		03FFF2A82ACDAE7A00B81D65 /* PostCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCodeView.swift; sourceTree = "<group>"; };
+		03FFF2A82ACDAE7A00B81D65 /* PostCodeViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCodeViewer.swift; sourceTree = "<group>"; };
 		03FFF2BA2AD5B74E00B81D65 /* CTAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTAButton.swift; sourceTree = "<group>"; };
 		03FFF2C82ADD60EF00B81D65 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		03FFF2CA2ADD614900B81D65 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		03FFF2D02AE6AD2B00B81D65 /* SubmitLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitLoadingView.swift; sourceTree = "<group>"; };
 		03FFF2D22AE6B4A600B81D65 /* SubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitView.swift; sourceTree = "<group>"; };
-		702D35A92ADBBD31008FE1F8 /* ApplicationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationViewModel.swift; sourceTree = "<group>"; };
+		702D35A92ADBBD31008FE1F8 /* Patient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		708891EA2AD55191005B67AB /* AddressFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressFormView.swift; sourceTree = "<group>"; };
 		708891F02AD55607005B67AB /* CityAddressInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityAddressInputField.swift; sourceTree = "<group>"; };
 		708891F22AD57B91005B67AB /* SubmitCheckListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitCheckListView.swift; sourceTree = "<group>"; };
@@ -119,9 +116,10 @@
 		70E047082AD5138300FC73A5 /* PhoneNumberInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberInputField.swift; sourceTree = "<group>"; };
 		70E0470A2AD5139200FC73A5 /* IDNumberInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDNumberInputField.swift; sourceTree = "<group>"; };
 		70E0470C2AD513BC00FC73A5 /* AddressInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressInputField.swift; sourceTree = "<group>"; };
+		73007CC02AEBA5B600376511 /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
+		73007CC22AEBA5BB00376511 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		731609672AD838FB00399476 /* StepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepView.swift; sourceTree = "<group>"; };
 		7337E1E72AD04B1700D91E6F /* TextStyle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextStyle+Extension.swift"; sourceTree = "<group>"; };
-		7337E1EC2AD14D1200D91E6F /* UITabBarController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extension.swift"; sourceTree = "<group>"; };
 		7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyTypeView.swift; sourceTree = "<group>"; };
 		73525BF42AE6445E00A73769 /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
 		73525BF62AE68AF500A73769 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -138,7 +136,6 @@
 		737B62162AD6EAB30010444E /* PatientInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientInfoViewModel.swift; sourceTree = "<group>"; };
 		737D49022ACB3F4F008AC5EC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		737EE3532ABD646100D224FC /* OnbomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbomApp.swift; sourceTree = "<group>"; };
-		737EE3552ABD646100D224FC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		737EE3572ABD646200D224FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		737EE35A2ABD646200D224FC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7384DB072AEACB950034E7FD /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
@@ -158,11 +155,8 @@
 		AEB33E982AC3F7CE0082A3E7 /* LTCIForm.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = LTCIForm.pdf; sourceTree = "<group>"; };
 		AEB33E9A2AC406600082A3E7 /* Color+Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Palette.swift"; sourceTree = "<group>"; };
 		AEB33E9D2AC40C470082A3E7 /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
-		AEB33EA42ACAAB4C0082A3E7 /* TempPDFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempPDFView.swift; sourceTree = "<group>"; };
-		AEB33EA62ACAABAC0082A3E7 /* TempWriteFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempWriteFormView.swift; sourceTree = "<group>"; };
 		AEB33EA82ACAADE00082A3E7 /* PDFFormLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFFormLocation.swift; sourceTree = "<group>"; };
 		AEB33EAB2ACD3D010082A3E7 /* DigitalSignatureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalSignatureManager.swift; sourceTree = "<group>"; };
-		AEB33EAD2ACD3D680082A3E7 /* TempWriteSignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempWriteSignatureView.swift; sourceTree = "<group>"; tabWidth = 4; };
 		AEDB39752AE5BE6F0034E57E /* Dongle-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dongle-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,7 +179,7 @@
 			children = (
 				03D759352ACDA17400495D7F /* PostCodeInputView.swift */,
 				708891EA2AD55191005B67AB /* AddressFormView.swift */,
-				03FFF2A82ACDAE7A00B81D65 /* PostCodeView.swift */,
+				03FFF2A82ACDAE7A00B81D65 /* PostCodeViewer.swift */,
 			);
 			path = Address;
 			sourceTree = "<group>";
@@ -228,12 +222,15 @@
 			path = IDCard;
 			sourceTree = "<group>";
 		};
-		7372274D2AD476960021EFC6 /* Component */ = {
+		73007CBE2AEBA26100376511 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				7372274E2AD476AD0021EFC6 /* FormTextField.swift */,
+				73FD46D62ADAADCF002ED839 /* HomeNavigationViewModel.swift */,
+				7389872E2AD5E95A00688634 /* MediConditionViewModel.swift */,
+				737B62162AD6EAB30010444E /* PatientInfoViewModel.swift */,
+				735EE1B52AC02AA200AD8B8D /* AuthenticationViewModel.swift */,
 			);
-			path = Component;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		737EE3472ABD646100D224FC = {
@@ -273,28 +270,25 @@
 		AE57BA0B2ABD68E600F71B34 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				737EE3552ABD646100D224FC /* ContentView.swift */,
-				AE933EDA2AD41B44003D87E6 /* AgentInfo */,
-				735EE1B32AC029A900AD8B8D /* LoginView.swift */,
-				7372274D2AD476960021EFC6 /* Component */,
-				AEB33EA22ACAA9820082A3E7 /* DigitalSignature */,
-				AEB33E9F2ACAA9020082A3E7 /* Form */,
-				70D2994F2AC96163009F536A /* IDCard */,
-				708891E92AD5515B005B67AB /* Address */,
-				708891F22AD57B91005B67AB /* SubmitCheckListView.swift */,
+				73525BF62AE68AF500A73769 /* OnboardingView.swift */,
 				737D49022ACB3F4F008AC5EC /* MainView.swift */,
+				73FD46D82ADADF8C002ED839 /* HomeView.swift */,
+				AEA098F32AE6B13800DE9BA8 /* DescriptionView.swift */,
 				7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */,
+				AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */,
+				731609672AD838FB00399476 /* StepView.swift */,
 				7372273D2AD2FB340021EFC6 /* MediHistoryView.swift */,
+				735ADB2E2AD5AC4E0069B94B /* MediConditionView.swift */,
 				7372273F2AD30BBE0021EFC6 /* RejectView.swift */,
 				737227412AD323360021EFC6 /* PatientInfoView.swift */,
-				731609672AD838FB00399476 /* StepView.swift */,
-				73FD46D82ADADF8C002ED839 /* HomeView.swift */,
-				735ADB2E2AD5AC4E0069B94B /* MediConditionView.swift */,
+				708891E92AD5515B005B67AB /* Address */,
+				AE933EDA2AD41B44003D87E6 /* AgentInfo */,
+				70D2994F2AC96163009F536A /* IDCard */,
+				AE10D38F2AD4D33C00D9ED3C /* SignatureView.swift */,
+				708891F22AD57B91005B67AB /* SubmitCheckListView.swift */,
 				03FFF2D02AE6AD2B00B81D65 /* SubmitLoadingView.swift */,
 				03FFF2D22AE6B4A600B81D65 /* SubmitView.swift */,
-				AEA098F32AE6B13800DE9BA8 /* DescriptionView.swift */,
-				73525BF42AE6445E00A73769 /* CustomTabBarView.swift */,
-				73525BF62AE68AF500A73769 /* OnboardingView.swift */,
+				735EE1B32AC029A900AD8B8D /* LoginView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -302,7 +296,9 @@
 		AE57BA0C2ABD68ED00F71B34 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				702D35A92ADBBD31008FE1F8 /* ApplicationViewModel.swift */,
+				702D35A92ADBBD31008FE1F8 /* Patient.swift */,
+				73007CC02AEBA5B600376511 /* Agent.swift */,
+				73007CC22AEBA5BB00376511 /* Address.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -312,7 +308,6 @@
 			children = (
 				AEB33E9A2AC406600082A3E7 /* Color+Palette.swift */,
 				7337E1E72AD04B1700D91E6F /* TextStyle+Extension.swift */,
-				7337E1EC2AD14D1200D91E6F /* UITabBarController+Extension.swift */,
 				737227432AD474E50021EFC6 /* View+Extension.swift */,
 				7372274B2AD476200021EFC6 /* ViewModifier.swift */,
 			);
@@ -322,13 +317,10 @@
 		AE57BA0E2ABD690100F71B34 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				735EE1B52AC02AA200AD8B8D /* AuthenticationViewModel.swift */,
+				73007CBE2AEBA26100376511 /* ViewModel */,
 				AEB33EAF2ACFDE740082A3E7 /* PDF */,
 				AEB33EAA2ACD3BFA0082A3E7 /* DigitalSignature */,
 				70D299482AC40E49009F536A /* Camera */,
-				7389872E2AD5E95A00688634 /* MediConditionViewModel.swift */,
-				737B62162AD6EAB30010444E /* PatientInfoViewModel.swift */,
-				73FD46D62ADAADCF002ED839 /* HomeNavigationViewModel.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -356,6 +348,8 @@
 		AEB33E9C2AC40C360082A3E7 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				73525BF42AE6445E00A73769 /* CustomTabBarView.swift */,
+				7372274E2AD476AD0021EFC6 /* FormTextField.swift */,
 				AEB33E9D2AC40C470082A3E7 /* InputField.swift */,
 				708891F02AD55607005B67AB /* CityAddressInputField.swift */,
 				70E0470C2AD513BC00FC73A5 /* AddressInputField.swift */,
@@ -369,25 +363,6 @@
 				7384DB072AEACB950034E7FD /* CustomNavigationBar.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		AEB33E9F2ACAA9020082A3E7 /* Form */ = {
-			isa = PBXGroup;
-			children = (
-				AEB33EA42ACAAB4C0082A3E7 /* TempPDFView.swift */,
-				AEB33EA62ACAABAC0082A3E7 /* TempWriteFormView.swift */,
-				AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */,
-			);
-			path = Form;
-			sourceTree = "<group>";
-		};
-		AEB33EA22ACAA9820082A3E7 /* DigitalSignature */ = {
-			isa = PBXGroup;
-			children = (
-				AEB33EAD2ACD3D680082A3E7 /* TempWriteSignatureView.swift */,
-				AE10D38F2AD4D33C00D9ED3C /* SignatureView.swift */,
-			);
-			path = DigitalSignature;
 			sourceTree = "<group>";
 		};
 		AEB33EAA2ACD3BFA0082A3E7 /* DigitalSignature */ = {
@@ -525,7 +500,6 @@
 				735EE1B62AC02AA200AD8B8D /* AuthenticationViewModel.swift in Sources */,
 				735EE1B42AC029A900AD8B8D /* LoginView.swift in Sources */,
 				73FD46D92ADADF8C002ED839 /* HomeView.swift in Sources */,
-				737EE3562ABD646100D224FC /* ContentView.swift in Sources */,
 				737D49032ACB3F4F008AC5EC /* MainView.swift in Sources */,
 				70E047072AD5135F00FC73A5 /* NumberInputField.swift in Sources */,
 				70D299532AC961AB009F536A /* IDCardOCRView.swift in Sources */,
@@ -550,24 +524,23 @@
 				AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */,
 				03FFF2D32AE6B4A600B81D65 /* SubmitView.swift in Sources */,
 				737B62172AD6EAB30010444E /* PatientInfoViewModel.swift in Sources */,
-				702D35AA2ADBBD31008FE1F8 /* ApplicationViewModel.swift in Sources */,
+				702D35AA2ADBBD31008FE1F8 /* Patient.swift in Sources */,
 				70E0470B2AD5139200FC73A5 /* IDNumberInputField.swift in Sources */,
 				AEA098F42AE6B13800DE9BA8 /* DescriptionView.swift in Sources */,
 				70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */,
+				73007CC12AEBA5B600376511 /* Agent.swift in Sources */,
 				7372274C2AD476200021EFC6 /* ViewModifier.swift in Sources */,
-				03FFF2A92ACDAE7A00B81D65 /* PostCodeView.swift in Sources */,
+				03FFF2A92ACDAE7A00B81D65 /* PostCodeViewer.swift in Sources */,
 				03FFF2CB2ADD614900B81D65 /* Alert.swift in Sources */,
 				708891F32AD57B91005B67AB /* SubmitCheckListView.swift in Sources */,
+				73007CC32AEBA5BB00376511 /* Address.swift in Sources */,
 				73525BF52AE6445E00A73769 /* CustomTabBarView.swift in Sources */,
 				708891EB2AD55191005B67AB /* AddressFormView.swift in Sources */,
 				03D759362ACDA17400495D7F /* PostCodeInputView.swift in Sources */,
 				70E0470D2AD513BC00FC73A5 /* AddressInputField.swift in Sources */,
 				737227422AD323360021EFC6 /* PatientInfoView.swift in Sources */,
-				AEB33EA72ACAABAC0082A3E7 /* TempWriteFormView.swift in Sources */,
 				7337E1EF2AD1531700D91E6F /* ApplyTypeView.swift in Sources */,
-				AEB33EA52ACAAB4C0082A3E7 /* TempPDFView.swift in Sources */,
 				AE10D3922AD4E1C900D9ED3C /* PrivacyPolicyView.swift in Sources */,
-				AEB33EAE2ACD3D680082A3E7 /* TempWriteSignatureView.swift in Sources */,
 				AEB33EA92ACAADE00082A3E7 /* PDFFormLocation.swift in Sources */,
 				03FFF2D12AE6AD2C00B81D65 /* SubmitLoadingView.swift in Sources */,
 				AEB33E9B2AC406600082A3E7 /* Color+Palette.swift in Sources */,
@@ -576,7 +549,6 @@
 				AEB33E9E2AC40C470082A3E7 /* InputField.swift in Sources */,
 				70E047092AD5138300FC73A5 /* PhoneNumberInputField.swift in Sources */,
 				70E047052AD5023000FC73A5 /* NavigationBarBackButton.swift in Sources */,
-				7337E1ED2AD14D1200D91E6F /* UITabBarController+Extension.swift in Sources */,
 				737227402AD30BBE0021EFC6 /* RejectView.swift in Sources */,
 				737227442AD474E50021EFC6 /* View+Extension.swift in Sources */,
 				AEB33EAC2ACD3D010082A3E7 /* DigitalSignatureManager.swift in Sources */,
