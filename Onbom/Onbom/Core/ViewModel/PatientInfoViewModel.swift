@@ -42,7 +42,11 @@ final class PatientInfoViewModel: ObservableObject {
     private var IDNumber1Publisher: AnyPublisher<Bool, Never> {
         $seniorIDNumber1
             .map { number in
+                #if DEBUG
+                return number.count == 6
+                #else
                 return number.count == 6 && self.isValidDateOfBirth(dateOfBirth: number)
+                #endif
             }
             .eraseToAnyPublisher()
     }
