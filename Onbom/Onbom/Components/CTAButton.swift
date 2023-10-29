@@ -75,6 +75,7 @@ public struct CTAButtonStyleModifiers: ButtonStyle {
                 .padding(.vertical, 19)
                 .foregroundColor(.white)
                 .background(RoundedRectangle(cornerRadius: 16).fill(isDisabled ? Color.PB3 : configuration.isPressed ? Color.PB5 : Color.PB4))
+                .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
             
         case .secondary:
             configuration.label
@@ -82,6 +83,7 @@ public struct CTAButtonStyleModifiers: ButtonStyle {
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 19)
                 .background(RoundedRectangle(cornerRadius: 16).fill( configuration.isPressed ? Color.PB3 : Color.PB2))
+                .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
             
         case let .expanded(isDisabled):
             configuration.label
@@ -89,6 +91,7 @@ public struct CTAButtonStyleModifiers: ButtonStyle {
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 19)
                 .background(isDisabled ? Color.PB3 : configuration.isPressed ? Color.PB5 : Color.PB4)
+                .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
             
         case .main:
             configuration.label
@@ -96,6 +99,7 @@ public struct CTAButtonStyleModifiers: ButtonStyle {
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 19)
                 .background(RoundedRectangle(cornerRadius: 14).fill(configuration.isPressed ? Color.PB5 : Color.PB4))
+                .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
         }
     }
 }
