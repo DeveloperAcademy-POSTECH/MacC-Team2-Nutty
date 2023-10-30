@@ -27,7 +27,7 @@ struct InputField: View {
                 .padding()
                 .background() {
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(isFocused ? Color.PB4 : Color.G3, lineWidth: 1.5)
+                        .stroke(isFocused ? Color.Green4 : Color.G3, lineWidth: 1.5)
                 }
                 .overlay {
                     if let buttonAction = buttonAction {

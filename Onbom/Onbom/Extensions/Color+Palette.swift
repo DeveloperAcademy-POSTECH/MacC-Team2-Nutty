@@ -54,6 +54,10 @@ extension Color {
         .init(hex: "#2F2F2F")
     }
     
+    static var G7: Self {
+        .init(hex: "#667571")
+    }
+    
     static var B: Self {
         .init(hex: "#191919")
     }
@@ -67,24 +71,24 @@ extension Color {
         .init(hex: "#E5FF9A")
     }
     
-    static var PB1: Self {
-        .init(hex: "#EFF0FF")
+    static var Green1: Self {
+        .init(hex: "#ECF5EE")
     }
     
-    static var PB2: Self {
-        .init(hex: "#E4E6FF")
+    static var Green2: Self {
+        .init(hex: "#DAF0DF")
     }
     
-    static var PB3: Self {
-        .init(hex: "#C3C6FF")
+    static var Green3: Self {
+        .init(hex: "#AED9CF")
     }
     
-    static var PB4: Self {
-        .init(hex: "#575DE1")
+    static var Green4: Self {
+        .init(hex: "#00A07A")
     }
     
-    static var PB5: Self {
-        .init(hex: "#343E9A")
+    static var Green5: Self {
+        .init(hex: "#00775A")
     }
     
     // MARK: Opacity
@@ -96,8 +100,8 @@ extension Color {
         .init(hex: "#D6D6D6", opacity: 0.4)
     }
     
-    static var TPB: Self {
-        .init(hex: "#575DE1", opacity: 0.7)
+    static var TGreen: Self {
+        .init(hex: "#00A07A", opacity: 0.7)
     }
     
     // MARK: Gradation
@@ -123,11 +127,11 @@ struct Color_Previews: PreviewProvider {
             VStack {
                 Color.R
                 Color.L
-                Color.PB1
-                Color.PB2
-                Color.PB3
-                Color.PB4
-                Color.PB5
+                Color.Green1
+                Color.Green2
+                Color.Green3
+                Color.Green4
+                Color.Green5
             }
             VStack {
                 LinearGradient(
@@ -142,7 +146,7 @@ struct Color_Previews: PreviewProvider {
             VStack {
                 Color.TG1
                 Color.TG2
-                Color.TPB
+                Color.TGreen
             }
         }
         .padding()

@@ -61,9 +61,9 @@ struct PrivacyPolicyView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 20)
-                .foregroundColor(isAllCheck ? .PB4 : .G3)
+                .foregroundColor(isAllCheck ? .Green4 : .G3)
             Text("개인정보 처리에 모두 동의합니다.")
-                .H3()
+                .H2()
                 .foregroundColor(.B)
             Spacer()
         }.onTapGesture {
@@ -84,7 +84,7 @@ struct PrivacyPolicyLow: View {
     var body: some View {
         HStack(spacing: 18) {
             Image(systemName: "checkmark")
-                .foregroundColor(isAllCheck || isCheck ? .PB4 : .G4)
+                .foregroundColor(isAllCheck || isCheck ? .Green4 : .G4)
                 .font(.system(size: 12, weight: .bold))
             Text(policyText)
                 .Cap3()

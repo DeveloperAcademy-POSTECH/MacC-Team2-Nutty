@@ -11,26 +11,21 @@ extension Text {
     func H1() -> some View {
         customTextStyle(fontName: "Pretendard-Bold", fontSize: 28, lineSpacing: 140, kerning: -3)
     }
+
     func H2() -> some View {
-        customTextStyle(fontName: "Pretendard-Bold", fontSize: 22, lineSpacing: 130, kerning: -2)
-    }
-    func H3() -> some View {
         customTextStyle(fontName: "Pretendard-ExtraBold", fontSize: 18, lineSpacing: 100, kerning: -2)
     }
 
     func T1() -> some View {
-        customTextStyle(fontName: "Pretendard-Bold", fontSize: 19, lineSpacing: 130, kerning: -3)
+        customTextStyle(fontName: "Pretendard-Bold", fontSize: 22, lineSpacing: 130, kerning: -2)
     }
     func T2() -> some View {
-        customTextStyle(fontName: "Pretendard-Bold", fontSize: 18, lineSpacing: 130, kerning: -2)
+        customTextStyle(fontName: "Pretendard-Bold", fontSize: 19, lineSpacing: 130, kerning: -3)
     }
     func T3() -> some View {
-        customTextStyle(fontName: "Pretendard-Bold", fontSize: 17, lineSpacing: 130, kerning: -3)
-    }
-    func T4() -> some View {
         customTextStyle(fontName: "Pretendard-Bold", fontSize: 14, lineSpacing: 130, kerning: -3)
     }
-    func T5() -> some View {
+    func T4() -> some View {
         customTextStyle(fontName: "Pretendard-SemiBold", fontSize: 14, lineSpacing: 160, kerning: -2)
     }
     
@@ -47,7 +42,7 @@ extension Text {
     }
     
     func Label() -> some View {
-        customTextStyle(fontName: "Pretendard-SemiBold", fontSize: 14, lineSpacing: 100, kerning: -2)
+        customTextStyle(fontName: "Pretendard-SemiBold", fontSize: 15, lineSpacing: 100, kerning: -2)
     }
     func Cap1() -> some View {
         customTextStyle(fontName: "Pretendard-Medium", fontSize: 16, lineSpacing: 160, kerning: -2)
@@ -62,15 +57,12 @@ extension Text {
         customTextStyle(fontName: "Pretendard-Medium", fontSize: 14, lineSpacing: 100, kerning: -2)
     }
     func Cap5() -> some View {
-        customTextStyle(fontName: "Pretendard-Medium", fontSize: 13, lineSpacing: 100, kerning: -2)
-    }
-    func Cap6() -> some View {
         customTextStyle(fontName: "Pretendard-Regular", fontSize: 13, lineSpacing: 160, kerning: -2)
     }
-    func Cap7() -> some View {
+    func Cap6() -> some View {
         customTextStyle(fontName: "Pretendard-Bold", fontSize: 11, lineSpacing: 100, kerning: 0)
     }
-    func Cap8() -> some View {
+    func Cap7() -> some View {
         customTextStyle(fontName: "Pretendard-Regular", fontSize: 11, lineSpacing: 100, kerning: 0)
     }
 }
@@ -98,8 +90,6 @@ struct Text_Previews: PreviewProvider {
                     .H1()
                 Text("H2 Bold 22pt 130% -2%")
                     .H2()
-                Text("H3 ExtraBold 18pt 100% -2%")
-                    .H3()
             }
             VStack {
                 Text("T1 Bold 19pt 130% -3%")
@@ -109,9 +99,9 @@ struct Text_Previews: PreviewProvider {
                 Text("T3 Bold 17pt 130% -3%")
                     .T3()
                 Text("T4 Bold 14pt 130% -3%")
+                    .T3()
+                Text("T4 SemiBold 14pt 160% -2%")
                     .T4()
-                Text("T5 SemiBold 14pt 160% -2%")
-                    .T5()
             }
             VStack {
                 Text("B1 Bold 16pt 100% -1%")
@@ -138,12 +128,12 @@ struct Text_Previews: PreviewProvider {
                     .Cap4()
                 Text("Cap5 Medium 13pt 100% -2%")
                     .Cap5()
-                Text("Cap6 Regular 13pt 160% -2%")
+                Text("Cap5 Regular 13pt 160% -2%")
+                    .Cap5()
+                Text("Cap6 Bold 11pt 100% 0%")
                     .Cap6()
-                Text("Cap7 Bold 11pt 100% 0%")
+                Text("Cap7 Regular 11pt 100% 0%")
                     .Cap7()
-                Text("Cap8 Regular 11pt 100% 0%")
-                    .Cap8()
             }
         }
     }
