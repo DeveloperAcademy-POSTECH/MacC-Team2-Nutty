@@ -9,7 +9,12 @@ import SwiftUI
 
 struct CallTaxiView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("포항시 동행콜 배차신청하기")
+            Text("어쩌구 전화로 신청할까요?")
+            Image("SubmitLoadingView")
+//            Image("warning")
+        }
     }
 }
 

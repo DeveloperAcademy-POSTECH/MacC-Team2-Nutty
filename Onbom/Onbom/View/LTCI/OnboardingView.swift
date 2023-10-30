@@ -59,7 +59,7 @@ struct OnboardingView: View {
             HStack(spacing: 4){
                 ForEach(0..<3) { index in
                     Capsule()
-                        .fill(index == selectedTab ? Color.PB4 : Color.G3)
+                        .fill(index == selectedTab ? Color.Green4 : Color.G3)
                         .frame(width: index == selectedTab ? 20 : 8, height: 8)
                 }
             },

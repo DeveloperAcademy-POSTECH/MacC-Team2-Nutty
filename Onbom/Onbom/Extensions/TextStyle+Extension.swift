@@ -11,10 +11,8 @@ extension Text {
     func H1() -> some View {
         customTextStyle(fontName: "Pretendard-Bold", fontSize: 28, lineSpacing: 140, kerning: -3)
     }
+
     func H2() -> some View {
-        customTextStyle(fontName: "Pretendard-Bold", fontSize: 22, lineSpacing: 130, kerning: -2)
-    }
-    func H3() -> some View {
         customTextStyle(fontName: "Pretendard-ExtraBold", fontSize: 18, lineSpacing: 100, kerning: -2)
     }
 
@@ -47,7 +45,7 @@ extension Text {
     }
     
     func Label() -> some View {
-        customTextStyle(fontName: "Pretendard-SemiBold", fontSize: 14, lineSpacing: 100, kerning: -2)
+        customTextStyle(fontName: "Pretendard-SemiBold", fontSize: 15, lineSpacing: 100, kerning: -2)
     }
     func Cap1() -> some View {
         customTextStyle(fontName: "Pretendard-Medium", fontSize: 16, lineSpacing: 160, kerning: -2)
@@ -98,8 +96,6 @@ struct Text_Previews: PreviewProvider {
                     .H1()
                 Text("H2 Bold 22pt 130% -2%")
                     .H2()
-                Text("H3 ExtraBold 18pt 100% -2%")
-                    .H3()
             }
             VStack {
                 Text("T1 Bold 19pt 130% -3%")
