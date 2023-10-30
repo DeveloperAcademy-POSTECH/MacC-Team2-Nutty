@@ -8,13 +8,99 @@
 import SwiftUI
 
 struct CallTaxiView: View {
+    @State private var isShowModal = false
+    
     var body: some View {
         VStack {
+            Spacer()
             Text("포항시 동행콜 배차신청하기")
+                .H1()
+                .foregroundColor(.G6)
+                .padding(.bottom, 10)
             Text("어쩌구 전화로 신청할까요?")
-            Image("SubmitLoadingView")
-//            Image("warning")
+                .Cap2()
+                .foregroundColor(.G4)
+                .padding(.bottom)
+            Spacer()
+            Image("CallTaxi")
+            Spacer()
+            Text("•  통화 전 어쩌구 저쩌구 시간과 장소를\n•  미리 생각해주세요")
+                .Cap3()
+                .foregroundColor(.G5)
+                .padding(.bottom, 50)
+            CTAButton.CustomButtonView(
+                style: .primary(isDisabled: false))
+            {
+                if checkIsOpeningHours() {
+                    if let url = URL(string: "tel://18009300") {
+                        UIApplication.shared.open(url)
+                    }
+                } else {
+                    isShowModal = true
+                }
+            } label: {
+                Text("콜센터에 전화로 신청하기")
+            }
         }
+        .sheet(isPresented: $isShowModal) {
+            CallTaxiModalView()
+                .presentationDetents([.fraction(0.5)])
+        }
+        .padding([.top, .leading, .trailing], 20)
+        .navigationBarBackButton()
+    }
+    
+    
+    func checkIsOpeningHours() -> Bool {
+        var isOpen = false
+        // 평 일 : 오전 7시 부터 오후 10시
+        // 토요일 : 오전 7시 부터 오후 6시
+        // 일 · 공휴일 : 오전 7시 부터 오후 4시
+        let today = Date()
+        return isOpen
+    }
+
+}
+
+struct CallTaxiModalView: View {
+    
+    var body: some View {
+        VStack {
+            Spacer()
+            Image("warning")
+                .padding(.bottom)
+            Text("지금은 콜센터 운영 시간이 아니에요")
+                .T1()
+                .foregroundColor(.B)
+                .padding(.bottom, 10)
+            VStack(alignment: .leading) {
+                Text("•  평 일 : 오전 7시 부터 오후 10시")
+                    .Cap3()
+                Text("•  토요일 : 오전 7시 부터 오후 6시")
+                    .Cap3()
+                Text("•  일 · 공휴일 : 오전 7시 부터 오후 4시")
+                    .Cap3()
+            }
+            .foregroundColor(.G5)
+            .padding(.bottom)
+            Text("콜센터 운영 시간이 되면 알림을 보내드릴까요?")
+                .Cap3()
+                .foregroundColor(.G5)
+            Spacer()
+            HStack {
+                CTAButton.CustomButtonView(style: .secondary) {
+
+                } label: {
+                    Text("네, 알려주세요")
+                }
+                CTAButton.CustomButtonView(style: .secondary) {
+
+                } label: {
+                    Text("필요 없어요")
+                }
+            }
+        }
+        .padding([.top, .leading, .trailing], 20)
     }
 }
 
