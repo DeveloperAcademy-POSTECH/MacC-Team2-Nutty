@@ -52,7 +52,7 @@ final class PatientInfoViewModel: ObservableObject {
     }
     
     private func isValidName(_ name: String) -> Bool {
-        let koreanRegex = try? NSRegularExpression(pattern: "^[가-힣]")
+        let koreanRegex = try? NSRegularExpression(pattern: "^[가-힣]{2,}$")
         
         return koreanRegex?.firstMatch(in: name, options: [], range: NSRange(location: 0, length: name.utf16.count)) != nil
     }
@@ -133,6 +133,21 @@ final class PatientInfoViewModel: ObservableObject {
         return ![isSeniorNameWrong, isSeniorIDNumber1Wrong, isSeniorPhoneNumberWrong]
             .reduce(false) { $0 || $1 }
         
+    }
+    
+    public func validateName() -> Bool {
+        isSeniorNameWrong               = !self.isValidName(seniorName)
+        return !isSeniorNameWrong
+    }
+    
+    public func validatePhoneNumber() -> Bool {
+        isSeniorPhoneNumberWrong        = !self.isValidPhoneNumber(seniorPhoneNumber)
+        return !isSeniorPhoneNumberWrong
+    }
+    
+    public func validateIDNumber1() -> Bool {
+        isSeniorIDNumber1Wrong          = !self.isValidDateOfBirth(seniorIDNumber1)
+        return !isSeniorIDNumber1Wrong
     }
 }
 

@@ -195,13 +195,20 @@ struct PatientInfoView: View {
     
     private func onClickButton() {
         if(!step[1]) {
+            #if RELEASE
+            if(!viewModel.validateName()) { return }
+            #endif
             didFinishTypingName()
         } else if(!step[2]) {
+            #if RELEASE
+            if(!viewModel.validatePhoneNumber()) { return }
+            #endif
             didFinishTypingPhoneNumber()
         } else {
             #if RELEASE
             if(!viewModel.validateInputField()) { return }
             #endif
+            patient.name = viewModel.seniorName;
             patient.combineID(frontID: viewModel.seniorIDNumber1, backID: viewModel.seniorIDNumber2)
             homeNavigation.navigate(.AddressFormView_Patient)
         }
@@ -240,7 +247,6 @@ struct PatientInfoView: View {
     }
     
     private func didFinishTypingAll() {
-        patient.name = viewModel.seniorName;
         focusedField = nil
     }
 }

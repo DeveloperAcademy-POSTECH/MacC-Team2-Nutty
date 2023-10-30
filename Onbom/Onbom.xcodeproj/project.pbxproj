@@ -61,6 +61,7 @@
 		737EE3582ABD646200D224FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737EE3572ABD646200D224FC /* Assets.xcassets */; };
 		737EE35B2ABD646200D224FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737EE35A2ABD646200D224FC /* Preview Assets.xcassets */; };
 		7384DB082AEACB950034E7FD /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384DB072AEACB950034E7FD /* CustomNavigationBar.swift */; };
+		7386D33F2AEFF1E600E1F327 /* PatientInfoViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7386D33E2AEFF1E600E1F327 /* PatientInfoViewModelTests.swift */; };
 		7389872F2AD5E95A00688634 /* MediConditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389872E2AD5E95A00688634 /* MediConditionViewModel.swift */; };
 		73A708892ACEC605004B462B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73A708882ACEC605004B462B /* GoogleService-Info.plist */; };
 		73C58ABF2AEE1A8C00EA126A /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C58ABE2AEE1A8C00EA126A /* FirebaseStorageManager.swift */; };
@@ -138,6 +139,8 @@
 		737EE3572ABD646200D224FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		737EE35A2ABD646200D224FC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7384DB072AEACB950034E7FD /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
+		7386D33C2AEFF1E600E1F327 /* OnbomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = OnbomTests.xctest; path = "/Users/moon/Desktop/MacC-Team2-Nutty/Onbom/build/Debug/OnbomTests.xctest"; sourceTree = "<absolute>"; };
+		7386D33E2AEFF1E600E1F327 /* PatientInfoViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientInfoViewModelTests.swift; sourceTree = "<group>"; };
 		7389872E2AD5E95A00688634 /* MediConditionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediConditionViewModel.swift; sourceTree = "<group>"; };
 		739F9FAA2AC1DB4300523110 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		73A708882ACEC605004B462B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -166,6 +169,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				73C58AF82AEE238A00EA126A /* FirebaseStorage in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7386D3392AEFF1E600E1F327 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +246,7 @@
 			children = (
 				737EE3522ABD646100D224FC /* Onbom */,
 				AE70A4282ADAE7500006125E /* Onbom.app */,
+				7386D33D2AEFF1E600E1F327 /* OnbomTests */,
 				73C58AC02AEE1D9A00EA126A /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -264,6 +275,14 @@
 				737EE35A2ABD646200D224FC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7386D33D2AEFF1E600E1F327 /* OnbomTests */ = {
+			isa = PBXGroup;
+			children = (
+				7386D33E2AEFF1E600E1F327 /* PatientInfoViewModelTests.swift */,
+			);
+			path = OnbomTests;
 			sourceTree = "<group>";
 		};
 		73C58ABD2AEE1A7B00EA126A /* Firebase */ = {
@@ -421,6 +440,23 @@
 			productReference = AE70A4282ADAE7500006125E /* Onbom.app */;
 			productType = "com.apple.product-type.application";
 		};
+		7386D33B2AEFF1E600E1F327 /* OnbomTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7386D3422AEFF1E600E1F327 /* Build configuration list for PBXNativeTarget "OnbomTests" */;
+			buildPhases = (
+				7386D3382AEFF1E600E1F327 /* Sources */,
+				7386D3392AEFF1E600E1F327 /* Frameworks */,
+				7386D33A2AEFF1E600E1F327 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OnbomTests;
+			productName = OnbomTests;
+			productReference = 7386D33C2AEFF1E600E1F327 /* OnbomTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -428,11 +464,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
+				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					737EE34F2ABD646100D224FC = {
 						CreatedOnToolsVersion = 14.3.1;
+					};
+					7386D33B2AEFF1E600E1F327 = {
+						CreatedOnToolsVersion = 15.0;
 					};
 				};
 			};
@@ -453,6 +492,7 @@
 			projectRoot = "";
 			targets = (
 				737EE34F2ABD646100D224FC /* Onbom */,
+				7386D33B2AEFF1E600E1F327 /* OnbomTests */,
 			);
 		};
 /* End PBXProject section */
@@ -476,6 +516,13 @@
 				70B136C92AD589CB001208E3 /* Pretendard-Bold.otf in Resources */,
 				70B136C62AD589CB001208E3 /* Pretendard-Medium.otf in Resources */,
 				70B136CB2AD589CB001208E3 /* Pretendard-ExtraLight.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7386D33A2AEFF1E600E1F327 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,6 +612,14 @@
 				737227402AD30BBE0021EFC6 /* RejectView.swift in Sources */,
 				737227442AD474E50021EFC6 /* View+Extension.swift in Sources */,
 				AEB33EAC2ACD3D010082A3E7 /* DigitalSignatureManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7386D3382AEFF1E600E1F327 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7386D33F2AEFF1E600E1F327 /* PatientInfoViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -751,6 +806,55 @@
 			};
 			name = Release;
 		};
+		7386D3402AEFF1E600E1F327 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RV2W6Y7UMT;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = moon.OnbomTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7386D3412AEFF1E600E1F327 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RV2W6Y7UMT;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = moon.OnbomTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -768,6 +872,15 @@
 			buildConfigurations = (
 				737EE35F2ABD646200D224FC /* Debug */,
 				737EE3602ABD646200D224FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7386D3422AEFF1E600E1F327 /* Build configuration list for PBXNativeTarget "OnbomTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7386D3402AEFF1E600E1F327 /* Debug */,
+				7386D3412AEFF1E600E1F327 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
