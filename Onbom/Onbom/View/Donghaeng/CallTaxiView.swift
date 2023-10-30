@@ -57,24 +57,10 @@ struct CallTaxiView: View {
         let calendar = Calendar.current.dateComponents([.weekday, .hour], from: today)
         if let weekday = calendar.weekday, let hours = calendar.hour {
             switch weekday {
-            case 2...6:
-                if 7..<23 ~= hours {
-                    isOpen = true
-                } else {
-                    isOpen = false
-                }
-            case 7:
-                if 7..<18 ~= hours {
-                    isOpen = true
-                } else {
-                    isOpen = false
-                }
-            case 1:
-                if 7..<16 ~= hours {
-                    isOpen = true
-                } else {
-                    isOpen = false
-                }
+            case 2...6 where 7..<23 ~= hours,
+                7 where 7..<18 ~= hours,
+                1 where 7..<16 ~= hours:
+                isOpen = true
             default:
                 isOpen = false
             }
