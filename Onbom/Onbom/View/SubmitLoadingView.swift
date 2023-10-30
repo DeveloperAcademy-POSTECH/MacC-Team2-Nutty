@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct SubmitLoadingView: View {
+    private enum SubmitLoadingViewState {
+        case loading
+        case fail
+    }
     @State private var isSubmitViewPresented = false
-    @State private var isFailed = false
-    @State private var err: String = ""
+    @State private var err: String?
+    @State private var state: SubmitLoadingViewState = .loading
     private let firebaseStorageManager: FirebaseStorageManager = .shared
     @EnvironmentObject var pdfManager: PDFManager
     
     var body: some View {
-        if(isFailed) {
-            Text(err)
-                .navigationBarBackButton()
-        }
-        else {
+        if(self.state == .loading) {
             VStack {
                 Text("국민건강보험공단에 보내고 있어요")
                     .H2()
@@ -36,32 +36,37 @@ struct SubmitLoadingView: View {
             })
             .navigationBarBackButtonHidden(true)
             .padding(20.0)
-            .onAppear() {
-                Task {
-                    do {
-                        let pdf = try pdfManager.getLastPdf()
-                        try await firebaseStorageManager.upload(pdf)
-                        DispatchQueue.main.async {
-                            self.isSubmitViewPresented = true
-                        }
-                    } catch let error as FirebaseStorageError {
-                        DispatchQueue.main.async {
-                            self.err = error.rawValue
-                            self.isFailed = true
-                        }
-                    } catch let error as PDFError {
-                        DispatchQueue.main.async {
-                            self.err = error.rawValue
-                            self.isFailed = true
-                        }
+            .onAppear{ initialize() }
+        }
+        else if (self.state == .fail) {
+            Text(self.err ?? "에러")
+                .navigationBarBackButton()
+        }
+    }
+    
+    private func initialize() {
+        Task {
+            do {
+                let pdf = try pdfManager.getLastPdf()
+                try await firebaseStorageManager.upload(pdf) { [self] error in
+                    if let error = error as? FirebaseStorageError {
+                        self.err = error.rawValue
+                        self.state = .fail
                     }
-                    catch {
-                        DispatchQueue.main.async {
-                            self.err = "죄송합니다. 다시 시도해주세요"
-                            self.isFailed = true
-                        }
+                    else if let error = error {
+                        self.err = error.localizedDescription
+                        self.state = .fail
+                    } else {
+                        self.isSubmitViewPresented = true
                     }
+                    
                 }
+            } catch let error as PDFError {
+                self.err = error.rawValue
+            }
+            catch let error {
+                print(error.localizedDescription)
+                self.err = "죄송합니다. 다시 시도해주세요"
             }
         }
     }
