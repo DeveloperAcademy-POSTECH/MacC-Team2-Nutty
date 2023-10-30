@@ -12,7 +12,6 @@ struct CallTaxiView: View {
     
     var body: some View {
         VStack {
-            Spacer()
             Text("포항시 동행콜 배차신청하기")
                 .H1()
                 .foregroundColor(.G6)
@@ -43,37 +42,60 @@ struct CallTaxiView: View {
             }
         }
         .sheet(isPresented: $isShowModal) {
-            CallTaxiModalView()
+            CallTaxiModalView(isShowModal: $isShowModal)
                 .presentationDetents([.fraction(0.5)])
         }
-        .padding([.top, .leading, .trailing], 20)
+        .padding(.top, 75)
+        .padding(.horizontal, 20)
         .navigationBarBackButton()
     }
     
     
     func checkIsOpeningHours() -> Bool {
         var isOpen = false
-        // 평 일 : 오전 7시 부터 오후 10시
-        // 토요일 : 오전 7시 부터 오후 6시
-        // 일 · 공휴일 : 오전 7시 부터 오후 4시
         let today = Date()
+        let calendar = Calendar.current.dateComponents([.weekday, .hour], from: today)
+        if let weekday = calendar.weekday, let hours = calendar.hour {
+            switch weekday {
+            case 2...6:
+                if 7..<23 ~= hours {
+                    isOpen = true
+                } else {
+                    isOpen = false
+                }
+            case 7:
+                if 7..<18 ~= hours {
+                    isOpen = true
+                } else {
+                    isOpen = false
+                }
+            case 1:
+                if 7..<16 ~= hours {
+                    isOpen = true
+                } else {
+                    isOpen = false
+                }
+            default:
+                isOpen = false
+            }
+        }
         return isOpen
     }
 
 }
 
 struct CallTaxiModalView: View {
-    
+    @Binding var isShowModal: Bool
     var body: some View {
         VStack {
-            Spacer()
             Image("warning")
-                .padding(.bottom)
+                .padding(.top, 34)
+                .padding(.bottom, 18)
             Text("지금은 콜센터 운영 시간이 아니에요")
                 .T1()
                 .foregroundColor(.B)
-                .padding(.bottom, 10)
-            VStack(alignment: .leading) {
+                .padding(.bottom, 20)
+            VStack(alignment: .leading, spacing: 3) {
                 Text("•  평 일 : 오전 7시 부터 오후 10시")
                     .Cap3()
                 Text("•  토요일 : 오전 7시 부터 오후 6시")
@@ -94,13 +116,13 @@ struct CallTaxiModalView: View {
                     Text("네, 알려주세요")
                 }
                 CTAButton.CustomButtonView(style: .secondary) {
-
+                    isShowModal = false
                 } label: {
                     Text("필요 없어요")
                 }
             }
         }
-        .padding([.top, .leading, .trailing], 20)
+        .padding(.horizontal, 20)
     }
 }
 
