@@ -48,7 +48,7 @@ struct SubmitCheckListView: View {
             
             HStack {
                 Text("신청인")
-                    .Cap7()
+                    .Cap6()
                     .foregroundColor(.Green4)
                     .padding(4)
                     .padding(.horizontal, 3)
@@ -147,7 +147,7 @@ struct SubmitCheckListView: View {
             
             HStack {
                 Text("대리인")
-                    .Cap7()
+                    .Cap6()
                     .foregroundColor(.Green4)
                     .padding(4)
                     .padding(.horizontal, 3)

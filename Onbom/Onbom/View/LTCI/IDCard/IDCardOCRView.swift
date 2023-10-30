@@ -80,7 +80,7 @@ fileprivate struct IDCardGuideLineView: View {
             Spacer()
             
             Text("가이드라인에 신분증을 맞춰주세요")
-                .T5()
+                .T4()
                 .foregroundColor(.Green4)
                 .padding(.vertical, 10)
                 .padding(.horizontal, 20)

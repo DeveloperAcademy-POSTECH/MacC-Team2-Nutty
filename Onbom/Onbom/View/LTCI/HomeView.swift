@@ -143,7 +143,7 @@ struct HomeView: View {
                                 .padding(.bottom, 31)
                                 Text(contents[i])
                                     .foregroundColor(Color.B)
-                                    .T4()
+                                    .T3()
                                 Text("알림 설정하기")
                                     .foregroundColor(Color.G5)
                                     .Cap4()
