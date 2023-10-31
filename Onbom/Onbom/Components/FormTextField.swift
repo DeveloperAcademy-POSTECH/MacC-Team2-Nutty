@@ -46,6 +46,9 @@ struct FormTextField: View {
                 }
             }
         }
+        .onTapGesture {
+            focused = true
+        }
     }
 }
 

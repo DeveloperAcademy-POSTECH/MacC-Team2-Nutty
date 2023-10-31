@@ -95,7 +95,6 @@ struct AddressFormView: View {
                                       detailAddress: $address.detailAddress,
                                       isPostCodeViewPresented: $isPostCodeViewPresented)
                     
-                    Spacer()
                 }
                 if isKeyboardVisible {
                     CTAButton.CustomButtonView(style: .expanded(isDisabled: !isAddressFilled)) {
@@ -111,6 +110,7 @@ struct AddressFormView: View {
                     } label: {
                         Text("다음")
                     }
+                    .ignoresSafeArea(.keyboard)
                 } else {
                     CTAButton.CustomButtonView(style: .primary(isDisabled: !isAddressFilled)) {
                         if formType == .patient {

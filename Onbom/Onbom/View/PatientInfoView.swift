@@ -171,6 +171,7 @@ struct PatientInfoView: View {
                 } label: {
                     Text("다음")
                 }
+                .ignoresSafeArea(.keyboard, edges: .bottom)
                 .padding(.horizontal, 20)
             }
         }

@@ -127,7 +127,11 @@ final class PatientInfoViewModel: ObservableObject {
     public func validateInputField() -> Bool {
         
         isSeniorIDNumber1Wrong          = !self.isValidDateOfBirth(seniorIDNumber1)
-        isSeniorPhoneNumberWrong        = !self.isValidPhoneNumber(seniorPhoneNumber)
+        if(hasMobile == true) {
+            isSeniorPhoneNumberWrong    = !self.isValidPhoneNumber(seniorPhoneNumber)
+        } else {
+            isSeniorPhoneNumberWrong    = false
+        }
         isSeniorNameWrong               = !self.isValidName(seniorName)
                 
         return ![isSeniorNameWrong, isSeniorIDNumber1Wrong, isSeniorPhoneNumberWrong]

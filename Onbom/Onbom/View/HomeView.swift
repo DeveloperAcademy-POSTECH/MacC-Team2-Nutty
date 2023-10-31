@@ -51,9 +51,7 @@ struct HomeView: View {
                         alignment: .bottomTrailing
                     )
                     .onReceive(timer, perform: { _ in
-                        withAnimation {
-                            selectedPage = (selectedPage + 1) % 2
-                        }
+                        selectedPage = (selectedPage + 1) % 2
                     })
                     
                     VStack(spacing: 30) {
