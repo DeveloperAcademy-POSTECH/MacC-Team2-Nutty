@@ -17,7 +17,7 @@ struct CityAddressInputField: View {
     var body: some View {
         VStack(alignment:.leading) {
             Text(label)
-                .foregroundColor(titleFocused ? .PB4 : .G6)
+                .foregroundColor(titleFocused ? .Green4 : .G6)
                 .Label()
             
             TextField(placeholder, text: $content)
@@ -25,7 +25,7 @@ struct CityAddressInputField: View {
                 .padding()
                 .background() {
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(isFocused ? Color.PB4 : Color.G3, lineWidth: 1.5)
+                        .stroke(isFocused ? Color.Green4 : Color.G3, lineWidth: 1.5)
                 }
                 .overlay {
                     HStack {

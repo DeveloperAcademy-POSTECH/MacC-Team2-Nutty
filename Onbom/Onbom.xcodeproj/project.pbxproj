@@ -71,6 +71,7 @@
 		AE0132D12AE5BFCF00347814 /* Dongle-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEDB39752AE5BE6F0034E57E /* Dongle-Bold.ttf */; };
 		AE10D3902AD4D33C00D9ED3C /* SignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10D38F2AD4D33C00D9ED3C /* SignatureView.swift */; };
 		AE10D3922AD4E1C900D9ED3C /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */; };
+		AE2FFADB2AEFA141005DC43C /* CallTaxiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2FFADA2AEFA141005DC43C /* CallTaxiView.swift */; };
 		AE933EDC2AD42E36003D87E6 /* AgentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE933EDB2AD42E36003D87E6 /* AgentInfoView.swift */; };
 		AE933EDE2AD42E60003D87E6 /* AgentInfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE933EDD2AD42E60003D87E6 /* AgentInfoDetailView.swift */; };
 		AEA098F42AE6B13800DE9BA8 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA098F32AE6B13800DE9BA8 /* DescriptionView.swift */; };
@@ -149,6 +150,7 @@
 		73FD46D82ADADF8C002ED839 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		AE10D38F2AD4D33C00D9ED3C /* SignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureView.swift; sourceTree = "<group>"; };
 		AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
+		AE2FFADA2AEFA141005DC43C /* CallTaxiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallTaxiView.swift; sourceTree = "<group>"; };
 		AE70A4282ADAE7500006125E /* Onbom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Onbom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE933EDB2AD42E36003D87E6 /* AgentInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentInfoView.swift; sourceTree = "<group>"; };
 		AE933EDD2AD42E60003D87E6 /* AgentInfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentInfoDetailView.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 			sourceTree = "<group>";
 		};
 		AE57BA0B2ABD68E600F71B34 /* View */ = {
+		AE2FFAD82AEFA0F6005DC43C /* LTCI */ = {
 			isa = PBXGroup;
 			children = (
 				73525BF62AE68AF500A73769 /* OnboardingView.swift */,
@@ -322,6 +325,23 @@
 				03FFF2D02AE6AD2B00B81D65 /* SubmitLoadingView.swift */,
 				03FFF2D22AE6B4A600B81D65 /* SubmitView.swift */,
 				735EE1B32AC029A900AD8B8D /* LoginView.swift */,
+			);
+			path = LTCI;
+			sourceTree = "<group>";
+		};
+		AE2FFAD92AEFA11C005DC43C /* Donghaeng */ = {
+			isa = PBXGroup;
+			children = (
+				AE2FFADA2AEFA141005DC43C /* CallTaxiView.swift */,
+			);
+			path = Donghaeng;
+			sourceTree = "<group>";
+		};
+		AE57BA0B2ABD68E600F71B34 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AE2FFAD92AEFA11C005DC43C /* Donghaeng */,
+				AE2FFAD82AEFA0F6005DC43C /* LTCI */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -558,6 +578,7 @@
 				03FFF2C92ADD60EF00B81D65 /* RadioButton.swift in Sources */,
 				735EE1B62AC02AA200AD8B8D /* AuthenticationViewModel.swift in Sources */,
 				735EE1B42AC029A900AD8B8D /* LoginView.swift in Sources */,
+				AE2FFADB2AEFA141005DC43C /* CallTaxiView.swift in Sources */,
 				73FD46D92ADADF8C002ED839 /* HomeView.swift in Sources */,
 				737D49032ACB3F4F008AC5EC /* MainView.swift in Sources */,
 				70E047072AD5135F00FC73A5 /* NumberInputField.swift in Sources */,

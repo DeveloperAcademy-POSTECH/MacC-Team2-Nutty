@@ -25,7 +25,7 @@ struct FormTextField: View {
     var body: some View {
         VStack(spacing: 8) {
             Text(formSubject)
-                .foregroundColor(isWrong ? Color.R : focused ? Color.PB4 : Color.G6)
+                .foregroundColor(focused ? Color.Green4 : Color.G6)
                 .Label()
                 .frame(maxWidth: .infinity, alignment: .leading)
             
@@ -38,8 +38,8 @@ struct FormTextField: View {
                     .focused($focused)
                     .padding(16)
                     .background(RoundedRectangle(cornerRadius: 10)
-                        .stroke(isWrong ? Color.R : focused ? Color.PB4 : Color.PB1, lineWidth: 1.5))
-                    .tint(Color.PB4)
+                        .stroke(focused ? Color.Green4 : Color.Green1, lineWidth: 1.5))
+                    .tint(Color.Green4)
                 if(isWrong) {
                     Image("wrongInputField")
                         .padding(.trailing, 16)

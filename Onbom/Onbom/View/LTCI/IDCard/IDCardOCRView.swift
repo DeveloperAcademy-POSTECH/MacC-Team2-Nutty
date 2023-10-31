@@ -80,8 +80,8 @@ fileprivate struct IDCardGuideLineView: View {
             Spacer()
             
             Text("가이드라인에 신분증을 맞춰주세요")
-                .T5()
-                .foregroundColor(.PB4)
+                .T4()
+                .foregroundColor(.Green4)
                 .padding(.vertical, 10)
                 .padding(.horizontal, 20)
                 .background {
@@ -146,10 +146,10 @@ fileprivate struct IDCardOCRSheet: View {
                 HStack {
                     Text("\(index + 1)")
                         .Label()
-                        .foregroundColor(.PB4)
+                        .foregroundColor(.Green4)
                         .padding(8)
                         .background {
-                            Circle().fill(Color.PB2)
+                            Circle().fill(Color.Green2)
                         }
                     Text(sheetString[index])
                     Spacer()
@@ -168,7 +168,7 @@ fileprivate struct IDCardOCRSheet: View {
                     .padding(.vertical, 20)
                     .frame(maxWidth: .infinity)
             }
-            .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB4))
+            .background(RoundedRectangle(cornerRadius: 16).fill(Color.Green4))
             .padding()
         }
     }

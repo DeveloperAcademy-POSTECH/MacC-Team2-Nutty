@@ -44,7 +44,7 @@ struct PatientInfoView: View {
                     
                     VStack(spacing: 8) {
                         Text("주민번호")
-                            .foregroundColor(viewModel.isSeniorIDNumber1Wrong ? Color.R : focusedField == .seniorIDNumber1 || focusedField == .seniorIDNumber2 ? Color.PB4 : Color.G6)
+                            .foregroundColor(viewModel.isSeniorIDNumber1Wrong ? Color.R : focusedField == .seniorIDNumber1 || focusedField == .seniorIDNumber2 ? Color.Green4 : Color.G6)
                             .Label()
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
@@ -69,8 +69,8 @@ struct PatientInfoView: View {
                                     .keyboardType(.numberPad)
                                     .padding(16)
                                     .background(RoundedRectangle(cornerRadius: 10)
-                                        .stroke(viewModel.isSeniorIDNumber1Wrong ? Color.R : focusedField == .seniorIDNumber1 ? Color.PB4 : Color.PB1, lineWidth: 1.5))
-                                    .tint(Color.PB4)
+                                        .stroke(viewModel.isSeniorIDNumber1Wrong ? Color.R : focusedField == .seniorIDNumber1 ? Color.Green4 : Color.Green1, lineWidth: 1.5))
+                                    .tint(Color.Green4)
                                 if(viewModel.isSeniorIDNumber1Wrong) {
                                     Image("wrongInputField")
                                         .padding(.trailing, 16)
@@ -94,7 +94,7 @@ struct PatientInfoView: View {
                                 .keyboardType(.numberPad)
                                 .padding(16)
                                 .background(RoundedRectangle(cornerRadius: 10)
-                                    .stroke(focusedField == .seniorIDNumber2 ? Color.PB4 : Color.PB1, lineWidth: 1.5))
+                                    .stroke(focusedField == .seniorIDNumber2 ? Color.Green4 : Color.Green1, lineWidth: 1.5))
                         }
                     }
                     .padding(.horizontal, 20)
@@ -116,7 +116,7 @@ struct PatientInfoView: View {
                             .disabled(!viewModel.hasMobile)
                         HStack(spacing: 0){
                             Image(systemName: "checkmark.circle.fill")
-                                .foregroundColor(viewModel.hasMobile ? Color.G3 : Color.PB4)
+                                .foregroundColor(viewModel.hasMobile ? Color.G3 : Color.Green4)
                                 .frame(width: 20, height: 20)
                                 .padding(.trailing, 10)
                             Text("전화번호가 없어요")
@@ -251,4 +251,3 @@ struct PatientInfoView: View {
         focusedField = nil
     }
 }
-

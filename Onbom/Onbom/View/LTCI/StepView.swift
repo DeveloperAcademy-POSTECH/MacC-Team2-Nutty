@@ -46,10 +46,10 @@ struct StepView: View {
                     ZStack {
                         Circle()
                             .frame(width: 31, height: 31)
-                            .foregroundColor(state == .FIRST ? Color.PB2 : Color.G2)
+                            .foregroundColor(state == .FIRST ? Color.Green2 : Color.G2)
                         Text("1")
                             .Label()
-                            .foregroundColor(state == .FIRST ? Color.PB4 : Color.G4)
+                            .foregroundColor(state == .FIRST ? Color.Green4 : Color.G4)
                     }
                     Capsule()
                         .foregroundColor(Color.G3)
@@ -57,10 +57,10 @@ struct StepView: View {
                     ZStack {
                         Circle()
                             .frame(width: 31, height: 31)
-                            .foregroundColor(state == .SECOND ? Color.PB2 : Color.G2)
+                            .foregroundColor(state == .SECOND ? Color.Green2 : Color.G2)
                         Text("2")
                             .Label()
-                            .foregroundColor(state == .SECOND ? Color.PB4 : Color.G4)
+                            .foregroundColor(state == .SECOND ? Color.Green4 : Color.G4)
                     }
                 }
                 VStack(alignment: .leading, spacing: 52) {

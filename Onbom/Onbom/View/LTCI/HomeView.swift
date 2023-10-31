@@ -18,7 +18,7 @@ struct HomeView: View {
         VStack(spacing: 0){
             CustomNavigationBar {
                 Text("온봄")
-                    .foregroundColor(Color.PB4)
+                    .foregroundColor(Color.Green4)
                     .font(.custom("Dongle-Bold", size: 42))
                     .padding(.leading, 20)
             } confirmation: {
@@ -93,7 +93,7 @@ struct HomeView: View {
                     .padding(.bottom, 25)
                     
                     Text("복지정보 한눈에 보기")
-                        .H3()
+                        .H2()
                         .foregroundColor(Color.B)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading, 20)
@@ -137,7 +137,7 @@ struct HomeView: View {
                                     .padding(.bottom, 31)
                                     Text(contents[i])
                                         .foregroundColor(Color.B)
-                                        .T4()
+                                        .T3()
                                     Text("알림 설정하기")
                                         .foregroundColor(Color.G5)
                                         .Cap4()
