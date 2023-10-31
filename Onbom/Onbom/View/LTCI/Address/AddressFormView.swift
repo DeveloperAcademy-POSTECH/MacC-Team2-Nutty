@@ -77,7 +77,7 @@ struct AddressFormView: View {
             VStack(spacing: 0) {
                 HStack {
                     Text(titleMessage)
-                        .H2()
+                        .H1()
                         .foregroundColor(.B)
                     Spacer()
                 }

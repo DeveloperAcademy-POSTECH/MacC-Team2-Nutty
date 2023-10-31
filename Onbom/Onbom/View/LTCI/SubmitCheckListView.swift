@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SubmitCheckListView: View {
-//    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    //    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
     @EnvironmentObject var pdfManager: PDFManager
@@ -18,7 +18,7 @@ struct SubmitCheckListView: View {
     var body: some View {
         HStack {
             Text("신청 정보를 확인해 주세요")
-                .H2()
+                .H1()
                 .foregroundColor(.B)
             Spacer()
         }
@@ -245,22 +245,23 @@ struct SubmitCheckListView: View {
         }
         .padding(.bottom,0)
         .padding([.top, .leading, .trailing], 20)
-//
-//        Button {
-//
-//        } label: {
-//            Text("신청하기")
-//                .foregroundColor(Color.white)
-//                .B1()
-//                .padding(.vertical, 20)
-//                .frame(maxWidth: .infinity)
-//        }
-//        .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB4))
-//        .padding()
+        //
+        //        Button {
+        //
+        //        } label: {
+        //            Text("신청하기")
+        //                .foregroundColor(Color.white)
+        //                .B1()
+        //                .padding(.vertical, 20)
+        //                .frame(maxWidth: .infinity)
+        //        }
+        //        .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB4))
+        //        .padding()
         .navigationBarBackButton()
         .navigationDestination(isPresented: $isSubmitLoadingViewPresented) {
             SubmitLoadingView()
         }
+        
     }
 }
 

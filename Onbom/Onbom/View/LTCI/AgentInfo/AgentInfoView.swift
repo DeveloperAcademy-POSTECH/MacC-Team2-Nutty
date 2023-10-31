@@ -18,7 +18,7 @@ struct AgentInfoView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("\(agent.name)님과 \(patient.name)님의\n상세 관계를 선택해 주세요")
-                .H2()
+                .H1()
                 .foregroundColor(Color.B)
                 .padding(.bottom, 48)
             Text("상세 관계")

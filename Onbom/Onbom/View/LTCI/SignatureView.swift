@@ -16,7 +16,7 @@ struct SignatureView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("서명을 해주세요")
-                .H2()
+                .H1()
             Alert(image: "security", label: "입력한 서명은 저장되지 않으니 안심하세요")
                 .padding(.vertical, 8)
                 .padding(.bottom, 30)

@@ -17,7 +17,7 @@ struct SubmitView: View {
         VStack {
             VStack(spacing: 20) {
                 Text("신청 끝!\n약 2주 후 방문 조사가 있어요")
-                    .H2()
+                    .H1()
                     .lineSpacing(10)
                     .foregroundColor(.B)
                     .frame(maxWidth: .infinity, alignment: .leading)

@@ -16,7 +16,7 @@ struct MediConditionView: View {
     var body: some View {
         VStack(spacing: 0){
             Text("어르신이 현재 전염성 질병 또는\n정신질환을 가지고 계신가요?")
-                .H2()
+                .H1()
                 .foregroundColor(Color.B)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.bottom, 48)

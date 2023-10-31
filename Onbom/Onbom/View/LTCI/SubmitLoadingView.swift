@@ -12,11 +12,11 @@ struct SubmitLoadingView: View {
     
     var body: some View {
         VStack {
-            Text("국민건강보험공단에 보내고 있어요")
-                .H2()
+            Text("국민건강보험공단에\n보내고 있어요")
+                .H1()
                 .foregroundColor(.B)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.bottom, 162)
+                .padding(.bottom, 100)
                 .padding(.top, 45)
             Image("SubmitLoadingView")
     

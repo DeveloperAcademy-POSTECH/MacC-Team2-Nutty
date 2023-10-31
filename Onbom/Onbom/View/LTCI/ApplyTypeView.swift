@@ -21,7 +21,7 @@ struct ApplyTypeView: View {
         ZStack {
             VStack {
                 Text("장기요양등급\n신청 종류를 선택해 주세요")
-                    .H2()
+                    .H1()
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom, 48)
                 

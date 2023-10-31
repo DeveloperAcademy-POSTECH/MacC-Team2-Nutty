@@ -31,12 +31,12 @@ struct StepView: View {
                 .padding(.bottom, 10)
             if state == .FIRST {
                 Text("신청대상자의 정보부터\n확인할게요")
-                    .H2()
+                    .H1()
                 .foregroundColor(.B)
                 .padding(.bottom, 32)
             } else {
                 Text("대리인 김유진님의 정보를 \n확인할게요")
-                    .H2()
+                    .H1()
                 .foregroundColor(.B)
                 .padding(.bottom, 32)
             }
