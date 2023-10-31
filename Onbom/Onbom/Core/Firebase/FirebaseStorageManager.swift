@@ -23,6 +23,7 @@ public final class FirebaseStorageManager {
         #if DEBUG
         sleep(UInt32(3))
         // completion?(FirebaseStorageError.InternetError)
+        completion?(nil)
         #else
         let currentDate = Date()
         let dateFormatter = DateFormatter()
