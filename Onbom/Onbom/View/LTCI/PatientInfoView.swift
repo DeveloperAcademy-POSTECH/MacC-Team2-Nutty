@@ -44,7 +44,8 @@ struct PatientInfoView: View {
                     
                     VStack(spacing: 8) {
                         Text("주민번호")
-                            .foregroundColor(viewModel.isSeniorIDNumber1Wrong ? Color.R : focusedField == .seniorIDNumber1 || focusedField == .seniorIDNumber2 ? Color.Green4 : Color.G6)
+                            .foregroundColor(viewModel.isSeniorIDNumber1Wrong ? Color.R : 
+                                             focusedField == .seniorIDNumber1 || focusedField == .seniorIDNumber2 ? Color.Green4 : Color.G6)
                             .Label()
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
@@ -69,7 +70,8 @@ struct PatientInfoView: View {
                                     .keyboardType(.numberPad)
                                     .padding(16)
                                     .background(RoundedRectangle(cornerRadius: 10)
-                                        .stroke(viewModel.isSeniorIDNumber1Wrong ? Color.R : focusedField == .seniorIDNumber1 ? Color.Green4 : Color.Green1, lineWidth: 1.5))
+                                        .stroke(viewModel.isSeniorIDNumber1Wrong ? Color.R : 
+                                                focusedField == .seniorIDNumber1 ? Color.Green4 : Color.Green1, lineWidth: 1.5))
                                     .tint(Color.Green4)
                                 if(viewModel.isSeniorIDNumber1Wrong) {
                                     Image("wrongInputField")

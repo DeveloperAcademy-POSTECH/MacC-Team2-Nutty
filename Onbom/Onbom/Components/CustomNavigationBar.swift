@@ -9,19 +9,19 @@ import SwiftUI
 
 struct CustomNavigationBar<V, R>: View where V: View, R: View {
     
-    let cancellation: V?
-    let confirmation: R?
+    let leading: V?
+    let trailing: R?
     
-    init(@ViewBuilder cancellation: @escaping () -> V?, @ViewBuilder confirmation: @escaping () -> R?) {
-        self.cancellation = cancellation()
-        self.confirmation = confirmation()
+    init(@ViewBuilder leading: @escaping () -> V?, @ViewBuilder trailing: @escaping () -> R?) {
+        self.leading = leading()
+        self.trailing = trailing()
     }
     
     var body: some View {
         HStack(alignment: .center) {
-            self.cancellation
+            self.leading
             Spacer()
-            self.confirmation
+            self.trailing
         }
     }
 }

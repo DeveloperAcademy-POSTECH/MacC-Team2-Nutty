@@ -21,7 +21,7 @@ struct HomeView: View {
                     .foregroundColor(Color.Green4)
                     .font(.custom("Dongle-Bold", size: 42))
                     .padding(.leading, 20)
-            } confirmation: {
+            } trailing: {
                 Image("notification")
                     .frame(width: 34, height: 34)
                     .padding(.trailing, 20)
