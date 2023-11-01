@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SubmitLoadingView: View {
-    @State private var isSubmitViewPresented = false
     
     var body: some View {
         VStack {
@@ -22,17 +21,8 @@ struct SubmitLoadingView: View {
     
             Spacer()
         }
-        .navigationDestination(isPresented: $isSubmitViewPresented, destination: {
-            SubmitView()
-        })
         .navigationBarBackButtonHidden(true)
-
         .padding(20.0)
-        .onAppear() {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                isSubmitViewPresented = true
-            }
-        }
     }
 }
 
