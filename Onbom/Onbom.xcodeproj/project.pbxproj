@@ -23,6 +23,8 @@
 		70AC25A72AF15C2C00DBC4A0 /* DocumentTextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC25A62AF15C2C00DBC4A0 /* DocumentTextRecognizer.swift */; };
 		70AC25A92AF15C5E00DBC4A0 /* RectangleDetectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC25A82AF15C5E00DBC4A0 /* RectangleDetectable.swift */; };
 		70AC25AB2AF15CA300DBC4A0 /* DocumentDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC25AA2AF15CA300DBC4A0 /* DocumentDetector.swift */; };
+		70AC25B02AF226EE00DBC4A0 /* IDCardCameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC25AF2AF226EE00DBC4A0 /* IDCardCameraManager.swift */; };
+		70AC25B32AF2272200DBC4A0 /* IDCardCameraViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC25B22AF2272200DBC4A0 /* IDCardCameraViewer.swift */; };
 		70B136C42AD589CB001208E3 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70B136BB2AD589CB001208E3 /* Pretendard-Regular.otf */; };
 		70B136C52AD589CB001208E3 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70B136BC2AD589CB001208E3 /* Pretendard-Black.otf */; };
 		70B136C62AD589CB001208E3 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70B136BD2AD589CB001208E3 /* Pretendard-Medium.otf */; };
@@ -34,7 +36,7 @@
 		70B136CC2AD589CB001208E3 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70B136C32AD589CB001208E3 /* Pretendard-SemiBold.otf */; };
 		70C423732AD4354000D660B7 /* IDCardTextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C423722AD4354000D660B7 /* IDCardTextRecognizer.swift */; };
 		70C423752AD4362400D660B7 /* IDCardDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C423742AD4362400D660B7 /* IDCardDetector.swift */; };
-		70D2994A2AC573B3009F536A /* CameraViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299492AC573B3009F536A /* CameraViewer.swift */; };
+		70D2994A2AC573B3009F536A /* DocumentCameraViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299492AC573B3009F536A /* DocumentCameraViewer.swift */; };
 		70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D2994B2AC573BC009F536A /* CameraManager.swift */; };
 		70D299512AC9617D009F536A /* IDCardDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299502AC9617D009F536A /* IDCardDescriptionView.swift */; };
 		70D299532AC961AB009F536A /* IDCardOCRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D299522AC961AB009F536A /* IDCardOCRView.swift */; };
@@ -104,6 +106,8 @@
 		70AC25A62AF15C2C00DBC4A0 /* DocumentTextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTextRecognizer.swift; sourceTree = "<group>"; };
 		70AC25A82AF15C5E00DBC4A0 /* RectangleDetectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleDetectable.swift; sourceTree = "<group>"; };
 		70AC25AA2AF15CA300DBC4A0 /* DocumentDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentDetector.swift; sourceTree = "<group>"; };
+		70AC25AF2AF226EE00DBC4A0 /* IDCardCameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardCameraManager.swift; sourceTree = "<group>"; };
+		70AC25B22AF2272200DBC4A0 /* IDCardCameraViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardCameraViewer.swift; sourceTree = "<group>"; };
 		70B136BB2AD589CB001208E3 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		70B136BC2AD589CB001208E3 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		70B136BD2AD589CB001208E3 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
@@ -115,7 +119,7 @@
 		70B136C32AD589CB001208E3 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		70C423722AD4354000D660B7 /* IDCardTextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardTextRecognizer.swift; sourceTree = "<group>"; };
 		70C423742AD4362400D660B7 /* IDCardDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardDetector.swift; sourceTree = "<group>"; };
-		70D299492AC573B3009F536A /* CameraViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewer.swift; sourceTree = "<group>"; };
+		70D299492AC573B3009F536A /* DocumentCameraViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCameraViewer.swift; sourceTree = "<group>"; };
 		70D2994B2AC573BC009F536A /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		70D299502AC9617D009F536A /* IDCardDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardDescriptionView.swift; sourceTree = "<group>"; };
 		70D299522AC961AB009F536A /* IDCardOCRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardOCRView.swift; sourceTree = "<group>"; };
@@ -212,6 +216,24 @@
 			path = RectangleDetect;
 			sourceTree = "<group>";
 		};
+		70AC25AE2AF226D400DBC4A0 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				70D2994B2AC573BC009F536A /* CameraManager.swift */,
+				70AC25AF2AF226EE00DBC4A0 /* IDCardCameraManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		70AC25B12AF2271300DBC4A0 /* Viewer */ = {
+			isa = PBXGroup;
+			children = (
+				70AC25B22AF2272200DBC4A0 /* IDCardCameraViewer.swift */,
+				70D299492AC573B3009F536A /* DocumentCameraViewer.swift */,
+			);
+			path = Viewer;
+			sourceTree = "<group>";
+		};
 		70B136BA2AD589CB001208E3 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,8 +254,8 @@
 		70D299482AC40E49009F536A /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				70D2994B2AC573BC009F536A /* CameraManager.swift */,
-				70D299492AC573B3009F536A /* CameraViewer.swift */,
+				70AC25AE2AF226D400DBC4A0 /* Manager */,
+				70AC25B12AF2271300DBC4A0 /* Viewer */,
 				70AC25A12AF15BA500DBC4A0 /* OCR */,
 				70AC25A32AF15BB600DBC4A0 /* RectangleDetect */,
 			);
@@ -537,15 +559,17 @@
 				AE933EDC2AD42E36003D87E6 /* AgentInfoView.swift in Sources */,
 				73525BF72AE68AF500A73769 /* OnboardingView.swift in Sources */,
 				70AC25A72AF15C2C00DBC4A0 /* DocumentTextRecognizer.swift in Sources */,
+				70AC25B32AF2272200DBC4A0 /* IDCardCameraViewer.swift in Sources */,
 				7372274F2AD476AD0021EFC6 /* FormTextField.swift in Sources */,
 				70C423732AD4354000D660B7 /* IDCardTextRecognizer.swift in Sources */,
 				70C423752AD4362400D660B7 /* IDCardDetector.swift in Sources */,
+				70AC25B02AF226EE00DBC4A0 /* IDCardCameraManager.swift in Sources */,
 				7389872F2AD5E95A00688634 /* MediConditionViewModel.swift in Sources */,
 				7372273E2AD2FB340021EFC6 /* MediHistoryView.swift in Sources */,
 				735ADB2F2AD5AC4E0069B94B /* MediConditionView.swift in Sources */,
 				70D299512AC9617D009F536A /* IDCardDescriptionView.swift in Sources */,
 				708891F12AD55607005B67AB /* CityAddressInputField.swift in Sources */,
-				70D2994A2AC573B3009F536A /* CameraViewer.swift in Sources */,
+				70D2994A2AC573B3009F536A /* DocumentCameraViewer.swift in Sources */,
 				73FD46D72ADAADCF002ED839 /* HomeNavigationViewModel.swift in Sources */,
 				7384DB082AEACB950034E7FD /* CustomNavigationBar.swift in Sources */,
 				03FFF2BB2AD5B74E00B81D65 /* CTAButton.swift in Sources */,

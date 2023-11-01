@@ -9,7 +9,7 @@ import SwiftUI
 
 struct IDCardOCRView: View {
     let backgroundOpacity = 0.8
-    let cameraViewer = CameraViewer()
+    let cameraViewer = IDCardCameraViewer()
     @Binding var presentIDCardOCR: Bool
     @State private var captureImage: UIImage? = nil
     @State private var temp: Bool = false
@@ -42,15 +42,7 @@ struct IDCardOCRView: View {
                     }
                     Spacer()
                     Button {
-                        
-                        cameraViewer.cameraManager.takePhoto()
-                        cameraViewer.cameraManager.capturedIDCard = { image in
-                            agent.idCardImage = image
-                        }
-                        cameraViewer.cameraManager.recognizedID = { idNumber in
-                            agent.id = idNumber
-                        }
-                        
+//                        cameraViewer.cameraManager.takePhoto()
                         onFinishCapture()
                         
                     } label: {
@@ -65,6 +57,14 @@ struct IDCardOCRView: View {
                     }
                     .padding(.bottom)
                     .padding(.bottom)
+                }
+            }
+            .onAppear {
+                cameraViewer.cameraManager.capturedIDCard = { image in
+                    agent.idCardImage = image
+                }
+                cameraViewer.cameraManager.recognizedID = { idNumber in
+                    agent.id = idNumber
                 }
             }
         
