@@ -12,6 +12,7 @@ class CameraManager: UIViewController, AVCapturePhotoCaptureDelegate {
     var captureSession = AVCaptureSession()
     var photoOutput = AVCapturePhotoOutput()
     var previewLayer = AVCaptureVideoPreviewLayer()
+    var isTaken = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,8 +53,11 @@ class CameraManager: UIViewController, AVCapturePhotoCaptureDelegate {
     }
 
     func takePhoto() {
-        let settings = AVCapturePhotoSettings()
-        photoOutput.capturePhoto(with: settings, delegate: self)
+        if !isTaken {
+            let settings = AVCapturePhotoSettings()
+            photoOutput.capturePhoto(with: settings, delegate: self)
+            isTaken = true
+        }
     }
 
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {

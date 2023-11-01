@@ -14,8 +14,8 @@ class IDCardDetector: RectangleDetectable {
     func isRectangleInsideGuideline(_ observation: VNRectangleObservation) -> Bool {
         let guideX = observation.boundingBox.origin.x
         let guideY = observation.boundingBox.origin.y
-
-        return (0.36...0.37).contains(guideX) && (0.11...0.12).contains(guideY)
+        
+        return (0.35...0.38).contains(guideX) && (0.10...0.12).contains(guideY)
     }
     
     func detectRectangle(from image: CIImage) -> Bool {
@@ -43,7 +43,6 @@ class IDCardDetector: RectangleDetectable {
         } catch {
             print("IDCardDetector failed to detect: \(error.localizedDescription)")
         }
-        
         return isRectangleDetected
     }
     

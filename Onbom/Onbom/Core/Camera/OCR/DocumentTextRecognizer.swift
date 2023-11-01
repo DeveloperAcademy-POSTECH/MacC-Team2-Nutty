@@ -9,7 +9,6 @@ import UIKit
 import Vision
 
 class DocumentTextRecognizer: TextRecognizable {
-    //나중에 수정할 코드덩어리~
     func recognizeText(from image: UIImage, completion: @escaping (String?) -> Void) {
         guard let cgImage = image.cgImage else {
             completion(nil)
@@ -29,7 +28,7 @@ class DocumentTextRecognizer: TextRecognizable {
             let recognizedTexts = observations.compactMap { observation in
                 return observation.topCandidates(1).first?.string
             }
-            let recognizedNameID = self.filterNameID(from: recognizedTexts)
+            let recognizedNameID = self.filterText(from: recognizedTexts)
             
             completion(recognizedNameID)
         }
@@ -47,32 +46,8 @@ class DocumentTextRecognizer: TextRecognizable {
         }
     }
     
-    private func filterNameID(from texts: [String]) -> String? {
-        var name = ""
-        var id = ""
+    private func filterText(from texts: [String]) -> String? {
         
-        if let index = texts.firstIndex(where: { $0.contains("주민등록증") }) {
-            let nameIndex = index + 1
-            if texts.indices.contains(nameIndex) {
-                let rawName = texts[nameIndex]
-                if let range = rawName.range(of: "(", options: .literal) {
-                    name = String(rawName[..<range.lowerBound])
-                } else {
-                    name = rawName
-                }
-                name = name.replacingOccurrences(of: " ", with: "")
-            }
-            
-            let idNumberIndex = nameIndex + 1
-            if texts.indices.contains(idNumberIndex){
-                id = texts[idNumberIndex]
-            }
-        }
-        
-        if !name.isEmpty && !id.isEmpty {
-            return id
-        } else {
-            return nil
-        }
+        return nil
     }
 }

@@ -11,10 +11,7 @@ struct IDCardOCRView: View {
     let backgroundOpacity = 0.8
     let cameraViewer = IDCardCameraViewer()
     @Binding var presentIDCardOCR: Bool
-    @State private var captureImage: UIImage? = nil
-    @State private var temp: Bool = false
     @EnvironmentObject var agent: Agent
-    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     
     var onFinishCapture: () -> Void
 
@@ -41,22 +38,6 @@ struct IDCardOCRView: View {
                         Spacer()
                     }
                     Spacer()
-                    Button {
-//                        cameraViewer.cameraManager.takePhoto()
-                        onFinishCapture()
-                        
-                    } label: {
-                        Circle()
-                            .frame(width: 56, height: 56)
-                            .foregroundColor(.white)
-                            .padding(7)
-                            .overlay {
-                                Circle()
-                                    .strokeBorder(.white, lineWidth: 3)
-                            }
-                    }
-                    .padding(.bottom)
-                    .padding(.bottom)
                 }
             }
             .onAppear {
@@ -67,7 +48,9 @@ struct IDCardOCRView: View {
                     agent.id = idNumber
                 }
             }
-        
+            .onChange(of: agent.idCardImage) { _ in
+                onFinishCapture()
+            }
     }
 }
 
