@@ -12,7 +12,6 @@ struct InputField: View {
     var buttonAction: (() -> Void)?
     var placeholder: String
     @Binding var content: String
-    // TODO: 다른 곳을 탭했을 때, isFocused가 false 되야 하는데 이건 추후에 다시 좀 해야할듯
     @FocusState var isFocused: Bool
     
     var body: some View {

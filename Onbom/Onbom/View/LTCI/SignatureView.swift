@@ -23,6 +23,7 @@ struct SignatureView: View {
             Text("대리인 본인")
                 .Label()
                 .foregroundColor(Color.G6)
+                .padding(.bottom, 4)
             ZStack {
                 digitalSignatureManager.rectangle
                     .fill(Color.G2)

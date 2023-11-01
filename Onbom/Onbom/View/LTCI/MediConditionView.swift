@@ -58,6 +58,7 @@ struct AlternativeForm: View {
                 .Label()
                 .foregroundColor(Color.G6)
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.bottom, 4)
             HStack(spacing: 10) {
                 RadioButton.CustomButtonView(style: isCheckedYES() ? .twoSelected : .twoUnselected) {
                         answer = true

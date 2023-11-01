@@ -19,7 +19,7 @@ struct CityAddressInputField: View {
             Text(label)
                 .foregroundColor(titleFocused ? .Green4 : .G6)
                 .Label()
-            
+                .padding(.bottom, 4)
             TextField(placeholder, text: $content)
                 .focused($isFocused)
                 .padding()

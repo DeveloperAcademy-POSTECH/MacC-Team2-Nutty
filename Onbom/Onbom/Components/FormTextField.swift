@@ -26,7 +26,7 @@ struct FormTextField: View {
                 .foregroundColor(focused ? Color.Green4 : Color.G6)
                 .Label()
                 .frame(maxWidth: .infinity, alignment: .leading)
-            
+                .padding(.bottom, 4)
             TextField(placeHolder, text: $textInput)
                 .font(.custom("Pretendard-Medium", size: 16))
                 .lineSpacing(16 / 2 * (100 - 100)/100)

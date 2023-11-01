@@ -24,6 +24,7 @@ struct AgentInfoView: View {
             Text("상세 관계")
                 .Label()
                 .foregroundColor(Color.G6)
+                .padding(.bottom, 4)
             HStack {
                 ForEach(0..<2, id: \.self) { index in
                     let twoStyle: RadioButtonStyle = twoSelectedIndex == index ? .twoSelected : .twoUnselected
