@@ -19,9 +19,9 @@ struct Alert: View {
             HStack {
                 Image(image)
                 Text(label)
-                    .Cap5()
+                    .Cap4()
             }
-            .padding(13)
+            .padding(10)
         }
     }
 }
