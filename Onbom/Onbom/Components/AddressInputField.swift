@@ -41,7 +41,6 @@ struct AddressInputField: View {
                 focusField = .detailAddress
             }
         }
-        .padding()
     }
 }
 //struct AddressInputField_Previews: PreviewProvider {

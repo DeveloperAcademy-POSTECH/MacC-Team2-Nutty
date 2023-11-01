@@ -94,9 +94,10 @@ struct AddressFormView: View {
                                       cityAddress: $address.cityAddress,
                                       detailAddress: $address.detailAddress,
                                       isPostCodeViewPresented: $isPostCodeViewPresented)
-                    
+                    .padding(20)
                     Spacer()
                 }
+                
                 if isKeyboardVisible {
                     CTAButton.CustomButtonView(style: .expanded(isDisabled: !isAddressFilled)) {
                         if formType == .patient {
@@ -125,7 +126,7 @@ struct AddressFormView: View {
                     } label: {
                         Text("다음")
                     }
-                    .padding(.horizontal, 20)
+                    .padding(20)
                 }
             }
             .navigationDestination(isPresented: $isPostCodeViewPresented) {
