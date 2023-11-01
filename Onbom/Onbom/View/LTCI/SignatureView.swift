@@ -53,7 +53,7 @@ struct SignatureView: View {
                         .foregroundColor(.G4)
                 }
             }
-            .frame(height: 146)
+            .frame(height: 180)
             .gesture(digitalSignatureManager.gesture())
             Spacer()
             CTAButton.CustomButtonView(
