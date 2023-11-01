@@ -39,13 +39,13 @@ struct ApplyTypeView: View {
                                 VStack(alignment: .leading, spacing: 13) {
                                     if index == 0 {
                                         Text("\(title[index])")
-                                            .T3()
+                                            .T2()
                                         Text("\(description[index])")
                                             .Cap3()
                                     }
                                     else {
                                         Text("\(title[index])")
-                                            .T3()
+                                            .T2()
                                         // 비활성화 후 텍스트 색상 임시 변경
                                             .foregroundColor(.G3)
                                         Text("\(description[index])")
