@@ -144,7 +144,7 @@ struct AddressFormView: View {
                     .padding(.top, 34)
                 
                 Text("작성하신 주민등록지가 현재\n어르신이 머무르고 계신 곳인가요?")
-                    .T2()
+                    .T1()
                     .foregroundColor(.B)
                     .multilineTextAlignment(.center)
                     .padding(20)
