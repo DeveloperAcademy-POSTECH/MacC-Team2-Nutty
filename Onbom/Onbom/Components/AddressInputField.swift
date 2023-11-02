@@ -20,11 +20,14 @@ struct AddressInputField: View {
     }
 
     var body: some View {
-        VStack(spacing: 10) {
-            CityAddressInputField(label: label,
-                                  placeholder: "예) C5, 남구 청암로 77",
-                                  content: $cityAddress, titleFocused: _titleFocused)
-//            .focused($focusField, equals: .cityAddress)
+        VStack(alignment: .leading, spacing: 10) {
+            Text(label)
+                .foregroundColor(focusField != nil ? .Green4 : .G6)
+                .Label()
+            
+            CityAddressInputField(placeholder: "예) C5, 남구 청암로 77",
+                                  content: $cityAddress,
+                                  titleFocused: _titleFocused)
             .focused($titleFocused)
             .onTapGesture {
                 isPostCodeViewPresented = true
@@ -35,16 +38,15 @@ struct AddressInputField: View {
                 .focused($titleFocused)
         }
         .onAppear {
-            if cityAddress.isEmpty {
-                focusField = .cityAddress
-            } else {
+            if !cityAddress.isEmpty {
                 focusField = .detailAddress
             }
         }
     }
 }
-//struct AddressInputField_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AddressInputField(label: "주민등록지", cityAddress: .constant(""), detailAddress: .constant(""), isPostCodeViewPresented: .constant(false))
-//    }
-//}
+
+struct AddressInputField_Previews: PreviewProvider {
+    static var previews: some View {
+        AddressInputField(label: "주민등록지", cityAddress: .constant(""), detailAddress: .constant(""), isPostCodeViewPresented: .constant(false))
+    }
+}
