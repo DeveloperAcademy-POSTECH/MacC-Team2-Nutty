@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct NumberInputField: View {
-    var label: String
     var placeholder: String
     var limitLength: Int
     var isSecure: Bool
@@ -17,10 +16,6 @@ struct NumberInputField: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(label)
-                .foregroundColor(isFocused ? .Green4 : .G6)
-                .Label()
-
             inputField
                 .focused($isFocused)
                 .padding()

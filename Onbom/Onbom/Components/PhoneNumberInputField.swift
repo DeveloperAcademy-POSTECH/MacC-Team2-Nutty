@@ -9,15 +9,27 @@ import SwiftUI
 
 struct PhoneNumberInputField: View {
     @Binding var phoneNumber: String
+    @FocusState private var focusField: Field?
+    
+    private enum Field: Hashable {
+        case phone
+    }
     
     var body: some View {
-        HStack {
-            NumberInputField(label: "휴대폰 번호",
-                             placeholder: "",
-                             limitLength: 11,
-                             isSecure: false,
-                             content: $phoneNumber)
-            .padding()
+        VStack(alignment: .leading) {
+            Text("휴대폰 번호")
+                .foregroundColor(focusField != nil ? .Green4 : .G6)
+                .Label()
+            HStack {
+                NumberInputField(placeholder: "",
+                                 limitLength: 11,
+                                 isSecure: false,
+                                 content: $phoneNumber)
+                .focused($focusField, equals: .phone)
+            }
+        }
+        .onAppear {
+            focusField = .phone
         }
     }
 }
