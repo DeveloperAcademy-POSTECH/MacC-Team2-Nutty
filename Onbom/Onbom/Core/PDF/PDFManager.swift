@@ -8,6 +8,10 @@
 import Foundation
 import PDFKit
 
+enum PDFError: String, Error {
+    case NullError = "pdf가 존재하지 않습니다"
+}
+
 class PDFManager: ObservableObject {
     @Published var PDFDatas: [Data] = []
 
@@ -132,6 +136,13 @@ class PDFManager: ObservableObject {
 
         let newPage = PDFPage(image: img)!
         pdfDocument.insert(newPage, at: 2)
+    }
+    
+    public func getLastPdf() throws -> Data {
+        guard let pdf = PDFDatas.last else {
+            throw PDFError.NullError
+        }
+        return pdf;
     }
 
 }
