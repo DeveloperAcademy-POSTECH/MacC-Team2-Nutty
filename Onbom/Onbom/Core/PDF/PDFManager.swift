@@ -15,7 +15,6 @@ class PDFManager: ObservableObject {
     let imageSizeFloat: CGFloat = 0.5
     enum FixedPositionItems: CaseIterable {
             case apply
-            case protector
             case mailReceive
             case mailAddress
             case todayDate
@@ -32,8 +31,6 @@ class PDFManager: ObservableObject {
                 switch item {
                 case .apply:
                     addTextAnnotation(page: firstPage, bounds: CGRect(x: 168, y: 742, width: 140, height: 20), content: "✓")
-                case .protector:
-                    addTextAnnotation(page: firstPage, bounds:CGRect(x: 378, y: 208, width: 140, height: 20), content: "✓")
                 default:
                     continue
                 }

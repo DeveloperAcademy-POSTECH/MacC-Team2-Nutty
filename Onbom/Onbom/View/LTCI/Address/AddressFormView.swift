@@ -158,7 +158,7 @@ struct AddressFormView: View {
                 HStack(spacing: 10) {
                     CTAButton.CustomButtonView(style: .secondary) {
                         patient.address = address
-                        patient.actualAddress = address
+//                        patient.actualAddress = address
                         hideKeyboard()
                         showActualAddressCheckView = false
                         homeNavigation.navigate(.StepView_Second)
