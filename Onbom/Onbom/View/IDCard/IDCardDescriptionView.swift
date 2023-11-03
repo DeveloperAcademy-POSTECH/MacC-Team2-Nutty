@@ -16,7 +16,7 @@ struct IDCardDescriptionView: View {
     var body: some View {
         VStack {
             HStack {
-                Text("\(name)님의 신분증을\n촬영할 수 있도록 준비해 주세요")
+                Text("\(name)님의 신분증을\n촬영할 수 있게 준비해 주세요")
                     .H2()
                     .foregroundColor(.B)
                     .padding(.bottom, 20)
