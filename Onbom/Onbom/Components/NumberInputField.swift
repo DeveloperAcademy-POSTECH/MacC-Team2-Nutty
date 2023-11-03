@@ -20,7 +20,7 @@ struct NumberInputField: View {
             Text(label)
                 .foregroundColor(isFocused ? .Green4 : .G6)
                 .Label()
-
+                .padding(.bottom, 4)
             inputField
                 .focused($isFocused)
                 .padding()

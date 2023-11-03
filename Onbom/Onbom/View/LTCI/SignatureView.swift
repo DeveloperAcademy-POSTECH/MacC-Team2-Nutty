@@ -16,13 +16,14 @@ struct SignatureView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("서명을 해주세요")
-                .H2()
+                .H1()
             Alert(image: "security", label: "입력한 서명은 저장되지 않으니 안심하세요")
                 .padding(.vertical, 8)
                 .padding(.bottom, 30)
             Text("대리인 본인")
                 .Label()
                 .foregroundColor(Color.G6)
+                .padding(.bottom, 4)
             ZStack {
                 digitalSignatureManager.rectangle
                     .fill(Color.G2)
@@ -52,7 +53,7 @@ struct SignatureView: View {
                         .foregroundColor(.G4)
                 }
             }
-            .frame(height: 146)
+            .frame(height: 180)
             .gesture(digitalSignatureManager.gesture())
             Spacer()
             CTAButton.CustomButtonView(
