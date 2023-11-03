@@ -49,11 +49,6 @@ struct IDCardConfirmEditView: View {
                     frontIDNumber = splittedID.frontID
                     backIDNumber = splittedID.backID
                 }
-//                .onChange(of: agent.id) { newValue in
-//                    let splittedID = agent.splitID()
-//                    frontIDNumber = splittedID.frontID
-//                    backIDNumber = splittedID.backID
-//                }
             
             Spacer()
             

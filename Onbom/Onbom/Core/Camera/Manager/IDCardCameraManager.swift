@@ -9,12 +9,22 @@ import UIKit
 import AVFoundation
 
 class IDCardCameraManager: CameraManager {
-    private var rectangleDetector = IDCardDetector()
-    private var textRecognizer = IDCardTextRecognizer()
+    private var rectangleDetector: RectangleDetectable
+    private var textRecognizer: TextRecognizable
     private let videoDataOutput = AVCaptureVideoDataOutput()
     var capturedIDCard: ((UIImage) -> Void)?
     var recognizedID: ((String) -> Void)?
-
+    
+    init(rectangleDetector: RectangleDetectable, textRecognizer: TextRecognizable) {
+        self.rectangleDetector = rectangleDetector
+        self.textRecognizer = textRecognizer
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func setupCamera() {
         super.setupCamera()
 
@@ -23,7 +33,6 @@ class IDCardCameraManager: CameraManager {
             videoDataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "videoQueue"))
             videoDataOutput.alwaysDiscardsLateVideoFrames = true
         }
-        print("setupCamera")
     }
     
     override func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {

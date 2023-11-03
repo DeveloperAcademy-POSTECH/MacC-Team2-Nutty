@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct IDCardCameraViewer: UIViewControllerRepresentable {
-    let cameraManager = IDCardCameraManager()
+    let cameraManager = IDCardCameraManager(rectangleDetector: IDCardDetector(), textRecognizer: IDCardTextRecognizer())
     var capturedImage: ((UIImage) -> Void)?
     var recognizedID: ((String) -> Void)?
 

@@ -15,7 +15,7 @@ class IDCardDetector: RectangleDetectable {
         let guideX = observation.boundingBox.origin.x
         let guideY = observation.boundingBox.origin.y
         
-        return (0.35...0.38).contains(guideX) && (0.10...0.12).contains(guideY)
+        return (0.35...0.38).contains(guideX) && (0.09...0.12).contains(guideY)
     }
     
     func detectRectangle(from image: CIImage) -> Bool {
