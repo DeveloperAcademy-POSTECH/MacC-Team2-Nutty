@@ -27,7 +27,13 @@ class HomeNavigationViewModel: ObservableObject{
     }
     
     func popToRoot() {
-        homePath = []
+        DispatchQueue.main.async {
+            var transaction = Transaction()
+            transaction.disablesAnimations = true
+            let _ = withTransaction(transaction) {
+                self.homePath.removeAll()
+            }
+        }
     }
 }
 

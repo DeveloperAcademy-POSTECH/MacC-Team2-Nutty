@@ -14,18 +14,18 @@ struct CallTaxiView: View {
         VStack {
             Text("포항시 동행콜 배차신청하기")
                 .H1()
-                .foregroundColor(.G6)
+                .foregroundStyle(Color.G6)
                 .padding(.bottom, 10)
             Text("어쩌구 전화로 신청할까요?")
                 .Cap2()
-                .foregroundColor(.G4)
+                .foregroundStyle(Color.G4)
                 .padding(.bottom)
             Spacer()
             Image("CallTaxi")
             Spacer()
             Text("•  통화 전 어쩌구 저쩌구 시간과 장소를\n•  미리 생각해주세요")
                 .Cap3()
-                .foregroundColor(.G5)
+                .foregroundStyle(Color.G5)
                 .padding(.bottom, 50)
             CTAButton.CustomButtonView(
                 style: .primary(isDisabled: false))
@@ -79,7 +79,7 @@ struct CallTaxiModalView: View {
                 .padding(.bottom, 18)
             Text("지금은 콜센터 운영 시간이 아니에요")
                 .T1()
-                .foregroundColor(.B)
+                .foregroundStyle(Color.B)
                 .padding(.bottom, 20)
             VStack(alignment: .leading, spacing: 3) {
                 Text("•  평 일 : 오전 7시 부터 오후 10시")
@@ -89,11 +89,11 @@ struct CallTaxiModalView: View {
                 Text("•  일 · 공휴일 : 오전 7시 부터 오후 4시")
                     .Cap3()
             }
-            .foregroundColor(.G5)
+            .foregroundStyle(Color.G5)
             .padding(.bottom)
             Text("콜센터 운영 시간이 되면 알림을 보내드릴까요?")
                 .Cap3()
-                .foregroundColor(.G5)
+                .foregroundStyle(Color.G5)
             Spacer()
             HStack {
                 CTAButton.CustomButtonView(style: .secondary) {

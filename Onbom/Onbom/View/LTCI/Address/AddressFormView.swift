@@ -77,14 +77,13 @@ struct AddressFormView: View {
             VStack(spacing: 0) {
                 HStack {
                     Text(titleMessage)
-                        .H2()
+                        .H1()
                         .foregroundColor(.B)
                     Spacer()
                 }
                 .padding(20)
                 
                 ScrollView {
-                    
                     if formType != .agent {
                         Alert(image: "check", label: alertMessage)
                             .padding([.bottom, .trailing, .leading], 20)
@@ -141,13 +140,13 @@ struct AddressFormView: View {
         .sheet(isPresented: $showActualAddressCheckView) {
             VStack(spacing: 0){
                 Image("warning")
-                    .padding(.top, 34)
+                    .padding(.top, 30)
                 
                 Text("작성하신 주민등록지가 현재\n어르신이 머무르고 계신 곳인가요?")
-                    .T2()
+                    .T1()
                     .foregroundColor(.B)
                     .multilineTextAlignment(.center)
-                    .padding(20)
+                    .padding(.vertical, 20)
                 
                 Text("어르신이 병원이나 자녀 집 등 다른 곳에 계시다면\n추가 입력이 필요해요.")
                     .Cap3()
@@ -159,7 +158,7 @@ struct AddressFormView: View {
                 HStack(spacing: 10) {
                     CTAButton.CustomButtonView(style: .secondary) {
                         patient.address = address
-                        patient.actualAddress = address
+//                        patient.actualAddress = address
                         hideKeyboard()
                         showActualAddressCheckView = false
                         homeNavigation.navigate(.StepView_Second)
@@ -177,7 +176,6 @@ struct AddressFormView: View {
                     }
                 }
                 .padding(.horizontal)
-                .padding(.top, 34)
             }
             .presentationDetents([.fraction(0.43)])
             .presentationDragIndicator(.hidden)

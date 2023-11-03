@@ -19,29 +19,19 @@ struct SubmitLoadingView: View {
     @EnvironmentObject var pdfManager: PDFManager
     
     var body: some View {
-        if(self.state == .loading) {
-            VStack {
-                Text("국민건강보험공단에 보내고 있어요")
-                    .H2()
-                    .foregroundColor(.B)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.bottom, 162)
-                    .padding(.top, 45)
-                Image("SubmitLoadingView")
-                
-                Spacer()
-            }
-            .navigationDestination(isPresented: $isSubmitViewPresented, destination: {
-                SubmitView()
-            })
-            .navigationBarBackButtonHidden(true)
-            .padding(20.0)
-            .onAppear{ initialize() }
+        VStack {
+            Text("국민건강보험공단에\n보내고 있어요")
+                .H1()
+                .foregroundColor(.B)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.bottom, 100)
+                .padding(.top, 45)
+            Image("SubmitLoadingView")
+            
+            Spacer()
         }
-        else if (self.state == .fail) {
-            Text(self.err ?? "에러")
-                .navigationBarBackButton()
-        }
+        .navigationBarBackButtonHidden(true)
+        .padding(20.0)
     }
     
     private func initialize() {

@@ -8,17 +8,15 @@
 import SwiftUI
 
 struct SubmitCheckListView: View {
-//    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
     @EnvironmentObject var pdfManager: PDFManager
-    
     @State private var isSubmitLoadingViewPresented = false
     
     var body: some View {
         HStack {
             Text("신청 정보를 확인해 주세요")
-                .H2()
+                .H1()
                 .foregroundColor(.B)
             Spacer()
         }
@@ -239,18 +237,20 @@ struct SubmitCheckListView: View {
         CTAButton.CustomButtonView(
             style: .primary(isDisabled:false))
         {
-            patient.updateDictionary()
-            agent.updateDictionary()
-            pdfManager.createPDF(documentURL: LTCIFormResource, patient: patient.dictionary, agent: agent.dictionary, signature: agent.signature, image: agent.idCardImage, imageSize: agent.idCardImage.size, infectious: patient.hasInfectiousDisease, mental: patient.hasMentalDisorder)
-            isSubmitLoadingViewPresented = true
+            var transaction = Transaction()
+            transaction.disablesAnimations = true
+            withTransaction(transaction) {
+                isSubmitLoadingViewPresented = true
+            }
         } label: {
             Text("신청하기")
         }
         .padding(.bottom,0)
         .padding([.top, .leading, .trailing], 20)
         .navigationBarBackButton()
-        .navigationDestination(isPresented: $isSubmitLoadingViewPresented) {
-            SubmitLoadingView()
+        .fullScreenCover(isPresented: $isSubmitLoadingViewPresented) {
+            SubmitView()
+            
         }
     }
 }

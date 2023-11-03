@@ -31,7 +31,7 @@ struct PatientInfoView: View {
     var body: some View {
         VStack(spacing: 0) {
             Text(step[1] == false ? "어르신의\n성함을 입력해주세요" : viewModel.seniorName + getTitle())
-                .H2()
+                .H1()
                 .foregroundColor(Color.B)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 20)

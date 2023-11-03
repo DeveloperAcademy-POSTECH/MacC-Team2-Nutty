@@ -28,7 +28,7 @@ struct FormTextField: View {
                 .foregroundColor(isWrong ? Color.R : focused ? Color.Green4 : Color.G6)
                 .Label()
                 .frame(maxWidth: .infinity, alignment: .leading)
-            
+                .padding(.bottom, 4)
             ZStack(alignment: .trailing) {
                 TextField(placeHolder, text: $textInput)
                     .font(.custom("Pretendard-Medium", size: 16))

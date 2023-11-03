@@ -11,7 +11,7 @@ struct AgentInfoDetailView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("상세 관계를 모르겠어요")
-                .H2()
+                .H1()
                 .foregroundColor(.B)
                 .padding(.bottom, 54)
             
