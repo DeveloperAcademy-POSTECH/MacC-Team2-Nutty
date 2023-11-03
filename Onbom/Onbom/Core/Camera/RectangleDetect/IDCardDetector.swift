@@ -32,10 +32,10 @@ class IDCardDetector: RectangleDetectable {
             }
         }
         
-        request.minimumAspectRatio = 0.6
+        request.minimumAspectRatio = 0.55
         request.maximumAspectRatio = 0.65
-        request.minimumSize = 0.45
-        request.minimumConfidence = 1.0
+        request.minimumSize = 0.40
+        request.minimumConfidence = 0.9
 
         let handler = VNImageRequestHandler(ciImage: image, options: [:])
         do {
