@@ -15,7 +15,7 @@ class IDCardCameraManager: CameraManager {
     var capturedIDCard: ((UIImage) -> Void)?
     var recognizedID: ((String) -> Void)?
     
-    init(rectangleDetector: RectangleDetectable, textRecognizer: TextRecognizable) {
+    init(rectangleDetector: RectangleDetectable = IDCardDetector(), textRecognizer: TextRecognizable = IDCardTextRecognizer()) {
         self.rectangleDetector = rectangleDetector
         self.textRecognizer = textRecognizer
         super.init(nibName: nil, bundle: nil)

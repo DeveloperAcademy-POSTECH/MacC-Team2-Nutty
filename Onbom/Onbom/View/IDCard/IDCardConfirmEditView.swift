@@ -40,7 +40,7 @@ struct IDCardConfirmEditView: View {
                         .resizable()
                         .scaledToFit()
                 }
-                .padding()
+                .padding([.top, .bottom])
                 .frame(height: 240)
             
             IDNumberInputField(frontNumber: $frontIDNumber, backNumber: $backIDNumber)
