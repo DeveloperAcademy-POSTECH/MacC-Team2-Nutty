@@ -28,7 +28,7 @@ class IDCardTextRecognizer: TextRecognizable {
             let recognizedTexts = observations.compactMap { observation in
                 return observation.topCandidates(1).first?.string
             }
-            let recognizedID = self.filterID(from: recognizedTexts)
+            let recognizedID = self.filterShowcaseID(from: recognizedTexts)
             
             completion(recognizedID)
         }
@@ -46,11 +46,40 @@ class IDCardTextRecognizer: TextRecognizable {
         }
     }
     
+    private func filterShowcaseID(from texts: [String]) -> String? {
+        let firstIDPattern = "\\d{6}-\\d{7}"
+        let secondIDPattern = "\\d{13}"
+        let thirdIDPattern = "\\d{7}"
+        let fourthIDPattern = "\\d{6}"
+
+        var frontID: String = ""
+        var backID: String = ""
+
+        for text in texts {
+            print(text)
+            if text.range(of: firstIDPattern, options: .regularExpression) != nil {
+                return text
+            } else if text.range(of: secondIDPattern, options: .regularExpression) != nil {
+                let retString = text
+                frontID = String(retString.prefix(6))
+                backID = String(retString.suffix(7))
+            } else if text.range(of: thirdIDPattern, options: .regularExpression) != nil {
+                backID = text
+            } else if text.range(of: fourthIDPattern, options: .regularExpression) != nil {
+                frontID = text
+            }
+            
+            if !frontID.isEmpty && !backID.isEmpty { return "\(frontID)-\(backID)"}
+        }
+        return frontID.isEmpty && backID.isEmpty ? nil : "\(frontID)-\(backID)"
+    }
+    
     private func filterID(from texts: [String]) -> String? {
         var id = ""
         let idPattern = "\\d{6}\\s?-\\s?\\d{7}"
-
+        
         for text in texts {
+            print(text)
             if text.range(of: idPattern, options: .regularExpression) != nil {
                 id = text
                 break
