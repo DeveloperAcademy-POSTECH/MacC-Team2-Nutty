@@ -26,7 +26,7 @@ struct IDCardConfirmEditView: View {
         VStack {
             HStack {
                 Text("신분증 정보를 확인해 주세요")
-                    .H2()
+                    .H1()
                     .foregroundColor(.B)
                 Spacer()
             }

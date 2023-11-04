@@ -51,8 +51,8 @@ public struct RadioButtonStyleModifiers: ButtonStyle {
             configuration.label
                 .foregroundColor(configuration.isPressed ? Color.Green4 : .B)
                 .frame(maxWidth: .infinity)
+                .frame(height: 100)
                 .padding(.leading, 20.0)
-                .padding(.vertical, 22)
                 .background(RoundedRectangle(cornerRadius: 10).fill(configuration.isPressed ? Color.Green3 : Color.G2))
                 .foregroundColor(configuration.isPressed ? .Green4 : .B)
                 .overlay(RoundedRectangle(cornerRadius: 16)
@@ -62,8 +62,8 @@ public struct RadioButtonStyleModifiers: ButtonStyle {
             configuration.label
                 .foregroundColor(Color.Green4)
                 .frame(maxWidth: .infinity)
+                .frame(height: 100)
                 .padding(.leading, 20.0)
-                .padding(.vertical, 22)
                 .background(RoundedRectangle(cornerRadius: 10).fill(Color.Green2))
                 .foregroundColor(configuration.isPressed ? .Green4 : .B)
                 .overlay(RoundedRectangle(cornerRadius: 16)

@@ -63,7 +63,7 @@ struct PrivacyPolicyView: View {
                 .frame(width: 20)
                 .foregroundColor(isAllCheck ? .Green4 : .G3)
             Text("개인정보 처리에 모두 동의합니다.")
-                .H2()
+                .T1()
                 .foregroundColor(.B)
             Spacer()
         }.onTapGesture {

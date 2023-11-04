@@ -8,17 +8,15 @@
 import SwiftUI
 
 struct SubmitCheckListView: View {
-//    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
     @EnvironmentObject var pdfManager: PDFManager
-    
     @State private var isSubmitLoadingViewPresented = false
     
     var body: some View {
         HStack {
             Text("신청 정보를 확인해 주세요")
-                .H2()
+                .H1()
                 .foregroundColor(.B)
             Spacer()
         }
@@ -239,27 +237,20 @@ struct SubmitCheckListView: View {
         CTAButton.CustomButtonView(
             style: .primary(isDisabled:false))
         {
-            isSubmitLoadingViewPresented = true
+            var transaction = Transaction()
+            transaction.disablesAnimations = true
+            withTransaction(transaction) {
+                isSubmitLoadingViewPresented = true
+            }
         } label: {
             Text("신청하기")
         }
         .padding(.bottom,0)
         .padding([.top, .leading, .trailing], 20)
-//
-//        Button {
-//
-//        } label: {
-//            Text("신청하기")
-//                .foregroundColor(Color.white)
-//                .B1()
-//                .padding(.vertical, 20)
-//                .frame(maxWidth: .infinity)
-//        }
-//        .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB4))
-//        .padding()
         .navigationBarBackButton()
-        .navigationDestination(isPresented: $isSubmitLoadingViewPresented) {
-            SubmitLoadingView()
+        .fullScreenCover(isPresented: $isSubmitLoadingViewPresented) {
+            SubmitView()
+            
         }
     }
 }

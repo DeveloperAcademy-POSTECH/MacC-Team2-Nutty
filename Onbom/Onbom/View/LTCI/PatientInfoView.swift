@@ -21,7 +21,7 @@ struct PatientInfoView: View {
     
     @State private var step:                    [Bool] = [true, false, false]
     @State private var didAppear:               [Bool] = [true, false, false]
-    @State private var isKeyboardVisible:       Bool = false
+    @State private var isKeyboardVisible:       Bool = true
     @State private var isPressed:               Bool = false
     
     @ObservedObject private var viewModel = PatientInfoViewModel()
@@ -31,7 +31,7 @@ struct PatientInfoView: View {
     var body: some View {
         VStack(spacing: 0) {
             Text(step[1] == false ? "어르신의\n성함을 입력해주세요" : viewModel.seniorName + getTitle())
-                .H2()
+                .H1()
                 .foregroundColor(Color.B)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 20)
@@ -44,32 +44,40 @@ struct PatientInfoView: View {
                     
                     VStack(spacing: 8) {
                         Text("주민번호")
-                            .foregroundColor(focusedField == .seniorIDNumber1 || focusedField == .seniorIDNumber2 ? Color.Green4 : Color.G6)
+                            .foregroundColor(viewModel.isSeniorIDNumber1Wrong ? Color.R : 
+                                             focusedField == .seniorIDNumber1 || focusedField == .seniorIDNumber2 ? Color.Green4 : Color.G6)
                             .Label()
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
                         HStack(spacing: 0){
-                            TextField("앞 6자리", text: $viewModel.seniorIDNumber1)
-                                .font(.custom("Pretendard-Medium", size: 16))
-                                .lineSpacing(16 / 2 * (100 - 100)/100)
-                                .kerning(-3/10)
-                                .foregroundColor(Color.B)
-                                .onReceive(Just(viewModel.seniorIDNumber1)) { _ in
-                                    if viewModel.seniorIDNumber1.count > 6 {
-                                        viewModel.seniorIDNumber1 = String(viewModel.seniorIDNumber1.prefix(6))
+                            ZStack(alignment: .trailing){
+                                TextField("앞 6자리", text: $viewModel.seniorIDNumber1)
+                                    .font(.custom("Pretendard-Medium", size: 16))
+                                    .lineSpacing(16 / 2 * (100 - 100)/100)
+                                    .kerning(-3/10)
+                                    .foregroundColor(Color.B)
+                                    .onReceive(Just(viewModel.seniorIDNumber1)) { _ in
+                                        if viewModel.seniorIDNumber1.count > 6 {
+                                            viewModel.seniorIDNumber1 = String(viewModel.seniorIDNumber1.prefix(6))
+                                        }
                                     }
-                                }
-                                .onChange(of: viewModel.seniorIDNumber1) { newValue in
-                                    if newValue.count == 6 {
-                                        focusedField = .seniorIDNumber2
+                                    .onChange(of: viewModel.seniorIDNumber1) { newValue in
+                                        if newValue.count == 6 {
+                                            focusedField = .seniorIDNumber2
+                                        }
                                     }
+                                    .focused($focusedField, equals: .seniorIDNumber1)
+                                    .keyboardType(.numberPad)
+                                    .padding(16)
+                                    .background(RoundedRectangle(cornerRadius: 10)
+                                        .stroke(viewModel.isSeniorIDNumber1Wrong ? Color.R : 
+                                                focusedField == .seniorIDNumber1 ? Color.Green4 : Color.Green1, lineWidth: 1.5))
+                                    .tint(Color.Green4)
+                                if(viewModel.isSeniorIDNumber1Wrong) {
+                                    Image("wrongInputField")
+                                        .padding(.trailing, 16)
                                 }
-                                .focused($focusedField, equals: .seniorIDNumber1)
-                                .keyboardType(.numberPad)
-                                .padding(16)
-                                .background(RoundedRectangle(cornerRadius: 10)
-                                    .stroke(focusedField == .seniorIDNumber1 ? Color.Green4 : Color.Green1, lineWidth: 1.5))
-                                .tint(Color.Green4)
+                            }
                             Text("-")
                                 .padding(.horizontal, 7)
                             
@@ -96,7 +104,7 @@ struct PatientInfoView: View {
                 }
                 if(step[1] == true) {
                     VStack(spacing: 12){
-                        FormTextField(formSubject: "전화번호", placeHolder: "전화번호", textInput: $viewModel.seniorPhoneNumber)
+                        FormTextField(formSubject: "전화번호", placeHolder: "전화번호", textInput: $viewModel.seniorPhoneNumber, isWrong: $viewModel.isSeniorPhoneNumberWrong)
                             .onReceive(Just(viewModel.seniorPhoneNumber)) { _ in
                                 if viewModel.seniorPhoneNumber.count > 11 {
                                     viewModel.seniorPhoneNumber = String(viewModel.seniorPhoneNumber.prefix(11))
@@ -135,7 +143,7 @@ struct PatientInfoView: View {
                     .animation(.easeInOut, value: step)
                     .appear(didAppear[1])
                 }
-                FormTextField(formSubject: "어르신 성함", placeHolder: "성함", textInput: $viewModel.seniorName)
+                FormTextField(formSubject: "어르신 성함", placeHolder: "성함", textInput: $viewModel.seniorName, isWrong: $viewModel.isSeniorNameWrong)
                     .onReceive(Just(viewModel.seniorName)) { _ in
                         if viewModel.seniorName.count > 6 {
                             viewModel.seniorName = String(viewModel.seniorName.prefix(6))
@@ -151,12 +159,21 @@ struct PatientInfoView: View {
                     .padding(.top, 36)
             }
             .scrollDismissesKeyboard(.immediately)
-            if !isKeyboardVisible {
+            if isKeyboardVisible {
+                CTAButton.CustomButtonView(style: .expanded(isDisabled: !isActiveButton())) {
+                    onClickButton()
+                } label: {
+                    Text("다음")
+                }
+                    .ignoresSafeArea(.keyboard, edges: .bottom)
+            }
+            else {
                 CTAButton.CustomButtonView(style: .primary(isDisabled: !isActiveButton())) {
                     onClickButton()
                 } label: {
                     Text("다음")
                 }
+                .ignoresSafeArea(.keyboard, edges: .bottom)
                 .padding(.horizontal, 20)
             }
         }
@@ -173,32 +190,6 @@ struct PatientInfoView: View {
         .onAppear {
             focusedField = .seniorName
         }
-        .toolbar {
-            ToolbarItemGroup(placement: .keyboard) {
-                Text("다음")
-                    .B1()
-                    .foregroundColor(Color.W)
-                    .padding(.bottom, 3)
-                    .frame(width: UIScreen.main.bounds.size.width + 100, height: 54)
-                    .background(!isActiveButton() ? Color.Green3 : self.isPressed ? Color.Green5 : Color.Green4)
-                    .simultaneousGesture(
-                        DragGesture(minimumDistance: 0)
-                            .onChanged { _ in
-                                withAnimation {
-                                    isPressed = true
-                                }
-                            }
-                            .onEnded { _ in 
-                                withAnimation{
-                                    isPressed = false
-                                }
-                                if isActiveButton() {
-                                    onClickButton()
-                                }
-                            }
-                    )
-            }
-        }
     }
     
     private func isActiveButton() -> Bool {
@@ -207,10 +198,20 @@ struct PatientInfoView: View {
     
     private func onClickButton() {
         if(!step[1]) {
+            #if RELEASE
+            if(!viewModel.validateName()) { return }
+            #endif
             didFinishTypingName()
         } else if(!step[2]) {
+            #if RELEASE
+            if(!viewModel.validatePhoneNumber()) { return }
+            #endif
             didFinishTypingPhoneNumber()
         } else {
+            #if RELEASE
+            if(!viewModel.validateInputField()) { return }
+            #endif
+            patient.name = viewModel.seniorName;
             patient.combineID(frontID: viewModel.seniorIDNumber1, backID: viewModel.seniorIDNumber2)
             homeNavigation.navigate(.AddressFormView_Patient)
         }
@@ -249,8 +250,6 @@ struct PatientInfoView: View {
     }
     
     private func didFinishTypingAll() {
-        patient.name = viewModel.seniorName;
         focusedField = nil
     }
 }
-
