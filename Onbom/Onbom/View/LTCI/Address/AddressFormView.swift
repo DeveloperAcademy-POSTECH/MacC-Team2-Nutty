@@ -83,18 +83,20 @@ struct AddressFormView: View {
                 }
                 .padding(20)
                 
+                if formType != .agent {
+                    Alert(image: "check", label: alertMessage)
+                        .padding([.bottom, .trailing, .leading], 20)
+                }
+                
                 ScrollView {
-                    if formType != .agent {
-                        Alert(image: "check", label: alertMessage)
-                            .padding([.bottom, .trailing, .leading], 20)
-                    }
-                    
                     AddressInputField(label: addressInputFieldTitle,
                                       cityAddress: $address.cityAddress,
                                       detailAddress: $address.detailAddress,
                                       isPostCodeViewPresented: $isPostCodeViewPresented)
-                    
+                    .padding(20)
+                    Spacer()
                 }
+                
                 if isKeyboardVisible {
                     CTAButton.CustomButtonView(style: .expanded(isDisabled: !isAddressFilled)) {
                         if formType == .patient {
@@ -124,7 +126,7 @@ struct AddressFormView: View {
                     } label: {
                         Text("다음")
                     }
-                    .padding(.horizontal, 20)
+                    .padding(20)
                 }
             }
             .navigationDestination(isPresented: $isPostCodeViewPresented) {
@@ -133,7 +135,7 @@ struct AddressFormView: View {
             }
             
             if showActualAddressCheckView {
-                Color.black.opacity(0.5).ignoresSafeArea()
+                Color.black.opacity(0.3).ignoresSafeArea()
             }
         }
         .navigationBarBackButton()
@@ -175,7 +177,8 @@ struct AddressFormView: View {
                         Text("아니요, 달라요")
                     }
                 }
-                .padding(.horizontal)
+                .padding(.horizontal, 20)
+                .padding(.top, 34)
             }
             .presentationDetents([.fraction(0.43)])
             .presentationDragIndicator(.hidden)
