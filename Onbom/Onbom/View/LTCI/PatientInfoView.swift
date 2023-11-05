@@ -19,8 +19,8 @@ struct PatientInfoView: View {
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     
-    @State private var step:                    [Bool] = [true, true, false]
-    @State private var didAppear:               [Bool] = [true, true, false]
+    @State private var step:                    [Bool] = [true, false, false]
+    @State private var didAppear:               [Bool] = [true, false, false]
     @State private var isKeyboardVisible:       Bool = true
     @State private var isPressed:               Bool = false
     
@@ -159,7 +159,6 @@ struct PatientInfoView: View {
                     .padding(.horizontal, 20)
                     .padding(.top, 36)
                     .padding(.bottom, 120)
-                    .background(.red.opacity(0.4))
             }
             if isKeyboardVisible {
                 CTAButton.CustomButtonView(style: .expanded(isDisabled: !isActiveButton())) {
@@ -178,6 +177,9 @@ struct PatientInfoView: View {
                 .ignoresSafeArea(.keyboard, edges: .bottom)
                 .padding(.horizontal, 20)
             }
+        }
+        .onTapGesture {
+            hideKeyboard()
         }
         .padding(.top, 20)
         .onAppear {
