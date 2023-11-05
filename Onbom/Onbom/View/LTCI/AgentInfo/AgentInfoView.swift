@@ -46,8 +46,13 @@ struct AgentInfoView: View {
                 } label: {
                     Text("상세 관계를 모르겠어요")
                         .Label()
-                        .foregroundColor(.G5)
-                        .underline()
+                        .foregroundColor(.G4)
+                        .overlay(
+                            Rectangle()
+                                .frame(height: 1)
+                                .foregroundColor(.G4),
+                            alignment: .bottom
+                        )
                 }
                 Spacer()
             }

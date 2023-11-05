@@ -54,6 +54,7 @@ struct StepView: View {
                     Capsule()
                         .foregroundColor(Color.G3)
                         .frame(width: 1.7, height: 72)
+                        .padding(.bottom, 2)
                     ZStack {
                         Circle()
                             .frame(width: 31, height: 31)
