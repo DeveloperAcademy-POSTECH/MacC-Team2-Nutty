@@ -16,10 +16,7 @@ struct IDCardConfirmEditView: View {
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     
     var isIDNumberValid: Bool {
-        if frontIDNumber.isValidDateOfBirth() {
-            return backIDNumber.isValidIDBackNumber()
-        }
-        return false
+        frontIDNumber.isValidDateOfBirth() && backIDNumber.isValidIDBackNumber()
     }
     
     var body: some View {
