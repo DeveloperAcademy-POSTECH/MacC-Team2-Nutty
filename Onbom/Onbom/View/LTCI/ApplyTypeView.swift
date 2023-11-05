@@ -42,6 +42,7 @@ struct ApplyTypeView: View {
                                             .T2()
                                         Text("\(description[index])")
                                             .Cap3()
+                                            .foregroundColor(.G5)
                                     }
                                     else {
                                         Text("\(title[index])")
@@ -71,7 +72,7 @@ struct ApplyTypeView: View {
             }
             
             if isPrivacyPolicyViewPresented {
-                Color.black.opacity(0.5).ignoresSafeArea()
+                Color.black.opacity(0.3).ignoresSafeArea()
             }
         }
     }

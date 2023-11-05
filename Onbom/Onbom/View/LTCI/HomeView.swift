@@ -66,7 +66,7 @@ struct HomeView: View {
                         CTAButton.CustomButtonView(
                             style: .main)
                         {
-                            homeNavigation.navigate(.DescriptionView)
+                            homeNavigation.navigate(.StepView_First)
                         } label: {
                             Text("지금 바로 신청하기")
                         }

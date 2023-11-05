@@ -55,7 +55,7 @@ public struct RadioButtonStyleModifiers: ButtonStyle {
                 .padding(.leading, 20.0)
                 .background(RoundedRectangle(cornerRadius: 10).fill(configuration.isPressed ? Color.Green3 : Color.G2))
                 .foregroundColor(configuration.isPressed ? .Green4 : .B)
-                .overlay(RoundedRectangle(cornerRadius: 16)
+                .overlay(RoundedRectangle(cornerRadius: 10)
                     .stroke(configuration.isPressed ? Color.TGreen : Color.G2, lineWidth: 1.2))
             
         case .oneSelected:
@@ -66,7 +66,7 @@ public struct RadioButtonStyleModifiers: ButtonStyle {
                 .padding(.leading, 20.0)
                 .background(RoundedRectangle(cornerRadius: 10).fill(Color.Green2))
                 .foregroundColor(configuration.isPressed ? .Green4 : .B)
-                .overlay(RoundedRectangle(cornerRadius: 16)
+                .overlay(RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.Green4, lineWidth: 1.2))
             
         case .twoUnselected:

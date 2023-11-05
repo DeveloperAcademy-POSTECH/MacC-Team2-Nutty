@@ -21,7 +21,7 @@ struct MainView: View {
                         .navigationDestination(for: HomeRoute.self) { route in
                             switch(route) {
                             case .DescriptionView:                  DescriptionView()
-                            case .ApplyTypeView:                    ApplyTypeView().toolbar(.hidden, for: .tabBar)
+                            case .ApplyTypeView:                    ApplyTypeView()
                             case .MediHistoryView:                  MediHistoryView()
                             case .MediConditionView:                MediConditionView()
                             case .IDCardDescriptionView:            IDCardDescriptionView()
@@ -35,6 +35,7 @@ struct MainView: View {
                             case .StepView_Second:                  StepView(state: .SECOND)
                             case .PatientInfoView:                  PatientInfoView()
                             case .AgentInfoView:                    AgentInfoView()
+                            case .AgentInfoDetailView:              AgentInfoDetailView()
                             case .RejectView:                       RejectView()
                             default:                                RejectView()
                             }

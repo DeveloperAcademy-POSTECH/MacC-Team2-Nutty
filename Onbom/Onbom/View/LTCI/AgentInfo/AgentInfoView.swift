@@ -41,8 +41,8 @@ struct AgentInfoView: View {
             Spacer()
             HStack {
                 Spacer()
-                NavigationLink {
-                    AgentInfoDetailView()
+                Button {
+                    homeNavigation.navigate(.AgentInfoDetailView)
                 } label: {
                     Text("상세 관계를 모르겠어요")
                         .Label()

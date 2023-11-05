@@ -19,8 +19,8 @@ struct PatientInfoView: View {
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     
-    @State private var step:                    [Bool] = [true, false, false]
-    @State private var didAppear:               [Bool] = [true, false, false]
+    @State private var step:                    [Bool] = [true, true, false]
+    @State private var didAppear:               [Bool] = [true, true, false]
     @State private var isKeyboardVisible:       Bool = true
     @State private var isPressed:               Bool = false
     
@@ -36,10 +36,11 @@ struct PatientInfoView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 20)
             
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 if(step[2]) {
                     Alert(image: "security", label: "입력한 주민등록번호는 저장되지 않으니 안심하세요")
                         .padding(20)
+                        .padding(.bottom, 8)
                         .appear(didAppear[2])
                     
                     VStack(spacing: 8) {
@@ -157,8 +158,9 @@ struct PatientInfoView: View {
                     }
                     .padding(.horizontal, 20)
                     .padding(.top, 36)
+                    .padding(.bottom, 120)
+                    .background(.red.opacity(0.4))
             }
-            .scrollDismissesKeyboard(.immediately)
             if isKeyboardVisible {
                 CTAButton.CustomButtonView(style: .expanded(isDisabled: !isActiveButton())) {
                     onClickButton()
