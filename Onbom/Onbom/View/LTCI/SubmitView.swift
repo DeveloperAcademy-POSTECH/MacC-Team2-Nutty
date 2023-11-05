@@ -16,10 +16,7 @@ struct SubmitView: View {
     
     var body: some View {
         if isloadingViewPresented {
-            SubmitLoadingView()
-                .onAppear {
-                    showLoadingView()
-                }
+            SubmitLoadingView(presented: $isloadingViewPresented)
         } else {
             VStack {
                 VStack(spacing: 20) {

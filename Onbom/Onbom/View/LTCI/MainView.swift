@@ -36,6 +36,7 @@ struct MainView: View {
                             case .PatientInfoView:                  PatientInfoView()
                             case .AgentInfoView:                    AgentInfoView()
                             case .AgentInfoDetailView:              AgentInfoDetailView()
+                            case .SubmitView:                       SubmitView()
                             case .RejectView:                       RejectView()
                             default:                                RejectView()
                             }

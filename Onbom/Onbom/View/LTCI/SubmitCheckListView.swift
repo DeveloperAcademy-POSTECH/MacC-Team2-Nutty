@@ -11,7 +11,7 @@ struct SubmitCheckListView: View {
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
     @EnvironmentObject var pdfManager: PDFManager
-    @State private var isSubmitLoadingViewPresented = false
+    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     
     var body: some View {
         HStack {
@@ -237,21 +237,13 @@ struct SubmitCheckListView: View {
         CTAButton.CustomButtonView(
             style: .primary(isDisabled:false))
         {
-            var transaction = Transaction()
-            transaction.disablesAnimations = true
-            withTransaction(transaction) {
-                isSubmitLoadingViewPresented = true
-            }
+            homeNavigation.navigate(.SubmitView)
         } label: {
             Text("신청하기")
         }
         .padding(.bottom,0)
         .padding([.top, .leading, .trailing], 20)
         .navigationBarBackButton()
-        .fullScreenCover(isPresented: $isSubmitLoadingViewPresented) {
-            SubmitView()
-            
-        }
     }
 }
 
