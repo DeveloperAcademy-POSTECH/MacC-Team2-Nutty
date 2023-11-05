@@ -46,7 +46,7 @@ class IDCardTextRecognizer: TextRecognizable {
         }
     }
     
-    private func filterShowcaseID(from texts: [String]) -> String? {
+    private func filterShowcaseID(from recognizedText: [String]) -> String? {
         let firstIDPattern = "\\d{6}-\\d{7}"
         let secondIDPattern = "\\d{13}"
         let thirdIDPattern = "\\d{7}"
@@ -55,8 +55,7 @@ class IDCardTextRecognizer: TextRecognizable {
         var frontID: String = ""
         var backID: String = ""
 
-        for text in texts {
-            print(text)
+        for text in recognizedText {
             if text.range(of: firstIDPattern, options: .regularExpression) != nil {
                 return text
             } else if text.range(of: secondIDPattern, options: .regularExpression) != nil {
@@ -74,12 +73,11 @@ class IDCardTextRecognizer: TextRecognizable {
         return frontID.isEmpty && backID.isEmpty ? nil : "\(frontID)-\(backID)"
     }
     
-    private func filterID(from texts: [String]) -> String? {
+    private func filterID(from recognizedText: [String]) -> String? {
         var id = ""
         let idPattern = "\\d{6}\\s?-\\s?\\d{7}"
         
-        for text in texts {
-            print(text)
+        for text in recognizedText {
             if text.range(of: idPattern, options: .regularExpression) != nil {
                 id = text
                 break
