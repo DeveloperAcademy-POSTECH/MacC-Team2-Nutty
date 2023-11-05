@@ -33,7 +33,7 @@ struct AddressFormView: View {
     var alertMessage: String {
         switch formType {
         case .patient:
-            return "주민등록증에 적혀 있는 가장 최근 주소를 이야기해요"
+            return "주민등록증에 적혀 있는 가장 최근 주소를 의미해요"
         case .actualPatient:
             return "방문조사와 우편물 수령을 위한 주소가 필요해요"
         default:
@@ -83,18 +83,20 @@ struct AddressFormView: View {
                 }
                 .padding(20)
                 
+                if formType != .agent {
+                    Alert(image: "check", label: alertMessage)
+                        .padding([.bottom, .trailing, .leading], 20)
+                }
+                
                 ScrollView {
-                    if formType != .agent {
-                        Alert(image: "check", label: alertMessage)
-                            .padding([.bottom, .trailing, .leading], 20)
-                    }
-                    
                     AddressInputField(label: addressInputFieldTitle,
                                       cityAddress: $address.cityAddress,
                                       detailAddress: $address.detailAddress,
                                       isPostCodeViewPresented: $isPostCodeViewPresented)
-                    
+                    .padding(20)
+                    Spacer()
                 }
+                
                 if isKeyboardVisible {
                     CTAButton.CustomButtonView(style: .expanded(isDisabled: !isAddressFilled)) {
                         if formType == .patient {
@@ -124,7 +126,7 @@ struct AddressFormView: View {
                     } label: {
                         Text("다음")
                     }
-                    .padding(.horizontal, 20)
+                    .padding(20)
                 }
             }
             .navigationDestination(isPresented: $isPostCodeViewPresented) {
@@ -133,7 +135,7 @@ struct AddressFormView: View {
             }
             
             if showActualAddressCheckView {
-                Color.black.opacity(0.5).ignoresSafeArea()
+                Color.black.opacity(0.3).ignoresSafeArea()
             }
         }
         .navigationBarBackButton()
@@ -148,7 +150,7 @@ struct AddressFormView: View {
                     .multilineTextAlignment(.center)
                     .padding(.vertical, 20)
                 
-                Text("어르신이 병원이나 자녀 집 등 다른 곳에 계시다면\n추가 입력이 필요해요.")
+                Text("어르신이 병원이나 자녀 집 등 다른 곳에 계시다면\n추가 입력이 필요해요")
                     .Cap3()
                     .foregroundColor(.G5)
                     .multilineTextAlignment(.center)
@@ -175,7 +177,8 @@ struct AddressFormView: View {
                         Text("아니요, 달라요")
                     }
                 }
-                .padding(.horizontal)
+                .padding(.horizontal, 20)
+                .padding(.top, 34)
             }
             .presentationDetents([.fraction(0.43)])
             .presentationDragIndicator(.hidden)

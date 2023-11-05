@@ -8,19 +8,15 @@
 import SwiftUI
 
 struct NumberInputField: View {
-    var label: String
     var placeholder: String
     var limitLength: Int
     var isSecure: Bool
     @Binding var content: String
     @FocusState var isFocused: Bool
-    
+    @State private var isValid = true
+
     var body: some View {
         VStack(alignment: .leading) {
-            Text(label)
-                .foregroundColor(isFocused ? .Green4 : .G6)
-                .Label()
-                .padding(.bottom, 4)
             inputField
                 .focused($isFocused)
                 .padding()
@@ -35,12 +31,21 @@ struct NumberInputField: View {
                         content = String(newValue.prefix(limitLength))
                     }
                 }
+                .onChange(of: isFocused) { _ in
+                    if limitLength == 6 {
+                        isValid = content.isValidDateOfBirth()
+                    } else if limitLength == 7 {
+                        isValid = content.isValidIDBackNumber()
+                    }
+                }
         }
     }
     
     private var strokeColor: Color {
         if isFocused {
             return Color.Green3
+        } else if !isValid {
+            return Color.red
         } else {
             return Color.G3
         }

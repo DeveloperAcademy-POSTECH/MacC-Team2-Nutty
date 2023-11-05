@@ -8,18 +8,12 @@
 import SwiftUI
 
 struct CityAddressInputField: View {
-    var label: String
     var placeholder: String
     @Binding var content: String
     @FocusState var isFocused: Bool
-    @FocusState var titleFocused: Bool
     
     var body: some View {
         VStack(alignment:.leading) {
-            Text(label)
-                .foregroundColor(titleFocused ? .Green4 : .G6)
-                .Label()
-                .padding(.bottom, 4)
             TextField(placeholder, text: $content)
                 .focused($isFocused)
                 .padding()

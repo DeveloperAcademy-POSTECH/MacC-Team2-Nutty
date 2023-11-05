@@ -10,36 +10,47 @@ import SwiftUI
 struct IDNumberInputField: View {
     @Binding var frontNumber: String
     @Binding var backNumber: String
-    @FocusState var isFocused: Bool
+    @FocusState var titleFocused: Bool
+    @FocusState private var focusField: Field?
 
+    private enum Field: Hashable {
+        case front, back
+    }
+    
     var body: some View {
-        HStack {
-            NumberInputField(label: "주민등록번호",
-                             placeholder: "앞 6자리",
-                             limitLength: 6,
-                             isSecure: false,
-                             content: $frontNumber,
-                             isFocused: _isFocused
-            )
-            .padding(.leading)
-            .focused($isFocused)
-            
-            Image(systemName: "minus")
-                .padding(.top)
-                .padding(.top)
-            
-            NumberInputField(label: " ",
-                             placeholder: "뒤 7자리",
-                             limitLength: 7,
-                             isSecure: false,
-                             content: $backNumber)
-            .padding(.trailing)
-            .focused($isFocused)
-            .toolbar {
-                ToolbarItem(placement: .keyboard) {
-                    Button(action: hideKeyboard, label: {
-                        Text("완료")
-                    })
+        VStack(alignment: .leading) {
+            Text("주민등록번호")
+                .foregroundColor(focusField != nil ? .Green4 : .G6)
+                .Label()
+                .padding(20)
+            HStack {
+                NumberInputField(placeholder: "앞 6자리",
+                                 limitLength: 6,
+                                 isSecure: false,
+                                 content: $frontNumber
+                )
+                .focused($focusField, equals: .front)
+                .padding(.leading)
+                
+                Image(systemName: "minus")
+                
+                NumberInputField(placeholder: "뒤 7자리",
+                                 limitLength: 7,
+                                 isSecure: false,
+                                 content: $backNumber)
+                .padding(.trailing)
+                .focused($focusField, equals: .back)
+                .toolbar {
+                    ToolbarItem(placement: .keyboard) {
+                        HStack {
+                            Spacer()
+                            Button {
+                                hideKeyboard()
+                            } label: {
+                                Text("완료")
+                            }
+                        }
+                    }
                 }
             }
         }
