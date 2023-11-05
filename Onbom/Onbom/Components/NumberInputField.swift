@@ -18,9 +18,9 @@ struct NumberInputField: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(label)
-                .foregroundColor(isFocused ? .PB4 : .G6)
+                .foregroundColor(isFocused ? .Green4 : .G6)
                 .Label()
-
+                .padding(.bottom, 4)
             inputField
                 .focused($isFocused)
                 .padding()
@@ -40,7 +40,7 @@ struct NumberInputField: View {
     
     private var strokeColor: Color {
         if isFocused {
-            return Color.PB3
+            return Color.Green3
         } else {
             return Color.G3
         }

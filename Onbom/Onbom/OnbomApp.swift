@@ -15,6 +15,10 @@ struct OnbomApp: App {
     
     @State private var isOnboarding: Bool = true
     
+    init() {
+        FirebaseApp.configure()
+    }
+    
     var body: some Scene {
         WindowGroup {
 //            if(isOnboarding) {

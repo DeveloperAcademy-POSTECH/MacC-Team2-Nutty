@@ -15,7 +15,11 @@ final class PatientInfoViewModel: ObservableObject {
     @Published var seniorPhoneNumber:       String = ""
     @Published var seniorName:              String = ""
     
-    @Published var hasMobile:               Bool   = true
+    @Published var hasMobile:               Bool = true
+    
+    @Published var isSeniorNameWrong:       Bool = false
+    @Published var isSeniorPhoneNumberWrong:Bool = false
+    @Published var isSeniorIDNumber1Wrong:  Bool = false
     
     // Output subscribers
     @Published var formIsValid = false
@@ -29,7 +33,9 @@ final class PatientInfoViewModel: ObservableObject {
             .store(in: &publishers)
     }
     
-    private func isValidDateOfBirth(dateOfBirth: String) -> Bool {
+    private func isValidDateOfBirth(_ dateOfBirth: String) -> Bool {
+        
+        if(dateOfBirth.count != 6) { return false }
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyMMdd"
         guard let _ = dateFormatter.date(from: dateOfBirth) else {
@@ -38,11 +44,28 @@ final class PatientInfoViewModel: ObservableObject {
         return true
     }
     
+    // TODO: TestCode 작성하기
+    private func isValidPhoneNumber(_ phoneNumberString: String) -> Bool {
+        guard let _ = Int(phoneNumberString) else { return false }
+        
+        return phoneNumberString.hasPrefix("010")
+    }
+    
+    private func isValidName(_ name: String) -> Bool {
+        let koreanRegex = try? NSRegularExpression(pattern: "^[가-힣]{2,}$")
+        
+        return koreanRegex?.firstMatch(in: name, options: [], range: NSRange(location: 0, length: name.utf16.count)) != nil
+    }
+    
     
     private var IDNumber1Publisher: AnyPublisher<Bool, Never> {
         $seniorIDNumber1
             .map { number in
+                #if DEBUG
+                return number.count == 6
+                #else
                 return number.count == 6 && self.isValidDateOfBirth(dateOfBirth: number)
+                #endif
             }
             .eraseToAnyPublisher()
     }
@@ -101,5 +124,34 @@ final class PatientInfoViewModel: ObservableObject {
         .eraseToAnyPublisher()
     }
     
+    public func validateInputField() -> Bool {
+        
+        isSeniorIDNumber1Wrong          = !self.isValidDateOfBirth(seniorIDNumber1)
+        if(hasMobile == true) {
+            isSeniorPhoneNumberWrong    = !self.isValidPhoneNumber(seniorPhoneNumber)
+        } else {
+            isSeniorPhoneNumberWrong    = false
+        }
+        isSeniorNameWrong               = !self.isValidName(seniorName)
+                
+        return ![isSeniorNameWrong, isSeniorIDNumber1Wrong, isSeniorPhoneNumberWrong]
+            .reduce(false) { $0 || $1 }
+        
+    }
+    
+    public func validateName() -> Bool {
+        isSeniorNameWrong               = !self.isValidName(seniorName)
+        return !isSeniorNameWrong
+    }
+    
+    public func validatePhoneNumber() -> Bool {
+        isSeniorPhoneNumberWrong        = !self.isValidPhoneNumber(seniorPhoneNumber)
+        return !isSeniorPhoneNumberWrong
+    }
+    
+    public func validateIDNumber1() -> Bool {
+        isSeniorIDNumber1Wrong          = !self.isValidDateOfBirth(seniorIDNumber1)
+        return !isSeniorIDNumber1Wrong
+    }
 }
 

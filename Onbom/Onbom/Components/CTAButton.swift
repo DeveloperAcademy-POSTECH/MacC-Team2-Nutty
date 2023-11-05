@@ -74,28 +74,32 @@ public struct CTAButtonStyleModifiers: ButtonStyle {
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 19)
                 .foregroundColor(.white)
-                .background(RoundedRectangle(cornerRadius: 16).fill(isDisabled ? Color.PB3 : configuration.isPressed ? Color.PB5 : Color.PB4))
+                .background(RoundedRectangle(cornerRadius: 16).fill(isDisabled ? Color.Green3 : configuration.isPressed ? Color.Green5 : Color.Green4))
+                .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
             
         case .secondary:
             configuration.label
-                .foregroundColor(Color.PB4)
+                .foregroundColor(Color.Green4)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 19)
-                .background(RoundedRectangle(cornerRadius: 16).fill( configuration.isPressed ? Color.PB3 : Color.PB2))
+                .background(RoundedRectangle(cornerRadius: 16).fill( configuration.isPressed ? Color.Green3 : Color.Green2))
+                .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
             
         case let .expanded(isDisabled):
             configuration.label
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 19)
-                .background(isDisabled ? Color.PB3 : configuration.isPressed ? Color.PB5 : Color.PB4)
+                .background(isDisabled ? Color.Green3 : configuration.isPressed ? Color.Green5 : Color.Green4)
+                .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
             
         case .main:
             configuration.label
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 19)
-                .background(RoundedRectangle(cornerRadius: 14).fill(configuration.isPressed ? Color.PB5 : Color.PB4))
+                .background(RoundedRectangle(cornerRadius: 14).fill(configuration.isPressed ? Color.Green5 : Color.Green4))
+                .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
         }
     }
 }

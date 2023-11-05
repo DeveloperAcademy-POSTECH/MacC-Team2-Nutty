@@ -15,13 +15,13 @@ struct Alert: View {
         ZStack(alignment: .leading) {
             RoundedRectangle(cornerRadius: 10)
                 .frame(maxWidth: .infinity, maxHeight: 42)
-                .foregroundColor(.PB1)
+                .foregroundColor(.Green1)
             HStack {
                 Image(image)
                 Text(label)
-                    .Cap5()
+                    .Cap4()
             }
-            .padding(13)
+            .padding(10)
         }
     }
 }

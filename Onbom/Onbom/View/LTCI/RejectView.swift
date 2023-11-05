@@ -14,7 +14,7 @@ struct RejectView: View {
         VStack(spacing: 0) {
             Text("지금은 어르신의 등급심사가 어려워요")
                 .foregroundColor(Color.B)
-                .H2()
+                .H1()
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.bottom, 21)
             VStack {

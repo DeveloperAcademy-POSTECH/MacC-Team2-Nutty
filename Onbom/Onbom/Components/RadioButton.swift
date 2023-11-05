@@ -49,43 +49,43 @@ public struct RadioButtonStyleModifiers: ButtonStyle {
         switch style {
         case .oneUnselected:
             configuration.label
-                .foregroundColor(configuration.isPressed ? Color.PB4 : .B)
+                .foregroundColor(configuration.isPressed ? Color.Green4 : .B)
                 .frame(maxWidth: .infinity)
+                .frame(height: 100)
                 .padding(.leading, 20.0)
-                .padding(.vertical, 22)
-                .background(RoundedRectangle(cornerRadius: 10).fill(configuration.isPressed ? Color.PB3 : Color.G2))
-                .foregroundColor(configuration.isPressed ? .PB4 : .B)
+                .background(RoundedRectangle(cornerRadius: 10).fill(configuration.isPressed ? Color.Green3 : Color.G2))
+                .foregroundColor(configuration.isPressed ? .Green4 : .B)
                 .overlay(RoundedRectangle(cornerRadius: 16)
-                    .stroke(configuration.isPressed ? Color.TPB : Color.G2, lineWidth: 1.2))
+                    .stroke(configuration.isPressed ? Color.TGreen : Color.G2, lineWidth: 1.2))
             
         case .oneSelected:
             configuration.label
-                .foregroundColor(Color.PB4)
+                .foregroundColor(Color.Green4)
                 .frame(maxWidth: .infinity)
+                .frame(height: 100)
                 .padding(.leading, 20.0)
-                .padding(.vertical, 22)
-                .background(RoundedRectangle(cornerRadius: 10).fill(Color.PB2))
-                .foregroundColor(configuration.isPressed ? .PB4 : .B)
+                .background(RoundedRectangle(cornerRadius: 10).fill(Color.Green2))
+                .foregroundColor(configuration.isPressed ? .Green4 : .B)
                 .overlay(RoundedRectangle(cornerRadius: 16)
-                    .stroke(Color.PB4, lineWidth: 1.2))
+                    .stroke(Color.Green4, lineWidth: 1.2))
             
         case .twoUnselected:
             configuration.label
-                .foregroundColor(configuration.isPressed ? Color.PB4 : .B)
+                .foregroundColor(configuration.isPressed ? Color.Green4 : .B)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 16)
-                .background(RoundedRectangle(cornerRadius: 10).fill(configuration.isPressed ? Color.PB3 : Color.G2))
+                .background(RoundedRectangle(cornerRadius: 10).fill(configuration.isPressed ? Color.Green3 : Color.G2))
                 .overlay(RoundedRectangle(cornerRadius: 10)
-                    .stroke(configuration.isPressed ? Color.TPB : Color.G2, lineWidth: 1.2))
+                    .stroke(configuration.isPressed ? Color.TGreen : Color.G2, lineWidth: 1.2))
             
         case .twoSelected:
             configuration.label
-                .foregroundColor(Color.PB4)
+                .foregroundColor(Color.Green4)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 16)
-                .background(RoundedRectangle(cornerRadius: 10).fill(Color.PB2))
+                .background(RoundedRectangle(cornerRadius: 10).fill(Color.Green2))
                 .overlay(RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.PB4, lineWidth: 1.2))
+                    .stroke(Color.Green4, lineWidth: 1.2))
             
         }
     }

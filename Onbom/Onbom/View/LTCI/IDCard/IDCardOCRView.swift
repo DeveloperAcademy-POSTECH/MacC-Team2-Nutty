@@ -63,9 +63,9 @@ fileprivate struct IDCardGuideLineView: View {
             Spacer()
             
             Text("가이드라인에 신분증을 맞춰주세요")
-                .T5()
-                .foregroundColor(.PB4)
-                .padding(.vertical, 12)
+                .T4()
+                .foregroundColor(.Green4)
+                .padding(.vertical, 10)
                 .padding(.horizontal, 20)
                 .background {
                     RoundedRectangle(cornerRadius: 24)
@@ -130,10 +130,10 @@ fileprivate struct IDCardOCRSheet: View {
                 HStack {
                     Text("\(index + 1)")
                         .Label()
-                        .foregroundColor(.PB4)
+                        .foregroundColor(.Green4)
                         .padding(8)
                         .background {
-                            Circle().fill(Color.PB2)
+                            Circle().fill(Color.Green2)
                         }
                     Text(sheetString[index])
                         .foregroundColor(.G5)
@@ -142,8 +142,6 @@ fileprivate struct IDCardOCRSheet: View {
                 .padding(.leading, 20)
                 .padding(.top, 8)
             }
-                        
-            //CTA Button
             
             CTAButton.CustomButtonView(style: .primary(isDisabled: false)) {
                 presentCameraGuideSheet = false
@@ -152,18 +150,6 @@ fileprivate struct IDCardOCRSheet: View {
             }
             .padding(.top, 14)
             .padding(.horizontal, 20)
-            
-//            Button {
-//                presentCameraGuideSheet = false
-//            } label: {
-//                Text("확인")
-//                    .foregroundColor(Color.white)
-//                    .B1()
-//                    .padding(.vertical, 20)
-//                    .frame(maxWidth: .infinity)
-//            }
-//            .background(RoundedRectangle(cornerRadius: 16).fill(Color.PB4))
-//            .padding()
         }
     }
 }
