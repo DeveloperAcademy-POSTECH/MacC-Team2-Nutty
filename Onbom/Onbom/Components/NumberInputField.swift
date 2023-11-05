@@ -13,7 +13,8 @@ struct NumberInputField: View {
     var isSecure: Bool
     @Binding var content: String
     @FocusState var isFocused: Bool
-    
+    @State private var isValid = false
+
     var body: some View {
         VStack(alignment: .leading) {
             inputField
@@ -30,12 +31,21 @@ struct NumberInputField: View {
                         content = String(newValue.prefix(limitLength))
                     }
                 }
+                .onChange(of: isFocused) { _ in
+                    if limitLength == 6 {
+                        isValid = content.isValidDateOfBirth()
+                    } else if limitLength == 7 {
+                        isValid = content.isValidIDBackNumber()
+                    }
+                }
         }
     }
     
     private var strokeColor: Color {
         if isFocused {
             return Color.Green3
+        } else if !isValid {
+            return Color.red
         } else {
             return Color.G3
         }

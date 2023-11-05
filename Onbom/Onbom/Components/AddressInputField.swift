@@ -26,14 +26,14 @@ struct AddressInputField: View {
                 .Label()
             
             CityAddressInputField(placeholder: "예) C5, 남구 청암로 77",
-                                  content: $cityAddress,
-                                  titleFocused: _titleFocused)
+                                  content: $cityAddress)
             .focused($titleFocused)
             .onTapGesture {
                 isPostCodeViewPresented = true
             }
             
-            InputField(placeholder: "상세주소", content: $detailAddress)
+            InputField(placeholder: "상세주소",
+                       content: $detailAddress)
                 .focused($focusField, equals: .detailAddress)
                 .focused($titleFocused)
         }

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct InputField: View {
     var label: String?
-    var buttonAction: (() -> Void)?
     var placeholder: String
     @Binding var content: String
     @FocusState var isFocused: Bool
@@ -28,21 +27,6 @@ struct InputField: View {
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(isFocused ? Color.Green4 : Color.G3, lineWidth: 1.5)
                 }
-                .overlay {
-                    if let buttonAction = buttonAction {
-                        HStack {
-                            Spacer()
-                            Button {
-                                buttonAction()
-                            } label: {
-                                Image(systemName: "magnifyingglass")
-                                    .padding()
-                                    .tint(.black)
-                            }
-                        }
-                    }
-                }
-            
         }
     }
 }

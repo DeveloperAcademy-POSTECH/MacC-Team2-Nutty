@@ -15,9 +15,9 @@ struct IDCardConfirmEditView: View {
     @EnvironmentObject var agent: Agent
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     
-    var isIDNumberFilled: Bool {
-        if isValidDateOfBirth(frontIDNumber) {
-            return isValidIDBackNumber(backIDNumber)
+    var isIDNumberValid: Bool {
+        if frontIDNumber.isValidDateOfBirth() {
+            return backIDNumber.isValidIDBackNumber()
         }
         return false
     }
@@ -75,7 +75,7 @@ struct IDCardConfirmEditView: View {
                     }
                     .frame(width: 100)
                     
-                    CTAButton.CustomButtonView(style: .primary(isDisabled: !isIDNumberFilled)) {
+                    CTAButton.CustomButtonView(style: .primary(isDisabled: !isIDNumberValid)) {
                         agent.combineID(frontID: frontIDNumber, backID: backIDNumber)
                         homeNavigation.navigate(.AddressFormView_Agent)
                     } label: {
@@ -98,25 +98,6 @@ struct IDCardConfirmEditView: View {
                 self.isKeyboardVisible = false
             }
         }
-    }
-    
-    private func isValidDateOfBirth(_ dateOfBirth: String) -> Bool {
-        if dateOfBirth.count != 6 { return false }
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyMMdd"
-        guard let _ = dateFormatter.date(from: dateOfBirth) else {
-            return false
-        }
-        return true
-    }
-    
-    private func isValidIDBackNumber(_ backNumber: String) -> Bool {
-        if backNumber.count == 7 {
-            if let first = backNumber.first, "1234".contains(first) {
-                return true
-            }
-        }
-        return false
     }
 }
 

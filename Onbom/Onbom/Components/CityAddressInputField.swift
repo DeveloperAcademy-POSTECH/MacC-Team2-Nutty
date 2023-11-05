@@ -11,7 +11,6 @@ struct CityAddressInputField: View {
     var placeholder: String
     @Binding var content: String
     @FocusState var isFocused: Bool
-    @FocusState var titleFocused: Bool
     
     var body: some View {
         VStack(alignment:.leading) {

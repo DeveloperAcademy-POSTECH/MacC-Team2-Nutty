@@ -14,6 +14,7 @@
 		03FFF2CB2ADD614900B81D65 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2CA2ADD614900B81D65 /* Alert.swift */; };
 		03FFF2D12AE6AD2C00B81D65 /* SubmitLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2D02AE6AD2B00B81D65 /* SubmitLoadingView.swift */; };
 		03FFF2D32AE6B4A600B81D65 /* SubmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2D22AE6B4A600B81D65 /* SubmitView.swift */; };
+		702872662AF737A500061AD4 /* String+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702872652AF737A500061AD4 /* String+Validation.swift */; };
 		702D35AA2ADBBD31008FE1F8 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D35A92ADBBD31008FE1F8 /* Patient.swift */; };
 		708891EB2AD55191005B67AB /* AddressFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708891EA2AD55191005B67AB /* AddressFormView.swift */; };
 		708891F12AD55607005B67AB /* CityAddressInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708891F02AD55607005B67AB /* CityAddressInputField.swift */; };
@@ -92,6 +93,8 @@
 		03FFF2CA2ADD614900B81D65 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		03FFF2D02AE6AD2B00B81D65 /* SubmitLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitLoadingView.swift; sourceTree = "<group>"; };
 		03FFF2D22AE6B4A600B81D65 /* SubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitView.swift; sourceTree = "<group>"; };
+		702872642AF736C200061AD4 /* OnbomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnbomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		702872652AF737A500061AD4 /* String+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Validation.swift"; sourceTree = "<group>"; };
 		702D35A92ADBBD31008FE1F8 /* Patient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		708891EA2AD55191005B67AB /* AddressFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressFormView.swift; sourceTree = "<group>"; };
 		708891F02AD55607005B67AB /* CityAddressInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityAddressInputField.swift; sourceTree = "<group>"; };
@@ -143,7 +146,6 @@
 		7386D33E2AEFF1E600E1F327 /* PatientInfoViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientInfoViewModelTests.swift; sourceTree = "<group>"; };
 		7389872E2AD5E95A00688634 /* MediConditionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediConditionViewModel.swift; sourceTree = "<group>"; };
 		739F9FAA2AC1DB4300523110 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		73A5BF2B2AF0DA2F00ED07BE /* OnbomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = OnbomTests.xctest; path = "/Users/moon/Desktop/MacC-Team2-Nutty/Onbom/build/Debug/OnbomTests.xctest"; sourceTree = "<absolute>"; };
 		73A708882ACEC605004B462B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		73C58ABE2AEE1A8C00EA126A /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
 		73FD46D62ADAADCF002ED839 /* HomeNavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationViewModel.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				AE70A4282ADAE7500006125E /* Onbom.app */,
 				7386D33D2AEFF1E600E1F327 /* OnbomTests */,
 				73C58AC02AEE1D9A00EA126A /* Frameworks */,
+				702872642AF736C200061AD4 /* OnbomTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -359,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				AEB33E9A2AC406600082A3E7 /* Color+Palette.swift */,
+				702872652AF737A500061AD4 /* String+Validation.swift */,
 				7337E1E72AD04B1700D91E6F /* TextStyle+Extension.swift */,
 				737227432AD474E50021EFC6 /* View+Extension.swift */,
 				7372274B2AD476200021EFC6 /* ViewModifier.swift */,
@@ -473,7 +477,7 @@
 			);
 			name = OnbomTests;
 			productName = OnbomTests;
-			productReference = 73A5BF2B2AF0DA2F00ED07BE /* OnbomTests.xctest */;
+			productReference = 702872642AF736C200061AD4 /* OnbomTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -624,6 +628,7 @@
 				03FFF2D12AE6AD2C00B81D65 /* SubmitLoadingView.swift in Sources */,
 				AEB33E9B2AC406600082A3E7 /* Color+Palette.swift in Sources */,
 				737EE3542ABD646100D224FC /* OnbomApp.swift in Sources */,
+				702872662AF737A500061AD4 /* String+Validation.swift in Sources */,
 				73C58ABF2AEE1A8C00EA126A /* FirebaseStorageManager.swift in Sources */,
 				AE10D3902AD4D33C00D9ED3C /* SignatureView.swift in Sources */,
 				AEB33E9E2AC40C470082A3E7 /* InputField.swift in Sources */,

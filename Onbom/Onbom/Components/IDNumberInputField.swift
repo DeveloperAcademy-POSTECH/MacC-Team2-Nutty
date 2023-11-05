@@ -44,9 +44,11 @@ struct IDNumberInputField: View {
                     ToolbarItem(placement: .keyboard) {
                         HStack {
                             Spacer()
-                            Button(action: hideKeyboard, label: {
+                            Button {
+                                hideKeyboard()
+                            } label: {
                                 Text("완료")
-                            })
+                            }
                         }
                     }
                 }
