@@ -1,5 +1,5 @@
 //
-//  RectangleDetector.swift
+//  IDCardDetector.swift
 //  Onbom
 //
 //  Created by Junyoo on 2023/10/09.
@@ -8,14 +8,14 @@
 import Vision
 import UIKit
 
-class RectangleDetector {
+class IDCardDetector: RectangleDetectable {
     var detectedRectangle: VNRectangleObservation?
 
     func isRectangleInsideGuideline(_ observation: VNRectangleObservation) -> Bool {
         let guideX = observation.boundingBox.origin.x
         let guideY = observation.boundingBox.origin.y
-
-        return (0.36...0.37).contains(guideX) && (0.11...0.12).contains(guideY)
+        
+        return (0.35...0.38).contains(guideX) && (0.09...0.12).contains(guideY)
     }
     
     func detectRectangle(from image: CIImage) -> Bool {
@@ -32,18 +32,17 @@ class RectangleDetector {
             }
         }
         
-        request.minimumAspectRatio = 0.6
+        request.minimumAspectRatio = 0.55
         request.maximumAspectRatio = 0.65
-        request.minimumSize = 0.45
-        request.minimumConfidence = 1.0
+        request.minimumSize = 0.40
+        request.minimumConfidence = 0.9
 
         let handler = VNImageRequestHandler(ciImage: image, options: [:])
         do {
             try handler.perform([request])
         } catch {
-            print("RectangleDetector failed detect: \(error.localizedDescription)")
+            print("IDCardDetector failed to detect: \(error.localizedDescription)")
         }
-        
         return isRectangleDetected
     }
     

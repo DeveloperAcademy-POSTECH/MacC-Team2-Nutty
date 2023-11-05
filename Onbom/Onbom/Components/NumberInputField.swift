@@ -13,7 +13,7 @@ struct NumberInputField: View {
     var isSecure: Bool
     @Binding var content: String
     @FocusState var isFocused: Bool
-    @State private var isValid = false
+    @State private var isValid = true
 
     var body: some View {
         VStack(alignment: .leading) {

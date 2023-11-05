@@ -33,7 +33,7 @@ struct AddressFormView: View {
     var alertMessage: String {
         switch formType {
         case .patient:
-            return "주민등록증에 적혀 있는 가장 최근 주소를 이야기해요"
+            return "주민등록증에 적혀 있는 가장 최근 주소를 의미해요"
         case .actualPatient:
             return "방문조사와 우편물 수령을 위한 주소가 필요해요"
         default:
@@ -150,7 +150,7 @@ struct AddressFormView: View {
                     .multilineTextAlignment(.center)
                     .padding(.vertical, 20)
                 
-                Text("어르신이 병원이나 자녀 집 등 다른 곳에 계시다면\n추가 입력이 필요해요.")
+                Text("어르신이 병원이나 자녀 집 등 다른 곳에 계시다면\n추가 입력이 필요해요")
                     .Cap3()
                     .foregroundColor(.G5)
                     .multilineTextAlignment(.center)
