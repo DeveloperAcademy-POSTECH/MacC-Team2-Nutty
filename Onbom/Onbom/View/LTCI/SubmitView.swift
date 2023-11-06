@@ -16,10 +16,7 @@ struct SubmitView: View {
     
     var body: some View {
         if isloadingViewPresented {
-            SubmitLoadingView()
-                .onAppear {
-                    showLoadingView()
-                }
+            SubmitLoadingView(presented: $isloadingViewPresented)
         } else {
             VStack {
                 VStack(spacing: 20) {
@@ -43,9 +40,6 @@ struct SubmitView: View {
                     CTAButton.CustomButtonView(
                         style: .primary(isDisabled: false))
                     {
-                        patient.updateDictionary()
-                        agent.updateDictionary()
-                        pdfManager.createPDF(documentURL: LTCIFormResource, patient: patient.dictionary, agent: agent.dictionary, signature: agent.signature, image: agent.idCardImage, imageSize: agent.idCardImage.size, infectious: patient.hasInfectiousDisease, mental: patient.hasMentalDisorder)
                         homeNavigation.popToRoot()
                     } label: {
                         Text("신청 완료")

@@ -19,9 +19,9 @@ public final class FirebaseStorageManager {
     
     private static let storageRef = Storage.storage().reference().child("pdf")
     
-    public func upload(_ pdfData: Data, completion: ((_: Error?) -> Void)? = nil) async throws {
+    public func upload(_ pdfData: Data, completion: ((_: Error?) -> Void)? = nil) async {
         #if DEBUG
-        sleep(UInt32(3))
+        sleep(1)
         // completion?(FirebaseStorageError.InternetError)
         completion?(nil)
         #else
@@ -35,6 +35,7 @@ public final class FirebaseStorageManager {
             .putData(pdfData, metadata: nil) { _, error in
                 completion?(error)
             }
+        sleep(3)
         #endif
     }
     

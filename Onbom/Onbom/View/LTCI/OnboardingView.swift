@@ -27,7 +27,7 @@ struct OnboardingView: View {
             }
             .tag(0)
             VStack(alignment: .center){
-                Text("요양보호사,복지용구 정보\n편하게 받아보세요")
+                Text("요양보호사, 복지용구 정보\n편하게 받아보세요")
                     .H1()
                     .foregroundColor(.G6)
                     .multilineTextAlignment(.center)

@@ -22,7 +22,7 @@ struct MediHistoryView: View {
             Spacer()
             VStack(spacing: 10) {
                 CTAButton.CustomButtonView(
-                    style: .main)
+                    style: .primary(isDisabled: false))
                 {
                     homeNavigation.navigate(.MediConditionView)
                 } label: {
