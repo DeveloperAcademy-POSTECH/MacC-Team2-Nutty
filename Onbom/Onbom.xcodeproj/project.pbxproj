@@ -49,6 +49,7 @@
 		73007CC12AEBA5B600376511 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73007CC02AEBA5B600376511 /* Agent.swift */; };
 		73007CC32AEBA5BB00376511 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73007CC22AEBA5BB00376511 /* Address.swift */; };
 		731609682AD838FB00399476 /* StepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731609672AD838FB00399476 /* StepView.swift */; };
+		731EB7452AF9323B00931952 /* ApplyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731EB7442AF9323B00931952 /* ApplyHistoryView.swift */; };
 		7337E1E82AD04B1700D91E6F /* TextStyle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337E1E72AD04B1700D91E6F /* TextStyle+Extension.swift */; };
 		7337E1EF2AD1531700D91E6F /* ApplyTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */; };
 		73525BF52AE6445E00A73769 /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73525BF42AE6445E00A73769 /* CustomTabBarView.swift */; };
@@ -135,6 +136,7 @@
 		73007CC02AEBA5B600376511 /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
 		73007CC22AEBA5BB00376511 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		731609672AD838FB00399476 /* StepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepView.swift; sourceTree = "<group>"; };
+		731EB7442AF9323B00931952 /* ApplyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyHistoryView.swift; sourceTree = "<group>"; };
 		7337E1E72AD04B1700D91E6F /* TextStyle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextStyle+Extension.swift"; sourceTree = "<group>"; };
 		7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyTypeView.swift; sourceTree = "<group>"; };
 		73525BF42AE6445E00A73769 /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 				73525BF62AE68AF500A73769 /* OnboardingView.swift */,
 				737D49022ACB3F4F008AC5EC /* MainView.swift */,
 				73FD46D82ADADF8C002ED839 /* HomeView.swift */,
+				731EB7442AF9323B00931952 /* ApplyHistoryView.swift */,
 				AEA098F32AE6B13800DE9BA8 /* DescriptionView.swift */,
 				7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */,
 				AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */,
@@ -663,6 +666,7 @@
 				702D35AA2ADBBD31008FE1F8 /* Patient.swift in Sources */,
 				70E0470B2AD5139200FC73A5 /* IDNumberInputField.swift in Sources */,
 				AEA098F42AE6B13800DE9BA8 /* DescriptionView.swift in Sources */,
+				731EB7452AF9323B00931952 /* ApplyHistoryView.swift in Sources */,
 				70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */,
 				73007CC12AEBA5B600376511 /* Agent.swift in Sources */,
 				7372274C2AD476200021EFC6 /* ViewModifier.swift in Sources */,

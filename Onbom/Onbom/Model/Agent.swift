@@ -23,6 +23,18 @@ class Agent: ObservableObject {
     @Published var phoneNumber: String = ""
     @Published var signature: [[CGPoint]] = []
     
+    init() {}
+    
+    init(name: String, id: String, idCardImage: UIImage, relation: String, address: Address, phoneNumber: String, signature: [[CGPoint]]) {
+        self.name = name
+        self.id = id
+        self.idCardImage = idCardImage
+        self.relation = relation
+        self.address = address
+        self.phoneNumber = phoneNumber
+        self.signature = signature
+    }
+    
     func combineID(frontID: String, backID: String) {
         id = "\(frontID)-\(backID)"
     }
@@ -40,3 +52,14 @@ class Agent: ObservableObject {
         dictionary["phoneNumber"]?.answer = phoneNumber
     }
 }
+
+let mockAgent = Agent(
+    name: "김유진",
+    id: "880912-2132321",
+    idCardImage: UIImage(systemName: "heart")!,
+    relation: "친족",
+    address: mockAddress,
+    phoneNumber: "01032323232",
+    signature: [[]]
+)
+

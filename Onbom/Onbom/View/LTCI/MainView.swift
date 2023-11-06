@@ -21,6 +21,7 @@ struct MainView: View {
                         .navigationDestination(for: HomeRoute.self) { route in
                             switch(route) {
                             case .OnboardingView:                   OnboardingView(isOnboarding: .constant(true))
+                            case .ApplyHistoryView:                 ApplyHistoryView()
                             case .DescriptionView:                  DescriptionView()
                             case .ApplyTypeView:                    ApplyTypeView().toolbar(.hidden, for: .tabBar)
                             case .MediHistoryView:                  MediHistoryView()
