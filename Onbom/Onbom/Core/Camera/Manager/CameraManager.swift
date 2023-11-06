@@ -28,7 +28,9 @@ class CameraManager: UIViewController, AVCapturePhotoCaptureDelegate {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        captureSession.stopRunning()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.captureSession.stopRunning()
+        }
     }
     
     override func viewDidLayoutSubviews() {

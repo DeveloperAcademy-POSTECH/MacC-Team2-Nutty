@@ -9,14 +9,12 @@ import UIKit
 import AVFoundation
 
 class IDCardCameraManager: CameraManager {
-    private var rectangleDetector: RectangleDetectable
     private var textRecognizer: TextRecognizable
     private let videoDataOutput = AVCaptureVideoDataOutput()
     var capturedIDCard: ((UIImage) -> Void)?
     var recognizedID: ((String) -> Void)?
     
-    init(rectangleDetector: RectangleDetectable = IDCardDetector(), textRecognizer: TextRecognizable = IDCardTextRecognizer()) {
-        self.rectangleDetector = rectangleDetector
+    init(textRecognizer: TextRecognizable = IDCardTextRecognizer()) {
         self.textRecognizer = textRecognizer
         super.init(nibName: nil, bundle: nil)
     }
@@ -27,12 +25,6 @@ class IDCardCameraManager: CameraManager {
     
     override func setupCamera() {
         super.setupCamera()
-
-        if captureSession.canAddOutput(videoDataOutput) {
-            captureSession.addOutput(videoDataOutput)
-            videoDataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "videoQueue"))
-            videoDataOutput.alwaysDiscardsLateVideoFrames = true
-        }
     }
     
     override func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
@@ -43,7 +35,7 @@ class IDCardCameraManager: CameraManager {
             return
         }
         
-        guard let croppedImage = processCapturedImage(fullImage) else {
+        guard let croppedImage = processCropImage(fullImage) else {
             print("IDCardCameraManager failed to croppedImage")
             return
         }
@@ -51,13 +43,28 @@ class IDCardCameraManager: CameraManager {
         recognizeText(from: croppedImage)
     }
     
-    private func processCapturedImage(_ image: UIImage) -> UIImage? {
-        guard let rectangleObservation = rectangleDetector.detectedRectangle,
-              let ciImage = CIImage(image: image) else {
-            return nil
-        }
+    private func processCropImage(_ image: UIImage) -> UIImage? {
+        guard let ciImage = CIImage(image: image) else { return nil }
+        return cropImage(from: ciImage)
+    }
+    
+    private func cropImage(from originalImage: CIImage) -> UIImage? {
+        let imageSize = originalImage.extent.size
+        print(imageSize)
+        let cropRect = CGRect(
+            x: imageSize.width * 0.35,
+            y: imageSize.height * 0.1,
+            width: imageSize.height * 0.5,
+            height: imageSize.width * 0.45
+        )
         
-        return rectangleDetector.croppedImage(from: ciImage, rectangleObservation: rectangleObservation)
+        let croppedCIImage = originalImage.cropped(to: cropRect)
+        
+        if let cgImage = CIContext().createCGImage(croppedCIImage, from: croppedCIImage.extent) {
+            let rotatedImage = UIImage(cgImage: cgImage, scale: 1.0, orientation: .right)
+            return rotatedImage
+        }
+        return nil
     }
     
     private func recognizeText(from image: UIImage) {
@@ -69,15 +76,5 @@ class IDCardCameraManager: CameraManager {
             }
         }
         capturedIDCard?(image)
-    }
-}
-
-extension IDCardCameraManager: AVCaptureVideoDataOutputSampleBufferDelegate {
-    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-        let image = CIImage(cvPixelBuffer: imageBuffer)
-        if rectangleDetector.detectRectangle(from: image) {
-            takePhoto()
-        }
     }
 }

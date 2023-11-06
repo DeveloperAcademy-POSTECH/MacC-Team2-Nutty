@@ -47,7 +47,7 @@ struct IDCardConfirmEditView: View {
                             .padding([.top, .bottom])
                             .frame(height: 240)
                         IDNumberInputField(frontNumber: $frontIDNumber, backNumber: $backIDNumber)
-                            .onAppear {
+                            .onChange(of: agent.idCardImage) { _ in
                                 let splittedID = agent.splitID()
                                 frontIDNumber = splittedID.frontID
                                 backIDNumber = splittedID.backID

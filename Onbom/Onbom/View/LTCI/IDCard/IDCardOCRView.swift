@@ -38,18 +38,28 @@ struct IDCardOCRView: View {
                         Spacer()
                     }
                     Spacer()
+                    Button {
+                        cameraViewer.cameraManager.takePhoto()
+                        cameraViewer.cameraManager.capturedIDCard = { image in
+                            agent.idCardImage = image
+                        }
+                        cameraViewer.cameraManager.recognizedID = { idNumber in
+                            agent.id = idNumber
+                        }
+                        onFinishCapture()
+                    } label: {
+                        Circle()
+                            .frame(width: 56, height: 56)
+                            .foregroundColor(.white)
+                            .padding(7)
+                            .overlay {
+                                Circle()
+                                    .strokeBorder(.white, lineWidth: 3)
+                            }
+                    }
+                    .padding(.bottom)
+                    .padding(.bottom)
                 }
-            }
-            .onAppear {
-                cameraViewer.cameraManager.capturedIDCard = { image in
-                    agent.idCardImage = image
-                }
-                cameraViewer.cameraManager.recognizedID = { idNumber in
-                    agent.id = idNumber
-                }
-            }
-            .onChange(of: agent.idCardImage) { _ in
-                onFinishCapture()
             }
     }
 }
