@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-class HomeNavigationViewModel: ObservableObject{
+class HomeNavigationViewModel: ObservableObject {
     @Published var homePath: [HomeRoute] = []
+    @Published var isUserFromSubmitCheckListView : Bool = false
     
-    func navigate(_ route: HomeRoute)  {
+    func navigate(_ route: HomeRoute) {
         var transaction = Transaction()
         transaction.disablesAnimations = true
         withTransaction(transaction) {
