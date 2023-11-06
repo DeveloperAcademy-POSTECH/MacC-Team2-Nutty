@@ -17,6 +17,7 @@ struct SubmitLoadingView: View {
     @Binding var presented: Bool
     private let firebaseStorageManager: FirebaseStorageManager = .shared
     @EnvironmentObject var pdfManager: PDFManager
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         if state == .loading {
@@ -38,10 +39,23 @@ struct SubmitLoadingView: View {
             }
         }
         else {
-            Text(self.err ?? "죄송합니다 다시 시도해주세요")
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(.gray.opacity(0.2))
-                .navigationBarBackButton()
+            NavigationStack {
+                Text(self.err ?? "죄송합니다 다시 시도해주세요")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(.gray.opacity(0.2))
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            HStack() {
+                                Text("")
+                                Image("chevronLeft")
+                                    .aspectRatio(contentMode: .fit)
+                                    .onTapGesture {
+                                        dismiss()
+                                    }
+                            }
+                        }
+                    }
+            }
         }
     }
     
@@ -59,7 +73,7 @@ struct SubmitLoadingView: View {
                         self.state = .fail
                     }
                 }
-                self.presented = false
+                self.presented = false // TODO: firebase 에러가 발생해도 다음화면으로 넘어가지 않아야한다
             } catch let error as PDFError {
                 self.err = error.rawValue
                 self.state = .fail

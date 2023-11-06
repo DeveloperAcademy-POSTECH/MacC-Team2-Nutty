@@ -11,7 +11,7 @@ struct SubmitCheckListView: View {
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
     @EnvironmentObject var pdfManager: PDFManager
-    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    @State private var isSubmitLoadingViewPresented = false
     
     var body: some View {
         HStack {
@@ -232,18 +232,28 @@ struct SubmitCheckListView: View {
             }
             .padding()
         }
+        .navigationBarBackButton()
         
-        //CTA Button
         CTAButton.CustomButtonView(
             style: .primary(isDisabled:false))
         {
-            homeNavigation.navigate(.SubmitView)
+            patient.updateDictionary()
+            agent.updateDictionary()
+            pdfManager.createPDF(documentURL: LTCIFormResource, patient: patient.dictionary, agent: agent.dictionary, signature: agent.signature, image: agent.idCardImage, imageSize: agent.idCardImage.size, infectious: patient.hasInfectiousDisease, mental: patient.hasMentalDisorder)
+            var transaction = Transaction()
+            transaction.disablesAnimations = true
+            withTransaction(transaction) {
+                isSubmitLoadingViewPresented = true
+            }
         } label: {
             Text("신청하기")
         }
         .padding(.bottom,0)
         .padding([.top, .leading, .trailing], 20)
-        .navigationBarBackButton()
+        .fullScreenCover(isPresented: $isSubmitLoadingViewPresented) {
+            SubmitView()
+            
+        }
     }
 }
 
