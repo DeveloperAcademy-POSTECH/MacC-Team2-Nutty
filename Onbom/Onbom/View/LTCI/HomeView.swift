@@ -26,10 +26,12 @@ struct HomeView: View {
                     .foregroundColor(Color.Green4)
                     .font(.custom("Dongle-Bold", size: 42))
                     .padding(.leading, 20)
+                    .onTapGesture { onReset() }
             } trailing: {
                 Image("notification")
                     .frame(width: 34, height: 34)
                     .padding(.trailing, 20)
+                    .onTapGesture { onFlipCard() }
             }
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 0){
@@ -244,6 +246,21 @@ struct HomeView: View {
             .onTapGesture {
                 homeNavigation.navigate(.ApplyHistoryView)
             }
+        }
+    }
+    
+    private func onReset() {
+        state = .ready
+        pdfManager.PDFDatas.removeAll()
+        homeNavigation.navigate(.OnboardingView)
+    }
+    
+    private func onFlipCard() {
+        if(state == .apply) {
+            state = .ready
+        }
+        else if(state == .ready) {
+            state = .apply
         }
     }
 }
