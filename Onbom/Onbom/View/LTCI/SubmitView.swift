@@ -43,9 +43,6 @@ struct SubmitView: View {
                     CTAButton.CustomButtonView(
                         style: .primary(isDisabled: false))
                     {
-                        patient.updateDictionary()
-                        agent.updateDictionary()
-                        pdfManager.createPDF(documentURL: LTCIFormResource, patient: patient, agent: agent)
                         homeNavigation.popToRoot()
                     } label: {
                         Text("신청 완료")
