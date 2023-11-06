@@ -255,10 +255,10 @@ struct SubmitCheckListView: View {
         .navigationBarBackButton()
         .fullScreenCover(isPresented: $isSubmitLoadingViewPresented) {
             SubmitView()
-                .onAppear {
-                    homeNavigation.isUserFromSubmitCheckListView = true
-                    print(homeNavigation.isUserFromSubmitCheckListView)
-                }
+        }
+        .onAppear {
+            homeNavigation.isUserFromSubmitCheckListView = true
+            print(homeNavigation.isUserFromSubmitCheckListView)
         }
     }
 }
