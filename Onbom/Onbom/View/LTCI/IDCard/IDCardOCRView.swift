@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct IDCardOCRView: View {
-    let backgroundOpacity = 0.9
+    let backgroundOpacity = 0.8
     let cameraViewer = IDCardCameraViewer()
     @Binding var presentIDCardOCR: Bool
     @EnvironmentObject var agent: Agent
@@ -56,51 +56,59 @@ struct IDCardOCRView: View {
 
 fileprivate struct IDCardGuideLineView: View {
     let cardRatio = 1.6
+    let backgroundOpacity = 0.6
     @State private var presentCameraGuideSheet = false
+    var blendMode: BlendMode {
+        presentCameraGuideSheet ? .screen : .destinationOut
+    }
 
     var body: some View {
-        VStack {
-            Spacer()
-            
-            Text("가이드라인에 신분증을 맞춰주세요")
-                .T4()
-                .foregroundColor(.Green4)
-                .padding(.vertical, 10)
-                .padding(.horizontal, 20)
-                .background {
-                    RoundedRectangle(cornerRadius: 24)
-                        .foregroundColor(.white)
+        ZStack {
+            VStack(spacing: 0) {
+                Spacer()
+                
+                Text("가이드라인에 신분증을 맞춰주세요")
+                    .T4()
+                    .foregroundColor(.Green4)
+                    .padding(.vertical, 12)
+                    .padding(.horizontal, 20)
+                    .background {
+                        RoundedRectangle(cornerRadius: 24)
+                            .foregroundColor(.white)
+                    }
+                
+                Rectangle()
+                    .aspectRatio(cardRatio, contentMode: .fit)
+                    .blendMode(.destinationOut)
+                    .overlay {
+                        Rectangle()
+                            .strokeBorder(.white, lineWidth: 5)
+                    }
+                    .padding(.vertical, 24)
+                
+                Button {
+                    presentCameraGuideSheet = true
+                } label: {
+                    HStack {
+                        Text("신분증 촬영 방법")
+                            .B2()
+                            .foregroundColor(.G4)
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(.G5)
+                    }
                 }
-            
-            Rectangle()
-                .aspectRatio(cardRatio, contentMode: .fit)
-                .blendMode(.destinationOut)
-                .overlay {
-                    Rectangle()
-                        .strokeBorder(.white, lineWidth: 5)
-                }
-                .padding(.vertical)
-                .padding(.bottom)
-            
-            Button {
-                presentCameraGuideSheet = true
-            } label: {
-                HStack {
-                    Text("신분증 촬영 방법")
-                        .B2()
-                        .foregroundColor(.G4)
-                    Image(systemName: "chevron.right")
-                        .foregroundColor(.G5)
-                }
-                .padding()
+                
+                Spacer()
+                
             }
-            
-            Spacer()
-            
+            if presentCameraGuideSheet {
+                Color.black.opacity(backgroundOpacity)
+                    .edgesIgnoringSafeArea(.all)
+            }
         }
         .sheet(isPresented: $presentCameraGuideSheet) {
             IDCardOCRSheet(presentCameraGuideSheet: $presentCameraGuideSheet)
-                .presentationDetents([.fraction(0.5)])
+                .presentationDetents([.fraction(0.47)])
                 .presentationCornerRadius(12)
         }
     }
@@ -136,6 +144,7 @@ fileprivate struct IDCardOCRSheet: View {
                             Circle().fill(Color.Green2)
                         }
                     Text(sheetString[index])
+                        .B3()
                         .foregroundColor(.G5)
                     Spacer()
                 }
@@ -148,7 +157,7 @@ fileprivate struct IDCardOCRSheet: View {
             } label: {
                 Text("확인")
             }
-            .padding(.top, 14)
+            .padding(.top, 20)
             .padding(.horizontal, 20)
         }
     }
