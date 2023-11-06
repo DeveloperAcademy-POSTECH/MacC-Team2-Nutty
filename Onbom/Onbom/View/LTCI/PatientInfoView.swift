@@ -48,6 +48,7 @@ struct PatientInfoView: View {
                             .foregroundColor(viewModel.isSeniorIDNumber1Wrong ? Color.R : 
                                              focusedField == .seniorIDNumber1 || focusedField == .seniorIDNumber2 ? Color.Green4 : Color.G6)
                             .Label()
+                            .padding(.top, 32)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
                         HStack(spacing: 0){
@@ -158,7 +159,7 @@ struct PatientInfoView: View {
                     }
                     .padding(.horizontal, 20)
                     .padding(.top, 36)
-                    .padding(.bottom, 120)
+                    .padding(.bottom, 60)
             }
             if isKeyboardVisible {
                 CTAButton.CustomButtonView(style: .expanded(isDisabled: !isActiveButton())) {

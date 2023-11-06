@@ -96,7 +96,7 @@ struct RadioButtonExampleView: View {
     let description: [String] = ["노인성 질병이 있는 경우에만 신청할 수 있어요", "2년에 한 번씩 갱신해 주세요", "환자의 상태가 변했을 때 신청할 수 있어요"]
     @State var oneSelectedIndex : Int = -1
     
-    let yesNo: [String] = ["네", "아니오"]
+    let yesNo: [String] = ["네", "아니요"]
     @State var twoSelectedIndex : Int = -1
     
     var body: some View {
