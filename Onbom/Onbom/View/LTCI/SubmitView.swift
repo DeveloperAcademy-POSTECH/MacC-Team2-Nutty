@@ -45,7 +45,7 @@ struct SubmitView: View {
                     {
                         patient.updateDictionary()
                         agent.updateDictionary()
-                        pdfManager.createPDF(documentURL: LTCIFormResource, patient: patient.dictionary, agent: agent.dictionary, signature: agent.signature, image: agent.idCardImage, imageSize: agent.idCardImage.size, infectious: patient.hasInfectiousDisease, mental: patient.hasMentalDisorder)
+                        pdfManager.createPDF(documentURL: LTCIFormResource, patient: patient, agent: agent)
                         homeNavigation.popToRoot()
                     } label: {
                         Text("신청 완료")
