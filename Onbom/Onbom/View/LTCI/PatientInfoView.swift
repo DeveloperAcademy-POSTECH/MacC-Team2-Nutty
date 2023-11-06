@@ -36,12 +36,16 @@ struct PatientInfoView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 20)
             
+            if(step[2]) {
+                Alert(image: "security", label: "입력한 주민등록번호는 저장되지 않으니 안심하세요")
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 16)
+                    .padding(.top, 20)
+                    .appear(didAppear[2])
+            }
+            
             ScrollView(showsIndicators: false) {
                 if(step[2]) {
-                    Alert(image: "security", label: "입력한 주민등록번호는 저장되지 않으니 안심하세요")
-                        .padding(20)
-                        .padding(.bottom, 8)
-                        .appear(didAppear[2])
                     
                     VStack(spacing: 8) {
                         Text("주민번호")
@@ -84,6 +88,8 @@ struct PatientInfoView: View {
                                 .padding(.horizontal, 7)
                             
                             SecureField("뒤 7자리", text: $viewModel.seniorIDNumber2)
+                                .frame(height:23)
+                                .font(.system(size: 16))
                                 .onReceive(Just(viewModel.seniorIDNumber2)) { _ in
                                     if viewModel.seniorIDNumber2.count > 7 {
                                         viewModel.seniorIDNumber2 = String(viewModel.seniorIDNumber2.prefix(7))

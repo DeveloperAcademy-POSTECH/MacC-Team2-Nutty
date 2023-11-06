@@ -14,7 +14,6 @@ struct ApplyTypeView: View {
     
     @State private var isPrivacyPolicyViewPresented = false
     
-    // 한 버튼만 선택되기 위해서 만들어 놓은 변수. 현재 사용하지는 않음.
     @State var oneSelectedIndex : Int = -1
     
     var body: some View {
@@ -25,8 +24,6 @@ struct ApplyTypeView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom, 48)
                 
-                // 임시로 비활성화 style 처리를 해 둠. 추후 삭제 필요.
-                // 신규 신청만 navigation 걸어 둠. 추후 갱신 / 등급 변경이 생기면 navigation 연결 필요.
                 VStack(spacing: 10) {
                     ForEach(0..<title.count, id: \.self) { index in
                         let oneStyle: RadioButtonStyle = oneSelectedIndex == index ? .oneSelected : .oneUnselected
@@ -42,12 +39,10 @@ struct ApplyTypeView: View {
                                             .T2()
                                         Text("\(description[index])")
                                             .Cap3()
-                                            .foregroundColor(.G5)
                                     }
                                     else {
                                         Text("\(title[index])")
                                             .T2()
-                                        // 비활성화 후 텍스트 색상 임시 변경
                                             .foregroundColor(.G3)
                                         Text("\(description[index])")
                                             .Cap3()
@@ -57,7 +52,6 @@ struct ApplyTypeView: View {
                                 Spacer()
                             }
                         }
-                        // 임시 비활성화
                         .disabled(index > 0)
                     }
                 }
@@ -65,7 +59,6 @@ struct ApplyTypeView: View {
             }
             .navigationBarBackButton()
             .padding(20)
-            // TODO: - 모달 뒤 화면의 색상 더 진하게 변경
             .sheet(isPresented: $isPrivacyPolicyViewPresented) {
                 PrivacyPolicyView(isPrivacyPolicyViewPresented: $isPrivacyPolicyViewPresented)
                     .presentationDetents([.fraction(0.4)])

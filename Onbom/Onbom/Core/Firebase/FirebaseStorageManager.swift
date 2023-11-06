@@ -35,6 +35,7 @@ public final class FirebaseStorageManager {
             .putData(pdfData, metadata: nil) { _, error in
                 completion?(error)
             }
+        sleep(3)
         #endif
     }
     
