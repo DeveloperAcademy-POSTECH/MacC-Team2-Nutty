@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SignatureView: View {
-    @ObservedObject var digitalSignatureManager = DigitalSignatureManager()
+    @StateObject var digitalSignatureManager = DigitalSignatureManager()
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     @EnvironmentObject var agent: Agent
     @State private var isDisabled = true
