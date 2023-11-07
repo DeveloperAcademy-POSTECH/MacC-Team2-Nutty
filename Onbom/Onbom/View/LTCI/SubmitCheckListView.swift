@@ -18,6 +18,7 @@ struct SubmitCheckListView: View {
     // MARK: - navigation 관련 변수
     @State private var isSubmitLoadingViewPresented = false
     @EnvironmentObject var homeNavigation : HomeNavigationViewModel
+    @ObservedObject var homeViewModel: HomeViewModel
     
     var body: some View {
         VStack {
@@ -244,7 +245,7 @@ struct SubmitCheckListView: View {
                 patient.updateDictionary()
                 agent.updateDictionary()
                 pdfManager.createPDF(documentURL: LTCIFormResource, patient: patient, agent: agent)
-
+                
                 var transaction = Transaction()
                 transaction.disablesAnimations = true
                 withTransaction(transaction) {
@@ -253,11 +254,12 @@ struct SubmitCheckListView: View {
             } label: {
                 Text("신청하기")
             }
+        }
         .padding(.bottom,0)
         .padding([.top, .leading, .trailing], 20)
         .navigationBarBackButton()
         .fullScreenCover(isPresented: $isSubmitLoadingViewPresented) {
-            SubmitView()
+            SubmitView(homeViewModel: homeViewModel)
         }
         .onAppear {
             homeNavigation.isUserFromSubmitCheckListView = true
@@ -268,7 +270,7 @@ struct SubmitCheckListView: View {
 
 struct SubmitCheckListView_Previews: PreviewProvider {
     static var previews: some View {
-        SubmitCheckListView()
+        SubmitCheckListView(homeViewModel: HomeViewModel())
             .environmentObject(Patient())
             .environmentObject(Agent())
     }
