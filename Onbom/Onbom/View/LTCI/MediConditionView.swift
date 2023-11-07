@@ -68,7 +68,7 @@ struct AlternativeForm: View {
                 RadioButton.CustomButtonView(style: isCheckedNO() ? .twoSelected : .twoUnselected) {
                     self.answer = false
                 } label: {
-                    Text("아니오")
+                    Text("아니요")
                 }
             }
         }

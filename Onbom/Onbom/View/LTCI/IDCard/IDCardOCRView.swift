@@ -14,43 +14,48 @@ struct IDCardOCRView: View {
     @EnvironmentObject var agent: Agent
     
     var onFinishCapture: () -> Void
-
+    
     var body: some View {
-            ZStack {
-                cameraViewer
-                    .edgesIgnoringSafeArea(.all)
-                
-                Color.black.opacity(backgroundOpacity)
-                    .edgesIgnoringSafeArea(.all)
-                
-                IDCardGuideLineView()
-                
-                VStack {
-                    HStack {
-                        Button {
-                            presentIDCardOCR = false
-                        } label: {
-                            Image(systemName: "xmark")
-                                .font(.system(size: 24))
-                                .padding()
-                                .foregroundColor(.white)
-                        }
-                        Spacer()
+        ZStack {
+            cameraViewer
+                .edgesIgnoringSafeArea(.all)
+            
+            Color.black.opacity(backgroundOpacity)
+                .edgesIgnoringSafeArea(.all)
+            
+            IDCardGuideLineView()
+            
+            VStack {
+                HStack {
+                    Button {
+                        presentIDCardOCR = false
+                    } label: {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 24))
+                            .padding()
+                            .foregroundColor(.white)
                     }
                     Spacer()
+#if DEBUG
+                    Button("완료") {
+                        onFinishCapture()
+                    }
+#endif
                 }
+                Spacer()
             }
-            .onAppear {
-                cameraViewer.cameraManager.capturedIDCard = { image in
-                    agent.idCardImage = image
-                }
-                cameraViewer.cameraManager.recognizedID = { idNumber in
-                    agent.id = idNumber
-                }
+        }
+        .onAppear {
+            cameraViewer.cameraManager.capturedIDCard = { image in
+                agent.idCardImage = image
             }
-            .onChange(of: agent.idCardImage) { _ in
-                onFinishCapture()
+            cameraViewer.cameraManager.recognizedID = { idNumber in
+                agent.id = idNumber
             }
+        }
+        .onChange(of: agent.idCardImage) { _ in
+            onFinishCapture()
+        }
     }
 }
 
@@ -58,10 +63,7 @@ fileprivate struct IDCardGuideLineView: View {
     let cardRatio = 1.6
     let backgroundOpacity = 0.6
     @State private var presentCameraGuideSheet = false
-    var blendMode: BlendMode {
-        presentCameraGuideSheet ? .screen : .destinationOut
-    }
-
+    
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
@@ -130,10 +132,10 @@ fileprivate struct IDCardOCRSheet: View {
                     .foregroundColor(.G6)
                     .padding(.leading, 20)
                     .padding(.top, 34)
-
+                
                 Spacer()
             }
-                        
+            
             ForEach(0..<sheetString.count, id: \.self) { index in
                 HStack {
                     Text("\(index + 1)")

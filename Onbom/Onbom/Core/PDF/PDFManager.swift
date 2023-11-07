@@ -24,8 +24,7 @@ class PDFManager: ObservableObject {
             case todayDate
         }
     
-    func createPDF(documentURL: URL, patient: [String:(answer:String,position:CGRect)], agent: [String:(answer:String,position:CGRect)], signature: [[CGPoint]], image: UIImage, imageSize: CGSize, infectious: Bool, mental: Bool) {
-        
+    func createPDF(documentURL: URL, patient: Patient, agent: Agent) {
         guard let pdfDocument = PDFDocument(url: documentURL) else { return }
         
         // MARK: 첫번째 페이지
@@ -40,11 +39,11 @@ class PDFManager: ObservableObject {
                 }
             }
             // 환자
-            for value in patient.values {
+            for value in patient.dictionary.values {
                 addTextAnnotation(page: firstPage, bounds:value.position, content: value.answer)
             }
             // 대리인
-            for value in agent.values {
+            for value in agent.dictionary.values {
                 switch value.answer {
                 case "가족":
                     addTextAnnotation(page: firstPage, bounds:value.position, content: "✓")
@@ -75,12 +74,12 @@ class PDFManager: ObservableObject {
                     }
                 }
                 // 전염성, 정신질환, 전자서명
-                addTextAnnotation(page: secondPage, bounds:infectious ? CGRect(x: 301, y: 601, width: 140, height: 20) : CGRect(x: 352, y: 601, width: 140, height: 20), content: "✓")
-                addTextAnnotation(page: secondPage, bounds:mental ? CGRect(x: 301, y: 580, width: 140, height: 20) : CGRect(x: 352, y: 580, width: 140, height: 20), content: "✓")
-                addSignatureToPDF(lines: signature, page: secondPage)
+                addTextAnnotation(page: secondPage, bounds: patient.hasInfectiousDisease ? CGRect(x: 301, y: 601, width: 140, height: 20) : CGRect(x: 352, y: 601, width: 140, height: 20), content: "✓")
+                addTextAnnotation(page: secondPage, bounds: patient.hasMentalDisorder ? CGRect(x: 301, y: 580, width: 140, height: 20) : CGRect(x: 352, y: 580, width: 140, height: 20), content: "✓")
+                addSignatureToPDF(lines: agent.signature, page: secondPage)
             }
         // 민증 사진
-        addIDCardToPDF(pdfDocument: pdfDocument, image: image, imageSize: imageSize)
+        addIDCardToPDF(pdfDocument: pdfDocument, image: agent.idCardImage, imageSize: agent.idCardImage.size)
         
         guard let newData = pdfDocument.dataRepresentation() else { return }
         PDFDatas.append(newData)

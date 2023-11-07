@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct AgentInfoView: View {
-    let relation: [String] = ["가족", "친족"]
-    @State var twoSelectedIndex : Int = -1
-    @State private var isDisabled = true
-    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    // MARK: - 유저 데이터 관련 변수
     @EnvironmentObject var agent: Agent
     @EnvironmentObject var patient: Patient
+    
+    // MARK: - Navigation 관련 변수
+    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    
+    // MARK: - 라디오버튼 관련 변수
+    let relation: [String] = ["가족", "친족"]
+    @State var selectedItem : String = ""
+    @State private var isDisabled = true
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -27,41 +32,59 @@ struct AgentInfoView: View {
                 .padding(.bottom, 4)
             HStack {
                 ForEach(0..<2, id: \.self) { index in
-                    let twoStyle: RadioButtonStyle = twoSelectedIndex == index ? .twoSelected : .twoUnselected
-                    RadioButton.CustomButtonView(style: twoStyle) {
-                        twoSelectedIndex = index
-                        isDisabled = false
+                    let style: RadioButtonStyle = selectedItem == relation[index] ? .twoSelected : .twoUnselected
+                    
+                    RadioButton.CustomButtonView(style: style) {
+                        selectedItem = relation[index]
                         agent.relation = relation[index]
-                        print("\(relation[index])")
+                        isDisabled = false
                     } label: {
                         Text(relation[index])
                     }
                 }
+
             }
             Spacer()
             HStack {
                 Spacer()
-                NavigationLink {
-                    AgentInfoDetailView()
+                Button {
+                    homeNavigation.navigate(.AgentInfoDetailView)
                 } label: {
                     Text("상세 관계를 모르겠어요")
                         .Label()
                         .foregroundColor(.G5)
-                        .underline()
+                        .padding(.bottom, 1)
+                        .overlay(
+                            Rectangle()
+                                .frame(height: 1)
+                                .foregroundColor(.G4),
+                            alignment: .bottom
+                        )
                 }
                 Spacer()
             }
             .padding(.bottom, 10)
             CTAButton.CustomButtonView(
-                style: .primary(isDisabled: isDisabled))
+                style: .primary(
+                    isDisabled: isDisabled))
             {
-                homeNavigation.navigate(.IDCardDescriptionView)
+                if homeNavigation.isUserFromSubmitCheckListView {
+                    homeNavigation.pop()
+                } else {
+                    homeNavigation.navigate(.IDCardDescriptionView)
+                }
             } label: {
-                Text("다음")
+                homeNavigation.isUserFromSubmitCheckListView ? Text("수정 완료") : Text("다음")
             }
         }
         .navigationBarBackButton()
         .padding([.top, .leading, .trailing], 20)
+        .onAppear {
+            selectedItem = agent.relation
+            if homeNavigation.isUserFromSubmitCheckListView {
+                isDisabled = false
+            }
+        }
     }
 }
 
