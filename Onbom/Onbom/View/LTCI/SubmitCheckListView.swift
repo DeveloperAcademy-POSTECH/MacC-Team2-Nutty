@@ -240,13 +240,10 @@ struct SubmitCheckListView: View {
         {
             patient.updateDictionary()
             agent.updateDictionary()
-            pdfManager.createPDF(documentURL: LTCIFormResource, patient: patient.dictionary, agent: agent.dictionary, signature: agent.signature, image: agent.idCardImage, imageSize: agent.idCardImage.size, infectious: patient.hasInfectiousDisease, mental: patient.hasMentalDisorder)
+            pdfManager.createPDF(documentURL: LTCIFormResource, patient: patient, agent: agent)
             var transaction = Transaction()
             transaction.disablesAnimations = true
             withTransaction(transaction) {
-                patient.updateDictionary()
-                agent.updateDictionary()
-                pdfManager.createPDF(documentURL: LTCIFormResource, patient: patient, agent: agent)
                 isSubmitLoadingViewPresented = true
             }
         } label: {

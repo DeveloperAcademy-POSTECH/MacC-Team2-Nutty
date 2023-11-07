@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ApplyHistoryView: View {
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
-    var patient: Patient = mockPatient
-    var agent: Agent = mockAgent
+    @EnvironmentObject var patient: Patient
+    @EnvironmentObject var agent: Agent
     
     var body: some View {
         VStack(spacing: 0) {
@@ -35,7 +35,7 @@ struct ApplyHistoryView: View {
             
             formCard("신청인", "\(patient.name)")
             formCard("대리인", "김유진")
-            formCard("주소", patient.actualAddress.toString, axis: .firstTextBaseline)
+            formCard("주소", patient.address.toString, axis: .firstTextBaseline)
             
             divider()
             
