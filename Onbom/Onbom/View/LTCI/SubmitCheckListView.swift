@@ -238,21 +238,20 @@ struct SubmitCheckListView: View {
                 }
                 .padding()
             }
-            
-            CTAButton.CustomButtonView(
-                style: .primary(isDisabled:false))
-            {
-                patient.updateDictionary()
-                agent.updateDictionary()
-                pdfManager.createPDF(documentURL: LTCIFormResource, patient: patient, agent: agent)
-                
-                var transaction = Transaction()
-                transaction.disablesAnimations = true
-                withTransaction(transaction) {
-                    isSubmitLoadingViewPresented = true
-                }
-            } label: {
-                Text("신청하기")
+            .padding()
+        }
+        .navigationBarBackButton()
+        
+        CTAButton.CustomButtonView(
+            style: .primary(isDisabled:false))
+        {
+            patient.updateDictionary()
+            agent.updateDictionary()
+            pdfManager.createPDF(documentURL: LTCIFormResource, patient: patient, agent: agent)
+            var transaction = Transaction()
+            transaction.disablesAnimations = true
+            withTransaction(transaction) {
+                isSubmitLoadingViewPresented = true
             }
         }
         .padding(.bottom,0)
