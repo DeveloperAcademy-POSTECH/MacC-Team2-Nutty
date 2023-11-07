@@ -13,13 +13,11 @@ struct SubmitView: View {
     @EnvironmentObject var agent: Agent
     @EnvironmentObject var pdfManager: PDFManager
     @State private var isloadingViewPresented = true
+    @ObservedObject var homeViewModel: HomeViewModel
     
     var body: some View {
         if isloadingViewPresented {
-            SubmitLoadingView()
-                .onAppear {
-                    showLoadingView()
-                }
+            SubmitLoadingView(presented: $isloadingViewPresented)
         } else {
             VStack {
                 VStack(spacing: 20) {
@@ -43,9 +41,6 @@ struct SubmitView: View {
                     CTAButton.CustomButtonView(
                         style: .primary(isDisabled: false))
                     {
-                        patient.updateDictionary()
-                        agent.updateDictionary()
-                        pdfManager.createPDF(documentURL: LTCIFormResource, patient: patient.dictionary, agent: agent.dictionary, signature: agent.signature, image: agent.idCardImage, imageSize: agent.idCardImage.size, infectious: patient.hasInfectiousDisease, mental: patient.hasMentalDisorder)
                         homeNavigation.popToRoot()
                     } label: {
                         Text("신청 완료")
@@ -55,6 +50,9 @@ struct SubmitView: View {
                         .Label()
                         .foregroundColor(.G4)
                 }
+            }
+            .onAppear() {
+                homeViewModel.onApplyLTCI()
             }
             .navigationBarBackButtonHidden(true)
             .padding([.top, .leading, .trailing], 20.0)
@@ -71,7 +69,7 @@ struct SubmitView: View {
 
 struct SubmitView_Previews: PreviewProvider {
     static var previews: some View {
-        SubmitView()
+        SubmitView(homeViewModel: HomeViewModel())
             .environmentObject(HomeNavigationViewModel())
     }
 }

@@ -55,7 +55,7 @@ public struct RadioButtonStyleModifiers: ButtonStyle {
                 .padding(.leading, 20.0)
                 .background(RoundedRectangle(cornerRadius: 10).fill(configuration.isPressed ? Color.Green3 : Color.G2))
                 .foregroundColor(configuration.isPressed ? .Green4 : .B)
-                .overlay(RoundedRectangle(cornerRadius: 16)
+                .overlay(RoundedRectangle(cornerRadius: 10)
                     .stroke(configuration.isPressed ? Color.TGreen : Color.G2, lineWidth: 1.2))
             
         case .oneSelected:
@@ -66,8 +66,8 @@ public struct RadioButtonStyleModifiers: ButtonStyle {
                 .padding(.leading, 20.0)
                 .background(RoundedRectangle(cornerRadius: 10).fill(Color.Green2))
                 .foregroundColor(configuration.isPressed ? .Green4 : .B)
-                .overlay(RoundedRectangle(cornerRadius: 16)
-                    .stroke(Color.Green4, lineWidth: 1.2))
+                .overlay(RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.Green4, lineWidth: 1.2).opacity(0.7))
             
         case .twoUnselected:
             configuration.label
@@ -85,7 +85,7 @@ public struct RadioButtonStyleModifiers: ButtonStyle {
                 .padding(.vertical, 16)
                 .background(RoundedRectangle(cornerRadius: 10).fill(Color.Green2))
                 .overlay(RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.Green4, lineWidth: 1.2))
+                    .stroke(Color.Green4, lineWidth: 1.2).opacity(0.7))
             
         }
     }
@@ -96,7 +96,7 @@ struct RadioButtonExampleView: View {
     let description: [String] = ["노인성 질병이 있는 경우에만 신청할 수 있어요", "2년에 한 번씩 갱신해 주세요", "환자의 상태가 변했을 때 신청할 수 있어요"]
     @State var oneSelectedIndex : Int = -1
     
-    let yesNo: [String] = ["네", "아니오"]
+    let yesNo: [String] = ["네", "아니요"]
     @State var twoSelectedIndex : Int = -1
     
     var body: some View {

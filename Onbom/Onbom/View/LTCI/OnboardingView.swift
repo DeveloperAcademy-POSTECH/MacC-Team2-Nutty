@@ -10,6 +10,7 @@ import SwiftUI
 struct OnboardingView: View {
     @State private var selectedTab: Int = 0
     @Binding var isOnboarding: Bool
+    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     
     var body: some View {
         TabView(selection: $selectedTab){
@@ -27,7 +28,7 @@ struct OnboardingView: View {
             }
             .tag(0)
             VStack(alignment: .center){
-                Text("요양보호사,복지용구 정보\n편하게 받아보세요")
+                Text("요양보호사, 복지용구 정보\n편하게 받아보세요")
                     .H1()
                     .foregroundColor(.G6)
                     .multilineTextAlignment(.center)
@@ -74,11 +75,13 @@ struct OnboardingView: View {
         }
         .frame(maxWidth: .infinity)
         .padding([.top, .leading, .trailing], 20)
+        .navigationBarBackButtonHidden(true)
     }
     
     func onClickButton() {
         if(selectedTab == 2) {
             isOnboarding = false
+            homeNavigation.popToRoot()
             return
         }
         withAnimation {

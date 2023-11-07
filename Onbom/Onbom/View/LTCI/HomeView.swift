@@ -10,8 +10,12 @@ import SwiftUI
 struct HomeView: View {
     private let timer = Timer.publish(every: 8, on: .main, in: .common).autoconnect()
     @State private var selectedPage = 0
+    @StateObject var viewModel = HomeViewModel()
+    
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     @EnvironmentObject var pdfManager: PDFManager
+    @EnvironmentObject var patient: Patient
+    @EnvironmentObject var agent: Agent
     let width = UIScreen.main.bounds.width
     
     var body: some View {
@@ -21,10 +25,12 @@ struct HomeView: View {
                     .foregroundColor(Color.Green4)
                     .font(.custom("Dongle-Bold", size: 42))
                     .padding(.leading, 20)
+                    .onTapGesture(count: 3) { onReset() }
             } trailing: {
                 Image("notification")
                     .frame(width: 34, height: 34)
                     .padding(.trailing, 20)
+                    .onTapGesture(count: 3) { viewModel.onFlipCard() }
             }
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 0){
@@ -54,27 +60,7 @@ struct HomeView: View {
                         selectedPage = (selectedPage + 1) % 2
                     })
                     
-                    VStack(spacing: 30) {
-                        Text("집에서 간편하게\n장기요양등급 신청해 보세요")
-                            .T1()
-                            .foregroundColor(Color.B)
-                            .lineSpacing(4)
-                            .multilineTextAlignment(.center)
-                            .padding(.top, 30)
-                            .frame(maxWidth: .infinity)
-                        Image("MainView")
-                        CTAButton.CustomButtonView(
-                            style: .main)
-                        {
-                            homeNavigation.navigate(.DescriptionView)
-                        } label: {
-                            Text("지금 바로 신청하기")
-                        }
-                        .padding([.horizontal, .bottom], 20)
-                    }
-                    .background(RoundedRectangle(cornerRadius: 20).fill(.white)
-                        .shadow(color: .black.opacity(0.05), radius: 5))
-                    .padding(20)
+                    LTCICard()
                     
                     HStack(spacing: 0) {
                         Text("본인 부담금 계산기")
@@ -157,12 +143,158 @@ struct HomeView: View {
             }
             .background(Color.G2)
         }
+        .navigationDestination(for: HomeRoute.self) { route in
+            switch(route) {
+            case .OnboardingView:                   OnboardingView(isOnboarding: .constant(true))
+            case .ApplyHistoryView:                 ApplyHistoryView()
+            case .DescriptionView:                  DescriptionView()
+            case .ApplyTypeView:                    ApplyTypeView().toolbar(.hidden, for: .tabBar)
+            case .MediHistoryView:                  MediHistoryView()
+            case .MediConditionView:                MediConditionView()
+            case .IDCardDescriptionView:            IDCardDescriptionView()
+            case .IDCardConfirmEditView:            IDCardConfirmEditView()
+            case .AddressFormView_Patient:          AddressFormView(formType: .patient)
+            case .AddressFormView_ActualPatient:    AddressFormView(formType: .actualPatient)
+            case .AddressFormView_Agent:            AddressFormView(formType: .agent)
+            case .SignatureView:                    SignatureView()
+            case .SubmitCheckListView:              SubmitCheckListView(homeViewModel: self.viewModel)
+            case .StepView_First:                   StepView(state: .FIRST)
+            case .StepView_Second:                  StepView(state: .SECOND)
+            case .PatientInfoView:                  PatientInfoView()
+            case .AgentInfoView:                    AgentInfoView()
+            case .RejectView:                       RejectView()
+            default:                                RejectView()
+            }
+        }
+
     }
+    
+    @ViewBuilder
+    func LTCICard() -> some View {
+        
+        if viewModel.state == .ready {
+            VStack(spacing: 30) {
+                Text("집에서 간편하게\n장기요양등급 신청해 보세요")
+                    .T1()
+                    .foregroundColor(Color.B)
+                    .lineSpacing(4)
+                    .multilineTextAlignment(.center)
+                    .padding(.top, 30)
+                    .frame(maxWidth: .infinity)
+                Image("MainView")
+                CTAButton.CustomButtonView(
+                    style: .main)
+                {
+                    homeNavigation.navigate(.DescriptionView)
+                } label: {
+                    Text("지금 바로 신청하기")
+                }
+                .padding([.horizontal, .bottom], 20)
+            }
+            .background(RoundedRectangle(cornerRadius: 20).fill(.white)
+                .shadow(color: .black.opacity(0.05), radius: 5))
+            .padding(20)
+        }
+        else if viewModel.state == .apply {
+            VStack(spacing: 0) {
+                HStack(alignment: .center){
+                    Text("장기요양등급신청")
+                        .T2()
+                        .foregroundColor(.B)
+                    Spacer()
+                    Image(systemName: "chevron.forward")
+                        .foregroundColor(Color.G4)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.horizontal, 20)
+                .padding(.top, 24)
+                .padding(.bottom, 12)
+                
+                HStack{
+                    Text("신규 신청")
+                        .Cap6()
+                        .foregroundStyle(Color.Green4)
+                        .font(.system(size: 11, weight: .regular))
+                        .padding(.vertical, 4)
+                        .padding(.horizontal, 6)
+                        .background(RoundedRectangle(cornerRadius: 5).fill(Color.Green2))
+                    Spacer()
+                }
+                .padding(.horizontal, 20)
+                .padding(.bottom, 24)
+                
+                Rectangle()
+                    .fill(Color.G3)
+                    .frame(height: 98)
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 24)
+                ZStack(alignment: .leading) {
+                    GeometryReader { geometry in
+                        Capsule()
+                            .fill(Color.G2)
+                            .frame(height: 6.5)
+                            .frame(maxWidth: .infinity)
+                        Capsule()
+                            .fill(Color.Green4)
+                            .frame(height: 6.5)
+                            .frame(maxWidth: geometry.size.width / 2)
+                    }
+                }
+                .padding(.horizontal, 20)
+                .padding(.bottom, 7)
+                
+                HStack {
+                    Text("서류 전송")
+                        .Cap6()
+                        .foregroundColor(.G4)
+                    Spacer()
+                    Text("국민 건강보험공단 확인중")
+                        .Cap6()
+                        .foregroundColor(.Green4)
+                    Spacer()
+                    Text("방문조사")
+                        .Cap6()
+                        .foregroundColor(.G4)
+                }
+                .padding(.horizontal, 20)
+                .padding(.bottom, 24)
+                
+                Text("국민건강보험공단에서 서류를 접수하면")
+                    .Cap3()
+                    .foregroundColor(.G5)
+                    .multilineTextAlignment(.center)
+                HStack(alignment: .center, spacing: 0){
+                    Text("어르신이 계시는 주소로 방문조사")
+                        .Label()
+                        .foregroundColor(.B)
+                    Text("가 진행돼요")
+                        .Cap3()
+                        .foregroundColor(.G5)
+                }
+                .padding(.bottom, 24)
+            }
+            .background(RoundedRectangle(cornerRadius: 20).fill(.white)
+                .shadow(color: .black.opacity(0.05), radius: 5))
+            .padding(20)
+            .onTapGesture {
+                homeNavigation.navigate(.ApplyHistoryView)
+            }
+        }
+    }
+    
+    private func onReset() {
+        viewModel.state = .ready
+        pdfManager.PDFDatas.removeAll()
+        patient.reset()
+        agent.reset()
+        homeNavigation.navigate(.OnboardingView)
+    }
+    
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(viewModel: HomeViewModel())
             .environmentObject(HomeNavigationViewModel())
             .environmentObject(PDFManager())
     }

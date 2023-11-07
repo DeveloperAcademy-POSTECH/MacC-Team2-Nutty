@@ -11,7 +11,7 @@ struct AddressFormView: View {
     var formType: AddressFormType
     @State private var isPostCodeViewPresented = false
     @State private var showActualAddressCheckView = false
-    @State private var address = Address(cityAddress: "", detailAddress: "")
+    @State private var address = Address()
     @State private var isKeyboardVisible = false
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
@@ -85,7 +85,8 @@ struct AddressFormView: View {
                 
                 if formType != .agent {
                     Alert(image: "check", label: alertMessage)
-                        .padding([.bottom, .trailing, .leading], 20)
+                        .padding(.horizontal, 20)
+                        .padding(.bottom, 16)
                 }
                 
                 ScrollView {
@@ -93,7 +94,8 @@ struct AddressFormView: View {
                                       cityAddress: $address.cityAddress,
                                       detailAddress: $address.detailAddress,
                                       isPostCodeViewPresented: $isPostCodeViewPresented)
-                    .padding(20)
+                    .padding(.top, 32)
+                    .padding(.horizontal, 20)
                     Spacer()
                 }
                 
@@ -142,7 +144,7 @@ struct AddressFormView: View {
         .sheet(isPresented: $showActualAddressCheckView) {
             VStack(spacing: 0){
                 Image("warning")
-                    .padding(.top, 30)
+                    .padding(.top, 34)
                 
                 Text("작성하신 주민등록지가 현재\n어르신이 머무르고 계신 곳인가요?")
                     .T1()
@@ -155,12 +157,10 @@ struct AddressFormView: View {
                     .foregroundColor(.G5)
                     .multilineTextAlignment(.center)
                 
-                Spacer()
-                
                 HStack(spacing: 10) {
                     CTAButton.CustomButtonView(style: .secondary) {
                         patient.address = address
-//                        patient.actualAddress = address
+                        patient.actualAddress = address
                         hideKeyboard()
                         showActualAddressCheckView = false
                         homeNavigation.navigate(.StepView_Second)
@@ -178,9 +178,9 @@ struct AddressFormView: View {
                     }
                 }
                 .padding(.horizontal, 20)
-                .padding(.top, 34)
+                .padding(.top, 40)
             }
-            .presentationDetents([.fraction(0.43)])
+            .presentationDetents([.fraction(0.445)])
             .presentationDragIndicator(.hidden)
             .presentationCornerRadius(12)
         }

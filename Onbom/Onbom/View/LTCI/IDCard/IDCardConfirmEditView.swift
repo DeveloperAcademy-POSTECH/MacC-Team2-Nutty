@@ -20,43 +20,44 @@ struct IDCardConfirmEditView: View {
     }
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             HStack {
                 Text("신분증 정보를 확인해 주세요")
                     .H1()
                     .foregroundColor(.B)
                 Spacer()
             }
-            .padding()
+            .padding(20)
             
             Alert(image: "security",
                   label: "신분증 정보는 저장되지 않고, 신청 즉시 파기돼요")
-            .padding(.horizontal)
-            .padding(.bottom)
+            .padding(.horizontal, 20)
+            .padding(.bottom, 16)
             
             ScrollView {
                 ScrollViewReader { proxy in
                     VStack {
-                        Rectangle()
-                            .foregroundColor(.white)
-                            .overlay {
-                                Image(uiImage: agent.idCardImage)
-                                    .resizable()
-                                    .scaledToFit()
-                            }
-                            .padding([.top, .bottom])
-                            .frame(height: 240)
+                        Image(uiImage: agent.idCardImage)
+                            .resizable()
+                            .scaledToFit()
+                            .padding(.top, 32)
+                            .padding(.bottom, 36)
+                            .frame(height: 280)
                         IDNumberInputField(frontNumber: $frontIDNumber, backNumber: $backIDNumber)
                             .onChange(of: agent.idCardImage) { _ in
                                 let splittedID = agent.splitID()
                                 frontIDNumber = splittedID.frontID
                                 backIDNumber = splittedID.backID
                             }
-                            .padding(.bottom)
-                        Color.clear.frame(height: 10).id("bottom")
+                        Color.clear.frame(height: 30)
+                            .id("bottom")
                     }
                     .onChange(of: isKeyboardVisible) { _ in
-                        proxy.scrollTo("bottom", anchor: .bottom)
+                        DispatchQueue.main.asyncAfter (deadline: .now() + 0.5) {
+                            withAnimation {
+                                proxy.scrollTo("bottom", anchor: .bottom)
+                            }
+                        }
                     }
                 }
             }
@@ -80,7 +81,8 @@ struct IDCardConfirmEditView: View {
                     }
                     .frame(maxWidth: .infinity)
                 }
-                .padding([.top, .leading, .trailing], 20)
+                .padding(.top, 4)
+                .padding(.horizontal, 20)
             }
         }
         .navigationBarBackButton()

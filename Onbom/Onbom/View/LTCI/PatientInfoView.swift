@@ -24,7 +24,7 @@ struct PatientInfoView: View {
     @State private var isKeyboardVisible:       Bool = true
     @State private var isPressed:               Bool = false
     
-    @ObservedObject private var viewModel = PatientInfoViewModel()
+    @StateObject private var viewModel = PatientInfoViewModel()
     
     @FocusState private var focusedField:       Field?
     
@@ -36,17 +36,23 @@ struct PatientInfoView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 20)
             
-            ScrollView {
+            if(step[2]) {
+                Alert(image: "security", label: "입력한 주민등록번호는 저장되지 않으니 안심하세요")
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 16)
+                    .padding(.top, 20)
+                    .appear(didAppear[2])
+            }
+            
+            ScrollView(showsIndicators: false) {
                 if(step[2]) {
-                    Alert(image: "security", label: "입력한 주민등록번호는 저장되지 않으니 안심하세요")
-                        .padding(20)
-                        .appear(didAppear[2])
                     
                     VStack(spacing: 8) {
                         Text("주민번호")
                             .foregroundColor(viewModel.isSeniorIDNumber1Wrong ? Color.R : 
                                              focusedField == .seniorIDNumber1 || focusedField == .seniorIDNumber2 ? Color.Green4 : Color.G6)
                             .Label()
+                            .padding(.top, 32)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
                         HStack(spacing: 0){
@@ -82,6 +88,8 @@ struct PatientInfoView: View {
                                 .padding(.horizontal, 7)
                             
                             SecureField("뒤 7자리", text: $viewModel.seniorIDNumber2)
+                                .frame(height:23)
+                                .font(.system(size: 16))
                                 .onReceive(Just(viewModel.seniorIDNumber2)) { _ in
                                     if viewModel.seniorIDNumber2.count > 7 {
                                         viewModel.seniorIDNumber2 = String(viewModel.seniorIDNumber2.prefix(7))
@@ -157,8 +165,8 @@ struct PatientInfoView: View {
                     }
                     .padding(.horizontal, 20)
                     .padding(.top, 36)
+                    .padding(.bottom, 60)
             }
-            .scrollDismissesKeyboard(.immediately)
             if isKeyboardVisible {
                 CTAButton.CustomButtonView(style: .expanded(isDisabled: !isActiveButton())) {
                     onClickButton()
@@ -176,6 +184,9 @@ struct PatientInfoView: View {
                 .ignoresSafeArea(.keyboard, edges: .bottom)
                 .padding(.horizontal, 20)
             }
+        }
+        .onTapGesture {
+            hideKeyboard()
         }
         .padding(.top, 20)
         .onAppear {
@@ -198,19 +209,19 @@ struct PatientInfoView: View {
     
     private func onClickButton() {
         if(!step[1]) {
-            #if RELEASE
+
             if(!viewModel.validateName()) { return }
-            #endif
+
             didFinishTypingName()
         } else if(!step[2]) {
-            #if RELEASE
+
             if(!viewModel.validatePhoneNumber()) { return }
-            #endif
+            
             didFinishTypingPhoneNumber()
         } else {
-            #if RELEASE
+
             if(!viewModel.validateInputField()) { return }
-            #endif
+            
             patient.name = viewModel.seniorName;
             patient.combineID(frontID: viewModel.seniorIDNumber1, backID: viewModel.seniorIDNumber2)
             homeNavigation.navigate(.AddressFormView_Patient)

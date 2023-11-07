@@ -11,7 +11,7 @@ class DigitalSignatureManager: ObservableObject {
     @Published var paths: [[CGPoint]] = []
     @Published var currentPath: [CGPoint] = []
     @Published var isStart = false
-    let rectangle = Rectangle().path(in: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width-40, height: 180))
+    let rectangle = Rectangle().path(in: CGRect(x: 5, y: 5, width: UIScreen.main.bounds.width-50, height: 170))
 
     func gesture() -> some Gesture {
         DragGesture()
