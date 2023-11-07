@@ -243,6 +243,9 @@ struct SubmitCheckListView: View {
             var transaction = Transaction()
             transaction.disablesAnimations = true
             withTransaction(transaction) {
+                patient.updateDictionary()
+                agent.updateDictionary()
+                pdfManager.createPDF(documentURL: LTCIFormResource, patient: patient, agent: agent)
                 isSubmitLoadingViewPresented = true
             }
         } label: {
