@@ -49,6 +49,8 @@
 		73007CC12AEBA5B600376511 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73007CC02AEBA5B600376511 /* Agent.swift */; };
 		73007CC32AEBA5BB00376511 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73007CC22AEBA5BB00376511 /* Address.swift */; };
 		731609682AD838FB00399476 /* StepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731609672AD838FB00399476 /* StepView.swift */; };
+		731EB7452AF9323B00931952 /* ApplyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731EB7442AF9323B00931952 /* ApplyHistoryView.swift */; };
+		731EB7472AF9ED9A00931952 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731EB7462AF9ED9A00931952 /* HomeViewModel.swift */; };
 		7337E1E82AD04B1700D91E6F /* TextStyle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337E1E72AD04B1700D91E6F /* TextStyle+Extension.swift */; };
 		7337E1EF2AD1531700D91E6F /* ApplyTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */; };
 		73525BF52AE6445E00A73769 /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73525BF42AE6445E00A73769 /* CustomTabBarView.swift */; };
@@ -135,6 +137,8 @@
 		73007CC02AEBA5B600376511 /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
 		73007CC22AEBA5BB00376511 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		731609672AD838FB00399476 /* StepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepView.swift; sourceTree = "<group>"; };
+		731EB7442AF9323B00931952 /* ApplyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyHistoryView.swift; sourceTree = "<group>"; };
+		731EB7462AF9ED9A00931952 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		7337E1E72AD04B1700D91E6F /* TextStyle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextStyle+Extension.swift"; sourceTree = "<group>"; };
 		7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyTypeView.swift; sourceTree = "<group>"; };
 		73525BF42AE6445E00A73769 /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
@@ -287,6 +291,7 @@
 		73007CBE2AEBA26100376511 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				731EB7462AF9ED9A00931952 /* HomeViewModel.swift */,
 				73FD46D62ADAADCF002ED839 /* HomeNavigationViewModel.swift */,
 				7389872E2AD5E95A00688634 /* MediConditionViewModel.swift */,
 				737B62162AD6EAB30010444E /* PatientInfoViewModel.swift */,
@@ -361,6 +366,7 @@
 				73525BF62AE68AF500A73769 /* OnboardingView.swift */,
 				737D49022ACB3F4F008AC5EC /* MainView.swift */,
 				73FD46D82ADADF8C002ED839 /* HomeView.swift */,
+				731EB7442AF9323B00931952 /* ApplyHistoryView.swift */,
 				AEA098F32AE6B13800DE9BA8 /* DescriptionView.swift */,
 				7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */,
 				AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */,
@@ -663,6 +669,7 @@
 				702D35AA2ADBBD31008FE1F8 /* Patient.swift in Sources */,
 				70E0470B2AD5139200FC73A5 /* IDNumberInputField.swift in Sources */,
 				AEA098F42AE6B13800DE9BA8 /* DescriptionView.swift in Sources */,
+				731EB7452AF9323B00931952 /* ApplyHistoryView.swift in Sources */,
 				70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */,
 				73007CC12AEBA5B600376511 /* Agent.swift in Sources */,
 				7372274C2AD476200021EFC6 /* ViewModifier.swift in Sources */,
@@ -677,6 +684,7 @@
 				737227422AD323360021EFC6 /* PatientInfoView.swift in Sources */,
 				7337E1EF2AD1531700D91E6F /* ApplyTypeView.swift in Sources */,
 				70AC25AB2AF15CA300DBC4A0 /* DocumentDetector.swift in Sources */,
+				731EB7472AF9ED9A00931952 /* HomeViewModel.swift in Sources */,
 				AE10D3922AD4E1C900D9ED3C /* PrivacyPolicyView.swift in Sources */,
 				AEB33EA92ACAADE00082A3E7 /* PDFFormLocation.swift in Sources */,
 				03FFF2D12AE6AD2C00B81D65 /* SubmitLoadingView.swift in Sources */,

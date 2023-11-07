@@ -11,6 +11,7 @@ struct SubmitCheckListView: View {
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
     @EnvironmentObject var pdfManager: PDFManager
+    @ObservedObject var homeViewModel: HomeViewModel
     @State private var isSubmitLoadingViewPresented = false
     
     var body: some View {
@@ -254,7 +255,7 @@ struct SubmitCheckListView: View {
         .padding(.bottom,0)
         .padding([.top, .leading, .trailing], 20)
         .fullScreenCover(isPresented: $isSubmitLoadingViewPresented) {
-            SubmitView()
+            SubmitView(homeViewModel: self.homeViewModel)
             
         }
     }
@@ -262,7 +263,7 @@ struct SubmitCheckListView: View {
 
 struct SubmitCheckListView_Previews: PreviewProvider {
     static var previews: some View {
-        SubmitCheckListView()
+        SubmitCheckListView(homeViewModel: HomeViewModel())
             .environmentObject(Patient())
             .environmentObject(Agent())
     }

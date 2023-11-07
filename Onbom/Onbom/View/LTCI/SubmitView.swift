@@ -13,6 +13,7 @@ struct SubmitView: View {
     @EnvironmentObject var agent: Agent
     @EnvironmentObject var pdfManager: PDFManager
     @State private var isloadingViewPresented = true
+    @ObservedObject var homeViewModel: HomeViewModel
     
     var body: some View {
         if isloadingViewPresented {
@@ -50,6 +51,9 @@ struct SubmitView: View {
                         .foregroundColor(.G4)
                 }
             }
+            .onAppear() {
+                homeViewModel.onApplyLTCI()
+            }
             .navigationBarBackButtonHidden(true)
             .padding([.top, .leading, .trailing], 20.0)
         }
@@ -65,7 +69,7 @@ struct SubmitView: View {
 
 struct SubmitView_Previews: PreviewProvider {
     static var previews: some View {
-        SubmitView()
+        SubmitView(homeViewModel: HomeViewModel())
             .environmentObject(HomeNavigationViewModel())
     }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct OnboardingView: View {
     @State private var selectedTab: Int = 0
     @Binding var isOnboarding: Bool
+    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     
     var body: some View {
         TabView(selection: $selectedTab){
@@ -74,11 +75,13 @@ struct OnboardingView: View {
         }
         .frame(maxWidth: .infinity)
         .padding([.top, .leading, .trailing], 20)
+        .navigationBarBackButtonHidden(true)
     }
     
     func onClickButton() {
         if(selectedTab == 2) {
             isOnboarding = false
+            homeNavigation.popToRoot()
             return
         }
         withAnimation {
