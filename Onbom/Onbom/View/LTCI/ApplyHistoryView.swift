@@ -26,7 +26,7 @@ struct ApplyHistoryView: View {
             
             formCard("신청인", "\(patient.name)")
             formCard("대리인", "김유진")
-            formCard("주소", patient.actualAddress.toString(), axis: .firstTextBaseline)
+            formCard("주소", patient.actualAddress.toString, axis: .firstTextBaseline)
             
             divider()
             
