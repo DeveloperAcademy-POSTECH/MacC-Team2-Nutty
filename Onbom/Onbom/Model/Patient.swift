@@ -23,6 +23,18 @@ class Patient: ObservableObject {
     @Published var hasInfectiousDisease = false
     @Published var hasMentalDisorder = false
     
+    init() {}
+    
+    init(name: String, id: String, address: Address, actualAddress: Address, phoneNumber: String, hasInfectiousDisease: Bool = false, hasMentalDisorder: Bool = false) {
+        self.name = name
+        self.id = id
+        self.address = address
+        self.actualAddress = actualAddress
+        self.phoneNumber = phoneNumber
+        self.hasInfectiousDisease = hasInfectiousDisease
+        self.hasMentalDisorder = hasMentalDisorder
+    }
+    
     func combineID(frontID: String, backID: String) {
         id = "\(frontID)-\(backID)"
     }
@@ -34,6 +46,26 @@ class Patient: ObservableObject {
         dictionary["actualAddress"]?.answer = actualAddress.cityAddress + actualAddress.detailAddress
         dictionary["phoneNumber"]?.answer = phoneNumber
     }
+    
+    func reset() {
+        name = ""
+        id = ""
+        address = Address()
+        actualAddress = Address()
+        phoneNumber = ""
+        hasInfectiousDisease = false
+        hasMentalDisorder = false
+    }
 }
 
+
+let mockPatient = Patient(
+    name: "김순옥",
+    id: "331212-2132321",
+    address: mockAddress,
+    actualAddress: mockAddress,
+    phoneNumber: "01032323232",
+    hasInfectiousDisease: false,
+    hasMentalDisorder: false
+)
 

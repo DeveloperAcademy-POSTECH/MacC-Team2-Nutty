@@ -11,7 +11,7 @@ struct AddressFormView: View {
     var formType: AddressFormType
     @State private var isPostCodeViewPresented = false
     @State private var showActualAddressCheckView = false
-    @State private var address = Address(cityAddress: "", detailAddress: "")
+    @State private var address = Address()
     @State private var isKeyboardVisible = false
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent

@@ -25,9 +25,11 @@ struct SignatureView: View {
                 .foregroundColor(Color.G6)
                 .padding(.bottom, 4)
             ZStack {
-                digitalSignatureManager.rectangle
-                    .fill(Color.G2)
+                Rectangle()
+                    .foregroundStyle(Color.G2)
                     .cornerRadius(10)
+                digitalSignatureManager.rectangle
+                    .foregroundStyle(.clear)
                 ForEach(digitalSignatureManager.paths.indices, id: \.self) { index in
                     DrawLine(currentPath: digitalSignatureManager.paths[index])
                         .stroke(style: StrokeStyle(lineWidth: 5, lineCap: .round))

@@ -242,8 +242,8 @@ struct SubmitCheckListView: View {
                 style: .primary(isDisabled:false))
             {
                 patient.updateDictionary()
-                agent.updateDictionary()            
-                pdfManager.createPDF(documentURL: LTCIFormResource, patient: patient.dictionary, agent: agent.dictionary, signature: agent.signature, image: agent.idCardImage, imageSize: agent.idCardImage.size, infectious: patient.hasInfectiousDisease, mental: patient.hasMentalDisorder)
+                agent.updateDictionary()
+                pdfManager.createPDF(documentURL: LTCIFormResource, patient: patient, agent: agent)
 
                 var transaction = Transaction()
                 transaction.disablesAnimations = true
@@ -253,7 +253,6 @@ struct SubmitCheckListView: View {
             } label: {
                 Text("신청하기")
             }
-        }
         .padding(.bottom,0)
         .padding([.top, .leading, .trailing], 20)
         .navigationBarBackButton()
@@ -274,3 +273,4 @@ struct SubmitCheckListView_Previews: PreviewProvider {
             .environmentObject(Agent())
     }
 }
+
