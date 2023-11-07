@@ -249,7 +249,7 @@ struct HomeView: View {
                         .Cap6()
                         .foregroundColor(.G4)
                     Spacer()
-                    Text("국민 건강보험공단 확인중")
+                    Text("국민건강보험공단 확인중")
                         .Cap6()
                         .foregroundColor(.Green4)
                     Spacer()
