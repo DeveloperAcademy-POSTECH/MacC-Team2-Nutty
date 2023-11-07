@@ -54,7 +54,9 @@ struct IDCardConfirmEditView: View {
                     }
                     .onChange(of: isKeyboardVisible) { _ in
                         DispatchQueue.main.asyncAfter (deadline: .now() + 0.5) {
-                            proxy.scrollTo("bottom", anchor: .bottom)
+                            withAnimation {
+                                proxy.scrollTo("bottom", anchor: .bottom)
+                            }
                         }
                     }
                 }
