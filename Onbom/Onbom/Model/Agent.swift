@@ -15,7 +15,7 @@ class Agent: ObservableObject {
         "address":("address", CGRect(x: 158, y: 413, width: 380, height: 20)),
         "phoneNumber":("phoneNumber", CGRect(x: 158, y: 368, width: 140, height: 20)),
     ]
-    @Published var name: String = "대리인"
+    @Published var name: String = "김유진"
     @Published var id: String = ""
     @Published var idCardImage: UIImage = UIImage()
     @Published var relation: String = ""
@@ -48,12 +48,12 @@ class Agent: ObservableObject {
         dictionary["name"]?.answer = name
         dictionary["id"]?.answer = id
         dictionary["relation"]?.answer = relation
-        dictionary["address"]?.answer = address.cityAddress + address.detailAddress
+        dictionary["address"]?.answer = "\(address.cityAddress)  \(address.detailAddress)"
         dictionary["phoneNumber"]?.answer = phoneNumber
     }
     
     func reset() {
-        name = "대리인"
+        name = "김유진"
         id = ""
         idCardImage = UIImage(systemName: "heart")!
         relation = ""

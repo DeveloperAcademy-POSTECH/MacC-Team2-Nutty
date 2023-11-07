@@ -24,7 +24,7 @@ struct SubmitCheckListView: View {
         VStack {
             HStack {
                 Text("신청 정보를 확인해 주세요")
-                    .H2()
+                    .H1()
                     .foregroundColor(.B)
                 Spacer()
             }
@@ -43,8 +43,6 @@ struct SubmitCheckListView: View {
                             Text("신규")
                                 .B4()
                                 .foregroundColor(.G5)
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.G4)
                         }
                     }
                     .padding(.bottom)
@@ -236,11 +234,9 @@ struct SubmitCheckListView: View {
                         .foregroundColor(Color.B)
                     Spacer()
                 }
-                .padding()
+                .padding(20)
             }
-            .padding()
-        }
-        .navigationBarBackButton()
+        }.padding(.horizontal, 6)
         
         CTAButton.CustomButtonView(
             style: .primary(isDisabled:false))
@@ -253,6 +249,8 @@ struct SubmitCheckListView: View {
             withTransaction(transaction) {
                 isSubmitLoadingViewPresented = true
             }
+        } label: {
+            Text("신청하기")
         }
         .padding(.bottom,0)
         .padding([.top, .leading, .trailing], 20)
