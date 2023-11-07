@@ -22,7 +22,7 @@ struct IDNumberInputField: View {
             Text("주민등록번호")
                 .foregroundColor(focusField != nil ? .Green4 : .G6)
                 .Label()
-                .padding(20)
+                .padding(.leading, 20)
             HStack {
                 NumberInputField(placeholder: "앞 6자리",
                                  limitLength: 6,
@@ -30,7 +30,7 @@ struct IDNumberInputField: View {
                                  content: $frontNumber
                 )
                 .focused($focusField, equals: .front)
-                .padding(.leading)
+                .padding(.leading, 20)
                 
                 Image(systemName: "minus")
                 
@@ -38,7 +38,7 @@ struct IDNumberInputField: View {
                                  limitLength: 7,
                                  isSecure: false,
                                  content: $backNumber)
-                .padding(.trailing)
+                .padding(.trailing, 20)
                 .focused($focusField, equals: .back)
                 .toolbar {
                     ToolbarItem(placement: .keyboard) {
