@@ -10,7 +10,7 @@ struct Address {
     var cityAddress: String = ""
     var detailAddress: String = ""
     var toString: String {
-        get { return "\(cityAddress)\(detailAddress)" }
+        get { return "\(cityAddress)  \(detailAddress)" }
     }
     
     init() {}

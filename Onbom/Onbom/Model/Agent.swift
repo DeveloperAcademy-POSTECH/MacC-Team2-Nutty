@@ -48,7 +48,7 @@ class Agent: ObservableObject {
         dictionary["name"]?.answer = name
         dictionary["id"]?.answer = id
         dictionary["relation"]?.answer = relation
-        dictionary["address"]?.answer = address.cityAddress + address.detailAddress
+        dictionary["address"]?.answer = "\(address.cityAddress)  \(address.detailAddress)"
         dictionary["phoneNumber"]?.answer = phoneNumber
     }
     

@@ -42,8 +42,8 @@ class Patient: ObservableObject {
     func updateDictionary() {
         dictionary["name"]?.answer = name
         dictionary["id"]?.answer = id
-        dictionary["address"]?.answer = address.cityAddress + address.detailAddress
-        dictionary["actualAddress"]?.answer = actualAddress.cityAddress + actualAddress.detailAddress
+        dictionary["address"]?.answer = "\(address.cityAddress)  \(address.detailAddress)"
+        dictionary["actualAddress"]?.answer = "\(actualAddress.cityAddress)  \(actualAddress.detailAddress)"
         dictionary["phoneNumber"]?.answer = phoneNumber
     }
     
