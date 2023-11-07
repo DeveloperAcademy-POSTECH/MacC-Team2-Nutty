@@ -22,6 +22,7 @@ class PDFManager: ObservableObject {
             case mailReceive
             case mailAddress
             case todayDate
+            case agentName
         }
     
     func createPDF(documentURL: URL, patient: Patient, agent: Agent) {
@@ -69,6 +70,8 @@ class PDFManager: ObservableObject {
                         addTextAnnotation(page: secondPage, bounds:CGRect(x: 429, y: 690, width: 140, height: 20), content: "✓")
                     case .todayDate:
                         addTextAnnotation(page: secondPage, bounds:CGRect(x: 400, y: 482, width: 140, height: 20), content: currentDate)
+                    case .agentName:
+                        addTextAnnotation(page: secondPage, bounds:CGRect(x: 382, y: 430, width: 140, height: 20), content: agent.name)
                     default:
                         continue
                     }
