@@ -12,33 +12,58 @@ struct SubmitLoadingView: View {
         case loading
         case fail
     }
-    @State private var isSubmitViewPresented = false
     @State private var err: String?
     @State private var state: SubmitLoadingViewState = .loading
+    @Binding var presented: Bool
     private let firebaseStorageManager: FirebaseStorageManager = .shared
     @EnvironmentObject var pdfManager: PDFManager
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        VStack {
-            Text("국민건강보험공단에\n보내고 있어요")
-                .H1()
-                .foregroundColor(.B)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.bottom, 100)
-                .padding(.top, 45)
-            Image("SubmitLoadingView")
-            
-            Spacer()
+        if state == .loading {
+            VStack {
+                Text("국민건강보험공단에\n보내고 있어요")
+                    .H1()
+                    .foregroundColor(.B)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.bottom, 100)
+                    .padding(.top, 45)
+                Image("SubmitLoadingView")
+                
+                Spacer()
+            }
+            .navigationBarBackButtonHidden(true)
+            .padding(20.0)
+            .onAppear {
+                initialize()
+            }
         }
-        .navigationBarBackButtonHidden(true)
-        .padding(20.0)
+        else {
+            NavigationStack {
+                Text(self.err ?? "죄송합니다 다시 시도해주세요")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(.gray.opacity(0.2))
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            HStack() {
+                                Text("")
+                                Image("chevronLeft")
+                                    .aspectRatio(contentMode: .fit)
+                                    .onTapGesture {
+                                        dismiss()
+                                    }
+                            }
+                        }
+                    }
+            }
+        }
     }
     
     private func initialize() {
         Task {
             do {
                 let pdf = try pdfManager.getLastPdf()
-                try await firebaseStorageManager.upload(pdf) { [self] error in
+                await firebaseStorageManager.upload(pdf) { [self] error in
                     if let error = error as? FirebaseStorageError {
                         self.err = error.rawValue
                         self.state = .fail
@@ -46,17 +71,17 @@ struct SubmitLoadingView: View {
                     else if let error = error {
                         self.err = error.localizedDescription
                         self.state = .fail
-                    } else {
-                        self.isSubmitViewPresented = true
                     }
-                    
                 }
+                self.presented = false // TODO: firebase 에러가 발생해도 다음화면으로 넘어가지 않아야한다
             } catch let error as PDFError {
                 self.err = error.rawValue
+                self.state = .fail
             }
             catch let error {
                 print(error.localizedDescription)
-                self.err = "죄송합니다. 다시 시도해주세요"
+                self.err = "죄송합니다 다시 시도해주세요"
+                self.state = .fail
             }
         }
     }
@@ -66,6 +91,6 @@ struct SubmitLoadingView: View {
 
 struct SubmitLoadingView_Previews: PreviewProvider {
     static var previews: some View {
-        SubmitLoadingView()
+        SubmitLoadingView(presented: .constant(false))
     }
 }
