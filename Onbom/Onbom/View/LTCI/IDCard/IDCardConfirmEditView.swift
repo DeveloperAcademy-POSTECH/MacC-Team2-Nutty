@@ -42,17 +42,20 @@ struct IDCardConfirmEditView: View {
                             .scaledToFit()
                             .padding(.top, 32)
                             .padding(.bottom, 36)
+                            .frame(height: 280)
                         IDNumberInputField(frontNumber: $frontIDNumber, backNumber: $backIDNumber)
                             .onAppear {
                                 let splittedID = agent.splitID()
                                 frontIDNumber = splittedID.frontID
                                 backIDNumber = splittedID.backID
                             }
-                            .padding(.bottom)
-                        Color.clear.frame(height: 30).id("bottom")
+                        Color.clear.frame(height: 30)
+                            .id("bottom")
                     }
                     .onChange(of: isKeyboardVisible) { _ in
-                        proxy.scrollTo("bottom", anchor: .bottom)
+                        DispatchQueue.main.asyncAfter (deadline: .now() + 0.5) {
+                            proxy.scrollTo("bottom", anchor: .bottom)
+                        }
                     }
                 }
             }
