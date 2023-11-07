@@ -224,6 +224,7 @@ struct PatientInfoView: View {
             #endif
             patient.name = viewModel.seniorName;
             patient.combineID(frontID: viewModel.seniorIDNumber1, backID: viewModel.seniorIDNumber2)
+            patient.phoneNumber = viewModel.seniorPhoneNumber
             homeNavigation.navigate(.AddressFormView_Patient)
         }
     }
