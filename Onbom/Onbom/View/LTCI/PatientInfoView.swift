@@ -24,7 +24,7 @@ struct PatientInfoView: View {
     @State private var isKeyboardVisible:       Bool = true
     @State private var isPressed:               Bool = false
     
-    @ObservedObject private var viewModel = PatientInfoViewModel()
+    @StateObject private var viewModel = PatientInfoViewModel()
     
     @FocusState private var focusedField:       Field?
     
