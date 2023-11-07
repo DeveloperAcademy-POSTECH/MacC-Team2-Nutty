@@ -89,15 +89,13 @@ struct AddressFormView: View {
                         .padding(.bottom, 16)
                 }
                 
-                ScrollView {
-                    AddressInputField(label: addressInputFieldTitle,
-                                      cityAddress: $address.cityAddress,
-                                      detailAddress: $address.detailAddress,
-                                      isPostCodeViewPresented: $isPostCodeViewPresented)
-                    .padding(.top, 32)
-                    .padding(.horizontal, 20)
-                    Spacer()
-                }
+                AddressInputField(label: addressInputFieldTitle,
+                                  cityAddress: $address.cityAddress,
+                                  detailAddress: $address.detailAddress,
+                                  isPostCodeViewPresented: $isPostCodeViewPresented)
+                .padding(.top, 32)
+                .padding(.horizontal, 20)
+                Spacer()
                 
                 if isKeyboardVisible {
                     CTAButton.CustomButtonView(style: .expanded(isDisabled: !isAddressFilled)) {
@@ -128,7 +126,7 @@ struct AddressFormView: View {
                     } label: {
                         Text("다음")
                     }
-                    .padding(20)
+                    .padding(.horizontal, 20)
                 }
             }
             .navigationDestination(isPresented: $isPostCodeViewPresented) {
@@ -180,7 +178,7 @@ struct AddressFormView: View {
                 .padding(.horizontal, 20)
                 .padding(.top, 40)
             }
-            .presentationDetents([.fraction(0.445)])
+            .presentationDetents([.fraction(0.46)])
             .presentationDragIndicator(.hidden)
             .presentationCornerRadius(12)
         }
