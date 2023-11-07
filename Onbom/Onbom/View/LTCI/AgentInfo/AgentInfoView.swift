@@ -17,7 +17,7 @@ struct AgentInfoView: View {
     
     // MARK: - 라디오버튼 관련 변수
     let relation: [String] = ["가족", "친족"]
-    @State var selectedItem : String = "가족"
+    @State var selectedItem : String = ""
     @State private var isDisabled = true
     
     var body: some View {
