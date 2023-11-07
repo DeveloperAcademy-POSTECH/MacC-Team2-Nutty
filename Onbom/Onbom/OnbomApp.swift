@@ -7,8 +7,6 @@
 
 import SwiftUI
 import FirebaseCore
-//import KakaoSDKCommon
-//import KakaoSDKAuth
 
 @main
 struct OnbomApp: App {
