@@ -51,6 +51,16 @@ class Agent: ObservableObject {
         dictionary["address"]?.answer = address.cityAddress + address.detailAddress
         dictionary["phoneNumber"]?.answer = phoneNumber
     }
+    
+    func reset() {
+        name = "대리인"
+        id = ""
+        idCardImage = UIImage(systemName: "heart")!
+        relation = ""
+        address = Address()
+        phoneNumber = ""
+        signature = [[]]
+    }
 }
 
 let mockAgent = Agent(

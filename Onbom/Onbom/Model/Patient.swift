@@ -46,6 +46,16 @@ class Patient: ObservableObject {
         dictionary["actualAddress"]?.answer = actualAddress.cityAddress + actualAddress.detailAddress
         dictionary["phoneNumber"]?.answer = phoneNumber
     }
+    
+    func reset() {
+        name = ""
+        id = ""
+        address = Address()
+        actualAddress = Address()
+        phoneNumber = ""
+        hasInfectiousDisease = false
+        hasMentalDisorder = false
+    }
 }
 
 

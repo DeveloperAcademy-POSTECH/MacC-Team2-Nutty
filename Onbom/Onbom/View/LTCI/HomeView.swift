@@ -17,6 +17,8 @@ struct HomeView: View {
     @State private var state: HomeViewState = .ready
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     @EnvironmentObject var pdfManager: PDFManager
+    @EnvironmentObject var patient: Patient
+    @EnvironmentObject var agent: Agent
     let width = UIScreen.main.bounds.width
     
     var body: some View {
@@ -233,7 +235,7 @@ struct HomeView: View {
                 
                 Text("국민건강보험공단에서 서류를 접수하면")
                     .multilineTextAlignment(.center)
-                HStack(spacing: 0){
+                HStack(alignment: .center, spacing: 0){
                     Text("어르신이 계시는 주소로 방문조사")
                         .bold()
                     Text("가 진행돼요")
@@ -252,6 +254,8 @@ struct HomeView: View {
     private func onReset() {
         state = .ready
         pdfManager.PDFDatas.removeAll()
+        patient.reset()
+        agent.reset()
         homeNavigation.navigate(.OnboardingView)
     }
     
