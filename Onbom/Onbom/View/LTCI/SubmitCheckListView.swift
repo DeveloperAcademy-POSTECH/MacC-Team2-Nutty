@@ -78,7 +78,7 @@ struct SubmitCheckListView: View {
                             .foregroundColor(.G5)
                         Spacer()
                         Button {
-                            //
+                            homeNavigation.navigate(.PatientInfoView)
                         } label: {
                                 Text(patient.phoneNumber)
                                     .B4()
@@ -92,7 +92,7 @@ struct SubmitCheckListView: View {
                             .foregroundColor(.G5)
                         Spacer()
                         Button {
-                            //
+                            homeNavigation.navigate(.PatientInfoView)
                         } label: {
                             Text(patient.id)
                                 .B4()
@@ -108,7 +108,7 @@ struct SubmitCheckListView: View {
                                 .foregroundColor(.G5)
                             Spacer()
                             Button {
-                                //
+                                homeNavigation.navigate(.AddressFormView_Patient)
                             } label: {
                                 Image("chevronRight")
 
@@ -130,7 +130,7 @@ struct SubmitCheckListView: View {
                                 .foregroundColor(.G5)
                             Spacer()
                             Button {
-                                //
+                                homeNavigation.navigate(.AddressFormView_ActualPatient)
                             } label: {
                                 Image("chevronRight")
                             }
@@ -188,7 +188,7 @@ struct SubmitCheckListView: View {
                             .foregroundColor(.G5)
                         Spacer()
                         Button {
-                            //
+                            homeNavigation.navigate(.IDCardConfirmEditView)
                         } label: {
                             Text(agent.id)
                                 .B4()
@@ -203,7 +203,7 @@ struct SubmitCheckListView: View {
                                 .foregroundColor(.G5)
                             Spacer()
                             Button {
-                                //
+                                homeNavigation.navigate(.AddressFormView_Agent)
                             } label: {
                                 Image("chevronRight")
                             }
