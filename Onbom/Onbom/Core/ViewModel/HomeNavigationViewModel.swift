@@ -56,5 +56,6 @@ public enum HomeRoute {
     case StepView_Second
     case PatientInfoView
     case AgentInfoView
+    case AgentInfoDetailView
     case RejectView
 }
