@@ -20,6 +20,9 @@ struct SubmitCheckListView: View {
     @EnvironmentObject var homeNavigation : HomeNavigationViewModel
     @ObservedObject var homeViewModel: HomeViewModel
     
+    // MARK: - button 관련 변수
+    @State private var isInfoReused = true
+    
     var body: some View {
         VStack {
             HStack {
@@ -77,11 +80,10 @@ struct SubmitCheckListView: View {
                         Button {
                             //
                         } label: {
-                            Text(patient.phoneNumber)
-                                .B4()
-                                .foregroundColor(.G5)
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.G4)
+                                Text(patient.phoneNumber)
+                                    .B4()
+                                    .foregroundColor(.G5)
+                                Image("chevronRight")
                         }
                     }
                     HStack {
@@ -95,8 +97,8 @@ struct SubmitCheckListView: View {
                             Text(patient.id)
                                 .B4()
                                 .foregroundColor(.G5)
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.G4)
+                            Image("chevronRight")
+
                         }
                     }
                     VStack(alignment: .leading) {
@@ -108,8 +110,8 @@ struct SubmitCheckListView: View {
                             Button {
                                 //
                             } label: {
-                                Image(systemName: "chevron.right")
-                                    .foregroundColor(.G4)
+                                Image("chevronRight")
+
                             }
                         }
                         .padding(.bottom, 4)
@@ -130,8 +132,7 @@ struct SubmitCheckListView: View {
                             Button {
                                 //
                             } label: {
-                                Image(systemName: "chevron.right")
-                                    .foregroundColor(.G4)
+                                Image("chevronRight")
                             }
                         }
                         .padding(.bottom, 4)
@@ -177,8 +178,7 @@ struct SubmitCheckListView: View {
                             Text(agent.relation)
                                 .B4()
                                 .foregroundColor(.G5)
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.G4)
+                            Image("chevronRight")
                         }
                         
                     }
@@ -193,8 +193,7 @@ struct SubmitCheckListView: View {
                             Text(agent.id)
                                 .B4()
                                 .foregroundColor(.G5)
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.G4)
+                            Image("chevronRight")
                         }
                     }
                     VStack(alignment: .leading) {
@@ -206,8 +205,7 @@ struct SubmitCheckListView: View {
                             Button {
                                 //
                             } label: {
-                                Image(systemName: "chevron.right")
-                                    .foregroundColor(.G4)
+                                Image("chevronRight")
                             }
                         }
                         .padding(.bottom, 4)
@@ -223,11 +221,14 @@ struct SubmitCheckListView: View {
                 Spacer()
                 HStack() {
                     Button {
-                        //
+                        isInfoReused.toggle()
                     } label: {
-                        Image(systemName: "checkmark.circle.fill")
-                            .font(.title3)
-                            .foregroundColor(.Green4)
+                        if isInfoReused {
+                            Image("selectedCircle")
+                        }
+                        else {
+                            Image("defaultCircle")
+                        }
                     }
                     Text("입력한 정보를 다음에도 사용할게요")
                         .Cap3()
