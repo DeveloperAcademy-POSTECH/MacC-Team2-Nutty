@@ -15,12 +15,21 @@ struct ApplyHistoryView: View {
     var body: some View {
         VStack(spacing: 0) {
             Text("장기요양등급 신규 신청")
-                .T1()
+                .H1()
+                .foregroundColor(.B)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 20)
             
-            formCard("서류 전송 상태", "서류 전송 완료")
-                .padding(.vertical, 2)
+            formCard {
+                Text("서류 전송 상태")
+                    .B1()
+                    .foregroundColor(.G4)
+            } _: {
+                Text("서류 전송 완료")
+                    .B3()
+                    .foregroundColor(.G5)
+            }
+            .padding(.vertical, 2)
             
             divider()
             
@@ -31,24 +40,32 @@ struct ApplyHistoryView: View {
             divider()
             
             formCard {
-                VStack(alignment: .leading, spacing: 0) {
+                VStack(alignment: .leading, spacing: 6) {
                     Text("국민건강보험공단 지사")
-                        .bold()
+                        .B1()
+                        .foregroundColor(.G6)
                     Text("신청 관련 문의가 필요할 때")
+                        .Cap4()
+                        .foregroundColor(.G5)
                 }
             } _: {
                 Image(systemName: "chevron.right")
+                    .foregroundColor(.G4)
             }
             
             divider()
             
-            VStack(alignment: .leading, spacing: 0) {
-                Text("필요에 따라 공단에서 추가 서류를 요청할 수 있습니다.")
-                    .font(.system(size: 11))
-                Text("신청서를 제출한 날부터 30일 이내 등급 판정이 완료됩니다.")
-                    .font(.system(size: 11))
+            VStack(alignment: .leading, spacing: 3) {
+                Text(" · 필요에 따라 공단에서 추가 서류를 요청할 수 있습니다.")
+                    .T4()
+                    .foregroundColor(.G4)
+                Text(" · 신청서를 제출한 날부터 30일 이내 등급 판정이 완료됩니다.")
+                    .T4()
+                    .foregroundColor(.G4)
             }
-            .frame(maxWidth: .infinity)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal, 20)
+            .padding(.vertical, 22)
         }
         Spacer()
             .navigationBarBackButton()
@@ -58,8 +75,12 @@ struct ApplyHistoryView: View {
     private func formCard(_ form: String, _ content: String, axis: VerticalAlignment = .center) -> some View {
         HStack(alignment: axis) {
             Text(form)
+                .B1()
+                .foregroundColor(.G4)
             Spacer()
             Text(content)
+                .B3()
+                .foregroundColor(.G6)
         }
         .padding(.horizontal, 20)
         .padding(.vertical, 19)
