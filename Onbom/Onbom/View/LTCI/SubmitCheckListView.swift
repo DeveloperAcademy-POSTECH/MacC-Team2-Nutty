@@ -80,7 +80,7 @@ struct SubmitCheckListView: View {
                         Button {
                             homeNavigation.navigate(.PatientInfoView)
                         } label: {
-                                Text(patient.phoneNumber)
+                            Text(patient.phoneNumber.isEmpty ? "없음" : patient.phoneNumber)
                                     .B4()
                                     .foregroundColor(.G5)
                                 Image("chevronRight")
