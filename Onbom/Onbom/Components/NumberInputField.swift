@@ -43,7 +43,7 @@ struct NumberInputField: View {
     
     private var strokeColor: Color {
         if isFocused {
-            return Color.Green3
+            return Color.Green4
         } else if !isValid {
             return Color.red
         } else {
