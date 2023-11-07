@@ -8,13 +8,10 @@
 import SwiftUI
 
 struct HomeView: View {
-    enum HomeViewState {
-        case ready
-        case apply
-    }
     private let timer = Timer.publish(every: 8, on: .main, in: .common).autoconnect()
     @State private var selectedPage = 0
-    @State private var state: HomeViewState = .ready
+    @StateObject var viewModel = HomeViewModel()
+    
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     @EnvironmentObject var pdfManager: PDFManager
     @EnvironmentObject var patient: Patient
@@ -28,12 +25,12 @@ struct HomeView: View {
                     .foregroundColor(Color.Green4)
                     .font(.custom("Dongle-Bold", size: 42))
                     .padding(.leading, 20)
-                    .onTapGesture { onReset() }
+                    .onTapGesture(count: 3) { onReset() }
             } trailing: {
                 Image("notification")
                     .frame(width: 34, height: 34)
                     .padding(.trailing, 20)
-                    .onTapGesture { onFlipCard() }
+                    .onTapGesture(count: 3) { viewModel.onFlipCard() }
             }
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 0){
@@ -146,12 +143,36 @@ struct HomeView: View {
             }
             .background(Color.G2)
         }
+        .navigationDestination(for: HomeRoute.self) { route in
+            switch(route) {
+            case .OnboardingView:                   OnboardingView(isOnboarding: .constant(true))
+            case .ApplyHistoryView:                 ApplyHistoryView()
+            case .DescriptionView:                  DescriptionView()
+            case .ApplyTypeView:                    ApplyTypeView().toolbar(.hidden, for: .tabBar)
+            case .MediHistoryView:                  MediHistoryView()
+            case .MediConditionView:                MediConditionView()
+            case .IDCardDescriptionView:            IDCardDescriptionView()
+            case .IDCardConfirmEditView:            IDCardConfirmEditView()
+            case .AddressFormView_Patient:          AddressFormView(formType: .patient)
+            case .AddressFormView_ActualPatient:    AddressFormView(formType: .actualPatient)
+            case .AddressFormView_Agent:            AddressFormView(formType: .agent)
+            case .SignatureView:                    SignatureView()
+            case .SubmitCheckListView:              SubmitCheckListView(homeViewModel: self.viewModel)
+            case .StepView_First:                   StepView(state: .FIRST)
+            case .StepView_Second:                  StepView(state: .SECOND)
+            case .PatientInfoView:                  PatientInfoView()
+            case .AgentInfoView:                    AgentInfoView()
+            case .RejectView:                       RejectView()
+            default:                                RejectView()
+            }
+        }
+
     }
     
     @ViewBuilder
     func LTCICard() -> some View {
         
-        if state == .ready {
+        if viewModel.state == .ready {
             VStack(spacing: 30) {
                 Text("집에서 간편하게\n장기요양등급 신청해 보세요")
                     .T1()
@@ -164,7 +185,7 @@ struct HomeView: View {
                 CTAButton.CustomButtonView(
                     style: .main)
                 {
-                    homeNavigation.navigate(.DescriptionView)
+                    homeNavigation.navigate(.SignatureView)
                 } label: {
                     Text("지금 바로 신청하기")
                 }
@@ -174,7 +195,7 @@ struct HomeView: View {
                 .shadow(color: .black.opacity(0.05), radius: 5))
             .padding(20)
         }
-        else if state == .apply {
+        else if viewModel.state == .apply {
             VStack(spacing: 0) {
                 HStack(alignment: .center){
                     Text("장기요양등급신청")
@@ -252,26 +273,18 @@ struct HomeView: View {
     }
     
     private func onReset() {
-        state = .ready
+        viewModel.state = .ready
         pdfManager.PDFDatas.removeAll()
         patient.reset()
         agent.reset()
         homeNavigation.navigate(.OnboardingView)
     }
     
-    private func onFlipCard() {
-        if(state == .apply) {
-            state = .ready
-        }
-        else if(state == .ready) {
-            state = .apply
-        }
-    }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(viewModel: HomeViewModel())
             .environmentObject(HomeNavigationViewModel())
             .environmentObject(PDFManager())
     }
