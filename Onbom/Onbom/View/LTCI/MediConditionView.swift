@@ -10,7 +10,7 @@ import Combine
 
 struct MediConditionView: View {
     @ObservedObject private var viewModel = MediConditionViewModel()
-    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    @EnvironmentObject var navigation: NavigationManager
     @EnvironmentObject var patient: Patient
     
     var body: some View {
@@ -32,7 +32,7 @@ struct MediConditionView: View {
             {
                 patient.hasInfectiousDisease = viewModel.hasInfectiousDisease ?? false
                 patient.hasMentalDisorder = viewModel.hasMentalDisorder ?? false
-                homeNavigation.navigate(.PatientInfoView)
+                navigation.navigate(.PatientInfoView)
             } label: {
                 Text("다음")
             }

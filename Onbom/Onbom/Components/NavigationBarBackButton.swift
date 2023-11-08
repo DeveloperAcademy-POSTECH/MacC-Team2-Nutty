@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct NavigationBarBackButton: View {
-    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    @EnvironmentObject var navigation: NavigationManager
     
     var body: some View {
         Button {
-            homeNavigation.pop()
-            homeNavigation.isUserFromSubmitCheckListView = false
+            navigation.pop()
+            navigation.isUserFromSubmitCheckListView = false
         } label: {
             HStack() {
                 Text("")

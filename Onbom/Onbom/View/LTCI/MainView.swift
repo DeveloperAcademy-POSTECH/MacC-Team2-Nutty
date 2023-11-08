@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @StateObject private var homeNavigation = HomeNavigationViewModel()
+    @StateObject private var navigation = NavigationManager()
     @StateObject private var pdfManager = PDFManager()
     @State private var tab: Tabs = .home
     
@@ -16,10 +16,10 @@ struct MainView: View {
         ZStack(alignment: .bottom){
             switch(tab) {
             case .home:
-                NavigationStack(path: $homeNavigation.homePath) {
+                NavigationStack(path: $navigation.homePath) {
                     HomeView()
                 }
-                .environmentObject(homeNavigation)
+                .environmentObject(navigation)
                 .environmentObject(pdfManager)
             case .history:
                 PDFViewer(pdfData: pdfManager.PDFDatas.first )
@@ -29,7 +29,7 @@ struct MainView: View {
                     .frame(maxHeight: .infinity)
             }
             
-            if(homeNavigation.homePath.count == 0){
+            if(navigation.homePath.count == 0){
                 CustomTabBarView(tab: $tab)
             }
         }
@@ -42,7 +42,7 @@ struct MainView: View {
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
-            .environmentObject(HomeNavigationViewModel())
+            .environmentObject(NavigationManager())
             .environmentObject(PDFManager())
     }
 }

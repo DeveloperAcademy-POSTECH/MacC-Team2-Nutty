@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MediHistoryView: View {
-    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    @EnvironmentObject var navigation: NavigationManager
     
     var body: some View {
         //TODO: - Gradient 배경 빠져 있음
@@ -24,14 +24,14 @@ struct MediHistoryView: View {
                 CTAButton.CustomButtonView(
                     style: .primary(isDisabled: false))
                 {
-                    homeNavigation.navigate(.MediConditionView)
+                    navigation.navigate(.MediConditionView)
                 } label: {
                     Text("없어요")
                 }
                 CTAButton.CustomButtonView(
                     style: .secondary)
                 {
-                    homeNavigation.navigate(.RejectView)
+                    navigation.navigate(.RejectView)
                 } label: {
                     Text("입원 또는 수술 이력이 있어요")
                 }

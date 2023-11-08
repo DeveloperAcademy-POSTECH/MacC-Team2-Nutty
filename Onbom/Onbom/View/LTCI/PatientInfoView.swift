@@ -18,7 +18,7 @@ struct PatientInfoView: View {
     }
     
     @EnvironmentObject var patient: Patient
-    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    @EnvironmentObject var navigation: NavigationManager
     
     @State private var step: [Bool] = [true, false, false]
     @State private var didAppear: [Bool] = [true, false, false]
@@ -71,7 +71,7 @@ struct PatientInfoView: View {
             patient.name = viewModel.seniorName;
             patient.combineID(frontID: viewModel.seniorIDNumber1, backID: viewModel.seniorIDNumber2)
             patient.phoneNumber = viewModel.seniorPhoneNumber
-            homeNavigation.navigate(.AddressFormView_Patient)
+            navigation.navigate(.AddressFormView_Patient)
         }
     }
     

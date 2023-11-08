@@ -13,7 +13,7 @@ struct AgentInfoView: View {
     @EnvironmentObject var patient: Patient
     
     // MARK: - Navigation 관련 변수
-    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    @EnvironmentObject var navigation: NavigationManager
     
     // MARK: - 라디오버튼 관련 변수
     let relation: [String] = ["가족", "친족"]
@@ -48,7 +48,7 @@ struct AgentInfoView: View {
             HStack {
                 Spacer()
                 Button {
-                    homeNavigation.navigate(.AgentInfoDetailView)
+                    navigation.navigate(.AgentInfoDetailView)
                 } label: {
                     Text("상세 관계를 모르겠어요")
                         .Label()
@@ -68,20 +68,20 @@ struct AgentInfoView: View {
                 style: .primary(
                     isDisabled: isDisabled))
             {
-                if homeNavigation.isUserFromSubmitCheckListView {
-                    homeNavigation.pop()
+                if navigation.isUserFromSubmitCheckListView {
+                    navigation.pop()
                 } else {
-                    homeNavigation.navigate(.IDCardDescriptionView)
+                    navigation.navigate(.IDCardDescriptionView)
                 }
             } label: {
-                homeNavigation.isUserFromSubmitCheckListView ? Text("수정 완료") : Text("다음")
+                navigation.isUserFromSubmitCheckListView ? Text("수정 완료") : Text("다음")
             }
         }
         .navigationBarBackButton()
         .padding([.top, .leading, .trailing], 20)
         .onAppear {
             selectedItem = agent.relation
-            if homeNavigation.isUserFromSubmitCheckListView {
+            if navigation.isUserFromSubmitCheckListView {
                 isDisabled = false
             }
         }

@@ -17,7 +17,7 @@ struct SubmitCheckListView: View {
     
     // MARK: - navigation 관련 변수
     @State private var isSubmitLoadingViewPresented = false
-    @EnvironmentObject var homeNavigation : HomeNavigationViewModel
+    @EnvironmentObject var navigation : NavigationManager
     @ObservedObject var homeViewModel: HomeViewModel
     
     // MARK: - button 관련 변수
@@ -79,7 +79,7 @@ struct SubmitCheckListView: View {
                             .foregroundColor(.G5)
                         Spacer()
                         Button {
-                            homeNavigation.navigate(.PatientInfoView)
+                            navigation.navigate(.PatientInfoView)
                         } label: {
                             Text(patient.phoneNumber.isEmpty ? "없음" : patient.phoneNumber)
                                     .B4()
@@ -93,7 +93,7 @@ struct SubmitCheckListView: View {
                             .foregroundColor(.G5)
                         Spacer()
                         Button {
-                            homeNavigation.navigate(.PatientInfoView)
+                            navigation.navigate(.PatientInfoView)
                         } label: {
                             Text(patient.id)
                                 .B4()
@@ -109,7 +109,7 @@ struct SubmitCheckListView: View {
                                 .foregroundColor(.G5)
                             Spacer()
                             Button {
-                                homeNavigation.navigate(.AddressFormView_Patient)
+                                navigation.navigate(.AddressFormView_Patient)
                             } label: {
                                 Image("chevronRight")
 
@@ -131,7 +131,7 @@ struct SubmitCheckListView: View {
                                 .foregroundColor(.G5)
                             Spacer()
                             Button {
-                                homeNavigation.navigate(.AddressFormView_ActualPatient)
+                                navigation.navigate(.AddressFormView_ActualPatient)
                             } label: {
                                 Image("chevronRight")
                             }
@@ -174,7 +174,7 @@ struct SubmitCheckListView: View {
                             .foregroundColor(.G5)
                         Spacer()
                         Button {
-                            homeNavigation.navigate(.AgentInfoView)
+                            navigation.navigate(.AgentInfoView)
                         } label: {
                             Text(agent.relation)
                                 .B4()
@@ -189,7 +189,7 @@ struct SubmitCheckListView: View {
                             .foregroundColor(.G5)
                         Spacer()
                         Button {
-                            homeNavigation.navigate(.IDCardConfirmEditView)
+                            navigation.navigate(.IDCardConfirmEditView)
                         } label: {
                             Text(agent.id)
                                 .B4()
@@ -204,7 +204,7 @@ struct SubmitCheckListView: View {
                                 .foregroundColor(.G5)
                             Spacer()
                             Button {
-                                homeNavigation.navigate(.AddressFormView_Agent)
+                                navigation.navigate(.AddressFormView_Agent)
                             } label: {
                                 Image("chevronRight")
                             }
@@ -261,8 +261,8 @@ struct SubmitCheckListView: View {
             SubmitView(homeViewModel: homeViewModel)
         }
         .onAppear {
-            homeNavigation.isUserFromSubmitCheckListView = true
-            print(homeNavigation.isUserFromSubmitCheckListView)
+            navigation.isUserFromSubmitCheckListView = true
+            print(navigation.isUserFromSubmitCheckListView)
         }
     }
 }

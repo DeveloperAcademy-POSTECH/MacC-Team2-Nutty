@@ -13,7 +13,7 @@ struct IDCardConfirmEditView: View {
     @State private var isKeyboardVisible = false
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var agent: Agent
-    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    @EnvironmentObject var navigation: NavigationManager
     
     var isIDNumberValid: Bool {
         frontIDNumber.isValidDateOfBirth() && backIDNumber.isValidIDBackNumber()
@@ -75,7 +75,7 @@ struct IDCardConfirmEditView: View {
                     
                     CTAButton.CustomButtonView(style: .primary(isDisabled: !isIDNumberValid)) {
                         agent.combineID(frontID: frontIDNumber, backID: backIDNumber)
-                        homeNavigation.navigate(.AddressFormView_Agent)
+                        navigation.navigate(.AddressFormView_Agent)
                     } label: {
                         Text("다음")
                     }

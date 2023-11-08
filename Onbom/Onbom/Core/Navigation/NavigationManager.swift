@@ -1,5 +1,5 @@
 //
-//  HomeNavigationViewModel.swift
+//  NavigationManager.swift
 //  Onbom
 //
 //  Created by moon on 10/14/23.
@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-// TODO: navigationManager !!
-class HomeNavigationViewModel: ObservableObject {
+class NavigationManager: ObservableObject {
     @Published var homePath: [HomeRoute] = []
     @Published var isUserFromSubmitCheckListView : Bool = false
     
