@@ -16,6 +16,7 @@ struct PatientInfoView: View {
         case seniorIDNumber1
         case seniorIDNumber2
     }
+    
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     
@@ -36,6 +37,7 @@ struct PatientInfoView: View {
                 if(step[1]) { phoneNumberField }
                 if(step[0]) { nameField }
             }
+            
             nextButton
         }
         .onAppear { self.onAppear() }
@@ -51,7 +53,6 @@ struct PatientInfoView: View {
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { notification in
             self.isKeyboardVisible = false
         }
-        
     }
     
     private func isActiveButton() -> Bool {
@@ -60,19 +61,13 @@ struct PatientInfoView: View {
     
     private func onClickButton() {
         if(!step[1]) {
-#if RELEASE
-            if(!viewModel.validateName()) { return }
-#endif
+//            if(!viewModel.validateName()) { return }
             didFinishTypingName()
         } else if(!step[2]) {
-#if RELEASE
-            if(!viewModel.validatePhoneNumber()) { return }
-#endif
+//            if(!viewModel.validatePhoneNumber()) { return }
             didFinishTypingPhoneNumber()
         } else {
-#if RELEASE
-            if(!viewModel.validateInputField()) { return }
-#endif
+//            if(!viewModel.validateInputField()) { return }
             patient.name = viewModel.seniorName;
             patient.combineID(frontID: viewModel.seniorIDNumber1, backID: viewModel.seniorIDNumber2)
             patient.phoneNumber = viewModel.seniorPhoneNumber
@@ -263,7 +258,6 @@ extension PatientInfoView {
         .appear(didAppear[2])
     }
     
-    // TODO: switch 문으로 변경하기
     private var nextButton: some View {
         Group {
             if isKeyboardVisible {
