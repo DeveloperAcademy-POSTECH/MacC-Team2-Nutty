@@ -11,7 +11,7 @@ struct IDCardDescriptionView: View {
     @State private var name = ""
     @State private var presentIDCardOCR = false
     @EnvironmentObject var agent: Agent
-    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    @EnvironmentObject var navigation: NavigationManager
     
     var body: some View {
         VStack {
@@ -53,7 +53,7 @@ struct IDCardDescriptionView: View {
     
     func onFinishCapture() {
         presentIDCardOCR = false
-        homeNavigation.navigate(.IDCardConfirmEditView)
+        navigation.navigate(.IDCardConfirmEditView)
     }
 }
 

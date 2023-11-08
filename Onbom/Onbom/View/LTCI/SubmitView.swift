@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SubmitView: View {
-    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    @EnvironmentObject var navigation: NavigationManager
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
     @EnvironmentObject var pdfManager: PDFManager
@@ -41,7 +41,7 @@ struct SubmitView: View {
                     CTAButton.CustomButtonView(
                         style: .primary(isDisabled: false))
                     {
-                        homeNavigation.popToRoot()
+                        navigation.popToRoot()
                     } label: {
                         Text("신청 완료")
                     }
@@ -70,6 +70,6 @@ struct SubmitView: View {
 struct SubmitView_Previews: PreviewProvider {
     static var previews: some View {
         SubmitView(homeViewModel: HomeViewModel())
-            .environmentObject(HomeNavigationViewModel())
+            .environmentObject(NavigationManager())
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DescriptionView: View {
-    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    @EnvironmentObject var navigation: NavigationManager
     var body: some View {
         VStack {
             Text("치매돌봄 혜택의 첫걸음,\n장기요양등급 신청 3분만에")
@@ -27,7 +27,7 @@ struct DescriptionView: View {
                 CTAButton.CustomButtonView(
                     style: .primary(isDisabled: false))
                 {
-                    homeNavigation.navigate(.ApplyTypeView)
+                    navigation.navigate(.ApplyTypeView)
                 } label: {
                     Text("신청하기")
                 }
