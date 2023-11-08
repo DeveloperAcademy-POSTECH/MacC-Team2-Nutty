@@ -15,7 +15,6 @@ struct NavigationBarBackButton: View {
             homeNavigation.pop()
             homeNavigation.isUserFromSubmitCheckListView = false
         } label: {
-            // 백버튼이 묘하게 옆으로 치우쳐서 임시 처리. 좋은 방법 help 부탁해용
             HStack() {
                 Text("")
                 Image("chevronLeft")

@@ -23,6 +23,7 @@ struct SubmitCheckListView: View {
     // MARK: - button 관련 변수
     @State private var isInfoReused = true
     
+    // TODO: - 셀로 모듈화하기
     var body: some View {
         VStack {
             HStack {

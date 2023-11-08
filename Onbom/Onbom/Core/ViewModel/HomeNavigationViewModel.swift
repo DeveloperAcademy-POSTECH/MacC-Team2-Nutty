@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// TODO: navigationManager !!
 class HomeNavigationViewModel: ObservableObject {
     @Published var homePath: [HomeRoute] = []
     @Published var isUserFromSubmitCheckListView : Bool = false

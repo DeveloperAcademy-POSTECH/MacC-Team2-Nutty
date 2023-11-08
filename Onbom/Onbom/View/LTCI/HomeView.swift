@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// TODO: 글씨 크기 짤림 이슈 - 먀
+
 struct HomeView: View {
     private let timer = Timer.publish(every: 8, on: .main, in: .common).autoconnect()
     @State private var selectedPage = 0
@@ -69,7 +71,7 @@ struct HomeView: View {
                             .padding(.leading, 19)
                             .padding(.vertical, 20)
                         Spacer()
-                        Image(systemName: "chevron.right")
+                        Image("chevronRight")
                             .foregroundColor(Color.G4)
                             .padding(.trailing, 19)
                     }

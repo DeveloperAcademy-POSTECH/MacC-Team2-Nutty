@@ -18,6 +18,7 @@ class CameraManager: UIViewController, AVCapturePhotoCaptureDelegate {
         super.viewDidLoad()
         setupCamera()
     }
+    // TODO: 카메라권한이 없으면 분기처리
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

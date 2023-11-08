@@ -9,11 +9,11 @@ import SwiftUI
 
 class Agent: ObservableObject {
     var dictionary: [String:(answer:String,position:CGRect)] = [
-        "name":("name", CGRect(x: 158, y: 450, width: 140, height: 20)),
-        "id":("id", CGRect(x: 395, y: 450, width: 150, height: 20)),
-        "relation":("relation", CGRect(x: 183, y: 320, width: 140, height: 20)),
-        "address":("address", CGRect(x: 158, y: 413, width: 380, height: 20)),
-        "phoneNumber":("phoneNumber", CGRect(x: 158, y: 368, width: 140, height: 20)),
+        "name":("김유진", CGRect(x: 158, y: 450, width: 140, height: 20)),
+        "id":("", CGRect(x: 395, y: 450, width: 150, height: 20)),
+        "relation":("", CGRect(x: 183, y: 320, width: 140, height: 20)),
+        "address":("", CGRect(x: 158, y: 413, width: 380, height: 20)),
+        "phoneNumber":("", CGRect(x: 158, y: 368, width: 140, height: 20)),
     ]
     @Published var name: String = "김유진"
     @Published var id: String = ""

@@ -51,7 +51,7 @@ struct AgentInfoDetailView: View {
                 }
                 .foregroundColor(.G5)
                 Spacer()
-                Image(systemName: "chevron.right")
+                Image("chevronRight")
                     .foregroundColor(.G4)
             }
             .padding(20)

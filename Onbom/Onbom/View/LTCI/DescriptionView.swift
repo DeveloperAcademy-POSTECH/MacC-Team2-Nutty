@@ -15,7 +15,6 @@ struct DescriptionView: View {
                 .H1()
                 .foregroundColor(Color.G6)
                 .multilineTextAlignment(.center)
-//                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.bottom, 8)
             Text("기존의 불편하고 어려웠던 등급 신청 과정을\n간단하게 처리할 수 있도록 해드려요")
                 .Cap2()

@@ -49,7 +49,7 @@ struct ApplyHistoryView: View {
                         .foregroundColor(.G5)
                 }
             } _: {
-                Image(systemName: "chevron.right")
+                Image("chevronRight")
                     .foregroundColor(.G4)
             }
             

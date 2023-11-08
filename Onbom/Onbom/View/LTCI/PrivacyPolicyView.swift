@@ -57,6 +57,7 @@ struct PrivacyPolicyView: View {
     
     private var allCheckButton: some View {
         HStack {
+            // TODO: 에셋 교체
             Image(systemName: "checkmark.circle.fill")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -83,6 +84,7 @@ struct PrivacyPolicyLow: View {
     @Binding var isAllCheck: Bool
     var body: some View {
         HStack(spacing: 18) {
+            // TODO: 에셋 교체
             Image(systemName: "checkmark")
                 .foregroundColor(isAllCheck || isCheck ? .Green4 : .G4)
                 .font(.system(size: 12, weight: .bold))
@@ -93,8 +95,8 @@ struct PrivacyPolicyLow: View {
             Button {
                 isShowPrivacyPolicyDetail = true
             } label: {
-                Image(systemName: "chevron.right")
-                    .foregroundColor(.G4)
+            // TODO: 패딩 확인하기 색상 확인하기
+                Image("chevronRight")
             }
             // TODO: 현재 약관에 대한 페이지가 없어서 비활성화 처리. 근데 오른쪽 chevron을 눌러도 체크가 됨. 약관이 무조건 있을 꺼니까 상관 없을려나요?
             .disabled(true)
@@ -118,7 +120,7 @@ struct PrivacyPolicyLow: View {
     }
 }
 
-// 임시 개인정보 처리 디테일 뷰. 자세한 컨텐츠 나오면 파일 분리 예정
+// TODO: 임시 개인정보 처리 디테일 뷰. 자세한 컨텐츠 나오면 파일 분리 예정
 struct PrivacyPolicyDetailView: View {
     var detail: String
     @Binding var isShowPrivacyPolicyDetail: Bool

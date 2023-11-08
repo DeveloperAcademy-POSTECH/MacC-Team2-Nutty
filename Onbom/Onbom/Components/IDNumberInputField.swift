@@ -31,8 +31,10 @@ struct IDNumberInputField: View {
                 )
                 .focused($focusField, equals: .front)
                 .padding(.leading, 20)
+                // TODO: 느낌표 넣어야함
                 
                 Image(systemName: "minus")
+                // TODO: Rectangle width: 7이고, height:1로 바꾸기
                 
                 NumberInputField(placeholder: "뒤 7자리",
                                  limitLength: 7,

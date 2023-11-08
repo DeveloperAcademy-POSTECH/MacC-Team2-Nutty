@@ -78,6 +78,7 @@ public struct RadioButtonStyleModifiers: ButtonStyle {
                 .overlay(RoundedRectangle(cornerRadius: 10)
                     .stroke(configuration.isPressed ? Color.TGreen : Color.G2, lineWidth: 1.2))
             
+            // TODO: 더 좋은 코드를 고민해보겠음, 미야
         case .twoSelected:
             configuration.label
                 .foregroundColor(Color.Green4)

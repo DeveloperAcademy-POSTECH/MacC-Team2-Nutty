@@ -20,6 +20,7 @@ class IDCardDetector: RectangleDetectable {
     
     func detectRectangle(from image: CIImage) -> Bool {
         var isRectangleDetected = false
+        // TODO: guard let 시도하기
         let request = VNDetectRectanglesRequest { (request, error) in
             if let results = request.results as? [VNRectangleObservation], !results.isEmpty {
                 for observation in results {

@@ -19,14 +19,13 @@ struct PatientInfoView: View {
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var homeNavigation: HomeNavigationViewModel
     
-    @State private var step:                    [Bool] = [true, false, false]
-    @State private var didAppear:               [Bool] = [true, false, false]
-    @State private var isKeyboardVisible:       Bool = true
-    @State private var isPressed:               Bool = false
+    @State private var step: [Bool] = [true, false, false]
+    @State private var didAppear: [Bool] = [true, false, false]
+    @State private var isKeyboardVisible: Bool = true
     
     @StateObject private var viewModel = PatientInfoViewModel()
     
-    @FocusState private var focusedField:       Field?
+    @FocusState private var focusedField: Field?
     
     var body: some View {
         VStack(spacing: 0) {
@@ -49,8 +48,8 @@ struct PatientInfoView: View {
                     
                     VStack(spacing: 8) {
                         Text("주민번호")
-                            .foregroundColor(viewModel.isSeniorIDNumber1Wrong ? Color.R : 
-                                             focusedField == .seniorIDNumber1 || focusedField == .seniorIDNumber2 ? Color.Green4 : Color.G6)
+                            .foregroundColor(viewModel.isSeniorIDNumber1Wrong ? Color.R :
+                                                focusedField == .seniorIDNumber1 || focusedField == .seniorIDNumber2 ? Color.Green4 : Color.G6)
                             .Label()
                             .padding(.top, 32)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -76,8 +75,8 @@ struct PatientInfoView: View {
                                     .keyboardType(.numberPad)
                                     .padding(16)
                                     .background(RoundedRectangle(cornerRadius: 10)
-                                        .stroke(viewModel.isSeniorIDNumber1Wrong ? Color.R : 
-                                                focusedField == .seniorIDNumber1 ? Color.Green4 : Color.Green1, lineWidth: 1.5))
+                                        .stroke(viewModel.isSeniorIDNumber1Wrong ? Color.R :
+                                                    focusedField == .seniorIDNumber1 ? Color.Green4 : Color.Green1, lineWidth: 1.5))
                                     .tint(Color.Green4)
                                 if(viewModel.isSeniorIDNumber1Wrong) {
                                     Image("wrongInputField")
@@ -166,6 +165,7 @@ struct PatientInfoView: View {
                     .padding(.horizontal, 20)
                     .padding(.top, 36)
                     .padding(.bottom, 60)
+                // TODO: viewbuilder로 변경
             }
             if isKeyboardVisible {
                 CTAButton.CustomButtonView(style: .expanded(isDisabled: !isActiveButton())) {
@@ -173,8 +173,9 @@ struct PatientInfoView: View {
                 } label: {
                     Text("다음")
                 }
-                    .ignoresSafeArea(.keyboard, edges: .bottom)
+                .ignoresSafeArea(.keyboard, edges: .bottom)
             }
+            // TODO: switch 문으로 변경하기
             else {
                 CTAButton.CustomButtonView(style: .primary(isDisabled: !isActiveButton())) {
                     onClickButton()
@@ -209,19 +210,19 @@ struct PatientInfoView: View {
     
     private func onClickButton() {
         if(!step[1]) {
-            #if RELEASE
+#if RELEASE
             if(!viewModel.validateName()) { return }
-            #endif
+#endif
             didFinishTypingName()
         } else if(!step[2]) {
-            #if RELEASE
+#if RELEASE
             if(!viewModel.validatePhoneNumber()) { return }
-            #endif
+#endif
             didFinishTypingPhoneNumber()
         } else {
-            #if RELEASE
+#if RELEASE
             if(!viewModel.validateInputField()) { return }
-            #endif
+#endif
             patient.name = viewModel.seniorName;
             patient.combineID(frontID: viewModel.seniorIDNumber1, backID: viewModel.seniorIDNumber2)
             patient.phoneNumber = viewModel.seniorPhoneNumber
@@ -264,4 +265,9 @@ struct PatientInfoView: View {
     private func didFinishTypingAll() {
         focusedField = nil
     }
+}
+
+#Preview {
+    PatientInfoView()
+        .environmentObject(Patient())
 }

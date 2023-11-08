@@ -9,11 +9,11 @@ import SwiftUI
 
 class Patient: ObservableObject {
     var dictionary: [String:(answer:String,position:CGRect)] = [
-        "name":("name",CGRect(x: 158, y: 605, width: 140, height: 20)),
-        "id":("id",CGRect(x: 395, y: 605, width: 150, height: 20)),
-        "address":("address",CGRect(x: 158, y: 565, width: 380, height: 20)),
-        "actualAddress":("actualAddress",CGRect(x: 158, y: 520, width: 380, height: 20)),
-        "phoneNumber":("phoneNumber",CGRect(x: 158, y: 479, width: 140, height: 20)),
+        "name":("",CGRect(x: 158, y: 605, width: 140, height: 20)),
+        "id":("",CGRect(x: 395, y: 605, width: 150, height: 20)),
+        "address":("",CGRect(x: 158, y: 565, width: 380, height: 20)),
+        "actualAddress":("",CGRect(x: 158, y: 520, width: 380, height: 20)),
+        "phoneNumber":("",CGRect(x: 158, y: 479, width: 140, height: 20)),
     ]
     @Published var name: String = ""
     @Published var id: String = ""
