@@ -24,4 +24,17 @@ extension String {
         }
         return false
     }
+    
+    func isValidPhoneNumber() -> Bool {
+        let reg = try? NSRegularExpression(pattern: "^010[0-9]{8}$")
+        
+        return reg?.firstMatch(in: self, options: [], range: NSRange(location: 0, length: self.utf16.count)) != nil
+    }
+    
+    func isValidName() -> Bool {
+        let koreanRegex = try? NSRegularExpression(pattern: "^[가-힣]{2,}$")
+        
+        return koreanRegex?.firstMatch(in: self, options: [], range: NSRange(location: 0, length: self.utf16.count)) != nil
+    }
+
 }
