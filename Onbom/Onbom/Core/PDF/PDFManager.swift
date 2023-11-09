@@ -99,6 +99,8 @@ class PDFManager: ObservableObject {
     
     // MARK: 전자서명 추가하는 함수
     func addSignatureToPDF(lines: [[CGPoint]], page: PDFPage) {
+        let desiredSize = CGSize(width: 130, height: 80)
+        
             for line in lines {
                 let linePath = UIBezierPath()
                 linePath.lineWidth = 20
@@ -111,7 +113,12 @@ class PDFManager: ObservableObject {
                     linePath.addLine(to: reversedLine[pointIndex])
                 }
                 
-                let lineAnnotation = PDFAnnotation(bounds: signatureRect, forType: .ink, withProperties: nil)
+                let scaleFactor = CGSize(width: desiredSize.width / signatureRect.width, height: desiredSize.height / signatureRect.height)
+                linePath.apply(CGAffineTransform(scaleX: scaleFactor.width, y: scaleFactor.height))
+                
+                let adjustedBounds = CGRect(x: 440, y: 388, width: desiredSize.width, height: desiredSize.height)
+                let lineAnnotation = PDFAnnotation(bounds: adjustedBounds, forType: .ink, withProperties: nil)
+                
                 lineAnnotation.add(linePath)
                 page.addAnnotation(lineAnnotation)
             }
