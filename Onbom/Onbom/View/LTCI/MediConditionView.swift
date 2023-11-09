@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct MediConditionView: View {
-    @ObservedObject private var viewModel = MediConditionViewModel()
+    @StateObject private var viewModel = MediConditionViewModel()
     @EnvironmentObject var navigation: NavigationManager
     @EnvironmentObject var patient: Patient
     
