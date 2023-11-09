@@ -33,6 +33,7 @@ final class PatientInfoViewModel: ObservableObject {
             .store(in: &publishers)
     }
     
+    // TODO: - extension으로 수정하기
     private func isValidDateOfBirth(_ dateOfBirth: String) -> Bool {
         
         if(dateOfBirth.count != 6) { return false }
@@ -45,6 +46,7 @@ final class PatientInfoViewModel: ObservableObject {
     }
     
     // TODO: TestCode 작성하기
+    // TODO: extension으로 옮기기
     private func isValidPhoneNumber(_ phoneNumberString: String) -> Bool {
         guard let _ = Int(phoneNumberString) else { return false }
         

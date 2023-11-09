@@ -13,7 +13,7 @@ struct StepView: View {
         case SECOND
     }
     let state: StepViewState
-    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    @EnvironmentObject var navigation: NavigationManager
     
     init(state: StepViewState) {
         self.state = state
@@ -89,9 +89,9 @@ struct StepView: View {
                 style: .primary(isDisabled: false))
             {
                 if state == .FIRST {
-                    homeNavigation.navigate(.MediHistoryView)
+                    navigation.navigate(.MediHistoryView)
                 } else {
-                    homeNavigation.navigate(.AgentInfoView)
+                    navigation.navigate(.AgentInfoView)
                 }
             } label: {
                 Text("다음")

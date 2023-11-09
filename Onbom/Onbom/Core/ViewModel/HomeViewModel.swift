@@ -11,6 +11,7 @@ class HomeViewModel: ObservableObject {
     enum HomeViewState {
         case ready
         case apply
+        // TODO: before after
     }
     
     @Published var state: HomeViewState = .ready

@@ -11,6 +11,7 @@ struct DocumentCameraViewer: UIViewControllerRepresentable {
     let cameraManager = CameraManager()
     var capturedImage: ((UIImage) -> Void)?
     var recognizedText: ((String) -> Void)?
+    // TODO: 캡슐화
     
     func makeUIViewController(context: Context) -> CameraManager {
         return cameraManager

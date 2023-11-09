@@ -31,6 +31,7 @@ struct FormTextField: View {
                 .padding(.bottom, 4)
             ZStack(alignment: .trailing) {
                 TextField(placeHolder, text: $textInput)
+                // TODO: - viewModifier 만들기
                     .font(.custom("Pretendard-Medium", size: 16))
                     .lineSpacing(16 / 2 * (100 - 100)/100)
                     .kerning(-3/10)

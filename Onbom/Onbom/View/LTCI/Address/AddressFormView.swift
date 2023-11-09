@@ -15,7 +15,7 @@ struct AddressFormView: View {
     @State private var isKeyboardVisible = false
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
-    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    @EnvironmentObject var navigation: NavigationManager
     
     var isAddressFilled: Bool {
         !address.cityAddress.isEmpty && !address.detailAddress.isEmpty
@@ -103,10 +103,10 @@ struct AddressFormView: View {
                             showActualAddressCheckView = true
                         } else if formType == .actualPatient {
                             patient.actualAddress = address
-                            homeNavigation.navigate(.StepView_Second)
+                            navigation.navigate(.StepView_Second)
                         } else {
                             agent.address = address
-                            homeNavigation.navigate(.SignatureView)
+                            navigation.navigate(.SignatureView)
                         }
                     } label: {
                         Text("다음")
@@ -118,10 +118,10 @@ struct AddressFormView: View {
                             showActualAddressCheckView = true
                         } else if formType == .actualPatient {
                             patient.actualAddress = address
-                            homeNavigation.navigate(.StepView_Second)
+                            navigation.navigate(.StepView_Second)
                         } else {
                             agent.address = address
-                            homeNavigation.navigate(.SignatureView)
+                            navigation.navigate(.SignatureView)
                         }
                     } label: {
                         Text("다음")
@@ -161,7 +161,7 @@ struct AddressFormView: View {
                         patient.actualAddress = address
                         hideKeyboard()
                         showActualAddressCheckView = false
-                        homeNavigation.navigate(.StepView_Second)
+                        navigation.navigate(.StepView_Second)
                     } label: {
                         Text("네, 같은 곳이에요")
                     }
@@ -170,7 +170,7 @@ struct AddressFormView: View {
                         showActualAddressCheckView = false
                         patient.address = address
                         hideKeyboard()
-                        homeNavigation.navigate(.AddressFormView_ActualPatient)
+                        navigation.navigate(.AddressFormView_ActualPatient)
                     } label: {
                         Text("아니요, 달라요")
                     }

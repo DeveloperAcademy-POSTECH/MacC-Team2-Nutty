@@ -55,6 +55,7 @@ class IDCardTextRecognizer: TextRecognizable {
         var frontID: String = ""
         var backID: String = ""
 
+        // TODO: 함수형 프로그래밍으로 변환
         for text in recognizedText {
             if text.range(of: firstIDPattern, options: .regularExpression) != nil {
                 return text

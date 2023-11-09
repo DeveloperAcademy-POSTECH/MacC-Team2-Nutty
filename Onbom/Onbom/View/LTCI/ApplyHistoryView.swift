@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ApplyHistoryView: View {
-    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    @EnvironmentObject var navigation: NavigationManager
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
     
@@ -49,7 +49,7 @@ struct ApplyHistoryView: View {
                         .foregroundColor(.G5)
                 }
             } _: {
-                Image(systemName: "chevron.right")
+                Image("chevronRight")
                     .foregroundColor(.G4)
             }
             

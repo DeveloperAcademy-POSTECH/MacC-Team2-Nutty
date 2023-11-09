@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// TODO: 삭제하기
 struct PhoneNumberInputField: View {
     @Binding var phoneNumber: String
     @FocusState private var focusField: Field?

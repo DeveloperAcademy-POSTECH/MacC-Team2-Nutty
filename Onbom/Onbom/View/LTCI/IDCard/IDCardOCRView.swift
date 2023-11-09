@@ -95,7 +95,7 @@ fileprivate struct IDCardGuideLineView: View {
                         Text("신분증 촬영 방법")
                             .B2()
                             .foregroundColor(.G4)
-                        Image(systemName: "chevron.right")
+                        Image("chevronRight")
                             .foregroundColor(.G5)
                     }
                 }

@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct NavigationBarBackButton: View {
-    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    @EnvironmentObject var navigation: NavigationManager
     
     var body: some View {
         Button {
-            homeNavigation.pop()
-            homeNavigation.isUserFromSubmitCheckListView = false
+            navigation.pop()
+            navigation.isUserFromSubmitCheckListView = false
         } label: {
-            // 백버튼이 묘하게 옆으로 치우쳐서 임시 처리. 좋은 방법 help 부탁해용
             HStack() {
                 Text("")
                 Image("chevronLeft")

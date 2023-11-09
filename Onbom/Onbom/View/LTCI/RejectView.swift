@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RejectView: View {
-    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    @EnvironmentObject var navigation: NavigationManager
 
     var body: some View {
         VStack(spacing: 0) {
@@ -37,7 +37,7 @@ struct RejectView: View {
             CTAButton.CustomButtonView(
                 style: .primary(isDisabled: false))
             {
-                homeNavigation.popToRoot()
+                navigation.popToRoot()
             } label: {
                 Text("한 달 후 다시 알림 받기")
             }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SignatureView: View {
     @StateObject var digitalSignatureManager = DigitalSignatureManager()
-    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    @EnvironmentObject var navigation: NavigationManager
     @EnvironmentObject var agent: Agent
     @State private var isDisabled = true
     
@@ -62,7 +62,7 @@ struct SignatureView: View {
                 style: .primary(isDisabled: digitalSignatureManager.paths.isEmpty))
             {
                 agent.signature = digitalSignatureManager.paths
-                homeNavigation.navigate(.SubmitCheckListView)
+                navigation.navigate(.SubmitCheckListView)
             } label: {
                 Text("다음")
             }.padding(.bottom,0)

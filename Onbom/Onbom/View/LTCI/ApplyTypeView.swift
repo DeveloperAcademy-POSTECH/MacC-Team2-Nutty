@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ApplyTypeView: View {
-    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    @EnvironmentObject var navigation: NavigationManager
     let title: [String] = ["신규 신청", "갱신", "등급 변경"]
     let description: [String] = ["노인성 질병이 있는 경우에만 신청할 수 있어요", "2년에 한 번씩 갱신해 주세요", "환자의 상태가 변했을 때 신청할 수 있어요"]
     

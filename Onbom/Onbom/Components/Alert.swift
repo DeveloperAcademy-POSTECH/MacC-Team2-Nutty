@@ -23,6 +23,7 @@ struct Alert: View {
             }
             .padding(10)
         }
+        // TODO: alert 패딩 통일, bottom:16, top:20 (먀)
     }
 }
 

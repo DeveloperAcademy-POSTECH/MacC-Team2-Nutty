@@ -7,12 +7,14 @@
 
 import SwiftUI
 
+// TODO: 글씨 크기 짤림 이슈 - 먀
+
 struct HomeView: View {
     private let timer = Timer.publish(every: 8, on: .main, in: .common).autoconnect()
     @State private var selectedPage = 0
     @StateObject var viewModel = HomeViewModel()
     
-    @EnvironmentObject var homeNavigation: HomeNavigationViewModel
+    @EnvironmentObject var navigation: NavigationManager
     @EnvironmentObject var pdfManager: PDFManager
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
@@ -69,7 +71,7 @@ struct HomeView: View {
                             .padding(.leading, 19)
                             .padding(.vertical, 20)
                         Spacer()
-                        Image(systemName: "chevron.right")
+                        Image("chevronRight")
                             .foregroundColor(Color.G4)
                             .padding(.trailing, 19)
                     }
@@ -186,7 +188,7 @@ struct HomeView: View {
                 CTAButton.CustomButtonView(
                     style: .main)
                 {
-                    homeNavigation.navigate(.DescriptionView)
+                    navigation.navigate(.DescriptionView)
                 } label: {
                     Text("지금 바로 신청하기")
                 }
@@ -278,7 +280,7 @@ struct HomeView: View {
                 .shadow(color: .black.opacity(0.05), radius: 5))
             .padding(20)
             .onTapGesture {
-                homeNavigation.navigate(.ApplyHistoryView)
+                navigation.navigate(.ApplyHistoryView)
             }
         }
     }
@@ -288,7 +290,7 @@ struct HomeView: View {
         pdfManager.PDFDatas.removeAll()
         patient.reset()
         agent.reset()
-        homeNavigation.navigate(.OnboardingView)
+        navigation.navigate(.OnboardingView)
     }
     
 }
@@ -296,7 +298,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView(viewModel: HomeViewModel())
-            .environmentObject(HomeNavigationViewModel())
+            .environmentObject(NavigationManager())
             .environmentObject(PDFManager())
     }
 }

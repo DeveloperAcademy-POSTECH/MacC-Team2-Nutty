@@ -13,6 +13,7 @@ struct InputField: View {
     @Binding var content: String
     @FocusState var isFocused: Bool
     
+    // TODO: - AddressInputField에 합치기
     var body: some View {
         VStack(alignment:.leading) {
             if let label = label {
