@@ -16,7 +16,7 @@ enum PDFError: String, Error {
 class PDFManager: ObservableObject {
     @Published var PDFDatas: [Data] = []
 
-    let signatureRect: CGRect = CGRect(x: 280, y: 250, width: 500, height: 250)
+    let signatureSize: CGSize = CGSize(width: 500, height: 250)
     let imageSizeFloat: CGFloat = 0.5
     enum FixedPositionItems: CaseIterable {
             case apply
@@ -32,16 +32,17 @@ class PDFManager: ObservableObject {
         // MARK: 첫번째 페이지
         if let firstPage = pdfDocument.page(at: 0) {
             // 고정된 정보
-            for item in Array(FixedPositionItems.allCases.prefix(2)) {
+            for item in Array(FixedPositionItems.allCases.prefix(1)) {
                 switch item {
                 case .apply:
                     addTextAnnotation(page: firstPage, bounds: CGRect(x: 168, y: 742, width: 140, height: 20), content: "✓")
                 default:
-                    continue
+                    break
                 }
             }
             // 환자
-            for value in patient.dictionary.values {
+            for (key, value) in patient.dictionary {
+                if patient.isSameAddress && key == "actualAddress" { continue }
                 addTextAnnotation(page: firstPage, bounds:value.position, content: value.answer)
             }
             // 대리인
@@ -63,7 +64,7 @@ class PDFManager: ObservableObject {
                 formatter.dateFormat = "yyyy        MM        dd"
                 let currentDate = formatter.string(from: Date())
                 // 고정된 정보
-                for item in Array(FixedPositionItems.allCases.suffix(3)) {
+                for item in Array(FixedPositionItems.allCases.suffix(4)) {
                     switch item {
                     case .mailReceive:
                         addTextAnnotation(page: secondPage, bounds:CGRect(x: 342, y: 733, width: 140, height: 20), content: "✓")
@@ -106,14 +107,14 @@ class PDFManager: ObservableObject {
                 linePath.lineWidth = 20
                 
                 guard !line.isEmpty else { continue }
-                let reversedLine = line.map { CGPoint(x: $0.x, y: signatureRect.height - $0.y) }
+                let reversedLine = line.map { CGPoint(x: $0.x, y: signatureSize.height - $0.y) }
                 linePath.move(to: reversedLine[0])
                 
                 for pointIndex in 1..<reversedLine.count {
                     linePath.addLine(to: reversedLine[pointIndex])
                 }
                 
-                let scaleFactor = CGSize(width: desiredSize.width / signatureRect.width, height: desiredSize.height / signatureRect.height)
+                let scaleFactor = CGSize(width: desiredSize.width / signatureSize.width, height: desiredSize.height / signatureSize.height)
                 linePath.apply(CGAffineTransform(scaleX: scaleFactor.width, y: scaleFactor.height))
                 
                 let adjustedBounds = CGRect(x: 440, y: 388, width: desiredSize.width, height: desiredSize.height)
