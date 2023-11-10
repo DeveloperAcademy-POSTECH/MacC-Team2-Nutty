@@ -10,20 +10,22 @@ import SwiftUI
 struct Alert: View {
     let image: String
     let label : String
+    @Environment(\.dynamicTypeSize) var dynamicTypeSize
     
     var body: some View {
-        ZStack(alignment: .leading) {
-            RoundedRectangle(cornerRadius: 10)
-                .frame(maxWidth: .infinity, maxHeight: 42)
-                .foregroundColor(.Green1)
-            HStack {
-                Image(image)
+        VStack {
+            Label {
                 Text(label)
                     .Cap4()
+            } icon : {
+                Image(image)
             }
-            .padding(10)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(11)
+            .background(Color.Green1, in: RoundedRectangle(cornerRadius: 10))
         }
-        // TODO: alert 패딩 통일, bottom:16, top:20 (먀)
+        .padding(.bottom, 16)
+        .padding(.top, 20)
     }
 }
 
