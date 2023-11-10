@@ -33,9 +33,6 @@ final class PatientInfoViewModel: ObservableObject {
             .store(in: &publishers)
     }
     
-    // TODO: TestCode 작성하기
-    
-    
     private var IDNumber1Publisher: AnyPublisher<Bool, Never> {
         $seniorIDNumber1
             .map { number in
