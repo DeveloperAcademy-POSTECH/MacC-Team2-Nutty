@@ -19,7 +19,7 @@ struct CityAddressInputField: View {
                 .padding()
                 .background() {
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(isFocused ? Color.Green4 : Color.G3, lineWidth: 1.5)
+                        .stroke(content.isEmpty ? Color.Green4 : Color.G3, lineWidth: 1.5)
                 }
                 .overlay {
                     HStack {
