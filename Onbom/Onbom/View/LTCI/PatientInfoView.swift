@@ -16,17 +16,38 @@ struct PatientInfoView: View {
         case seniorIDNumber1
         case seniorIDNumber2
     }
+    public enum PatientInfoViewEditState {
+        case editPhoneNumber
+        case editIDNumber
+    }
+    let editState: PatientInfoViewEditState?
     
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var navigation: NavigationManager
     
-    @State private var step: [Bool] = [true, false, false]
-    @State private var didAppear: [Bool] = [true, false, false]
+    @State private var step: [Bool]
+    @State private var didAppear: [Bool]
     @State private var isKeyboardVisible: Bool = true
     
     @StateObject private var viewModel = PatientInfoViewModel()
     
     @FocusState private var focusedField: Field?
+    
+    init(editState: PatientInfoViewEditState? = nil) {
+        self.editState = editState
+        
+        switch(editState) {
+        case .editPhoneNumber:
+            self.didAppear = [false, true, false]
+            self.step = [false, true, false]
+        case .editIDNumber:
+            self.didAppear = [false, false, true]
+            self.step = [false, false, true]
+        case .none:
+            self.didAppear = [true, false, false]
+            self.step = [true, false, false]
+        }
+    }
     
     var body: some View {
         VStack(spacing: 0) {
@@ -46,6 +67,7 @@ struct PatientInfoView: View {
     }
     
     private func onAppear() {
+        loadPatientInfo()
         focusedField = .seniorName
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notification in
             self.isKeyboardVisible = true
@@ -55,11 +77,22 @@ struct PatientInfoView: View {
         }
     }
     
+    private func loadPatientInfo() {
+        let idNumber: String = self.patient.id
+        
+        viewModel.seniorPhoneNumber = patient.phoneNumber
+        viewModel.seniorIDNumber1 = String(idNumber.prefix(6))
+        viewModel.seniorIDNumber2 = String(idNumber.suffix(7))
+    }
+    
     private func isActiveButton() -> Bool {
         return (!step[2] && viewModel.seniorPhoneNumber.count == 11) || (!step[1] && viewModel.seniorName.count > 0) || viewModel.formIsValid
     }
     
     private func onClickButton() {
+        
+        if editComplete() { return }
+        
         if(!step[1]) {
 //            if(!viewModel.validateName()) { return }
             didFinishTypingName()
@@ -73,6 +106,21 @@ struct PatientInfoView: View {
             patient.phoneNumber = viewModel.seniorPhoneNumber
             navigation.navigate(.AddressFormView_Patient)
         }
+    }
+    
+    private func editComplete() -> Bool {
+        guard let isEditMode = self.editState else { return false }
+        
+        switch(isEditMode) {
+        case .editPhoneNumber:
+            patient.name = viewModel.seniorName
+        case .editIDNumber:
+            patient.combineID(frontID: viewModel.seniorIDNumber1, backID: viewModel.seniorIDNumber2)
+        }
+        
+        navigation.pop()
+        
+        return true
     }
     
     private func getTitle() -> String {
@@ -264,14 +312,14 @@ extension PatientInfoView {
                 CTAButton.CustomButtonView(style: .expanded(isDisabled: !isActiveButton())) {
                     onClickButton()
                 } label: {
-                    Text("다음")
+                    Text(navigation.isUserFromSubmitCheckListView ? "수정완료" : "다음")
                 }
             }
             else {
                 CTAButton.CustomButtonView(style: .primary(isDisabled: !isActiveButton())) {
                     onClickButton()
                 } label: {
-                    Text("다음")
+                    Text(navigation.isUserFromSubmitCheckListView ? "수정완료" : "다음")
                 }
                 .padding(.horizontal, 20)
             }
