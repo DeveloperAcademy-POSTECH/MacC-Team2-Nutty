@@ -8,19 +8,24 @@
 import SwiftUI
 
 struct AddressFormView: View {
+    // MARK: - 정보 입력 관련 변수
+    @State private var address = Address()
+    @State private var isKeyboardVisible = false
+    
+    // MARK: - 유저 정보 관련 변수
+    @EnvironmentObject var patient: Patient
+    @EnvironmentObject var agent: Agent
+    
+    // MARK: - navigation 관련 변수
+    @EnvironmentObject var navigation: NavigationManager
     var formType: AddressFormType
     @State private var isPostCodeViewPresented = false
     @State private var showActualAddressCheckView = false
-    @State private var address = Address()
-    @State private var isKeyboardVisible = false
-    @EnvironmentObject var patient: Patient
-    @EnvironmentObject var agent: Agent
-    @EnvironmentObject var navigation: NavigationManager
     
     var isAddressFilled: Bool {
         !address.cityAddress.isEmpty && !address.detailAddress.isEmpty
     }
-
+    
     var name: String {
         switch formType {
         case .patient, .actualPatient:
@@ -72,6 +77,12 @@ struct AddressFormView: View {
         }
     }
     
+    enum AddressFormType {
+        case patient
+        case actualPatient
+        case agent
+    }
+    
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
@@ -81,12 +92,9 @@ struct AddressFormView: View {
                         .foregroundColor(.B)
                     Spacer()
                 }
-                .padding(20)
                 
                 if formType != .agent {
                     Alert(image: "check", label: alertMessage)
-                        .padding(.horizontal, 20)
-                        .padding(.bottom, 16)
                 }
                 
                 AddressInputField(label: addressInputFieldTitle,
@@ -94,7 +102,7 @@ struct AddressFormView: View {
                                   detailAddress: $address.detailAddress,
                                   isPostCodeViewPresented: $isPostCodeViewPresented)
                 .padding(.top, 32)
-                .padding(.horizontal, 20)
+                
                 Spacer()
                 
                 if isKeyboardVisible {
@@ -111,8 +119,10 @@ struct AddressFormView: View {
                     } label: {
                         Text("다음")
                     }
+                    .padding(.horizontal, -20)
                     .ignoresSafeArea(.keyboard)
-                } else {
+                }
+                else {
                     CTAButton.CustomButtonView(style: .primary(isDisabled: !isAddressFilled)) {
                         if formType == .patient {
                             showActualAddressCheckView = true
@@ -126,9 +136,9 @@ struct AddressFormView: View {
                     } label: {
                         Text("다음")
                     }
-                    .padding(.horizontal, 20)
                 }
             }
+            .padding([.top, .leading, .trailing], 20.0)
             .navigationDestination(isPresented: $isPostCodeViewPresented) {
                 PostCodeInputView(isPostCodeViewPresented: $isPostCodeViewPresented,
                                   cityAddress: $address.cityAddress)
@@ -165,7 +175,7 @@ struct AddressFormView: View {
                     } label: {
                         Text("네, 같은 곳이에요")
                     }
-                                        
+                    
                     CTAButton.CustomButtonView(style: .secondary) {
                         showActualAddressCheckView = false
                         patient.address = address
@@ -193,13 +203,7 @@ struct AddressFormView: View {
                 self.isKeyboardVisible = false
             }
         }
-
-    }
-    
-    enum AddressFormType {
-        case patient
-        case actualPatient
-        case agent
+        
     }
 }
 
