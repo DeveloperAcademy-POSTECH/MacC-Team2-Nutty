@@ -14,12 +14,11 @@ struct SignatureView: View {
     @State private var isDisabled = true
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 0) {
             Text("서명을 해주세요")
                 .H1()
             Alert(image: "security", label: "입력한 서명은 저장되지 않으니 안심하세요")
-                .padding(.vertical, 8)
-                .padding(.bottom, 30)
+                .padding(.bottom, 32)
             Text("대리인 본인")
                 .Label()
                 .foregroundColor(Color.G6)
@@ -53,6 +52,8 @@ struct SignatureView: View {
                     Text("서명을 입력해 주세요")
                         .Cap2()
                         .foregroundColor(.G4)
+                        .multilineTextAlignment(.center)
+                        .padding()
                 }
             }
             .frame(height: 180)
@@ -65,7 +66,7 @@ struct SignatureView: View {
                 navigation.navigate(.SubmitCheckListView)
             } label: {
                 Text("다음")
-            }.padding(.bottom,0)
+            }
         }
         .navigationBarBackButton()
         .padding([.top, .leading, .trailing], 20)
