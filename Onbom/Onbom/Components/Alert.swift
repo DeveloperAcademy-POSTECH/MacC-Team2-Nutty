@@ -10,7 +10,6 @@ import SwiftUI
 struct Alert: View {
     let image: String
     let label : String
-    @Environment(\.dynamicTypeSize) var dynamicTypeSize
     
     var body: some View {
         VStack {
