@@ -8,18 +8,28 @@
 import SwiftUI
 
 struct IDCardConfirmEditView: View {
+    // MARK: - 값 입력 관련 변수
     @State private var frontIDNumber = ""
     @State private var backIDNumber = ""
     @State private var isKeyboardVisible = false
-    @Environment(\.dismiss) private var dismiss
+    
+    // MARK: - 유저 정보 관련 변수
     @EnvironmentObject var agent: Agent
+    
+    // MARK: - Navigation 관련 변수
+    @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var navigation: NavigationManager
+    
+    // MARK: - Dynamic Type 관련 변수
+    @Environment(\.dynamicTypeSize) var dynamicTypeSize
     
     var isIDNumberValid: Bool {
         frontIDNumber.isValidDateOfBirth() && backIDNumber.isValidIDBackNumber()
     }
     
     var body: some View {
+        let dynamicHStack = dynamicTypeSize <= .xxxLarge ? AnyLayout(HStackLayout()) : AnyLayout(VStackLayout())
+        
         VStack(spacing: 0) {
             HStack {
                 Text("신분증 정보를 확인해 주세요")
@@ -27,12 +37,11 @@ struct IDCardConfirmEditView: View {
                     .foregroundColor(.B)
                 Spacer()
             }
-            .padding(20)
+            .padding(.horizontal, 20)
             
             Alert(image: "security",
                   label: "신분증 정보는 저장되지 않고, 신청 즉시 파기돼요")
             .padding(.horizontal, 20)
-            .padding(.bottom, 16)
             
             ScrollView {
                 ScrollViewReader { proxy in
@@ -49,7 +58,8 @@ struct IDCardConfirmEditView: View {
                                 frontIDNumber = splittedID.frontID
                                 backIDNumber = splittedID.backID
                             }
-                        Color.clear.frame(height: 30)
+                        Color.clear
+                            .frame(height: 30)
                             .id("bottom")
                     }
                     .onChange(of: isKeyboardVisible) { _ in
@@ -65,13 +75,13 @@ struct IDCardConfirmEditView: View {
             Spacer()
             
             if !isKeyboardVisible {
-                HStack {
+                dynamicHStack {
                     CTAButton.CustomButtonView(style: .secondary) {
                         dismiss()
                     } label: {
                         Text("재촬영")
                     }
-                    .frame(width: 100)
+                    .frame(maxWidth: dynamicTypeSize <= .xxxLarge ? 103 : .infinity)
                     
                     CTAButton.CustomButtonView(style: .primary(isDisabled: !isIDNumberValid)) {
                         agent.combineID(frontID: frontIDNumber, backID: backIDNumber)
@@ -85,6 +95,7 @@ struct IDCardConfirmEditView: View {
                 .padding(.horizontal, 20)
             }
         }
+        .padding(.top, 20)
         .navigationBarBackButton()
         .onTapGesture {
             hideKeyboard()
