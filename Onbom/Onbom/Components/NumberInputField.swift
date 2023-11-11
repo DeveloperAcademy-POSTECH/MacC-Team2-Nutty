@@ -14,30 +14,33 @@ struct NumberInputField: View {
     @Binding var content: String
     @FocusState var isFocused: Bool
     @State private var isValid = true
-
+    
     var body: some View {
         VStack(alignment: .leading) {
-            inputField
-                .focused($isFocused)
-                .padding()
-                .keyboardType(.numberPad)
-                .background() {
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(lineWidth: 1.5)
-                        .foregroundColor(strokeColor)
+            HStack {
+                inputField
+                !isFocused && !isValid ? Image("wrongInputField") : Image("")
+            }
+            .focused($isFocused)
+            .padding()
+            .keyboardType(.numberPad)
+            .background {
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(lineWidth: 1.5)
+                    .foregroundColor(strokeColor)
+            }
+            .onChange(of: content) { newValue in
+                if newValue.count > limitLength {
+                    content = String(newValue.prefix(limitLength))
                 }
-                .onChange(of: content) { newValue in
-                    if newValue.count > limitLength {
-                        content = String(newValue.prefix(limitLength))
-                    }
+            }
+            .onChange(of: isFocused) { _ in
+                if limitLength == 6 {
+                    isValid = content.isValidDateOfBirth()
+                } else if limitLength == 7 {
+                    isValid = content.isValidIDBackNumber()
                 }
-                .onChange(of: isFocused) { _ in
-                    if limitLength == 6 {
-                        isValid = content.isValidDateOfBirth()
-                    } else if limitLength == 7 {
-                        isValid = content.isValidIDBackNumber()
-                    }
-                }
+            }
         }
     }
     
@@ -61,10 +64,3 @@ struct NumberInputField: View {
     }
 }
 
-struct NumberInputField_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack {
-            
-        }
-    }
-}
