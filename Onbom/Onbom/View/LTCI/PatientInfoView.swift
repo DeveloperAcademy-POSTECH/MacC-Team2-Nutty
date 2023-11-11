@@ -38,8 +38,6 @@ struct PatientInfoView: View {
             if(step[2]) {
                 Alert(image: "security", label: "입력한 주민등록번호는 저장되지 않으니 안심하세요")
                     .padding(.horizontal, 20)
-                    .padding(.bottom, 16)
-                    .padding(.top, 20)
                     .appear(didAppear[2])
             }
             
