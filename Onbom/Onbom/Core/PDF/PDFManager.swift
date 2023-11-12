@@ -12,10 +12,11 @@ enum PDFError: String, Error {
     case NullError = "pdf가 존재하지 않습니다"
 }
 
-// TODO: ObservableObject 제외, 싱글톤으로 변경
 class PDFManager: ObservableObject {
-    @Published var PDFDatas: [Data] = []
-
+    static let shared = PDFManager()
+    private init() {}
+    
+    var PDFDatas: [Data] = []
     let signatureSize: CGSize = CGSize(width: 500, height: 250)
     let imageSizeFloat: CGFloat = 0.5
     enum FixedPositionItems: CaseIterable {

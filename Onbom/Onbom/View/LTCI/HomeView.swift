@@ -299,6 +299,6 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView(viewModel: HomeViewModel())
             .environmentObject(NavigationManager())
-            .environmentObject(PDFManager())
+            .environmentObject(PDFManager.shared)
     }
 }
