@@ -26,6 +26,15 @@ struct NumberInputField: View {
                         .stroke(lineWidth: 1.5)
                         .foregroundColor(strokeColor)
                 }
+                .overlay {
+                    if !isValid {
+                        HStack {
+                            Spacer()
+                            Image("wrongInputField")
+                                .padding(.trailing, 16)
+                        }
+                    }
+                }
                 .onChange(of: content) { newValue in
                     if content.count >= limitLength {
                         content = String(newValue.prefix(limitLength))

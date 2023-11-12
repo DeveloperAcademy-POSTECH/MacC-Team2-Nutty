@@ -51,13 +51,16 @@ struct AddressFormView: View {
     }
     
     var titleMessage: String {
+        var status: String {
+            navigation.isUserFromSubmitCheckListView ? "확인" : "입력"
+        }
         switch formType {
         case .patient:
-            return "\(name)님의\n주민등록지를 입력해 주세요"
+            return "\(name)님의\n주민등록지를 \(status)해 주세요"
         case .actualPatient:
-            return "\(name)님이 현재 살고 계신\n주소지를 입력해 주세요"
+            return "\(name)님이 현재 살고 계신\n주소지를 \(status)해 주세요"
         case .agent:
-            return "\(name)님의\n주소지를 입력해 주세요"
+            return "\(name)님의\n주소지를 \(status)해 주세요"
         }
     }
     
@@ -71,7 +74,7 @@ struct AddressFormView: View {
             return "주소지"
         }
     }
-    
+        
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
@@ -99,32 +102,38 @@ struct AddressFormView: View {
                 
                 if isKeyboardVisible {
                     CTAButton.CustomButtonView(style: .expanded(isDisabled: !isAddressFilled)) {
-                        if formType == .patient {
+                        if navigation.isUserFromSubmitCheckListView {
+                            navigation.pop()
+                        }
+                        updateModelAddress()
+                        switch formType {
+                        case .patient:
                             showActualAddressCheckView = true
-                        } else if formType == .actualPatient {
-                            patient.actualAddress = address
+                        case .actualPatient:
                             navigation.navigate(.StepView_Second)
-                        } else {
-                            agent.address = address
+                        case .agent:
                             navigation.navigate(.SignatureView)
                         }
                     } label: {
-                        Text("다음")
+                        Text(navigation.isUserFromSubmitCheckListView ? "수정완료" : "다음")
                     }
                     .ignoresSafeArea(.keyboard)
                 } else {
                     CTAButton.CustomButtonView(style: .primary(isDisabled: !isAddressFilled)) {
                         if formType == .patient {
                             showActualAddressCheckView = true
-                        } else if formType == .actualPatient {
-                            patient.actualAddress = address
+                        }
+                        updateModelAddress()
+                        switch formType {
+                        case .patient:
+                            showActualAddressCheckView = true
+                        case .actualPatient:
                             navigation.navigate(.StepView_Second)
-                        } else {
-                            agent.address = address
+                        case .agent:
                             navigation.navigate(.SignatureView)
                         }
                     } label: {
-                        Text("다음")
+                        Text(navigation.isUserFromSubmitCheckListView ? "수정완료" : "다음")
                     }
                     .padding(.horizontal, 20)
                 }
@@ -133,7 +142,6 @@ struct AddressFormView: View {
                 PostCodeInputView(isPostCodeViewPresented: $isPostCodeViewPresented,
                                   cityAddress: $address.cityAddress)
             }
-            
             if showActualAddressCheckView {
                 Color.black.opacity(0.3).ignoresSafeArea()
             }
@@ -157,8 +165,7 @@ struct AddressFormView: View {
                 
                 HStack(spacing: 10) {
                     CTAButton.CustomButtonView(style: .secondary) {
-                        patient.address = address
-                        patient.actualAddress = address
+//                        patient.actualAddress = address
                         hideKeyboard()
                         showActualAddressCheckView = false
                         navigation.navigate(.StepView_Second)
@@ -168,7 +175,6 @@ struct AddressFormView: View {
                                         
                     CTAButton.CustomButtonView(style: .secondary) {
                         showActualAddressCheckView = false
-                        patient.address = address
                         hideKeyboard()
                         navigation.navigate(.AddressFormView_ActualPatient)
                     } label: {
@@ -193,7 +199,17 @@ struct AddressFormView: View {
                 self.isKeyboardVisible = false
             }
         }
-
+    }
+    
+    private func updateModelAddress() {
+        switch formType {
+        case .patient:
+            patient.address = address
+        case .actualPatient:
+            patient.actualAddress = address
+        case .agent:
+            agent.address = address
+        }
     }
     
     enum AddressFormType {
