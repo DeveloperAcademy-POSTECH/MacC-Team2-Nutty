@@ -283,7 +283,6 @@ extension PatientInfoView {
                         .Cap2()
                         .foregroundColor(.B)
                 }
-                어른
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .onTapGesture {
                     if(hasMobile) {
