@@ -25,11 +25,20 @@ struct PatientInfoView: View {
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var navigation: NavigationManager
     
+    @State private var name: String = ""
+    @State private var phoneNumber: String = ""
+    @State private var idNumberFront: String = ""
+    @State private var idNumberBack: String = ""
+    
+    @State private var hasMobile: Bool = true
+    
+    @State private var isSeniorNameWrong:       Bool = false
+    @State private var isSeniorPhoneNumberWrong:Bool = false
+    @State private var isSeniorIDNumber1Wrong:  Bool = false
+    
     @State private var step: [Bool]
     @State private var didAppear: [Bool]
     @State private var isKeyboardVisible: Bool = true
-    
-    @StateObject private var viewModel = PatientInfoViewModel()
     
     @FocusState private var focusedField: Field?
     
@@ -78,15 +87,43 @@ struct PatientInfoView: View {
     }
     
     private func loadPatientInfo() {
-        let idNumber: String = self.patient.id
+        let idNumber = self.patient.id
         
-        viewModel.seniorPhoneNumber = patient.phoneNumber
-        viewModel.seniorIDNumber1 = String(idNumber.prefix(6))
-        viewModel.seniorIDNumber2 = String(idNumber.suffix(7))
+        self.name = patient.name
+        self.phoneNumber = patient.phoneNumber
+        self.idNumberFront = String(idNumber.prefix(6))
+        self.idNumberBack = String(idNumber.suffix(7))
     }
     
     private func isActiveButton() -> Bool {
-        return (!step[2] && viewModel.seniorPhoneNumber.count == 11) || (!step[1] && viewModel.seniorName.count > 0) || viewModel.formIsValid
+        if let editState = self.editState {
+            if editState == .editIDNumber {
+                if idNumberFront.count == 6 && idNumberBack.count == 7 {
+                    return true
+                }
+            }
+            else if editState == .editPhoneNumber {
+                if phoneNumber.count == 11 {
+                    return true
+                }
+            }
+            return false
+        }
+        
+        if !step[1] {
+            if name.count > 0 { return true }
+        } else if !step[2] {
+            if phoneNumber.count == 11 { return true }
+        } else {
+            if name.count > 0 &&
+                (phoneNumber.count == 11 || !hasMobile) &&
+                idNumberFront.count == 6 &&
+                idNumberBack.count == 7 {
+                return true
+            }
+        }
+        
+        return false
     }
     
     private func onClickButton() {
@@ -94,16 +131,31 @@ struct PatientInfoView: View {
         if editComplete() { return }
         
         if(!step[1]) {
-//            if(!viewModel.validateName()) { return }
+            isSeniorNameWrong = !name.isValidName()
+            if(isSeniorNameWrong == true) { return }
+            
             didFinishTypingName()
         } else if(!step[2]) {
-//            if(!viewModel.validatePhoneNumber()) { return }
+            isSeniorNameWrong = !name.isValidName()
+            isSeniorPhoneNumberWrong = !phoneNumber.isValidPhoneNumber()
+            
+            if(isSeniorNameWrong == true) { return }
+            if(isSeniorPhoneNumberWrong == true) { return }
+            
             didFinishTypingPhoneNumber()
         } else {
-//            if(!viewModel.validateInputField()) { return }
-            patient.name = viewModel.seniorName;
-            patient.combineID(frontID: viewModel.seniorIDNumber1, backID: viewModel.seniorIDNumber2)
-            patient.phoneNumber = viewModel.seniorPhoneNumber
+            isSeniorNameWrong = !name.isValidName()
+            isSeniorPhoneNumberWrong = !phoneNumber.isValidPhoneNumber()
+            isSeniorIDNumber1Wrong = !idNumberFront.isValidDateOfBirth()
+            
+            if(!hasMobile) { isSeniorPhoneNumberWrong = false }
+            if(isSeniorNameWrong == true) { return }
+            if(isSeniorPhoneNumberWrong == true) { return }
+            if(isSeniorIDNumber1Wrong == true) { return }
+            
+            patient.name = self.name
+            patient.combineID(frontID: self.idNumberFront, backID: self.idNumberBack)
+            patient.phoneNumber = self.phoneNumber
             navigation.navigate(.AddressFormView_Patient)
         }
     }
@@ -113,12 +165,18 @@ struct PatientInfoView: View {
         
         switch(isEditMode) {
         case .editPhoneNumber:
-            patient.name = viewModel.seniorName
+            isSeniorPhoneNumberWrong = !phoneNumber.isValidPhoneNumber()
+            if(isSeniorPhoneNumberWrong == false) {
+                patient.phoneNumber = phoneNumber
+                navigation.pop()
+            }
         case .editIDNumber:
-            patient.combineID(frontID: viewModel.seniorIDNumber1, backID: viewModel.seniorIDNumber2)
+            isSeniorIDNumber1Wrong = !idNumberFront.isValidDateOfBirth()
+            if(isSeniorIDNumber1Wrong == false) {
+                patient.combineID(frontID: self.idNumberFront, backID: self.idNumberBack)
+                navigation.pop()
+            }
         }
-        
-        navigation.pop()
         
         return true
     }
@@ -164,7 +222,7 @@ struct PatientInfoView: View {
 extension PatientInfoView {
     private var header: some View {
         VStack(spacing: 0) {
-            Text(step[1] == false ? "어르신의\n성함을 입력해주세요" : viewModel.seniorName + getTitle())
+            Text(step[1] == false ? "어르신의\n성함을 입력해주세요" : name + getTitle())
                 .H1()
                 .foregroundColor(Color.B)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -182,16 +240,16 @@ extension PatientInfoView {
     }
     
     private var nameField : some View {
-        FormTextField(formSubject: "어르신 성함", placeHolder: "성함", textInput: $viewModel.seniorName, isWrong: $viewModel.isSeniorNameWrong)
-            .onReceive(Just(viewModel.seniorName)) { _ in
-                if viewModel.seniorName.count > 6 {
-                    viewModel.seniorName = String(viewModel.seniorName.prefix(6))
+        FormTextField(formSubject: "어르신 성함", placeHolder: "성함", textInput: self.$name, isWrong: $isSeniorNameWrong)
+            .onReceive(Just(name)) { _ in
+                if name.count > 6 {
+                    name = String(name.prefix(6))
                 }
             }
             .animation(.easeInOut, value: step)
             .focused($focusedField, equals: .seniorName)
             .onSubmit {
-                if(viewModel.seniorName.isEmpty) { return }
+                if(name.isEmpty) { return }
                 didFinishTypingName()
             }
             .padding(.horizontal, 20)
@@ -201,10 +259,12 @@ extension PatientInfoView {
     
     private var phoneNumberField: some View {
         VStack(spacing: 12){
-            FormTextField(formSubject: "전화번호", placeHolder: "전화번호", textInput: $viewModel.seniorPhoneNumber, isWrong: $viewModel.isSeniorPhoneNumberWrong)
-                .onReceive(Just(viewModel.seniorPhoneNumber)) { _ in
-                    if viewModel.seniorPhoneNumber.count > 11 {
-                        viewModel.seniorPhoneNumber = String(viewModel.seniorPhoneNumber.prefix(11))
+            FormTextField(formSubject: "전화번호", placeHolder: "전화번호", textInput: self.$phoneNumber, isWrong: $isSeniorPhoneNumberWrong)
+                .onReceive(Just(self.phoneNumber)) { _ in
+                    if self.phoneNumber.count > 11 {
+                         self.phoneNumber = String(self.phoneNumber.prefix(11))
+                    } else if self.phoneNumber.count < 11 {
+                        isSeniorPhoneNumberWrong = false
                     }
                 }
                 .keyboardType(.numberPad)
@@ -212,27 +272,31 @@ extension PatientInfoView {
                 .onSubmit {
                     didFinishTypingName()
                 }
-                .disabled(!viewModel.hasMobile)
-            HStack(spacing: 0){
-                Image(systemName: "checkmark.circle.fill")
-                    .foregroundColor(viewModel.hasMobile ? Color.G3 : Color.Green4)
-                    .frame(width: 20, height: 20)
-                    .padding(.trailing, 10)
-                Text("전화번호가 없어요")
-                    .Cap2()
-                    .foregroundColor(.B)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .onTapGesture {
-                if(viewModel.hasMobile) {
-                    // 핸드폰이 없다고 체크함
-                    viewModel.seniorPhoneNumber = ""
-                    didFinishTypingPhoneNumber()
-                } else {
-                    // 핸드폰이 있다고 체크함
-                    focusedField = .seniorPhoneNumber
+                .disabled(!self.hasMobile)
+            if self.editState == nil {
+                HStack(spacing: 0){
+                    Image(systemName: "checkmark.circle.fill")
+                        .foregroundColor( hasMobile ? Color.G3 : Color.Green4)
+                        .frame(width: 20, height: 20)
+                        .padding(.trailing, 10)
+                    Text("전화번호가 없어요")
+                        .Cap2()
+                        .foregroundColor(.B)
                 }
-                viewModel.hasMobile.toggle()
+                어른
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .onTapGesture {
+                    if(hasMobile) {
+                        // 핸드폰이 없다고 체크함
+                        self.phoneNumber = ""
+                        isSeniorPhoneNumberWrong = false
+                        didFinishTypingPhoneNumber()
+                    } else {
+                        // 핸드폰이 있다고 체크함
+                        focusedField = .seniorPhoneNumber
+                    }
+                    hasMobile.toggle()
+                }
             }
         }
         .padding(.top, 36)
@@ -244,7 +308,7 @@ extension PatientInfoView {
     private var idNumberField: some View {
         VStack(spacing: 8) {
             Text("주민번호")
-                .foregroundColor(viewModel.isSeniorIDNumber1Wrong ? Color.R :
+                .foregroundColor( isSeniorIDNumber1Wrong ? Color.R :
                                     focusedField == .seniorIDNumber1 || focusedField == .seniorIDNumber2 ? Color.Green4 : Color.G6)
                 .Label()
                 .padding(.top, 32)
@@ -252,17 +316,19 @@ extension PatientInfoView {
             
             HStack(spacing: 0){
                 ZStack(alignment: .trailing){
-                    TextField("앞 6자리", text: $viewModel.seniorIDNumber1)
+                    TextField("앞 6자리", text: self.$idNumberFront)
                         .font(.custom("Pretendard-Medium", size: 16))
                         .lineSpacing(16 / 2 * (100 - 100)/100)
                         .kerning(-3/10)
                         .foregroundColor(Color.B)
-                        .onReceive(Just(viewModel.seniorIDNumber1)) { _ in
-                            if viewModel.seniorIDNumber1.count > 6 {
-                                viewModel.seniorIDNumber1 = String(viewModel.seniorIDNumber1.prefix(6))
+                        .onReceive(Just(self.idNumberFront)) { _ in
+                            if self.idNumberFront.count > 6 {
+                                 self.idNumberFront = String(self.idNumberFront.prefix(6))
+                            } else if self.idNumberFront.count < 6 {
+                                isSeniorIDNumber1Wrong = false
                             }
                         }
-                        .onChange(of: viewModel.seniorIDNumber1) { newValue in
+                        .onChange(of: self.idNumberFront) { newValue in
                             if newValue.count == 6 {
                                 focusedField = .seniorIDNumber2
                             }
@@ -271,10 +337,10 @@ extension PatientInfoView {
                         .keyboardType(.numberPad)
                         .padding(16)
                         .background(RoundedRectangle(cornerRadius: 10)
-                            .stroke(viewModel.isSeniorIDNumber1Wrong ? Color.R :
+                            .stroke( isSeniorIDNumber1Wrong ? Color.R :
                                         focusedField == .seniorIDNumber1 ? Color.Green4 : Color.Green1, lineWidth: 1.5))
                         .tint(Color.Green4)
-                    if(viewModel.isSeniorIDNumber1Wrong) {
+                    if( isSeniorIDNumber1Wrong) {
                         Image("wrongInputField")
                             .padding(.trailing, 16)
                     }
@@ -282,15 +348,15 @@ extension PatientInfoView {
                 Text("-")
                     .padding(.horizontal, 7)
                 
-                SecureField("뒤 7자리", text: $viewModel.seniorIDNumber2)
+                SecureField("뒤 7자리", text: self.$idNumberBack)
                     .frame(height:23)
                     .font(.system(size: 16))
-                    .onReceive(Just(viewModel.seniorIDNumber2)) { _ in
-                        if viewModel.seniorIDNumber2.count > 7 {
-                            viewModel.seniorIDNumber2 = String(viewModel.seniorIDNumber2.prefix(7))
+                    .onReceive(Just( self.idNumberBack)) { _ in
+                        if  self.idNumberBack.count > 7 {
+                             self.idNumberBack = String( self.idNumberBack.prefix(7))
                         }
                     }
-                    .onChange(of: viewModel.seniorIDNumber2) { newValue in
+                    .onChange(of:  self.idNumberBack) { newValue in
                         if newValue.count == 7 {
                             didFinishTypingAll()
                         }

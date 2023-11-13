@@ -64,7 +64,6 @@
 		737227442AD474E50021EFC6 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737227432AD474E50021EFC6 /* View+Extension.swift */; };
 		7372274C2AD476200021EFC6 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372274B2AD476200021EFC6 /* ViewModifier.swift */; };
 		7372274F2AD476AD0021EFC6 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372274E2AD476AD0021EFC6 /* FormTextField.swift */; };
-		737B62172AD6EAB30010444E /* PatientInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737B62162AD6EAB30010444E /* PatientInfoViewModel.swift */; };
 		737D49032ACB3F4F008AC5EC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D49022ACB3F4F008AC5EC /* MainView.swift */; };
 		737EE3542ABD646100D224FC /* OnbomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737EE3532ABD646100D224FC /* OnbomApp.swift */; };
 		737EE3582ABD646200D224FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737EE3572ABD646200D224FC /* Assets.xcassets */; };
@@ -165,7 +164,6 @@
 		737227432AD474E50021EFC6 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		7372274B2AD476200021EFC6 /* ViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifier.swift; sourceTree = "<group>"; };
 		7372274E2AD476AD0021EFC6 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
-		737B62162AD6EAB30010444E /* PatientInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientInfoViewModel.swift; sourceTree = "<group>"; };
 		737D49022ACB3F4F008AC5EC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		737EE3532ABD646100D224FC /* OnbomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbomApp.swift; sourceTree = "<group>"; };
 		737EE3572ABD646200D224FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -176,7 +174,7 @@
 		739F9FAA2AC1DB4300523110 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		73A708882ACEC605004B462B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		73C58ABE2AEE1A8C00EA126A /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
-		73F4D53B2AFC019600BEA671 /* OnbomUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = OnbomUITests.xctest; path = "/Users/moon/Desktop/MacC-Team2-Nutty/Onbom/build/Debug-iphoneos/OnbomUITests.xctest"; sourceTree = "<absolute>"; };
+		73C7A0D62B010F7D00CE3C9E /* OnbomUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnbomUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73F4D54B2AFC065200BEA671 /* StringValidateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringValidateTests.swift; sourceTree = "<group>"; };
 		73FD46D62ADAADCF002ED839 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		73FD46D82ADADF8C002ED839 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -314,7 +312,6 @@
 			children = (
 				731EB7462AF9ED9A00931952 /* HomeViewModel.swift */,
 				7389872E2AD5E95A00688634 /* MediConditionViewModel.swift */,
-				737B62162AD6EAB30010444E /* PatientInfoViewModel.swift */,
 				735EE1B52AC02AA200AD8B8D /* AuthenticationViewModel.swift */,
 			);
 			path = ViewModel;
@@ -328,6 +325,7 @@
 				7386D33D2AEFF1E600E1F327 /* OnbomTests */,
 				73C58AC02AEE1D9A00EA126A /* Frameworks */,
 				702872642AF736C200061AD4 /* OnbomTests.xctest */,
+				73C7A0D62B010F7D00CE3C9E /* OnbomUITests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -581,7 +579,7 @@
 			);
 			name = OnbomUITests;
 			productName = OnbomUITests;
-			productReference = 73F4D53B2AFC019600BEA671 /* OnbomUITests.xctest */;
+			productReference = 73C7A0D62B010F7D00CE3C9E /* OnbomUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -725,7 +723,6 @@
 				731609682AD838FB00399476 /* StepView.swift in Sources */,
 				AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */,
 				03FFF2D32AE6B4A600B81D65 /* SubmitView.swift in Sources */,
-				737B62172AD6EAB30010444E /* PatientInfoViewModel.swift in Sources */,
 				702D35AA2ADBBD31008FE1F8 /* Patient.swift in Sources */,
 				70E0470B2AD5139200FC73A5 /* IDNumberInputField.swift in Sources */,
 				AEA098F42AE6B13800DE9BA8 /* DescriptionView.swift in Sources */,
