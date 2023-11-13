@@ -11,11 +11,16 @@ struct AddressFormView: View {
     var formType: AddressFormType
     @State private var isPostCodeViewPresented = false
     @State private var showActualAddressCheckView = false
-    @State private var address = Address()
     @State private var isKeyboardVisible = false
+    @State private var address: Address
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
     @EnvironmentObject var navigation: NavigationManager
+    
+    init(formType: AddressFormType, address: Address = Address()) {
+        self.formType = formType
+        self.address = address
+    }
     
     var isAddressFilled: Bool {
         !address.cityAddress.isEmpty && !address.detailAddress.isEmpty
@@ -104,6 +109,8 @@ struct AddressFormView: View {
                     CTAButton.CustomButtonView(style: .expanded(isDisabled: !isAddressFilled)) {
                         if navigation.isUserFromSubmitCheckListView {
                             navigation.pop()
+                            updateModelAddress()
+                            return
                         }
                         updateModelAddress()
                         switch formType {
@@ -120,8 +127,8 @@ struct AddressFormView: View {
                     .ignoresSafeArea(.keyboard)
                 } else {
                     CTAButton.CustomButtonView(style: .primary(isDisabled: !isAddressFilled)) {
-                        if formType == .patient {
-                            showActualAddressCheckView = true
+                        if navigation.isUserFromSubmitCheckListView {
+                            navigation.pop()
                         }
                         updateModelAddress()
                         switch formType {
@@ -165,7 +172,7 @@ struct AddressFormView: View {
                 
                 HStack(spacing: 10) {
                     CTAButton.CustomButtonView(style: .secondary) {
-//                        patient.actualAddress = address
+                        patient.actualAddress = address
                         hideKeyboard()
                         showActualAddressCheckView = false
                         navigation.navigate(.StepView_Second)
