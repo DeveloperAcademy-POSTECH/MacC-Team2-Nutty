@@ -16,7 +16,7 @@ struct SubmitLoadingView: View {
     @State private var state: SubmitLoadingViewState = .loading
     @Binding var presented: Bool
     private let firebaseStorageManager: FirebaseStorageManager = .shared
-    @EnvironmentObject var pdfManager: PDFManager
+    private let pdfManager: PDFManager = .shared
     @Environment(\.dismiss) var dismiss
     
     var body: some View {

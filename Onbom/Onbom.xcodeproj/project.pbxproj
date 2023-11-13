@@ -91,6 +91,7 @@
 		AEB33E9E2AC40C470082A3E7 /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33E9D2AC40C470082A3E7 /* InputField.swift */; };
 		AEB33EA92ACAADE00082A3E7 /* PDFFormLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33EA82ACAADE00082A3E7 /* PDFFormLocation.swift */; };
 		AEB33EAC2ACD3D010082A3E7 /* DigitalSignatureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33EAB2ACD3D010082A3E7 /* DigitalSignatureManager.swift */; };
+		AEC6D9842B015BE700ED0E7C /* PrivacyPolicyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC6D9832B015BE700ED0E7C /* PrivacyPolicyDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -180,6 +181,7 @@
 		AEB33E9D2AC40C470082A3E7 /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
 		AEB33EA82ACAADE00082A3E7 /* PDFFormLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFFormLocation.swift; sourceTree = "<group>"; };
 		AEB33EAB2ACD3D010082A3E7 /* DigitalSignatureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalSignatureManager.swift; sourceTree = "<group>"; };
+		AEC6D9832B015BE700ED0E7C /* PrivacyPolicyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyDetailView.swift; sourceTree = "<group>"; };
 		AEDB39752AE5BE6F0034E57E /* Dongle-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dongle-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -377,6 +379,7 @@
 				AEA098F32AE6B13800DE9BA8 /* DescriptionView.swift */,
 				7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */,
 				AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */,
+				AEC6D9832B015BE700ED0E7C /* PrivacyPolicyDetailView.swift */,
 				731609672AD838FB00399476 /* StepView.swift */,
 				7372273D2AD2FB340021EFC6 /* MediHistoryView.swift */,
 				735ADB2E2AD5AC4E0069B94B /* MediConditionView.swift */,
@@ -694,6 +697,7 @@
 				70AC25AB2AF15CA300DBC4A0 /* DocumentDetector.swift in Sources */,
 				731EB7472AF9ED9A00931952 /* HomeViewModel.swift in Sources */,
 				AE10D3922AD4E1C900D9ED3C /* PrivacyPolicyView.swift in Sources */,
+				AEC6D9842B015BE700ED0E7C /* PrivacyPolicyDetailView.swift in Sources */,
 				AEB33EA92ACAADE00082A3E7 /* PDFFormLocation.swift in Sources */,
 				03FFF2D12AE6AD2C00B81D65 /* SubmitLoadingView.swift in Sources */,
 				AEB33E9B2AC406600082A3E7 /* Color+Palette.swift in Sources */,

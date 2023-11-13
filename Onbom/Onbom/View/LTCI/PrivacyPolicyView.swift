@@ -22,7 +22,7 @@ struct PrivacyPolicyView: View {
                 Divider()
                     .padding(.bottom, 18)
                     .padding(.top, 8)
-                VStack(spacing: 18) {
+                VStack(spacing: 22) {
                     ForEach(Array(policyTextArray.enumerated()), id: \.element) { index, policyText in
                         HStack() {
                             PrivacyPolicyLow(policyText: policyText, isCheck: $isCheckArray[index], isAllCheck: $isAllCheck)
@@ -38,12 +38,10 @@ struct PrivacyPolicyView: View {
                     isAllCheck = true
                 }
             }
-            .padding(.bottom, 8)
             CTAButton.CustomButtonView(
                 style: .primary(isDisabled: !isAllCheck))
             {
                 if isAllCheck {
-                    // Date() 저장하기
                     isPrivacyPolicyViewPresented = false
                     navigation.navigate(.StepView_First)
                 }
@@ -57,12 +55,10 @@ struct PrivacyPolicyView: View {
     
     private var allCheckButton: some View {
         HStack {
-            // TODO: 에셋 교체
-            Image(systemName: "checkmark.circle.fill")
+            Image(isAllCheck ? "selectedCircle" : "defaultCircle")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 20)
-                .foregroundColor(isAllCheck ? .Green4 : .G3)
             Text("개인정보 처리에 모두 동의합니다.")
                 .T1()
                 .foregroundColor(.B)
@@ -84,7 +80,6 @@ struct PrivacyPolicyLow: View {
     @Binding var isAllCheck: Bool
     var body: some View {
         HStack(spacing: 18) {
-            // TODO: 에셋 교체
             Image(systemName: "checkmark")
                 .foregroundColor(isAllCheck || isCheck ? .Green4 : .G4)
                 .font(.system(size: 12, weight: .bold))
@@ -95,14 +90,11 @@ struct PrivacyPolicyLow: View {
             Button {
                 isShowPrivacyPolicyDetail = true
             } label: {
-            // TODO: 패딩 확인하기 색상 확인하기
                 Image("chevronRight")
             }
-            // TODO: 현재 약관에 대한 페이지가 없어서 비활성화 처리. 근데 오른쪽 chevron을 눌러도 체크가 됨. 약관이 무조건 있을 꺼니까 상관 없을려나요?
-            .disabled(true)
         }
         .fullScreenCover(isPresented: $isShowPrivacyPolicyDetail) {
-            PrivacyPolicyDetailView(detail: policyText, isShowPrivacyPolicyDetail: $isShowPrivacyPolicyDetail)
+            PrivacyPolicyDetailView(isShowPrivacyPolicyDetail: $isShowPrivacyPolicyDetail)
         }
         .onTapGesture {
             if isAllCheck {
@@ -115,22 +107,6 @@ struct PrivacyPolicyLow: View {
         .onChange(of: isAllCheck) { newValue in
             if isAllCheck {
                 isCheck = isAllCheck
-            }
-        }
-    }
-}
-
-// TODO: 임시 개인정보 처리 디테일 뷰. 자세한 컨텐츠 나오면 파일 분리 예정
-struct PrivacyPolicyDetailView: View {
-    var detail: String
-    @Binding var isShowPrivacyPolicyDetail: Bool
-    var body: some View {
-        VStack {
-            Text(detail)
-            Button {
-                isShowPrivacyPolicyDetail = false
-            } label: {
-                Text("닫기")
             }
         }
     }
