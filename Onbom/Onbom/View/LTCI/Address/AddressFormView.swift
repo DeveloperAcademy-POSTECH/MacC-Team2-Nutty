@@ -173,6 +173,7 @@ struct AddressFormView: View {
                 HStack(spacing: 10) {
                     CTAButton.CustomButtonView(style: .secondary) {
                         patient.actualAddress = address
+                        patient.isSameAddress = true
                         hideKeyboard()
                         showActualAddressCheckView = false
                         navigation.navigate(.StepView_Second)
@@ -182,6 +183,7 @@ struct AddressFormView: View {
                                         
                     CTAButton.CustomButtonView(style: .secondary) {
                         showActualAddressCheckView = false
+                        patient.isSameAddress = false
                         hideKeyboard()
                         navigation.navigate(.AddressFormView_ActualPatient)
                     } label: {

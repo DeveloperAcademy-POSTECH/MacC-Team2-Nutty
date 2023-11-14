@@ -13,11 +13,10 @@ struct HomeView: View {
     private let timer = Timer.publish(every: 8, on: .main, in: .common).autoconnect()
     @State private var selectedPage = 0
     @StateObject var viewModel = HomeViewModel()
-    
     @EnvironmentObject var navigation: NavigationManager
-    @EnvironmentObject var pdfManager: PDFManager
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
+    private let pdfManager: PDFManager = .shared
     let width = UIScreen.main.bounds.width
     
     var body: some View {
@@ -299,6 +298,5 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView(viewModel: HomeViewModel())
             .environmentObject(NavigationManager())
-            .environmentObject(PDFManager())
     }
 }
