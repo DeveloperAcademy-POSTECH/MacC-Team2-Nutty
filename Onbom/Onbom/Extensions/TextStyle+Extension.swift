@@ -13,7 +13,7 @@ extension Text {
     }
 
     func H2() -> some View {
-        customTextStyle(fontName: "Pretendard-ExtraBold", fontSize: 18, lineSpacing: 100, kerning: -2)
+        customTextStyle(fontName: "Pretendard-Bold", fontSize: 18, lineSpacing: 100, kerning: -2)
     }
 
     func T1() -> some View {
@@ -33,7 +33,7 @@ extension Text {
         customTextStyle(fontName: "Pretendard-Bold", fontSize: 16, lineSpacing: 100, kerning: -1)
     }
     func B2() -> some View {
-        customTextStyle(fontName: "Pretendard-Bold", fontSize: 16, lineSpacing: 100, kerning: -1)    }
+        customTextStyle(fontName: "Pretendard-SemiBold", fontSize: 16, lineSpacing: 100, kerning: -1)    }
     func B3() -> some View {
         customTextStyle(fontName: "Pretendard-Medium", fontSize: 16, lineSpacing: 140, kerning: -3)
     }
@@ -42,7 +42,7 @@ extension Text {
     }
     
     func Label() -> some View {
-        customTextStyle(fontName: "Pretendard-SemiBold", fontSize: 15, lineSpacing: 100, kerning: -2)
+        customTextStyle(fontName: "Pretendard-SemiBold", fontSize: 17, lineSpacing: 100, kerning: -2)
     }
     func Cap1() -> some View {
         customTextStyle(fontName: "Pretendard-Medium", fontSize: 16, lineSpacing: 160, kerning: -2)
@@ -68,12 +68,6 @@ extension Text {
 }
 
 extension Text {
-    func Title() -> some View {
-        self.H2().foregroundColor(.B)
-    }
-}
-
-extension Text {
     func customTextStyle(fontName: String, fontSize : CGFloat, lineSpacing: CGFloat, kerning: CGFloat) -> some View {
         self
             .font(.custom(fontName, size: fontSize))
@@ -88,17 +82,15 @@ struct Text_Previews: PreviewProvider {
             VStack {
                 Text("H1 Bold 28pt 140% -3%")
                     .H1()
-                Text("H2 Bold 22pt 130% -2%")
+                Text("H2 Bold 18pt 100% -2%")
                     .H2()
             }
             VStack {
-                Text("T1 Bold 19pt 130% -3%")
+                Text("T1 Bold 22pt 130% -2%")
                     .T1()
-                Text("T2 Bold 18pt 130% -2%")
+                Text("T2 Bold 19pt 130% -3%")
                     .T2()
-                Text("T3 Bold 17pt 130% -3%")
-                    .T3()
-                Text("T4 Bold 14pt 130% -3%")
+                Text("T3 Bold 14pt 130% -3%")
                     .T3()
                 Text("T4 SemiBold 14pt 160% -2%")
                     .T4()
@@ -114,7 +106,7 @@ struct Text_Previews: PreviewProvider {
                     .B4()
             }
             VStack {
-                Text("Label SemiBold 14pt 100% -2%")
+                Text("Label SemiBold 17pt 100% -2%")
                     .Label()
             }
             VStack {
@@ -126,8 +118,6 @@ struct Text_Previews: PreviewProvider {
                     .Cap3()
                 Text("Cap4 Medium 14pt 100% -2%")
                     .Cap4()
-                Text("Cap5 Medium 13pt 100% -2%")
-                    .Cap5()
                 Text("Cap5 Regular 13pt 160% -2%")
                     .Cap5()
                 Text("Cap6 Bold 11pt 100% 0%")
