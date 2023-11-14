@@ -18,8 +18,6 @@ class PDFManager: ObservableObject {
     
     var PDFDatas: [Data] = []
     let signatureSize: CGSize = CGSize(width: 500, height: 250)
-    
-    let signatureRect: CGRect = CGRect(x: 280, y: 250, width: 500, height: 250)
     let imageSizeFloat: CGFloat = 0.5
     enum FixedPositionItems: CaseIterable {
             case apply
@@ -28,6 +26,10 @@ class PDFManager: ObservableObject {
             case todayDate
             case agentName
         }
+    
+    func isSameAddress(patient: Patient) -> Bool {
+        return patient.dictionary["address"]?.answer == patient.dictionary["actualAddress"]?.answer
+    }
     
     func createPDF(documentURL: URL, patient: Patient, agent: Agent) {
         guard let pdfDocument = PDFDocument(url: documentURL) else { return }
@@ -44,8 +46,10 @@ class PDFManager: ObservableObject {
                 }
             }
             // 환자
-            for value in patient.dictionary.values {
+            for (key, value) in patient.dictionary {
+                if key == "actualAddress" && isSameAddress(patient: patient) { continue }
                 addTextAnnotation(page: firstPage, bounds:value.position, content: value.answer)
+                
             }
             // 대리인
             for value in agent.dictionary.values {
@@ -57,6 +61,7 @@ class PDFManager: ObservableObject {
                 default:
                     addTextAnnotation(page: firstPage, bounds:value.position, content: value.answer)
                 }
+                addTextAnnotation(page: firstPage, bounds:CGRect(x: 477, y: 322, width: 140, height: 20), content: "상세 관계")
             }
         }
             
@@ -82,7 +87,7 @@ class PDFManager: ObservableObject {
                 }
                 // 전염성, 정신질환, 전자서명
                 addTextAnnotation(page: secondPage, bounds: patient.hasInfectiousDisease ? CGRect(x: 301, y: 601, width: 140, height: 20) : CGRect(x: 352, y: 601, width: 140, height: 20), content: "✓")
-                addTextAnnotation(page: secondPage, bounds: patient.hasMentalDisorder ? CGRect(x: 301, y: 580, width: 140, height: 20) : CGRect(x: 352, y: 580, width: 140, height: 20), content: "✓")
+                addTextAnnotation(page: secondPage, bounds: CGRect(x: 301, y: 580, width: 140, height: 20), content: "✓")
                 addSignatureToPDF(lines: agent.signature, page: secondPage)
             }
         // 민증 사진
