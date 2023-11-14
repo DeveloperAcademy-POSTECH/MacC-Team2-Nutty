@@ -15,12 +15,7 @@ struct AddressFormView: View {
     @State private var address: Address
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
-    
-    // MARK: - navigation 관련 변수
     @EnvironmentObject var navigation: NavigationManager
-    var formType: AddressFormType
-    @State private var isPostCodeViewPresented = false
-    @State private var showActualAddressCheckView = false
     
     init(formType: AddressFormType, address: Address = Address()) {
         self.formType = formType
