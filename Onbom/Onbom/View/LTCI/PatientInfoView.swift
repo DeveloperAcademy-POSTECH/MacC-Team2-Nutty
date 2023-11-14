@@ -337,7 +337,7 @@ extension PatientInfoView {
                         .padding(16)
                         .background(RoundedRectangle(cornerRadius: 10)
                             .stroke( isSeniorIDNumber1Wrong ? Color.R :
-                                        focusedField == .seniorIDNumber1 ? Color.Green4 : Color.Green1, lineWidth: 1.5))
+                                        focusedField == .seniorIDNumber1 ? Color.Green4 : Color.G3, lineWidth: 1.5))
                         .tint(Color.Green4)
                     if( isSeniorIDNumber1Wrong) {
                         Image("wrongInputField")
@@ -364,7 +364,7 @@ extension PatientInfoView {
                     .keyboardType(.numberPad)
                     .padding(16)
                     .background(RoundedRectangle(cornerRadius: 10)
-                        .stroke(focusedField == .seniorIDNumber2 ? Color.Green4 : Color.Green1, lineWidth: 1.5))
+                        .stroke(focusedField == .seniorIDNumber2 ? Color.Green4 : Color.G3, lineWidth: 1.5))
             }
         }
         .padding(.horizontal, 20)
