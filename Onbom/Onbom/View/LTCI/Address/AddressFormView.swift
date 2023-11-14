@@ -127,10 +127,11 @@ struct AddressFormView: View {
                     .ignoresSafeArea(.keyboard)
                 } else {
                     CTAButton.CustomButtonView(style: .primary(isDisabled: !isAddressFilled)) {
+                        updateModelAddress()
                         if navigation.isUserFromSubmitCheckListView {
                             navigation.pop()
+                            return
                         }
-                        updateModelAddress()
                         switch formType {
                         case .patient:
                             showActualAddressCheckView = true
@@ -173,6 +174,7 @@ struct AddressFormView: View {
                 HStack(spacing: 10) {
                     CTAButton.CustomButtonView(style: .secondary) {
                         patient.actualAddress = address
+                        patient.isSameAddress = true
                         hideKeyboard()
                         showActualAddressCheckView = false
                         navigation.navigate(.StepView_Second)
@@ -182,6 +184,7 @@ struct AddressFormView: View {
                                         
                     CTAButton.CustomButtonView(style: .secondary) {
                         showActualAddressCheckView = false
+                        patient.isSameAddress = false
                         hideKeyboard()
                         navigation.navigate(.AddressFormView_ActualPatient)
                     } label: {
