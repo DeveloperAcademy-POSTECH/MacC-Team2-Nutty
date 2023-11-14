@@ -64,17 +64,18 @@
 		737227442AD474E50021EFC6 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737227432AD474E50021EFC6 /* View+Extension.swift */; };
 		7372274C2AD476200021EFC6 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372274B2AD476200021EFC6 /* ViewModifier.swift */; };
 		7372274F2AD476AD0021EFC6 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372274E2AD476AD0021EFC6 /* FormTextField.swift */; };
-		737B62172AD6EAB30010444E /* PatientInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737B62162AD6EAB30010444E /* PatientInfoViewModel.swift */; };
 		737D49032ACB3F4F008AC5EC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D49022ACB3F4F008AC5EC /* MainView.swift */; };
 		737EE3542ABD646100D224FC /* OnbomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737EE3532ABD646100D224FC /* OnbomApp.swift */; };
 		737EE3582ABD646200D224FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737EE3572ABD646200D224FC /* Assets.xcassets */; };
 		737EE35B2ABD646200D224FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737EE35A2ABD646200D224FC /* Preview Assets.xcassets */; };
+		737FFBA02AFC8E1900FCCB17 /* String+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702872652AF737A500061AD4 /* String+Validation.swift */; };
 		7384DB082AEACB950034E7FD /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384DB072AEACB950034E7FD /* CustomNavigationBar.swift */; };
 		7386D33F2AEFF1E600E1F327 /* PatientInfoViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7386D33E2AEFF1E600E1F327 /* PatientInfoViewModelTests.swift */; };
 		7389872F2AD5E95A00688634 /* MediConditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389872E2AD5E95A00688634 /* MediConditionViewModel.swift */; };
 		73A708892ACEC605004B462B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73A708882ACEC605004B462B /* GoogleService-Info.plist */; };
 		73C58ABF2AEE1A8C00EA126A /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C58ABE2AEE1A8C00EA126A /* FirebaseStorageManager.swift */; };
 		73C58AF82AEE238A00EA126A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 73C58AF72AEE238A00EA126A /* FirebaseStorage */; };
+		73F4D54C2AFC065200BEA671 /* StringValidateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F4D54B2AFC065200BEA671 /* StringValidateTests.swift */; };
 		73FD46D72ADAADCF002ED839 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FD46D62ADAADCF002ED839 /* NavigationManager.swift */; };
 		73FD46D92ADADF8C002ED839 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FD46D82ADADF8C002ED839 /* HomeView.swift */; };
 		AE0132D12AE5BFCF00347814 /* Dongle-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEDB39752AE5BE6F0034E57E /* Dongle-Bold.ttf */; };
@@ -92,6 +93,16 @@
 		AEB33EA92ACAADE00082A3E7 /* PDFFormLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33EA82ACAADE00082A3E7 /* PDFFormLocation.swift */; };
 		AEB33EAC2ACD3D010082A3E7 /* DigitalSignatureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB33EAB2ACD3D010082A3E7 /* DigitalSignatureManager.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		73F4D5412AFC019600BEA671 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 737EE3482ABD646100D224FC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 737EE34F2ABD646100D224FC;
+			remoteInfo = Onbom;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		03D759352ACDA17400495D7F /* PostCodeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCodeInputView.swift; sourceTree = "<group>"; };
@@ -153,7 +164,6 @@
 		737227432AD474E50021EFC6 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		7372274B2AD476200021EFC6 /* ViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifier.swift; sourceTree = "<group>"; };
 		7372274E2AD476AD0021EFC6 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
-		737B62162AD6EAB30010444E /* PatientInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientInfoViewModel.swift; sourceTree = "<group>"; };
 		737D49022ACB3F4F008AC5EC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		737EE3532ABD646100D224FC /* OnbomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbomApp.swift; sourceTree = "<group>"; };
 		737EE3572ABD646200D224FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -164,6 +174,8 @@
 		739F9FAA2AC1DB4300523110 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		73A708882ACEC605004B462B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		73C58ABE2AEE1A8C00EA126A /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
+		73C7A0D62B010F7D00CE3C9E /* OnbomUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnbomUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		73F4D54B2AFC065200BEA671 /* StringValidateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringValidateTests.swift; sourceTree = "<group>"; };
 		73FD46D62ADAADCF002ED839 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		73FD46D82ADADF8C002ED839 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		AE10D38F2AD4D33C00D9ED3C /* SignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureView.swift; sourceTree = "<group>"; };
@@ -193,6 +205,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		7386D3392AEFF1E600E1F327 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73F4D5382AFC019600BEA671 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -293,7 +312,6 @@
 			children = (
 				731EB7462AF9ED9A00931952 /* HomeViewModel.swift */,
 				7389872E2AD5E95A00688634 /* MediConditionViewModel.swift */,
-				737B62162AD6EAB30010444E /* PatientInfoViewModel.swift */,
 				735EE1B52AC02AA200AD8B8D /* AuthenticationViewModel.swift */,
 			);
 			path = ViewModel;
@@ -307,6 +325,7 @@
 				7386D33D2AEFF1E600E1F327 /* OnbomTests */,
 				73C58AC02AEE1D9A00EA126A /* Frameworks */,
 				702872642AF736C200061AD4 /* OnbomTests.xctest */,
+				73C7A0D62B010F7D00CE3C9E /* OnbomUITests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -340,6 +359,7 @@
 			isa = PBXGroup;
 			children = (
 				7386D33E2AEFF1E600E1F327 /* PatientInfoViewModelTests.swift */,
+				73F4D54B2AFC065200BEA671 /* StringValidateTests.swift */,
 			);
 			path = OnbomTests;
 			sourceTree = "<group>";
@@ -544,6 +564,24 @@
 			productReference = 702872642AF736C200061AD4 /* OnbomTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		73F4D53A2AFC019600BEA671 /* OnbomUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 73F4D5452AFC019600BEA671 /* Build configuration list for PBXNativeTarget "OnbomUITests" */;
+			buildPhases = (
+				73F4D5372AFC019600BEA671 /* Sources */,
+				73F4D5382AFC019600BEA671 /* Frameworks */,
+				73F4D5392AFC019600BEA671 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				73F4D5422AFC019600BEA671 /* PBXTargetDependency */,
+			);
+			name = OnbomUITests;
+			productName = OnbomUITests;
+			productReference = 73C7A0D62B010F7D00CE3C9E /* OnbomUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -559,6 +597,10 @@
 					};
 					7386D33B2AEFF1E600E1F327 = {
 						CreatedOnToolsVersion = 15.0;
+					};
+					73F4D53A2AFC019600BEA671 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 737EE34F2ABD646100D224FC;
 					};
 				};
 			};
@@ -580,6 +622,7 @@
 			targets = (
 				737EE34F2ABD646100D224FC /* Onbom */,
 				7386D33B2AEFF1E600E1F327 /* OnbomTests */,
+				73F4D53A2AFC019600BEA671 /* OnbomUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -607,6 +650,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		7386D33A2AEFF1E600E1F327 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73F4D5392AFC019600BEA671 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -673,7 +723,6 @@
 				731609682AD838FB00399476 /* StepView.swift in Sources */,
 				AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */,
 				03FFF2D32AE6B4A600B81D65 /* SubmitView.swift in Sources */,
-				737B62172AD6EAB30010444E /* PatientInfoViewModel.swift in Sources */,
 				702D35AA2ADBBD31008FE1F8 /* Patient.swift in Sources */,
 				70E0470B2AD5139200FC73A5 /* IDNumberInputField.swift in Sources */,
 				AEA098F42AE6B13800DE9BA8 /* DescriptionView.swift in Sources */,
@@ -716,11 +765,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73F4D54C2AFC065200BEA671 /* StringValidateTests.swift in Sources */,
 				7386D33F2AEFF1E600E1F327 /* PatientInfoViewModelTests.swift in Sources */,
+				737FFBA02AFC8E1900FCCB17 /* String+Validation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73F4D5372AFC019600BEA671 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		73F4D5422AFC019600BEA671 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 737EE34F2ABD646100D224FC /* Onbom */;
+			targetProxy = 73F4D5412AFC019600BEA671 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		737EE35C2ABD646200D224FC /* Debug */ = {
@@ -952,6 +1018,51 @@
 			};
 			name = Release;
 		};
+		73F4D5432AFC019600BEA671 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RV2W6Y7UMT;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = moon.OnbomUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Onbom;
+			};
+			name = Debug;
+		};
+		73F4D5442AFC019600BEA671 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RV2W6Y7UMT;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = moon.OnbomUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Onbom;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -978,6 +1089,15 @@
 			buildConfigurations = (
 				7386D3402AEFF1E600E1F327 /* Debug */,
 				7386D3412AEFF1E600E1F327 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		73F4D5452AFC019600BEA671 /* Build configuration list for PBXNativeTarget "OnbomUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73F4D5432AFC019600BEA671 /* Debug */,
+				73F4D5442AFC019600BEA671 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
