@@ -17,38 +17,42 @@ struct NumberInputField: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
-                inputField
-                !isFocused && !isValid ? Image("wrongInputField") : Image("")
-            }
-            .focused($isFocused)
-            .padding()
-            .keyboardType(.numberPad)
-            .background {
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(lineWidth: 1.5)
-                    .foregroundColor(strokeColor)
-            }
-            .onChange(of: content) { newValue in
-                if newValue.count > limitLength {
-                    content = String(newValue.prefix(limitLength))
+            inputField
+                .focused($isFocused)
+                .padding()
+                .keyboardType(.numberPad)
+                .background() {
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(lineWidth: 1.5)
+                        .foregroundColor(strokeColor)
                 }
-            }
-            .onChange(of: isFocused) { _ in
-                if limitLength == 6 {
-                    isValid = content.isValidDateOfBirth()
-                } else if limitLength == 7 {
-                    isValid = content.isValidIDBackNumber()
+                .overlay {
+                    if !isValid {
+                        HStack {
+                            Spacer()
+                            Image("wrongInputField")
+                                .padding(.trailing, 16)
+                        }
+                    }
+                }
+                .onChange(of: content) { newValue in
+                    if content.count >= limitLength {
+                        content = String(newValue.prefix(limitLength))
+                        validation()
+                    }
+                }
+                .onChange(of: isFocused) { _ in
+                    validation()
                 }
             }
         }
     }
     
     private var strokeColor: Color {
-        if isFocused {
-            return Color.Green4
-        } else if !isValid {
+        if !isValid {
             return Color.red
+        } else if isFocused {
+            return Color.Green4
         } else {
             return Color.G3
         }
@@ -62,5 +66,21 @@ struct NumberInputField: View {
             TextField(placeholder, text: $content)
         }
     }
+    
+    private func validation() {
+        if limitLength == 6 {
+            isValid = content.isValidDateOfBirth()
+        } else if limitLength == 7 {
+            isValid = content.isValidIDBackNumber()
+        }
+    }
 }
 
+struct NumberInputField_Previews: PreviewProvider {
+    static var previews: some View {
+        NumberInputField(placeholder: "test",
+                         limitLength: 6,
+                         isSecure: false,
+                         content: .constant(""))
+    }
+}

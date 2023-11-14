@@ -155,9 +155,9 @@ struct HomeView: View {
             case .MediConditionView:                MediConditionView()
             case .IDCardDescriptionView:            IDCardDescriptionView()
             case .IDCardConfirmEditView:            IDCardConfirmEditView()
-            case .AddressFormView_Patient:          AddressFormView(formType: .patient)
-            case .AddressFormView_ActualPatient:    AddressFormView(formType: .actualPatient)
-            case .AddressFormView_Agent:            AddressFormView(formType: .agent)
+            case .AddressFormView_Patient:          AddressFormView(formType: .patient, address: patient.address)
+            case .AddressFormView_ActualPatient:    AddressFormView(formType: .actualPatient, address: patient.actualAddress)
+            case .AddressFormView_Agent:            AddressFormView(formType: .agent, address: agent.address)
             case .SignatureView:                    SignatureView()
             case .SubmitCheckListView:              SubmitCheckListView(homeViewModel: self.viewModel)
             case .StepView_First:                   StepView(state: .FIRST)
@@ -166,6 +166,9 @@ struct HomeView: View {
             case .AgentInfoView:                    AgentInfoView()
             case .AgentInfoDetailView:              AgentInfoDetailView()
             case .RejectView:                       RejectView()
+                
+            case .PatientInfoView_EditPhoneNumber:  PatientInfoView(editState: .editPhoneNumber)
+            case .PatientInfoView_EditIDNumber:     PatientInfoView(editState: .editIDNumber)
             default:                                RejectView()
             }
         }

@@ -39,7 +39,7 @@ struct FormTextField: View {
                     .focused($focused)
                     .padding(16)
                     .background(RoundedRectangle(cornerRadius: 10)
-                        .stroke(isWrong ? Color.R : focused ? Color.Green4 : Color.Green1, lineWidth: 1.5))
+                        .stroke(isWrong ? Color.R : focused ? Color.Green4 : Color.G3, lineWidth: 1.5))
                     .tint(Color.Green4)
                 if(isWrong) {
                     Image("wrongInputField")

@@ -79,7 +79,7 @@ struct SubmitCheckListView: View {
                             .foregroundColor(.G5)
                         Spacer()
                         Button {
-                            navigation.navigate(.PatientInfoView)
+                            navigation.navigate(.PatientInfoView_EditPhoneNumber)
                         } label: {
                             Text(patient.phoneNumber.isEmpty ? "없음" : patient.phoneNumber)
                                     .B4()
@@ -93,7 +93,7 @@ struct SubmitCheckListView: View {
                             .foregroundColor(.G5)
                         Spacer()
                         Button {
-                            navigation.navigate(.PatientInfoView)
+                            navigation.navigate(.PatientInfoView_EditIDNumber)
                         } label: {
                             Text(patient.id)
                                 .B4()
