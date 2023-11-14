@@ -13,7 +13,7 @@ struct SubmitCheckListView: View {
     @EnvironmentObject var agent: Agent
     
     // MARK: - pdf 생성 관련 변수
-    private let pdfManager: PDFManager = .shared
+    @EnvironmentObject var pdfManager: PDFManager
     
     // MARK: - navigation 관련 변수
     @State private var isSubmitLoadingViewPresented = false

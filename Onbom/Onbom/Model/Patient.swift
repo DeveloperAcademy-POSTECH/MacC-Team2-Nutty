@@ -22,7 +22,6 @@ class Patient: ObservableObject {
     @Published var phoneNumber: String = ""
     @Published var hasInfectiousDisease = false
     @Published var hasMentalDisorder = false
-    var isSameAddress = false
     
     init() {}
     

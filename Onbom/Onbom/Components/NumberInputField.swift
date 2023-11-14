@@ -26,26 +26,32 @@ struct NumberInputField: View {
                         .stroke(lineWidth: 1.5)
                         .foregroundColor(strokeColor)
                 }
+                .overlay {
+                    if !isValid {
+                        HStack {
+                            Spacer()
+                            Image("wrongInputField")
+                                .padding(.trailing, 16)
+                        }
+                    }
+                }
                 .onChange(of: content) { newValue in
-                    if newValue.count > limitLength {
+                    if content.count >= limitLength {
                         content = String(newValue.prefix(limitLength))
+                        validation()
                     }
                 }
                 .onChange(of: isFocused) { _ in
-                    if limitLength == 6 {
-                        isValid = content.isValidDateOfBirth()
-                    } else if limitLength == 7 {
-                        isValid = content.isValidIDBackNumber()
-                    }
+                    validation()
                 }
         }
     }
     
     private var strokeColor: Color {
-        if isFocused {
-            return Color.Green4
-        } else if !isValid {
+        if !isValid {
             return Color.red
+        } else if isFocused {
+            return Color.Green4
         } else {
             return Color.G3
         }
@@ -59,12 +65,21 @@ struct NumberInputField: View {
             TextField(placeholder, text: $content)
         }
     }
+    
+    private func validation() {
+        if limitLength == 6 {
+            isValid = content.isValidDateOfBirth()
+        } else if limitLength == 7 {
+            isValid = content.isValidIDBackNumber()
+        }
+    }
 }
 
 struct NumberInputField_Previews: PreviewProvider {
     static var previews: some View {
-        VStack {
-            
-        }
+        NumberInputField(placeholder: "test",
+                         limitLength: 6,
+                         isSecure: false,
+                         content: .constant(""))
     }
 }

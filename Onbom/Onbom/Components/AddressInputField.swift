@@ -22,7 +22,7 @@ struct AddressInputField: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text(label)
-                .foregroundColor(focusField != nil ? .Green4 : .G6)
+                .foregroundColor(focusField != nil || cityAddress.isEmpty ? .Green4 : .G6)
                 .Label()
             
             CityAddressInputField(placeholder: "예) C5, 남구 청암로 77",
