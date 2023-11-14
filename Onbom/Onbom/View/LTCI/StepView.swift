@@ -26,7 +26,7 @@ struct StepView: View {
                 .frame(width: 63, height: 63)
                 .padding(.bottom, 17)
             Text("장기요양등급 신규 신청을 위해")
-                .Cap4()
+                .B3()
                 .foregroundColor(.G6)
                 .padding(.bottom, 10)
             if state == .FIRST {
@@ -67,18 +67,18 @@ struct StepView: View {
                 VStack(alignment: .leading, spacing: 52) {
                     VStack(alignment: .leading, spacing: 8) {
                         Text("어르신 정보")
-                            .B1()
+                            .H2()
                             .foregroundColor(state == .FIRST ? Color.G6 : Color.G4)
                         Text("성함, 전화번호, 주민등록번호\n주민등록지, 현재 살고 계신 주소지")
-                            .Cap3()
+                            .B3()
                             .foregroundColor(state == .FIRST ? Color.G5 : Color.G4)
                     }
                     VStack(alignment: .leading, spacing: 8) {
                         Text("대리인(보호자) 정보")
-                            .B1()
+                            .H2()
                             .foregroundColor(state == .SECOND ? Color.G6 : Color.G4)
                         Text("상세 관계, 신분증 촬영, 주소지, 서명")
-                            .Cap3()
+                            .B3()
                             .foregroundColor(state == .SECOND ? Color.G5 : Color.G4)
                     }
                 }
