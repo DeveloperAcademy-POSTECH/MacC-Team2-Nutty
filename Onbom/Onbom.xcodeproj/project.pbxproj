@@ -84,6 +84,7 @@
 		AE10D3902AD4D33C00D9ED3C /* SignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10D38F2AD4D33C00D9ED3C /* SignatureView.swift */; };
 		AE10D3922AD4E1C900D9ED3C /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */; };
 		AE2FFADB2AEFA141005DC43C /* CallTaxiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2FFADA2AEFA141005DC43C /* CallTaxiView.swift */; };
+		AE5F71B52B03958700992CB7 /* PrivacyPolicyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5F71B42B03958700992CB7 /* PrivacyPolicyDetailView.swift */; };
 		AE933EDC2AD42E36003D87E6 /* AgentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE933EDB2AD42E36003D87E6 /* AgentInfoView.swift */; };
 		AE933EDE2AD42E60003D87E6 /* AgentInfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE933EDD2AD42E60003D87E6 /* AgentInfoDetailView.swift */; };
 		AEA098F42AE6B13800DE9BA8 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA098F32AE6B13800DE9BA8 /* DescriptionView.swift */; };
@@ -185,6 +186,7 @@
 		AE10D38F2AD4D33C00D9ED3C /* SignatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureView.swift; sourceTree = "<group>"; };
 		AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		AE2FFADA2AEFA141005DC43C /* CallTaxiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallTaxiView.swift; sourceTree = "<group>"; };
+		AE5F71B42B03958700992CB7 /* PrivacyPolicyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyDetailView.swift; sourceTree = "<group>"; };
 		AE70A4282ADAE7500006125E /* Onbom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Onbom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE933EDB2AD42E36003D87E6 /* AgentInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentInfoView.swift; sourceTree = "<group>"; };
 		AE933EDD2AD42E60003D87E6 /* AgentInfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentInfoDetailView.swift; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 				03FFF2D02AE6AD2B00B81D65 /* SubmitLoadingView.swift */,
 				03FFF2D22AE6B4A600B81D65 /* SubmitView.swift */,
 				735EE1B32AC029A900AD8B8D /* LoginView.swift */,
+				AE5F71B42B03958700992CB7 /* PrivacyPolicyDetailView.swift */,
 			);
 			path = LTCI;
 			sourceTree = "<group>";
@@ -733,6 +736,7 @@
 				70E0470B2AD5139200FC73A5 /* IDNumberInputField.swift in Sources */,
 				AEA098F42AE6B13800DE9BA8 /* DescriptionView.swift in Sources */,
 				731EB7452AF9323B00931952 /* ApplyHistoryView.swift in Sources */,
+				AE5F71B52B03958700992CB7 /* PrivacyPolicyDetailView.swift in Sources */,
 				70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */,
 				03FB0B2F2B0368A700DC1129 /* PatientInfoCompleteView.swift in Sources */,
 				73007CC12AEBA5B600376511 /* Agent.swift in Sources */,
