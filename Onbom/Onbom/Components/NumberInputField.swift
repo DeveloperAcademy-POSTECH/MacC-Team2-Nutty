@@ -44,7 +44,6 @@ struct NumberInputField: View {
                 .onChange(of: isFocused) { _ in
                     validation()
                 }
-            }
         }
     }
     

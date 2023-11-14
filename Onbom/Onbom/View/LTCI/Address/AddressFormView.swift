@@ -15,12 +15,7 @@ struct AddressFormView: View {
     @State private var address: Address
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
-    
-    // MARK: - navigation 관련 변수
     @EnvironmentObject var navigation: NavigationManager
-    var formType: AddressFormType
-    @State private var isPostCodeViewPresented = false
-    @State private var showActualAddressCheckView = false
     
     init(formType: AddressFormType, address: Address = Address()) {
         self.formType = formType
@@ -177,7 +172,7 @@ struct AddressFormView: View {
                 HStack(spacing: 10) {
                     CTAButton.CustomButtonView(style: .secondary) {
                         patient.actualAddress = address
-                        patient.isSameAddress = true
+//                        patient.isSameAddress = true
                         hideKeyboard()
                         showActualAddressCheckView = false
                         navigation.navigate(.StepView_Second)
@@ -187,7 +182,7 @@ struct AddressFormView: View {
                     
                     CTAButton.CustomButtonView(style: .secondary) {
                         showActualAddressCheckView = false
-                        patient.isSameAddress = false
+//                        patient.isSameAddress = false
                         hideKeyboard()
                         navigation.navigate(.AddressFormView_ActualPatient)
                     } label: {

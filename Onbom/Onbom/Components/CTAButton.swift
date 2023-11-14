@@ -111,8 +111,6 @@ struct CTAButtonExampleView: View {
     var body: some View {
         let dynamicHStack = dynamicTypeSize <= .xxxLarge ? AnyLayout(HStackLayout()) : AnyLayout(VStackLayout())
         
-        let dynamicVStack = dynamicTypeSize <= .xxxLarge ? AnyLayout(VStackLayout()) : AnyLayout(HStackLayout())
-        
         ZStack {
             Color.black
                 .edgesIgnoringSafeArea(.all)
