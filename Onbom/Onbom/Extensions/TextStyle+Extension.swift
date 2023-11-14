@@ -68,13 +68,6 @@ extension Text {
 }
 
 extension Text {
-    func Title() -> some View {
-        self.H2().foregroundColor(.B)
-    }
-}
-
-
-extension Text {
     func customTextStyle(fontName: String, fontSize : CGFloat, lineSpacing: CGFloat, kerning: CGFloat) -> some View {
         self
             .font(.custom(fontName, size: fontSize))
