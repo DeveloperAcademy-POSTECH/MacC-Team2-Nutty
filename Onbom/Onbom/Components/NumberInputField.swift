@@ -14,7 +14,7 @@ struct NumberInputField: View {
     @Binding var content: String
     @FocusState var isFocused: Bool
     @State private var isValid = true
-
+    
     var body: some View {
         VStack(alignment: .leading) {
             inputField
@@ -44,6 +44,7 @@ struct NumberInputField: View {
                 .onChange(of: isFocused) { _ in
                     validation()
                 }
+            }
         }
     }
     

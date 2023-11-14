@@ -61,7 +61,7 @@ struct PatientInfoView: View {
     var body: some View {
         VStack(spacing: 0) {
             header
-            
+          
             ScrollView(showsIndicators: false) {
                 if(step[2]) { idNumberField }
                 if(step[1]) { phoneNumberField }

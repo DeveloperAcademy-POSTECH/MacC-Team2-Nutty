@@ -106,8 +106,13 @@ public struct CTAButtonStyleModifiers: ButtonStyle {
 
 struct CTAButtonExampleView: View {
     @State private var isDisabled = false
+    @Environment(\.dynamicTypeSize) var dynamicTypeSize
     
     var body: some View {
+        let dynamicHStack = dynamicTypeSize <= .xxxLarge ? AnyLayout(HStackLayout()) : AnyLayout(VStackLayout())
+        
+        let dynamicVStack = dynamicTypeSize <= .xxxLarge ? AnyLayout(VStackLayout()) : AnyLayout(HStackLayout())
+        
         ZStack {
             Color.black
                 .edgesIgnoringSafeArea(.all)
@@ -250,14 +255,14 @@ struct CTAButtonExampleView: View {
                             endPoint: .bottom
                         )
                         .frame(maxWidth: .infinity, minHeight: 122)
-                        HStack {
+                        dynamicHStack {
                             CTAButton.CustomButtonView(style: .secondary)
                             {
                                 print()
                             } label: {
                                 Text("재촬영")
                             }
-                            .frame(width: 103)
+                            .frame(maxWidth: dynamicTypeSize <= .xxxLarge ? 103 : .infinity)
                             
                             CTAButton.CustomButtonView(style: .main)
                             {

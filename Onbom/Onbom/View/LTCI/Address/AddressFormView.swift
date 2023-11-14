@@ -15,7 +15,12 @@ struct AddressFormView: View {
     @State private var address: Address
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
+    
+    // MARK: - navigation 관련 변수
     @EnvironmentObject var navigation: NavigationManager
+    var formType: AddressFormType
+    @State private var isPostCodeViewPresented = false
+    @State private var showActualAddressCheckView = false
     
     init(formType: AddressFormType, address: Address = Address()) {
         self.formType = formType
@@ -25,7 +30,7 @@ struct AddressFormView: View {
     var isAddressFilled: Bool {
         !address.cityAddress.isEmpty && !address.detailAddress.isEmpty
     }
-
+    
     var name: String {
         switch formType {
         case .patient, .actualPatient:
@@ -79,7 +84,6 @@ struct AddressFormView: View {
             return "주소지"
         }
     }
-        
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
@@ -89,12 +93,9 @@ struct AddressFormView: View {
                         .foregroundColor(.B)
                     Spacer()
                 }
-                .padding(20)
                 
                 if formType != .agent {
                     Alert(image: "check", label: alertMessage)
-                        .padding(.horizontal, 20)
-                        .padding(.bottom, 16)
                 }
                 
                 AddressInputField(label: addressInputFieldTitle,
@@ -102,7 +103,7 @@ struct AddressFormView: View {
                                   detailAddress: $address.detailAddress,
                                   isPostCodeViewPresented: $isPostCodeViewPresented)
                 .padding(.top, 32)
-                .padding(.horizontal, 20)
+                
                 Spacer()
                 
                 if isKeyboardVisible {
@@ -124,8 +125,10 @@ struct AddressFormView: View {
                     } label: {
                         Text(navigation.isUserFromSubmitCheckListView ? "수정완료" : "다음")
                     }
+                    .padding(.horizontal, -20)
                     .ignoresSafeArea(.keyboard)
-                } else {
+                }
+                else {
                     CTAButton.CustomButtonView(style: .primary(isDisabled: !isAddressFilled)) {
                         updateModelAddress()
                         if navigation.isUserFromSubmitCheckListView {
@@ -143,9 +146,9 @@ struct AddressFormView: View {
                     } label: {
                         Text(navigation.isUserFromSubmitCheckListView ? "수정완료" : "다음")
                     }
-                    .padding(.horizontal, 20)
                 }
             }
+            .padding([.top, .leading, .trailing], 20.0)
             .navigationDestination(isPresented: $isPostCodeViewPresented) {
                 PostCodeInputView(isPostCodeViewPresented: $isPostCodeViewPresented,
                                   cityAddress: $address.cityAddress)
@@ -181,7 +184,7 @@ struct AddressFormView: View {
                     } label: {
                         Text("네, 같은 곳이에요")
                     }
-                                        
+                    
                     CTAButton.CustomButtonView(style: .secondary) {
                         showActualAddressCheckView = false
                         patient.isSameAddress = false

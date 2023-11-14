@@ -14,21 +14,17 @@ struct CityAddressInputField: View {
     
     var body: some View {
         VStack(alignment:.leading) {
-            TextField(placeholder, text: $content)
-                .focused($isFocused)
-                .padding()
-                .background() {
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(content.isEmpty ? Color.Green4 : Color.G3, lineWidth: 1.5)
-                }
-                .overlay {
-                    HStack {
-                        Spacer()
-                        Image(systemName: "magnifyingglass")
-                            .padding()
-                            .foregroundColor(.B)
-                    }
-                }
+            HStack {
+                TextField(placeholder, text: $content)
+                Image(systemName: "magnifyingglass")
+                    .foregroundColor(.B)
+            }
+            .focused($isFocused)
+            .padding()
+            .background() {
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(isFocused ? Color.Green4 : Color.G3, lineWidth: 1.5)
+            }
         }
     }
 }
