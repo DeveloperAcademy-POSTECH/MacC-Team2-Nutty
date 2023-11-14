@@ -11,7 +11,6 @@ struct SubmitView: View {
     @EnvironmentObject var navigation: NavigationManager
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
-    @EnvironmentObject var pdfManager: PDFManager
     @State private var isloadingViewPresented = true
     @ObservedObject var homeViewModel: HomeViewModel
     
