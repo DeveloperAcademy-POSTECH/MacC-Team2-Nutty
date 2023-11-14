@@ -39,6 +39,7 @@ struct ApplyTypeView: View {
                                             .T2()
                                         Text("\(description[index])")
                                             .Cap3()
+                                            .foregroundColor(.G5)
                                     }
                                     else {
                                         Text("\(title[index])")
