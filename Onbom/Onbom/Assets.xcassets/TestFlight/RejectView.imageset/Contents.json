@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "RejectView .png",
+      "filename" : "RejectView 1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "RejectView @2x.png",
+      "filename" : "RejectView 1@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "RejectView @3x.png",
+      "filename" : "RejectView 1@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
