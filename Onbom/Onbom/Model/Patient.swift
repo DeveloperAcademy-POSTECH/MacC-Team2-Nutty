@@ -17,6 +17,7 @@ class Patient: ObservableObject {
     ]
     @Published var name: String = ""
     @Published var id: String = ""
+    @Published var documentImage: UIImage = UIImage()
     @Published var address: Address = Address()
     @Published var actualAddress: Address = Address()
     @Published var phoneNumber: String = ""
@@ -25,9 +26,10 @@ class Patient: ObservableObject {
     
     init() {}
     
-    init(name: String, id: String, address: Address, actualAddress: Address, phoneNumber: String, hasInfectiousDisease: Bool = false, hasMentalDisorder: Bool = false) {
+    init(name: String, id: String, documentImage: UIImage, address: Address, actualAddress: Address, phoneNumber: String, hasInfectiousDisease: Bool = false, hasMentalDisorder: Bool = false) {
         self.name = name
         self.id = id
+        self.documentImage = documentImage
         self.address = address
         self.actualAddress = actualAddress
         self.phoneNumber = phoneNumber
@@ -62,6 +64,7 @@ class Patient: ObservableObject {
 let mockPatient = Patient(
     name: "김순옥",
     id: "331212-2132321",
+    documentImage: UIImage(systemName: "heart")!,
     address: mockAddress,
     actualAddress: mockAddress,
     phoneNumber: "01032323232",

@@ -19,6 +19,10 @@
 		708891EB2AD55191005B67AB /* AddressFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708891EA2AD55191005B67AB /* AddressFormView.swift */; };
 		708891F12AD55607005B67AB /* CityAddressInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708891F02AD55607005B67AB /* CityAddressInputField.swift */; };
 		708891F32AD57B91005B67AB /* SubmitCheckListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708891F22AD57B91005B67AB /* SubmitCheckListView.swift */; };
+		709482692B01FD6100629E0C /* DocumentCameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709482682B01FD6100629E0C /* DocumentCameraManager.swift */; };
+		7094826B2B01FF1D00629E0C /* DocumentCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7094826A2B01FF1D00629E0C /* DocumentCameraView.swift */; };
+		7094826E2B01FF4A00629E0C /* DocumentDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7094826D2B01FF4A00629E0C /* DocumentDescriptionView.swift */; };
+		709482702B01FF5900629E0C /* DocumentConfirmEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7094826F2B01FF5900629E0C /* DocumentConfirmEditView.swift */; };
 		709697CE2ADBBF4000DB8B19 /* IDCardConfirmEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709697CD2ADBBF4000DB8B19 /* IDCardConfirmEditView.swift */; };
 		70AC25A52AF15BF900DBC4A0 /* TextRecognizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC25A42AF15BF900DBC4A0 /* TextRecognizable.swift */; };
 		70AC25A72AF15C2C00DBC4A0 /* DocumentTextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC25A62AF15C2C00DBC4A0 /* DocumentTextRecognizer.swift */; };
@@ -118,6 +122,10 @@
 		708891EA2AD55191005B67AB /* AddressFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressFormView.swift; sourceTree = "<group>"; };
 		708891F02AD55607005B67AB /* CityAddressInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityAddressInputField.swift; sourceTree = "<group>"; };
 		708891F22AD57B91005B67AB /* SubmitCheckListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitCheckListView.swift; sourceTree = "<group>"; };
+		709482682B01FD6100629E0C /* DocumentCameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCameraManager.swift; sourceTree = "<group>"; };
+		7094826A2B01FF1D00629E0C /* DocumentCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCameraView.swift; sourceTree = "<group>"; };
+		7094826D2B01FF4A00629E0C /* DocumentDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentDescriptionView.swift; sourceTree = "<group>"; };
+		7094826F2B01FF5900629E0C /* DocumentConfirmEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentConfirmEditView.swift; sourceTree = "<group>"; };
 		709697CD2ADBBF4000DB8B19 /* IDCardConfirmEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardConfirmEditView.swift; sourceTree = "<group>"; };
 		70AC25A42AF15BF900DBC4A0 /* TextRecognizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizable.swift; sourceTree = "<group>"; };
 		70AC25A62AF15C2C00DBC4A0 /* DocumentTextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTextRecognizer.swift; sourceTree = "<group>"; };
@@ -231,6 +239,16 @@
 			path = Address;
 			sourceTree = "<group>";
 		};
+		7094826C2B01FF3100629E0C /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				7094826D2B01FF4A00629E0C /* DocumentDescriptionView.swift */,
+				7094826A2B01FF1D00629E0C /* DocumentCameraView.swift */,
+				7094826F2B01FF5900629E0C /* DocumentConfirmEditView.swift */,
+			);
+			path = Document;
+			sourceTree = "<group>";
+		};
 		70AC25A12AF15BA500DBC4A0 /* OCR */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +274,7 @@
 			children = (
 				70D2994B2AC573BC009F536A /* CameraManager.swift */,
 				70AC25AF2AF226EE00DBC4A0 /* IDCardCameraManager.swift */,
+				709482682B01FD6100629E0C /* DocumentCameraManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -402,6 +421,7 @@
 				735ADB2E2AD5AC4E0069B94B /* MediConditionView.swift */,
 				7372273F2AD30BBE0021EFC6 /* RejectView.swift */,
 				737227412AD323360021EFC6 /* PatientInfoView.swift */,
+				7094826C2B01FF3100629E0C /* Document */,
 				708891E92AD5515B005B67AB /* Address */,
 				AE933EDA2AD41B44003D87E6 /* AgentInfo */,
 				70D2994F2AC96163009F536A /* IDCard */,
@@ -693,10 +713,12 @@
 			files = (
 				AEB33E762AC2B0ED0082A3E7 /* PDFManager.swift in Sources */,
 				03FFF2C92ADD60EF00B81D65 /* RadioButton.swift in Sources */,
+				7094826B2B01FF1D00629E0C /* DocumentCameraView.swift in Sources */,
 				735EE1B62AC02AA200AD8B8D /* AuthenticationViewModel.swift in Sources */,
 				735EE1B42AC029A900AD8B8D /* LoginView.swift in Sources */,
 				AE2FFADB2AEFA141005DC43C /* CallTaxiView.swift in Sources */,
 				73FD46D92ADADF8C002ED839 /* HomeView.swift in Sources */,
+				709482692B01FD6100629E0C /* DocumentCameraManager.swift in Sources */,
 				737D49032ACB3F4F008AC5EC /* MainView.swift in Sources */,
 				70E047072AD5135F00FC73A5 /* NumberInputField.swift in Sources */,
 				70D299532AC961AB009F536A /* IDCardOCRView.swift in Sources */,
@@ -728,6 +750,7 @@
 				AEA098F42AE6B13800DE9BA8 /* DescriptionView.swift in Sources */,
 				731EB7452AF9323B00931952 /* ApplyHistoryView.swift in Sources */,
 				70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */,
+				7094826E2B01FF4A00629E0C /* DocumentDescriptionView.swift in Sources */,
 				73007CC12AEBA5B600376511 /* Agent.swift in Sources */,
 				7372274C2AD476200021EFC6 /* ViewModifier.swift in Sources */,
 				03FFF2A92ACDAE7A00B81D65 /* PostCodeViewer.swift in Sources */,
@@ -757,6 +780,7 @@
 				737227402AD30BBE0021EFC6 /* RejectView.swift in Sources */,
 				70AC25A52AF15BF900DBC4A0 /* TextRecognizable.swift in Sources */,
 				737227442AD474E50021EFC6 /* View+Extension.swift in Sources */,
+				709482702B01FF5900629E0C /* DocumentConfirmEditView.swift in Sources */,
 				AEB33EAC2ACD3D010082A3E7 /* DigitalSignatureManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

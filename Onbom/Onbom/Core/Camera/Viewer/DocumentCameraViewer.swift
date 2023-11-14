@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct DocumentCameraViewer: UIViewControllerRepresentable {
-    let cameraManager = CameraManager()
+    let cameraManager = DocumentCameraManager()
     var capturedImage: ((UIImage) -> Void)?
-    var recognizedText: ((String) -> Void)?
     // TODO: 캡슐화
     
     func makeUIViewController(context: Context) -> CameraManager {
+        cameraManager.capturedDocument = capturedImage
         return cameraManager
     }
 
