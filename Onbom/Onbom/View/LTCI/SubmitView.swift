@@ -20,14 +20,14 @@ struct SubmitView: View {
         } else {
             VStack {
                 VStack(spacing: 20) {
-                    Text("신청 끝!\n약 2주 후 방문 조사가 있어요")
+                    Text("신청 끝!\n약 2주 내 방문 조사가 있어요")
                         .H1()
                         .lineSpacing(10)
                         .foregroundColor(.B)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.top, 40)
                     Text("어르신 방문을 위해 건강보험공단에서 연락을 할 거예요\n등급 산정 과정에서 추가 서류가 필요할 수도 있어요")
-                        .Cap3()
+                        .B3()
                         .lineSpacing(10)
                         .foregroundColor(.G5)
                         .frame(maxWidth: .infinity, alignment: .leading)
