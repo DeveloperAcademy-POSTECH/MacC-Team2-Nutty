@@ -9,39 +9,39 @@ import SwiftUI
 
 struct RejectView: View {
     @EnvironmentObject var navigation: NavigationManager
-
+    
     var body: some View {
-        VStack(spacing: 0) {
-            Text("지금은 어르신의 등급심사가 어려워요")
-                .foregroundColor(Color.B)
-                .H1()
+        VStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    Text("지금은 어르신의\n등급심사가 어려워요")
+                        .foregroundColor(Color.B)
+                        .H1()
+                    Text("입원이나 수술 등으로 거동이 잠시 불편해진 경우\n최소 3개월 이후 등급심사를 권하고 있어요")
+                        .foregroundColor(Color.G5)
+                        .B3()
+                }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.bottom, 21)
-            VStack {
-                Text("최근 입원/수술 이력이 있으면 등급심사를 할 수 없어요")
-                    .foregroundColor(Color.G5)
-                    .Cap3()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.bottom, 10)
-                Text("장기요양등급을 신청할 수 있을 때까지 기다리는 동안\n온봄이 몇 가지 서비스를 추천해 드릴게요")
-                    .foregroundColor(Color.G5)
-                    .Cap3()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.bottom, 70)
+                .padding(.bottom, 65)
+                
+                Image("RejectView")
             }
-            .frame(maxWidth:. infinity, minHeight: 75)
-                        
-            Image("RejectView")
-//                .border(.yellow)
-            Spacer()
-            CTAButton.CustomButtonView(
-                style: .primary(isDisabled: false))
-            {
-                navigation.popToRoot()
-            } label: {
-                Text("한 달 후 다시 알림 받기")
+            VStack(spacing: 10) {
+                CTAButton.CustomButtonView(
+                    style: .primary(isDisabled: false))
+                {
+                    navigation.popToRoot()
+                } label: {
+                    Text("한 달 후 다시 알림 받기")
+                }
+                CTAButton.CustomButtonView(
+                    style: .secondary)
+                {
+                    navigation.navigate(.MediConditionView)
+                } label: {
+                    Text("그래도 신청할래요")
+                }
             }
-            .padding(.top, 50)
         }
         .padding([.top, .leading, .trailing], 20)
         .navigationBarBackButton()
