@@ -38,9 +38,8 @@ struct SubmitCheckListView: View {
                     addressCard("신청인이 현재 살고 계신 주소지", patient.actualAddress.toString, destination: .AddressFormView_ActualPatient)
                     
                     h2("대리인", agent.name)
-                    formCard("신청인과의 관계", agent.relation, destination: .AgentInfoView)
-                    formCard("신청인과의 상세관계", agent.relation, destination: .AgentInfoView)
-                    formCard("신청인 주민등록번호", patient.id, destination: .IDCardConfirmEditView)
+                    formCard("신청인과의 관계", agent.toStringRelation(), destination: .AgentInfoView_Edit)
+                    formCard("신청인 주민등록번호", agent.id, destination: .IDCardConfirmEditView)
                     addressCard("대리인 주소지", agent.address.toString, destination: .AddressFormView_Agent)
                     
                     btn
