@@ -14,16 +14,17 @@ struct ApplyHistoryView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Text("장기요양등급 신규 신청")
+            Text("장기요양등급 신청 현황")
                 .H1()
                 .foregroundColor(.B)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 20)
+                .padding(.bottom, 15)
             
             formCard {
-                Text("서류 전송 상태")
+                Text("신청 현황")
                     .B1()
-                    .foregroundColor(.G4)
+                    .foregroundColor(.G5)
             } _: {
                 Text("서류 전송 완료")
                     .B3()
@@ -32,11 +33,41 @@ struct ApplyHistoryView: View {
             .padding(.vertical, 2)
             
             divider()
-            
-            formCard("신청인", "\(patient.name)")
+            formCard("신청 종류", "신규")
+            formCard("신청인", "\(mockPatient.name)")
             formCard("대리인", "김유진")
-            formCard("주소", patient.address.toString, axis: .firstTextBaseline)
+            VStack(alignment: .leading) {
+                Text("신청인의 실주소지")
+                    .B1()
+                    .foregroundColor(.G5)
+                    .padding(.bottom, 2)
+                HStack(spacing: 7) {
+                    Image("Important")
+                    Text("이 주소로 우편물 전송과 방문심사가 진행돼요")
+                        .Cap4()
+                        .foregroundColor(.G4)
+                    Spacer()
+                }
+                .padding(.bottom, 10)
+                Text("\(mockPatient.actualAddress.toString)")
+                    .B3()
+                    .foregroundColor(.G5)
+            }
+            .padding(.horizontal, 20)
+            .padding(.vertical, 19)
             
+            divider()
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("전송 서류")
+                        .B1()
+                        .foregroundColor(.G5)
+                        .padding(.bottom, 2)
+                    Spacer()
+                }
+            }
+            .padding(.horizontal, 20)
+            .padding(.vertical, 22)
             divider()
             
             formCard {
@@ -76,11 +107,11 @@ struct ApplyHistoryView: View {
         HStack(alignment: axis) {
             Text(form)
                 .B1()
-                .foregroundColor(.G4)
+                .foregroundColor(.G5)
             Spacer()
             Text(content)
                 .B3()
-                .foregroundColor(.G6)
+                .foregroundColor(.G5)
         }
         .padding(.horizontal, 20)
         .padding(.vertical, 19)
