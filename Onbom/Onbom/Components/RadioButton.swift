@@ -26,6 +26,7 @@ struct RadioButton {
                 }
             }
             .buttonStyle(RadioButtonStyleModifiers(style: style))
+
         }
         
         init(
@@ -50,9 +51,9 @@ public struct RadioButtonStyleModifiers: ButtonStyle {
         case .oneUnselected:
             configuration.label
                 .foregroundColor(configuration.isPressed ? Color.Green4 : .B)
-                .frame(maxWidth: .infinity)
-                .frame(height: 100)
-                .padding(.leading, 20.0)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 20.0)
                 .background(RoundedRectangle(cornerRadius: 10).fill(configuration.isPressed ? Color.Green3 : Color.G2))
                 .foregroundColor(configuration.isPressed ? .Green4 : .B)
                 .overlay(RoundedRectangle(cornerRadius: 10)
@@ -61,9 +62,9 @@ public struct RadioButtonStyleModifiers: ButtonStyle {
         case .oneSelected:
             configuration.label
                 .foregroundColor(Color.Green4)
-                .frame(maxWidth: .infinity)
-                .frame(height: 100)
-                .padding(.leading, 20.0)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 20.0)
                 .background(RoundedRectangle(cornerRadius: 10).fill(Color.Green2))
                 .foregroundColor(configuration.isPressed ? .Green4 : .B)
                 .overlay(RoundedRectangle(cornerRadius: 10)
@@ -101,41 +102,44 @@ struct RadioButtonExampleView: View {
     @State var twoSelectedIndex : Int = -1
     
     var body: some View {
-        VStack {
-            // RadioOne
-            VStack(spacing: 10) {
-                ForEach(0..<title.count, id: \.self) { index in
-                    let oneStyle: RadioButtonStyle = oneSelectedIndex == index ? .oneSelected : .oneUnselected
-                    
-                    RadioButton.CustomButtonView(style: oneStyle) {
-                        oneSelectedIndex = index
-                    } label: {
-                        HStack {
-                            VStack(alignment: .leading, spacing: 13) {
-                                Text("\(title[index])")
-                                    .T3()
-                                Text("\(description[index])")
-                                    .Cap3()
+        ScrollView {
+            VStack {
+                // RadioOne
+                VStack(spacing: 10) {
+                    ForEach(0..<title.count, id: \.self) { index in
+                        let oneStyle: RadioButtonStyle = oneSelectedIndex == index ? .oneSelected : .oneUnselected
+                        
+                        RadioButton.CustomButtonView(style: oneStyle) {
+                            oneSelectedIndex = index
+                        } label: {
+                            HStack {
+                                VStack(alignment: .leading, spacing: 13) {
+                                    Text("\(title[index])")
+                                        .T3()
+                                    Text("\(description[index])")
+                                        .Cap3()
+                                        .foregroundColor(.G5)
+                                }
+                                Spacer()
                             }
-                            Spacer()
+                        }
+                        .padding(.horizontal, 20)
+                    }
+                }
+                
+                //RadioTwo
+                HStack(spacing: 10) {
+                    ForEach(0..<yesNo.count, id: \.self) { index in
+                        let twoStyle: RadioButtonStyle = twoSelectedIndex == index ? .twoSelected : .twoUnselected
+                        RadioButton.CustomButtonView(style: twoStyle) {
+                            twoSelectedIndex = index
+                        } label: {
+                            Text("\(yesNo[index])")
                         }
                     }
-                    .padding(.horizontal, 20)
                 }
+                .padding(.horizontal, 20)
             }
-            
-            //RadioTwo
-            HStack(spacing: 10) {
-                ForEach(0..<yesNo.count, id: \.self) { index in
-                    let twoStyle: RadioButtonStyle = twoSelectedIndex == index ? .twoSelected : .twoUnselected
-                    RadioButton.CustomButtonView(style: twoStyle) {
-                        twoSelectedIndex = index
-                    } label: {
-                        Text("\(yesNo[index])")
-                    }
-                }
-            }
-            .padding(.horizontal, 20)
         }
     }
 }

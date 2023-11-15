@@ -24,8 +24,9 @@ struct CTAButton {
             switch style {
             case .primary(let isDisabled):
                 Button(action: action) {
-                    label
-                        .B1()
+                        label
+                            .B1()
+                            .multilineTextAlignment(.center)
                 }
                 .buttonStyle(CTAButtonStyleModifiers(style: style))
                 .disabled(isDisabled)
@@ -33,12 +34,14 @@ struct CTAButton {
                 Button(action: action) {
                     label
                         .B1()
+                        .multilineTextAlignment(.center)
                 }
                 .buttonStyle(CTAButtonStyleModifiers(style: style))
             case .expanded(let isDisabled):
                 Button(action: action) {
                     label
                         .B1()
+                        .multilineTextAlignment(.center)
                 }
                 .buttonStyle(CTAButtonStyleModifiers(style: style))
                 .disabled(isDisabled)
@@ -46,6 +49,7 @@ struct CTAButton {
                 Button(action: action) {
                     label
                         .B1()
+                        .multilineTextAlignment(.center)
                 }
                 .buttonStyle(CTAButtonStyleModifiers(style: style))
             }

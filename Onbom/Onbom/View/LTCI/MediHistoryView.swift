@@ -13,13 +13,15 @@ struct MediHistoryView: View {
     var body: some View {
         //TODO: - Gradient 배경 빠져 있음
         VStack {
-            Text("어르신이 3개월 내 입원 또는\n수술 이력이 있으신가요?")
-                .foregroundColor(Color.B)
-                .H1()
-                .frame(maxWidth: .infinity, alignment: .leading)
-            Spacer()
-            Image("MediHistoryImage")
-            Spacer()
+            ScrollView {
+                VStack(spacing: 69) {
+                    Text("어르신이 3개월 내 입원 또는\n수술 이력이 있으신가요?")
+                        .foregroundColor(Color.B)
+                        .H1()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                    Image("MediHistoryImage")
+                }
+            }
             VStack(spacing: 10) {
                 CTAButton.CustomButtonView(
                     style: .primary(isDisabled: false))
