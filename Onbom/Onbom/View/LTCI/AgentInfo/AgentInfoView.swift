@@ -24,9 +24,18 @@ struct AgentInfoView: View {
     @State private var isKeyboardVisible: Bool = false
     @State private var step: [Bool]
     @State private var didAppear: [Bool]
-    
+    let editState: Bool
+        
+    private var title: String {
+        get {
+            if(editState) { return "\(agent.name)님과 \(patient.name)님의\n관계를 확인해 주세요" }
+            else { return "\(agent.name)님과 \(patient.name)님의\n관계를 선택해 주세요" }
+        }
+    }
+
     init(isEdit: Bool = false) {
-        if(isEdit) {
+        self.editState = isEdit
+        if(editState) {
             self.step = [true, true]
             self.didAppear = [true, true]
         }
@@ -37,20 +46,33 @@ struct AgentInfoView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("\(agent.name)님과 \(patient.name)님의\n관계를 선택해 주세요")
-                .H1()
-                .foregroundColor(Color.B)
-                .padding(.horizontal, 20)
-            ScrollView(showsIndicators: false) {
-                VStack(spacing: 0) {
-                    if(step[1]) { detailRelationField }
-                    if(step[0]) { relationField }
+        ZStack(alignment: .bottom) {
+            Color.G1.opacity(0.0001)
+                .onTapGesture { hideKeyboard() }
+            VStack(alignment: .leading, spacing: 0) {
+                Text(title)
+                    .H1()
+                    .foregroundColor(Color.B)
+                    .padding(.top, 24)
+                    .padding(.horizontal, 20)
+                if editState {
+                    VStack(spacing: 36) {
+                        Spacer().frame(height: 12)
+                        relationField
+                        detailRelationField
+                    }
                 }
+                else {
+                    VStack(spacing: 36) {
+                        Spacer().frame(height: 12)
+                        if(step[1]) { detailRelationField }
+                        if(step[0]) { relationField }
+                    }
+                }
+                Spacer()
             }
             btn
         }
-        .onTapGesture { hideKeyboard() }
         .navigationBarBackButton()
         .onAppear { self.onAppear() }
     }
@@ -77,7 +99,7 @@ extension AgentInfoView {
                 step[1] = true
             }
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
             withAnimation {
                 didAppear[1] = true
             }
@@ -87,17 +109,19 @@ extension AgentInfoView {
     
     private func onAppear() {
         
-        selectedItem = agent.relation
-        detailRelation = agent.detailRelation
-        if navigation.isUserFromSubmitCheckListView {
-            isDisabled = false
-        }
+        if(editState) { loadAgent() }
+        
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notification in
             self.isKeyboardVisible = true
         }
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { notification in
             self.isKeyboardVisible = false
         }
+    }
+    
+    private func loadAgent() {
+        selectedItem = agent.relation
+        detailRelation = agent.detailRelation
     }
     
     private func isActiveButton() -> Bool {
@@ -138,9 +162,7 @@ extension AgentInfoView {
         FormTextField(formSubject: "상세 관계", placeHolder: "예) 자녀, 배우자", textInput: self.$detailRelation, isWrong: .constant(false))
             .animation(.easeInOut, value: step)
             .onSubmit { isKeyboardVisible = false }
-            .padding(.bottom, 36)
             .padding(.horizontal, 20)
-            .padding(.top, 48)
             .appear(didAppear[1])
     }
 
@@ -151,33 +173,34 @@ extension AgentInfoView {
                 CTAButton.CustomButtonView(style: .expanded(isDisabled: !isActiveButton())) {
                     onClickButton()
                 } label: {
-                    Text(navigation.isUserFromSubmitCheckListView ? "수정완료" : "다음")
+                    Text(navigation.isUserFromSubmitCheckListView ? "수정 완료" : "다음")
                 }
             }
             else {
-                Button {
-                    navigation.navigate(.AgentInfoDetailView)
-                } label: {
-                    Text("상세 관계를 모르겠어요")
-                        .Label()
-                        .foregroundColor(.G5)
-                        .padding(.bottom, 1)
-                        .overlay(
-                            Rectangle()
-                                .frame(height: 1)
-                                .foregroundColor(.G4),
-                            alignment: .bottom
-                        )
+                VStack(spacing: 10){
+                    Button {
+                        navigation.navigate(.AgentInfoDetailView)
+                    } label: {
+                        Text("상세 관계를 모르겠어요")
+                            .Label()
+                            .foregroundColor(.G5)
+                            .padding(.bottom, 1)
+                            .overlay(
+                                Rectangle()
+                                    .frame(height: 1)
+                                    .foregroundColor(.G4),
+                                alignment: .bottom
+                            )
+                    }
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    
+                    CTAButton.CustomButtonView(style: .primary(isDisabled: !isActiveButton())) {
+                        onClickButton()
+                    } label: {
+                        Text(navigation.isUserFromSubmitCheckListView ? "수정 완료" : "다음")
+                    }
+                    .padding(.horizontal, 20)
                 }
-                .frame(maxWidth: .infinity, alignment: .center)
-                .padding(.bottom, 10)
-                
-                CTAButton.CustomButtonView(style: .primary(isDisabled: !isActiveButton())) {
-                    onClickButton()
-                } label: {
-                    Text(navigation.isUserFromSubmitCheckListView ? "수정완료" : "다음")
-                }
-                .padding(.horizontal, 20)
             }
         }
         .ignoresSafeArea(.keyboard, edges: .bottom)
