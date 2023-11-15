@@ -16,13 +16,13 @@ struct SubmitLoadingView: View {
     @State private var state: SubmitLoadingViewState = .loading
     @Binding var presented: Bool
     private let firebaseStorageManager: FirebaseStorageManager = .shared
-    @EnvironmentObject var pdfManager: PDFManager
+    private let pdfManager: PDFManager = .shared
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
         if state == .loading {
             VStack {
-                Text("국민건강보험공단에\n보내고 있어요")
+                Text("국민건강보험공단에\n신청 서류를 보내고 있어요")
                     .H1()
                     .foregroundColor(.B)
                     .frame(maxWidth: .infinity, alignment: .leading)

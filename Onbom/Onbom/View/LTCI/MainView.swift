@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject private var navigation = NavigationManager()
-    @StateObject private var pdfManager = PDFManager()
+    private let pdfManager: PDFManager = .shared
     @State private var tab: Tabs = .home
     
     var body: some View {
@@ -20,7 +20,6 @@ struct MainView: View {
                     HomeView()
                 }
                 .environmentObject(navigation)
-                .environmentObject(pdfManager)
             case .history:
                 PDFViewer(pdfData: pdfManager.PDFDatas.first )
                     .frame(maxHeight: .infinity)
@@ -43,6 +42,5 @@ struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
             .environmentObject(NavigationManager())
-            .environmentObject(PDFManager())
     }
 }
