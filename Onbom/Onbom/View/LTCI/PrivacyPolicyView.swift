@@ -10,7 +10,11 @@ import SwiftUI
 struct PrivacyPolicyView: View {
     @EnvironmentObject var navigation: NavigationManager
     
-    private let policyTextArray = ["개인정보 제3자 제공 동의 (필수)", "민감정보 처리 동의 (필수)", "고유식별정보 처리 동의 (필수)"]
+    private let policyTextArray = ["개인정보 수집 및 이용동의 (필수)", "개인정보 제3자 제공동의 (필수)", "민감정보 수집 및 이용동의 (필수)"]
+    private let policyUrl = ["https://lateral-donkey-cf6.notion.site/bf4f7e8dc1a2462badb6ca9e882dc370?pvs=4",
+                             "https://lateral-donkey-cf6.notion.site/3-6fff34690ffb4ed28727a2a0d7fb7a2a?pvs=4",
+                             "https://lateral-donkey-cf6.notion.site/af204a10e806479d8f557e8a17814ad8?pvs=4"
+    ]
     @State private var isCheckArray = Array(repeating: false, count: 3)
     @State private var isAllCheck = false
     @Binding var isPrivacyPolicyViewPresented: Bool
@@ -25,7 +29,7 @@ struct PrivacyPolicyView: View {
                 VStack(spacing: 22) {
                     ForEach(Array(policyTextArray.enumerated()), id: \.element) { index, policyText in
                         HStack() {
-                            PrivacyPolicyLow(policyText: policyText, isCheck: $isCheckArray[index], isAllCheck: $isAllCheck)
+                            PrivacyPolicyLow(policyText: policyText, url: policyUrl[index], isCheck: $isCheckArray[index], isAllCheck: $isAllCheck)
                         }
                     }
                 }
@@ -75,6 +79,7 @@ struct PrivacyPolicyView: View {
 
 struct PrivacyPolicyLow: View {
     var policyText: String
+    var url: String
     @State private var isShowPrivacyPolicyDetail = false
     @Binding var isCheck: Bool
     @Binding var isAllCheck: Bool
@@ -94,7 +99,7 @@ struct PrivacyPolicyLow: View {
             }
         }
         .fullScreenCover(isPresented: $isShowPrivacyPolicyDetail) {
-            PrivacyPolicyDetailView(isShowPrivacyPolicyDetail: $isShowPrivacyPolicyDetail)
+            PrivacyPolicyDetailView(isShowPrivacyPolicyDetail: $isShowPrivacyPolicyDetail, webViewUrl: url)
         }
         .onTapGesture {
             if isAllCheck {

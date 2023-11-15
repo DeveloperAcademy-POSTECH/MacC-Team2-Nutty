@@ -10,6 +10,7 @@ import WebKit
 
 struct PrivacyPolicyDetailView: View {
     @Binding var isShowPrivacyPolicyDetail: Bool
+    var webViewUrl: String
     var body: some View {
         VStack(alignment: .leading) {
             Button {
@@ -19,7 +20,7 @@ struct PrivacyPolicyDetailView: View {
                     .foregroundStyle(Color.G5)
             }
             .padding(.horizontal)
-            MyWebView(urlToLoad: "https://lateral-donkey-cf6.notion.site/7e4a8717592040078e844a8f87744a25?pvs=4")
+            MyWebView(urlToLoad: webViewUrl)
         }
     }
 }
@@ -41,5 +42,5 @@ struct MyWebView: UIViewRepresentable {
 }
 
 #Preview {
-    PrivacyPolicyDetailView(isShowPrivacyPolicyDetail: .constant(true))
+    PrivacyPolicyDetailView(isShowPrivacyPolicyDetail: .constant(true), webViewUrl: "https://lateral-donkey-cf6.notion.site/bf4f7e8dc1a2462badb6ca9e882dc370?pvs=4")
 }
