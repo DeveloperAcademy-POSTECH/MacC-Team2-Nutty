@@ -55,16 +55,13 @@ struct AgentInfoView: View {
                     .foregroundColor(Color.B)
                     .padding(.top, 24)
                     .padding(.horizontal, 20)
-                if editState {
-                    VStack(spacing: 36) {
-                        Spacer().frame(height: 12)
+                VStack(spacing: 36) {
+                    Spacer().frame(height: 12)
+                    if editState {
                         relationField
                         detailRelationField
                     }
-                }
-                else {
-                    VStack(spacing: 36) {
-                        Spacer().frame(height: 12)
+                    else {
                         if(step[1]) { detailRelationField }
                         if(step[0]) { relationField }
                     }
