@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03D759362ACDA17400495D7F /* PostCodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D759352ACDA17400495D7F /* PostCodeInputView.swift */; };
+		03FB0B2F2B0368A700DC1129 /* PatientInfoCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FB0B2E2B0368A700DC1129 /* PatientInfoCompleteView.swift */; };
 		03FFF2A92ACDAE7A00B81D65 /* PostCodeViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2A82ACDAE7A00B81D65 /* PostCodeViewer.swift */; };
 		03FFF2BB2AD5B74E00B81D65 /* CTAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2BA2AD5B74E00B81D65 /* CTAButton.swift */; };
 		03FFF2C92ADD60EF00B81D65 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2C82ADD60EF00B81D65 /* RadioButton.swift */; };
@@ -106,6 +107,7 @@
 
 /* Begin PBXFileReference section */
 		03D759352ACDA17400495D7F /* PostCodeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCodeInputView.swift; sourceTree = "<group>"; };
+		03FB0B2E2B0368A700DC1129 /* PatientInfoCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientInfoCompleteView.swift; sourceTree = "<group>"; };
 		03FFF2A82ACDAE7A00B81D65 /* PostCodeViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCodeViewer.swift; sourceTree = "<group>"; };
 		03FFF2BA2AD5B74E00B81D65 /* CTAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTAButton.swift; sourceTree = "<group>"; };
 		03FFF2C82ADD60EF00B81D65 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
@@ -398,6 +400,7 @@
 				7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */,
 				AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */,
 				731609672AD838FB00399476 /* StepView.swift */,
+				03FB0B2E2B0368A700DC1129 /* PatientInfoCompleteView.swift */,
 				7372273D2AD2FB340021EFC6 /* MediHistoryView.swift */,
 				735ADB2E2AD5AC4E0069B94B /* MediConditionView.swift */,
 				7372273F2AD30BBE0021EFC6 /* RejectView.swift */,
@@ -728,6 +731,7 @@
 				AEA098F42AE6B13800DE9BA8 /* DescriptionView.swift in Sources */,
 				731EB7452AF9323B00931952 /* ApplyHistoryView.swift in Sources */,
 				70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */,
+				03FB0B2F2B0368A700DC1129 /* PatientInfoCompleteView.swift in Sources */,
 				73007CC12AEBA5B600376511 /* Agent.swift in Sources */,
 				7372274C2AD476200021EFC6 /* ViewModifier.swift in Sources */,
 				03FFF2A92ACDAE7A00B81D65 /* PostCodeViewer.swift in Sources */,
@@ -912,39 +916,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Onbom/Preview Content\"";
-				DEVELOPMENT_TEAM = RV2W6Y7UMT;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Onbom/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "신분증 촬영을 위해 카메라 권한이 필요합니다";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Nutty.Onbom;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		737EE3602ABD646200D224FC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Onbom/Onbom.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Onbom/Preview Content\"";
 				DEVELOPMENT_TEAM = RFZY2ACQ74;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -961,7 +932,39 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Nutty.Onbom;
+				PRODUCT_BUNDLE_IDENTIFIER = Nutty.Onbom.Miya;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		737EE3602ABD646200D224FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Onbom/Onbom.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Onbom/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Onbom/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "신분증 촬영을 위해 카메라 권한이 필요합니다";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
