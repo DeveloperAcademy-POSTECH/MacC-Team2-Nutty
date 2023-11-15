@@ -399,6 +399,7 @@
 				AEA098F32AE6B13800DE9BA8 /* DescriptionView.swift */,
 				7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */,
 				AE10D3912AD4E1C900D9ED3C /* PrivacyPolicyView.swift */,
+				AE5F71B42B03958700992CB7 /* PrivacyPolicyDetailView.swift */,
 				731609672AD838FB00399476 /* StepView.swift */,
 				7372273D2AD2FB340021EFC6 /* MediHistoryView.swift */,
 				735ADB2E2AD5AC4E0069B94B /* MediConditionView.swift */,
@@ -412,7 +413,6 @@
 				03FFF2D02AE6AD2B00B81D65 /* SubmitLoadingView.swift */,
 				03FFF2D22AE6B4A600B81D65 /* SubmitView.swift */,
 				735EE1B32AC029A900AD8B8D /* LoginView.swift */,
-				AE5F71B42B03958700992CB7 /* PrivacyPolicyDetailView.swift */,
 			);
 			path = LTCI;
 			sourceTree = "<group>";
