@@ -23,11 +23,18 @@ struct HomeView: View {
     var body: some View {
         VStack(spacing: 0){
             CustomNavigationBar {
-                Text("온봄")
-                    .foregroundColor(Color.Green4)
-                    .font(.custom("Dongle-Bold", size: 42))
-                    .padding(.leading, 20)
-                    .onTapGesture(count: 3) { onReset() }
+                HStack(alignment: .center, spacing: 5){
+                    Image("Logo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 34)
+                        .padding(.top, 4)
+                        .padding(.leading, 20)
+                    Text("온봄")
+                        .foregroundColor(Color.Green4)
+                        .font(.custom("Dongle-Bold", size: 42))
+                }
+                .onTapGesture(count: 3) { onReset() }
             } trailing: {
                 Image("notification")
                     .frame(width: 34, height: 34)
