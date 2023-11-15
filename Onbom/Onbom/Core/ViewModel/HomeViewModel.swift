@@ -9,23 +9,23 @@ import SwiftUI
 
 class HomeViewModel: ObservableObject {
     enum HomeViewState {
-        case ready
-        case apply
-        // TODO: before after
+        case guide
+        case before
+        case after
     }
     
-    @Published var state: HomeViewState = .ready
+    @Published var state: HomeViewState = .before
     
     public func onApplyLTCI() {
-        state = .apply
+        state = .after
     }
     
     public func onFlipCard() {
-        if state == .apply {
-            state = .ready
+        if state == .after {
+            state = .before
         }
-        else if state == .ready {
-            state = .apply
+        else if state == .before {
+            state = .after
         }
     }
 

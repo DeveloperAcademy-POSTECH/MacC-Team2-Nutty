@@ -193,7 +193,7 @@ struct HomeView: View {
     @ViewBuilder
     private var LTCICard: some View {
         
-        if viewModel.state == .ready {
+        if viewModel.state == .before {
             VStack(spacing: 30) {
                 Text("집에서 간편하게\n장기요양등급 신청해 보세요")
                     .T1()
@@ -216,7 +216,7 @@ struct HomeView: View {
                 .shadow(color: .black.opacity(0.05), radius: 5))
             .padding(20)
         }
-        else if viewModel.state == .apply {
+        else if viewModel.state == .after {
             VStack(spacing: 0) {
                 HStack(alignment: .center){
                     Text("장기요양등급신청")
@@ -304,7 +304,7 @@ struct HomeView: View {
     }
     
     private func onReset() {
-        viewModel.state = .ready
+        viewModel.state = .before
         pdfManager.PDFDatas.removeAll()
         patient.reset()
         agent.reset()
