@@ -519,9 +519,9 @@
 				03FFF2CA2ADD614900B81D65 /* Alert.swift */,
 				7384DB072AEACB950034E7FD /* CustomNavigationBar.swift */,
 				73A9D6922B065E9F001F8F39 /* GuideView.swift */,
-				73A9D6942B065F14001F8F39 /* LTCICardFront.swift */,
-				73A9D6962B065F60001F8F39 /* AdBanner.swift */,
 				73A9D6982B065FD5001F8F39 /* HomeNavigationBar.swift */,
+				73A9D6962B065F60001F8F39 /* AdBanner.swift */,
+				73A9D6942B065F14001F8F39 /* LTCICardFront.swift */,
 				73A9D69A2B0661AF001F8F39 /* LTCICardBack.swift */,
 			);
 			path = Components;
