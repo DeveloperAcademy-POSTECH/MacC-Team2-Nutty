@@ -21,84 +21,136 @@ struct HomeView: View {
     let width = UIScreen.main.bounds.width
     
     var body: some View {
-        VStack(spacing: 0){
-            CustomNavigationBar {
-                HStack(alignment: .center, spacing: 5){
-                    Image("Logo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 34)
-                        .padding(.top, 4)
-                        .padding(.leading, 20)
-                    Text("온봄")
-                        .foregroundColor(Color.Green4)
-                        .font(.custom("Dongle-Bold", size: 42))
-                }
-                .onTapGesture(count: 3) { onReset() }
-            } trailing: {
-                Image("notification")
-                    .frame(width: 34, height: 34)
-                    .padding(.trailing, 20)
-                    .onTapGesture(count: 3) { viewModel.onFlipCard() }
-            }
-            ScrollView(showsIndicators: false) {
-                VStack(spacing: 0){
-                    adBanner
-                    
-                    LTCICard
-                    
-                    HStack(spacing: 0) {
-                        Text("본인 부담금 계산기")
-                            .B2()
-                            .foregroundColor(Color.B)
-                            .padding(.leading, 19)
-                            .padding(.vertical, 20)
-                        Spacer()
-                        Image("chevronRight")
-                            .foregroundColor(Color.G4)
-                            .padding(.trailing, 19)
-                    }
-                    .background(RoundedRectangle(cornerRadius: 12).fill(Color.white)
-                        .shadow(color: .black.opacity(0.05), radius: 5))
-                    .padding(.horizontal, 20)
-                    .padding(.bottom, 25)
-                    
-                    
-                    carouselContent
-                    
-                    Spacer().frame(height: 100)
-                }
-            }
-            .background(Color.G2)
-        }
-        .navigationDestination(for: HomeRoute.self) { route in // TODO: ViewModifier로 빼기
-            switch(route) {
-            case .OnboardingView:                   OnboardingView(isOnboarding: .constant(true))
-            case .ApplyHistoryView:                 ApplyHistoryView()
-            case .DescriptionView:                  DescriptionView()
-            case .ApplyTypeView:                    ApplyTypeView().toolbar(.hidden, for: .tabBar)
-            case .MediHistoryView:                  MediHistoryView()
-            case .MediConditionView:                MediConditionView()
-            case .IDCardDescriptionView:            IDCardDescriptionView()
-            case .IDCardConfirmEditView:            IDCardConfirmEditView()
-            case .AddressFormView_Patient:          AddressFormView(formType: .patient, address: patient.address)
-            case .AddressFormView_ActualPatient:    AddressFormView(formType: .actualPatient, address: patient.actualAddress)
-            case .AddressFormView_Agent:            AddressFormView(formType: .agent, address: agent.address)
-            case .SignatureView:                    SignatureView()
-            case .SubmitCheckListView:              SubmitCheckListView(homeViewModel: self.viewModel)
-            case .StepView_First:                   StepView(state: .FIRST)
-            case .StepView_Second:                  StepView(state: .SECOND)
-            case .PatientInfoView:                  PatientInfoView()
-            case .AgentInfoView:                    AgentInfoView()
-            case .AgentInfoDetailView:              AgentInfoDetailView()
-            case .RejectView:                       RejectView()
+        ZStack(alignment: .top) {
+            VStack(spacing: 0) {
+                nav(transparant: false)
                 
-            case .PatientInfoView_EditPhoneNumber:  PatientInfoView(editState: .editPhoneNumber)
-            case .PatientInfoView_EditIDNumber:     PatientInfoView(editState: .editIDNumber)
-            default:                                RejectView()
+                ScrollView(showsIndicators: false) {
+                    VStack(spacing: 0){
+                        adBanner
+                        
+                        LTCICard
+                        
+                        HStack(spacing: 0) {
+                            Text("본인 부담금 계산기")
+                                .B2()
+                                .foregroundColor(Color.B)
+                                .padding(.leading, 19)
+                                .padding(.vertical, 20)
+                            Spacer()
+                            Image("chevronRight")
+                                .foregroundColor(Color.G4)
+                                .padding(.trailing, 19)
+                        }
+                        .background(RoundedRectangle(cornerRadius: 12).fill(Color.white)
+                            .shadow(color: .black.opacity(0.05), radius: 5))
+                        .padding(.horizontal, 20)
+                        .padding(.bottom, 25)
+                        
+                        
+                        carouselContent
+                        
+                        Spacer().frame(height: 100)
+                    }
+                }
+                .background(Color.G2)
+            }
+            
+            .navigationDestination(for: HomeRoute.self) { route in // TODO: ViewModifier로 빼기
+                switch(route) {
+                case .OnboardingView:                   OnboardingView(isOnboarding: .constant(true))
+                case .ApplyHistoryView:                 ApplyHistoryView()
+                case .DescriptionView:                  DescriptionView()
+                case .ApplyTypeView:                    ApplyTypeView().toolbar(.hidden, for: .tabBar)
+                case .MediHistoryView:                  MediHistoryView()
+                case .MediConditionView:                MediConditionView()
+                case .IDCardDescriptionView:            IDCardDescriptionView()
+                case .IDCardConfirmEditView:            IDCardConfirmEditView()
+                case .AddressFormView_Patient:          AddressFormView(formType: .patient, address: patient.address)
+                case .AddressFormView_ActualPatient:    AddressFormView(formType: .actualPatient, address: patient.actualAddress)
+                case .AddressFormView_Agent:            AddressFormView(formType: .agent, address: agent.address)
+                case .SignatureView:                    SignatureView()
+                case .SubmitCheckListView:              SubmitCheckListView(homeViewModel: self.viewModel)
+                case .StepView_First:                   StepView(state: .FIRST)
+                case .StepView_Second:                  StepView(state: .SECOND)
+                case .PatientInfoView:                  PatientInfoView()
+                case .AgentInfoView:                    AgentInfoView()
+                case .AgentInfoDetailView:              AgentInfoDetailView()
+                case .RejectView:                       RejectView()
+                    
+                case .PatientInfoView_EditPhoneNumber:  PatientInfoView(editState: .editPhoneNumber)
+                case .PatientInfoView_EditIDNumber:     PatientInfoView(editState: .editIDNumber)
+                default:                                RejectView()
+                }
+            }
+            
+            guideView
+        }
+    }
+    @ViewBuilder
+    private func nav(transparant: Bool = false) -> some View {
+        CustomNavigationBar {
+            HStack(alignment: .center, spacing: 5) {
+                Image("Logo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 34)
+                    .padding(.top, 4)
+                    .padding(.leading, 20)
+                Text("온봄")
+                    .foregroundColor(Color.Green4)
+                    .font(.custom("Dongle-Bold", size: 42))
+            }
+            .opacity(transparant ? 0.0000001 : 1)
+            .onTapGesture(count: 3) { onReset() }
+        } trailing: {
+            Image("notification")
+                .frame(width: 34, height: 34)
+                .padding(.trailing, 20)
+                .opacity(transparant ? 0.0000001 : 1)
+                .onTapGesture(count: 3) { viewModel.onFlipCard() }
+        }
+    }
+    
+    @ViewBuilder
+    private var guideView: some View {
+        
+        Group {
+            Color.black.opacity(0.3)
+                .ignoresSafeArea()
+            VStack(spacing: 0) {
+                nav(transparant: true)
+                adBanner.appear(false)
+                LTCICard
+                Triangle()
+                    .fill(.white)
+                    .frame(width: 20, height: 10)
+                VStack(alignment: .leading, spacing: 0){
+                    Text("온봄이 처음이신가요?")
+                        .B1()
+                        .foregroundColor(.B)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 16)
+                    HStack(alignment: .center, spacing: 0) {
+                        Text("신청하기 버튼을 눌러 ")
+                            .Cap4()
+                            .foregroundColor(.G6)
+                        Text("장기요양등급")
+                            .Cap4()
+                            .foregroundColor(.Green4)
+                        Text("을 받아보세요")
+                            .Cap4()
+                            .foregroundColor(.G6)
+                    }
+                    .padding(.leading, 16)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.top, 18)
+                .padding(.bottom, 16)
+                .background(RoundedRectangle(cornerRadius: 12).fill(Color.white))
+                .padding(.horizontal, 10)
             }
         }
-
     }
     
     @ViewBuilder
