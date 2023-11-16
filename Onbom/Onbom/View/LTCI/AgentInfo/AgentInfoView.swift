@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Combine
 
 struct AgentInfoView: View {
     // MARK: - 유저 데이터 관련 변수
@@ -68,7 +67,7 @@ struct AgentInfoView: View {
                 }
                 Spacer()
             }
-            btn
+            nextButton
         }
         .navigationBarBackButton()
         .onAppear { self.onAppear() }
@@ -164,7 +163,7 @@ extension AgentInfoView {
     }
 
     
-    private var btn: some View {
+    private var nextButton: some View {
         Group {
             if isKeyboardVisible {
                 CTAButton.CustomButtonView(style: .expanded(isDisabled: !isActiveButton())) {

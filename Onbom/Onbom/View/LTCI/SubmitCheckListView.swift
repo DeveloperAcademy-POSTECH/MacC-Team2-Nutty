@@ -42,7 +42,7 @@ struct SubmitCheckListView: View {
                     formCard("신청인 주민등록번호", agent.id, destination: .IDCardConfirmEditView)
                     addressCard("대리인 주소지", agent.address.toString, destination: .AddressFormView_Agent)
                     
-                    btn
+                    nextButton
                 }
             }
         }
@@ -89,7 +89,7 @@ extension SubmitCheckListView {
     }
     
     @ViewBuilder
-    private var btn: some View {
+    private var nextButton: some View {
         Button {
             isInfoReused.toggle()
         } label: {
@@ -110,11 +110,10 @@ extension SubmitCheckListView {
     private func formCard(
         _ form: String,
         _ content: String,
-        axis: VerticalAlignment = .center,
         showChevron: Bool = true,
         destination: HomeRoute? = nil
     ) -> some View {
-        HStack(alignment: axis) {
+        HStack(alignment: .center) {
             Text(form)
                 .B1()
                 .foregroundColor(.G5)
