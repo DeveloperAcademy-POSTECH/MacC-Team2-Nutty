@@ -18,7 +18,7 @@ struct SubmitCheckListView: View {
     // MARK: - navigation 관련 변수
     @State private var isSubmitLoadingViewPresented = false
     @EnvironmentObject var navigation : NavigationManager
-    @ObservedObject var homeViewModel: HomeViewModel
+    @ObservedObject var homeViewModel: MainViewModel
     
     // MARK: - button 관련 변수
     @State private var isInfoReused = true
@@ -269,7 +269,7 @@ struct SubmitCheckListView: View {
 
 struct SubmitCheckListView_Previews: PreviewProvider {
     static var previews: some View {
-        SubmitCheckListView(homeViewModel: HomeViewModel())
+        SubmitCheckListView(homeViewModel: MainViewModel())
             .environmentObject(Patient())
             .environmentObject(Agent())
     }

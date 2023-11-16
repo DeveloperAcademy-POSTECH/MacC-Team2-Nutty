@@ -12,7 +12,7 @@ struct SubmitView: View {
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
     @State private var isloadingViewPresented = true
-    @ObservedObject var homeViewModel: HomeViewModel
+    @ObservedObject var homeViewModel: MainViewModel
     
     var body: some View {
         if isloadingViewPresented {
@@ -68,7 +68,7 @@ struct SubmitView: View {
 
 struct SubmitView_Previews: PreviewProvider {
     static var previews: some View {
-        SubmitView(homeViewModel: HomeViewModel())
+        SubmitView(homeViewModel: MainViewModel())
             .environmentObject(NavigationManager())
     }
 }

@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-class HomeViewModel: ObservableObject {
-    enum HomeViewState {
+class MainViewModel: ObservableObject {
+    enum MainViewState {
         case guide
         case before
         case after
     }
     
-    @Published var state: HomeViewState = .before
+    @Published var state: MainViewState = .guide
     
     public func onApplyLTCI() {
         state = .after

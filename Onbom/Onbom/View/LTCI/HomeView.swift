@@ -12,13 +12,17 @@ import SwiftUI
 struct HomeView: View {
     private let timer = Timer.publish(every: 8, on: .main, in: .common).autoconnect()
     @State private var selectedPage = 0
-    @StateObject var viewModel = HomeViewModel()
+    @State var mainViewModel: MainViewModel
     
     @EnvironmentObject var navigation: NavigationManager
     private let pdfManager: PDFManager = .shared
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
     let width = UIScreen.main.bounds.width
+    
+    init(viewModel: MainViewModel) {
+        self.mainViewModel = viewModel
+    }
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -30,6 +34,8 @@ struct HomeView: View {
                         adBanner
                         
                         LTCICard
+                        if(mainViewModel.state == .after) { LTCICardBack() }
+                        else { LTCICardFront() }
                         
                         HStack(spacing: 0) {
                             Text("본인 부담금 계산기")
@@ -70,7 +76,7 @@ struct HomeView: View {
                 case .AddressFormView_ActualPatient:    AddressFormView(formType: .actualPatient, address: patient.actualAddress)
                 case .AddressFormView_Agent:            AddressFormView(formType: .agent, address: agent.address)
                 case .SignatureView:                    SignatureView()
-                case .SubmitCheckListView:              SubmitCheckListView(homeViewModel: self.viewModel)
+                case .SubmitCheckListView:              SubmitCheckListView(homeViewModel: self.mainViewModel)
                 case .StepView_First:                   StepView(state: .FIRST)
                 case .StepView_Second:                  StepView(state: .SECOND)
                 case .PatientInfoView:                  PatientInfoView()
@@ -363,7 +369,7 @@ struct HomeView: View {
     }
     
     private func onReset() {
-        viewModel.state = .before
+        mainViewModel.state = .guide
         pdfManager.PDFDatas.removeAll()
         patient.reset()
         agent.reset()
@@ -374,7 +380,7 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(viewModel: HomeViewModel())
+        HomeView(viewModel: MainViewModel())
             .environmentObject(NavigationManager())
             .environmentObject(mockAgent)
             .environmentObject(mockPatient)

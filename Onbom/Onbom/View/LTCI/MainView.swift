@@ -11,6 +11,7 @@ struct MainView: View {
     @StateObject private var navigation = NavigationManager()
     private let pdfManager: PDFManager = .shared
     @State private var tab: Tabs = .home
+    @StateObject var viewModel = MainViewModel()
     
     var body: some View {
         ZStack(alignment: .bottom){
