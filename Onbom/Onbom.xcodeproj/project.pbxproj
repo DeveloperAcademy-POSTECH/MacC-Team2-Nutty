@@ -51,7 +51,7 @@
 		73007CC32AEBA5BB00376511 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73007CC22AEBA5BB00376511 /* Address.swift */; };
 		731609682AD838FB00399476 /* StepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731609672AD838FB00399476 /* StepView.swift */; };
 		731EB7452AF9323B00931952 /* ApplyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731EB7442AF9323B00931952 /* ApplyHistoryView.swift */; };
-		731EB7472AF9ED9A00931952 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731EB7462AF9ED9A00931952 /* HomeViewModel.swift */; };
+		731EB7472AF9ED9A00931952 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731EB7462AF9ED9A00931952 /* MainViewModel.swift */; };
 		7337E1E82AD04B1700D91E6F /* TextStyle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337E1E72AD04B1700D91E6F /* TextStyle+Extension.swift */; };
 		7337E1EF2AD1531700D91E6F /* ApplyTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */; };
 		73525BF52AE6445E00A73769 /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73525BF42AE6445E00A73769 /* CustomTabBarView.swift */; };
@@ -74,6 +74,11 @@
 		7386D33F2AEFF1E600E1F327 /* PatientInfoViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7386D33E2AEFF1E600E1F327 /* PatientInfoViewModelTests.swift */; };
 		7389872F2AD5E95A00688634 /* MediConditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389872E2AD5E95A00688634 /* MediConditionViewModel.swift */; };
 		73A708892ACEC605004B462B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73A708882ACEC605004B462B /* GoogleService-Info.plist */; };
+		73A9D6932B065E9F001F8F39 /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A9D6922B065E9F001F8F39 /* GuideView.swift */; };
+		73A9D6952B065F14001F8F39 /* LTCICardFront.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A9D6942B065F14001F8F39 /* LTCICardFront.swift */; };
+		73A9D6972B065F60001F8F39 /* AdBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A9D6962B065F60001F8F39 /* AdBanner.swift */; };
+		73A9D6992B065FD5001F8F39 /* HomeNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A9D6982B065FD5001F8F39 /* HomeNavigationBar.swift */; };
+		73A9D69B2B0661AF001F8F39 /* LTCICardBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A9D69A2B0661AF001F8F39 /* LTCICardBack.swift */; };
 		73C58ABF2AEE1A8C00EA126A /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C58ABE2AEE1A8C00EA126A /* FirebaseStorageManager.swift */; };
 		73C58AF82AEE238A00EA126A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 73C58AF72AEE238A00EA126A /* FirebaseStorage */; };
 		73F4D54C2AFC065200BEA671 /* StringValidateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F4D54B2AFC065200BEA671 /* StringValidateTests.swift */; };
@@ -152,7 +157,7 @@
 		73007CC22AEBA5BB00376511 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		731609672AD838FB00399476 /* StepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepView.swift; sourceTree = "<group>"; };
 		731EB7442AF9323B00931952 /* ApplyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyHistoryView.swift; sourceTree = "<group>"; };
-		731EB7462AF9ED9A00931952 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		731EB7462AF9ED9A00931952 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		7337E1E72AD04B1700D91E6F /* TextStyle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextStyle+Extension.swift"; sourceTree = "<group>"; };
 		7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyTypeView.swift; sourceTree = "<group>"; };
 		73525BF42AE6445E00A73769 /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
@@ -176,6 +181,11 @@
 		7389872E2AD5E95A00688634 /* MediConditionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediConditionViewModel.swift; sourceTree = "<group>"; };
 		739F9FAA2AC1DB4300523110 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		73A708882ACEC605004B462B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		73A9D6922B065E9F001F8F39 /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
+		73A9D6942B065F14001F8F39 /* LTCICardFront.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTCICardFront.swift; sourceTree = "<group>"; };
+		73A9D6962B065F60001F8F39 /* AdBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdBanner.swift; sourceTree = "<group>"; };
+		73A9D6982B065FD5001F8F39 /* HomeNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationBar.swift; sourceTree = "<group>"; };
+		73A9D69A2B0661AF001F8F39 /* LTCICardBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTCICardBack.swift; sourceTree = "<group>"; };
 		73C58ABE2AEE1A8C00EA126A /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
 		73C7A0D62B010F7D00CE3C9E /* OnbomUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnbomUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73F4D54B2AFC065200BEA671 /* StringValidateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringValidateTests.swift; sourceTree = "<group>"; };
@@ -314,7 +324,7 @@
 		73007CBE2AEBA26100376511 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				731EB7462AF9ED9A00931952 /* HomeViewModel.swift */,
+				731EB7462AF9ED9A00931952 /* MainViewModel.swift */,
 				7389872E2AD5E95A00688634 /* MediConditionViewModel.swift */,
 				735EE1B52AC02AA200AD8B8D /* AuthenticationViewModel.swift */,
 			);
@@ -508,6 +518,11 @@
 				03FFF2C82ADD60EF00B81D65 /* RadioButton.swift */,
 				03FFF2CA2ADD614900B81D65 /* Alert.swift */,
 				7384DB072AEACB950034E7FD /* CustomNavigationBar.swift */,
+				73A9D6922B065E9F001F8F39 /* GuideView.swift */,
+				73A9D6942B065F14001F8F39 /* LTCICardFront.swift */,
+				73A9D6962B065F60001F8F39 /* AdBanner.swift */,
+				73A9D6982B065FD5001F8F39 /* HomeNavigationBar.swift */,
+				73A9D69A2B0661AF001F8F39 /* LTCICardBack.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -701,6 +716,7 @@
 				03FFF2C92ADD60EF00B81D65 /* RadioButton.swift in Sources */,
 				735EE1B62AC02AA200AD8B8D /* AuthenticationViewModel.swift in Sources */,
 				735EE1B42AC029A900AD8B8D /* LoginView.swift in Sources */,
+				73A9D6972B065F60001F8F39 /* AdBanner.swift in Sources */,
 				AE2FFADB2AEFA141005DC43C /* CallTaxiView.swift in Sources */,
 				73FD46D92ADADF8C002ED839 /* HomeView.swift in Sources */,
 				737D49032ACB3F4F008AC5EC /* MainView.swift in Sources */,
@@ -736,9 +752,11 @@
 				AE5F71B52B03958700992CB7 /* PrivacyPolicyDetailView.swift in Sources */,
 				70D2994C2AC573BC009F536A /* CameraManager.swift in Sources */,
 				03FB0B2F2B0368A700DC1129 /* PatientInfoCompleteView.swift in Sources */,
+				73A9D6932B065E9F001F8F39 /* GuideView.swift in Sources */,
 				73007CC12AEBA5B600376511 /* Agent.swift in Sources */,
 				7372274C2AD476200021EFC6 /* ViewModifier.swift in Sources */,
 				03FFF2A92ACDAE7A00B81D65 /* PostCodeViewer.swift in Sources */,
+				73A9D6952B065F14001F8F39 /* LTCICardFront.swift in Sources */,
 				03FFF2CB2ADD614900B81D65 /* Alert.swift in Sources */,
 				708891F32AD57B91005B67AB /* SubmitCheckListView.swift in Sources */,
 				73007CC32AEBA5BB00376511 /* Address.swift in Sources */,
@@ -749,7 +767,8 @@
 				737227422AD323360021EFC6 /* PatientInfoView.swift in Sources */,
 				7337E1EF2AD1531700D91E6F /* ApplyTypeView.swift in Sources */,
 				70AC25AB2AF15CA300DBC4A0 /* DocumentDetector.swift in Sources */,
-				731EB7472AF9ED9A00931952 /* HomeViewModel.swift in Sources */,
+				731EB7472AF9ED9A00931952 /* MainViewModel.swift in Sources */,
+				73A9D69B2B0661AF001F8F39 /* LTCICardBack.swift in Sources */,
 				AE10D3922AD4E1C900D9ED3C /* PrivacyPolicyView.swift in Sources */,
 				AEB33EA92ACAADE00082A3E7 /* PDFFormLocation.swift in Sources */,
 				03FFF2D12AE6AD2C00B81D65 /* SubmitLoadingView.swift in Sources */,
@@ -762,6 +781,7 @@
 				AEB33E9E2AC40C470082A3E7 /* InputField.swift in Sources */,
 				70E047092AD5138300FC73A5 /* PhoneNumberInputField.swift in Sources */,
 				70E047052AD5023000FC73A5 /* NavigationBarBackButton.swift in Sources */,
+				73A9D6992B065FD5001F8F39 /* HomeNavigationBar.swift in Sources */,
 				737227402AD30BBE0021EFC6 /* RejectView.swift in Sources */,
 				70AC25A52AF15BF900DBC4A0 /* TextRecognizable.swift in Sources */,
 				737227442AD474E50021EFC6 /* View+Extension.swift in Sources */,

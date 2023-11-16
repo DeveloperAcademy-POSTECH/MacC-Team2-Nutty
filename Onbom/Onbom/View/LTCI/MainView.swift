@@ -14,26 +14,27 @@ struct MainView: View {
     @StateObject var viewModel = MainViewModel()
     
     var body: some View {
-        ZStack(alignment: .bottom){
-            switch(tab) {
-            case .home:
-                NavigationStack(path: $navigation.homePath) {
-                    HomeView()
+        ZStack(alignment: .top) {
+            ZStack(alignment: .bottom) {
+                switch(tab) {
+                case .home:
+                    NavigationStack(path: $navigation.homePath) { // TODO: NavigationStack 위로 빼기
+                        HomeView(viewModel: viewModel)
+                    }
+                    .environmentObject(navigation)
+                case .history:
+                    PDFViewer(pdfData: pdfManager.PDFDatas.first )
+                        .frame(maxHeight: .infinity)
+                case .profile:
+                    Text("내 정보")
+                        .frame(maxHeight: .infinity)
                 }
-                .environmentObject(navigation)
-            case .history:
-                PDFViewer(pdfData: pdfManager.PDFDatas.first )
-                    .frame(maxHeight: .infinity)
-            case .profile:
-                Text("내 정보")
-                    .frame(maxHeight: .infinity)
-            }
-            
-            if(navigation.homePath.count == 0){
+                
                 CustomTabBarView(tab: $tab)
             }
+            .ignoresSafeArea(edges: .bottom)
+            if(viewModel.state == .guide) { GuideView() }
         }
-        .ignoresSafeArea()
         
         
     }
