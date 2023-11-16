@@ -24,8 +24,7 @@ struct MainView: View {
                 PDFViewer(pdfData: pdfManager.PDFDatas.first )
                     .frame(maxHeight: .infinity)
             case .profile:
-                Text("내 정보")
-                    .frame(maxHeight: .infinity)
+                MyInfoView()
             }
             
             if(navigation.homePath.count == 0){
