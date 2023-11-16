@@ -21,12 +21,10 @@ class MainViewModel: ObservableObject {
     }
     
     public func onFlipCard() {
-        if state == .after {
-            state = .before
-        }
-        else if state == .before {
-            state = .after
-        }
+        if(state == .guide) { return }
+        
+        if state == .after { state = .before }
+        else if state == .before { state = .after }
     }
 
 }

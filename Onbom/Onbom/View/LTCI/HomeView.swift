@@ -10,16 +10,11 @@ import SwiftUI
 // TODO: 글씨 크기 짤림 이슈 - 먀
 
 struct HomeView: View {
-    @State var mainViewModel: MainViewModel
-    
+    @EnvironmentObject var mainViewModel: MainViewModel
     @EnvironmentObject var navigation: NavigationManager
     private let pdfManager: PDFManager = .shared
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
-    
-    init(viewModel: MainViewModel) {
-        self.mainViewModel = viewModel
-    }
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -72,7 +67,7 @@ struct HomeView: View {
                 case .AddressFormView_ActualPatient:    AddressFormView(formType: .actualPatient, address: patient.actualAddress)
                 case .AddressFormView_Agent:            AddressFormView(formType: .agent, address: agent.address)
                 case .SignatureView:                    SignatureView()
-                case .SubmitCheckListView:              SubmitCheckListView(homeViewModel: self.mainViewModel)
+                case .SubmitCheckListView:              SubmitCheckListView()
                 case .StepView_First:                   StepView(state: .FIRST)
                 case .StepView_Second:                  StepView(state: .SECOND)
                 case .PatientInfoView:                  PatientInfoView()
@@ -155,19 +150,11 @@ struct HomeView: View {
         }
     }
     
-    private func onReset() {
-        mainViewModel.state = .guide
-        pdfManager.PDFDatas.removeAll()
-        patient.reset()
-        agent.reset()
-        navigation.navigate(.OnboardingView)
-    }
-    
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(viewModel: MainViewModel())
+        HomeView()
             .environmentObject(NavigationManager())
             .environmentObject(mockAgent)
             .environmentObject(mockPatient)

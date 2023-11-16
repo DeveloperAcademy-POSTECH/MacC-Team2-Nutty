@@ -8,7 +8,14 @@
 import SwiftUI
 
 struct HomeNavigationBar: View {
+    let pdfManager: PDFManager = .shared
+    @EnvironmentObject var navigation: NavigationManager
+    @EnvironmentObject var mainViewModel: MainViewModel
+    @EnvironmentObject var patient: Patient
+    @EnvironmentObject var agent: Agent
+    
     let transparant: Bool
+    
     init(transparant: Bool) {
         self.transparant = transparant
     }
@@ -27,15 +34,21 @@ struct HomeNavigationBar: View {
                     .font(.custom("Dongle-Bold", size: 42))
             }
             .opacity(transparant ? 0.0000001 : 1)
-//            .onTapGesture(count: 3) { onReset() }
+            .onTapGesture(count: 3) { onReset() }
         } trailing: {
             Image("notification")
                 .frame(width: 34, height: 34)
                 .padding(.trailing, 20)
-//                .onTapGesture(count: 3) { transparant ? nil : mainViewModel.onFlipCard() }
-            // TODO: 함수 가져오기
+                .onTapGesture(count: 3) { transparant ? nil : mainViewModel.onFlipCard() }
         }
     
+    }
+    private func onReset() {
+        mainViewModel.state = .before
+        pdfManager.PDFDatas.removeAll()
+        patient.reset()
+        agent.reset()
+        navigation.navigate(.OnboardingView)
     }
 }
 

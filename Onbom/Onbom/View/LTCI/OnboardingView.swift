@@ -11,6 +11,7 @@ struct OnboardingView: View {
     @State private var selectedTab: Int = 0
     @Binding var isOnboarding: Bool
     @EnvironmentObject var navigation: NavigationManager
+    @EnvironmentObject var mainViewModel: MainViewModel
     
     var body: some View {
         TabView(selection: $selectedTab){
@@ -82,6 +83,7 @@ struct OnboardingView: View {
         if(selectedTab == 2) {
             isOnboarding = false
             navigation.popToRoot()
+            mainViewModel.state = .guide
             return
         }
         withAnimation {

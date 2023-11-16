@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LTCICardFront: View {
     @EnvironmentObject var navigation: NavigationManager
+    @EnvironmentObject var mainViewModel: MainViewModel
+    
     var body: some View {
         VStack(spacing: 30) {
             Text("집에서 간편하게\n장기요양등급 신청해 보세요")
@@ -22,8 +24,7 @@ struct LTCICardFront: View {
             CTAButton.CustomButtonView(
                 style: .main)
             {
-                // TODO: state change
-//                mainViewModel.state = .before
+                mainViewModel.state = .before
                 navigation.navigate(.DescriptionView)
             } label: {
                 Text("지금 바로 신청하기")
