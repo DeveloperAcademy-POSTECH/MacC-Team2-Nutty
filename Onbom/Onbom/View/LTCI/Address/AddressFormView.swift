@@ -118,7 +118,7 @@ struct AddressFormView: View {
                             navigation.navigate(.SignatureView)
                         }
                     } label: {
-                        Text(navigation.isUserFromSubmitCheckListView ? "수정완료" : "다음")
+                        Text(navigation.isUserFromSubmitCheckListView ? "수정 완료" : "다음")
                     }
                     .padding(.horizontal, -20)
                     .ignoresSafeArea(.keyboard)
@@ -139,7 +139,7 @@ struct AddressFormView: View {
                             navigation.navigate(.SignatureView)
                         }
                     } label: {
-                        Text(navigation.isUserFromSubmitCheckListView ? "수정완료" : "다음")
+                        Text(navigation.isUserFromSubmitCheckListView ? "수정 완료" : "다음")
                     }
                 }
             }

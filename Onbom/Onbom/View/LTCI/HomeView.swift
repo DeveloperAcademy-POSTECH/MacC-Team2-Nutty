@@ -164,6 +164,7 @@ struct HomeView: View {
             case .StepView_Second:                  StepView(state: .SECOND)
             case .PatientInfoView:                  PatientInfoView()
             case .AgentInfoView:                    AgentInfoView()
+            case .AgentInfoView_Edit:               AgentInfoView(isEdit: true)
             case .AgentInfoDetailView:              AgentInfoDetailView()
             case .RejectView:                       RejectView()
                 

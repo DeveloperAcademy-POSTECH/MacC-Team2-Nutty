@@ -23,238 +23,35 @@ struct SubmitCheckListView: View {
     // MARK: - button 관련 변수
     @State private var isInfoReused = true
     
-    // TODO: - 셀로 모듈화하기
     var body: some View {
-        VStack {
-            HStack {
-                Text("신청 정보를 확인해 주세요")
-                    .H1()
-                    .foregroundColor(.B)
-                Spacer()
-            }
-            .padding()
+        VStack(spacing: 0) {
+            h1
             
-            ScrollView {
-                Group {
-                    HStack {
-                        Text("신청 종류")
-                            .B1()
-                            .foregroundColor(.G5)
-                        Spacer()
-                        Button {
-                            //관계 설정 페이지
-                        } label: {
-                            Text("신규")
-                                .B4()
-                                .foregroundColor(.G5)
-                        }
-                    }
-                    .padding(.bottom)
-                    .padding(.bottom)
-                }
-                .padding()
-                
-                HStack {
-                    Text("신청인")
-                        .Cap6()
-                        .foregroundColor(.Green4)
-                        .padding(4)
-                        .padding(.horizontal, 3)
-                        .background(RoundedRectangle(cornerRadius: 25).fill(Color.Green2))
-                    Text("\(patient.name)님 정보")
-                        .T2()
-                        .foregroundColor(.G6)
-                        .padding(.leading, -4)
-                    Spacer()
-                }
-                .padding(.leading)
-                
-                Divider()
-                    .padding(.horizontal)
-                
-                Group {
-                    HStack {
-                        Text("신청인 전화번호")
-                            .B1()
-                            .foregroundColor(.G5)
-                        Spacer()
-                        Button {
-                            navigation.navigate(.PatientInfoView_EditPhoneNumber)
-                        } label: {
-                            Text(patient.phoneNumber.isEmpty ? "없음" : patient.phoneNumber)
-                                    .B4()
-                                    .foregroundColor(.G5)
-                                Image("chevronRight")
-                        }
-                    }
-                    HStack {
-                        Text("신청인 주민등록번호")
-                            .B1()
-                            .foregroundColor(.G5)
-                        Spacer()
-                        Button {
-                            navigation.navigate(.PatientInfoView_EditIDNumber)
-                        } label: {
-                            Text(patient.id)
-                                .B4()
-                                .foregroundColor(.G5)
-                            Image("chevronRight")
-
-                        }
-                    }
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Text("신청인 주민등록지")
-                                .B1()
-                                .foregroundColor(.G5)
-                            Spacer()
-                            Button {
-                                navigation.navigate(.AddressFormView_Patient)
-                            } label: {
-                                Image("chevronRight")
-
-                            }
-                        }
-                        .padding(.bottom, 4)
-                        Text(patient.address.cityAddress)
-                            .B3()
-                            .foregroundColor(.G5)
-                        Text(patient.address.detailAddress)
-                            .B3()
-                            .foregroundColor(.G5)
-                    }
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 0) {
+                    formCard("신청 종류", "신규", showChevron: false)
                     
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Text("신청인이 현재 살고 계신 주소지")
-                                .B1()
-                                .foregroundColor(.G5)
-                            Spacer()
-                            Button {
-                                navigation.navigate(.AddressFormView_ActualPatient)
-                            } label: {
-                                Image("chevronRight")
-                            }
-                        }
-                        .padding(.bottom, 4)
-                        Text(patient.actualAddress.cityAddress)
-                            .B3()
-                            .foregroundColor(.G5)
-                        Text(patient.actualAddress.detailAddress)
-                            .B3()
-                            .foregroundColor(.G5)
-                    }
-                    .padding(.bottom)
-                    .padding(.bottom)
+                    h2("신청인", patient.name)
+                    formCard("신청인 전화번호", patient.phoneNumber, destination: .PatientInfoView_EditPhoneNumber)
+                    formCard("신청인 주민등록번호", patient.id, destination: .PatientInfoView_EditIDNumber)
+                    addressCard("신청인 주민등록지", patient.address.toString, destination: .AddressFormView_Patient)
+                    addressCard("신청인이 현재 살고 계신 주소지", patient.actualAddress.toString, destination: .AddressFormView_ActualPatient)
                     
+                    h2("대리인", agent.name)
+                    formCard("신청인과의 관계", agent.toStringRelation(), destination: .AgentInfoView_Edit)
+                    formCard("신청인 주민등록번호", agent.id, destination: .IDCardConfirmEditView)
+                    addressCard("대리인 주소지", agent.address.toString, destination: .AddressFormView_Agent)
+                    
+                    nextButton
                 }
-                .padding()
-                
-                HStack {
-                    Text("대리인")
-                        .Cap6()
-                        .foregroundColor(.Green4)
-                        .padding(4)
-                        .padding(.horizontal, 3)
-                        .background(RoundedRectangle(cornerRadius: 25).fill(Color.Green2))
-                    Text("\(agent.name)님 정보")
-                        .T2()
-                        .foregroundColor(.G6)
-                        .padding(.leading, -4)
-                    Spacer()
-                }
-                .padding(.leading)
-                Divider()
-                    .padding(.horizontal)
-                
-                Group {
-                    HStack {
-                        Text("신청인과의 관계")
-                            .B1()
-                            .foregroundColor(.G5)
-                        Spacer()
-                        Button {
-                            navigation.navigate(.AgentInfoView)
-                        } label: {
-                            Text(agent.relation)
-                                .B4()
-                                .foregroundColor(.G5)
-                            Image("chevronRight")
-                        }
-                        
-                    }
-                    HStack {
-                        Text("대리인 주민등록번호")
-                            .B1()
-                            .foregroundColor(.G5)
-                        Spacer()
-                        Button {
-                            navigation.navigate(.IDCardConfirmEditView)
-                        } label: {
-                            Text(agent.id)
-                                .B4()
-                                .foregroundColor(.G5)
-                            Image("chevronRight")
-                        }
-                    }
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Text("대리인 주소지")
-                                .B1()
-                                .foregroundColor(.G5)
-                            Spacer()
-                            Button {
-                                navigation.navigate(.AddressFormView_Agent)
-                            } label: {
-                                Image("chevronRight")
-                            }
-                        }
-                        .padding(.bottom, 4)
-                        Text(agent.address.cityAddress)
-                            .B3()
-                            .foregroundColor(.G5)
-                        Text(agent.address.detailAddress)
-                            .B3()
-                            .foregroundColor(.G5)
-                    }
-                }
-                .padding()
-                Spacer()
-                HStack() {
-                    Button {
-                        isInfoReused.toggle()
-                    } label: {
-                        if isInfoReused {
-                            Image("selectedCircle")
-                        }
-                        else {
-                            Image("defaultCircle")
-                        }
-                    }
-                    Text("입력한 정보를 다음에도 사용할게요")
-                        .Cap3()
-                        .foregroundColor(Color.B)
-                    Spacer()
-                }
-                .padding(20)
             }
-        }.padding(.horizontal, 6)
+        }
         
-        CTAButton.CustomButtonView(
-            style: .primary(isDisabled:false))
-        {
-            patient.updateDictionary()
-            agent.updateDictionary()
-            pdfManager.createPDF(documentURL: LTCIFormResource, patient: patient, agent: agent)
-            var transaction = Transaction()
-            transaction.disablesAnimations = true
-            withTransaction(transaction) {
-                isSubmitLoadingViewPresented = true
-            }
+        CTAButton.CustomButtonView(style: .primary(isDisabled:false)) {
+            onClickButton()
         } label: {
             Text("신청하기")
         }
-        .padding(.bottom,0)
         .padding([.top, .leading, .trailing], 20)
         .navigationBarBackButton()
         .fullScreenCover(isPresented: $isSubmitLoadingViewPresented) {
@@ -265,6 +62,130 @@ struct SubmitCheckListView: View {
             print(navigation.isUserFromSubmitCheckListView)
         }
     }
+}
+
+extension SubmitCheckListView {
+    
+    private func onClickButton() {
+        patient.updateDictionary()
+        agent.updateDictionary()
+        pdfManager.createPDF(documentURL: LTCIFormResource, patient: patient, agent: agent)
+        var transaction = Transaction()
+        transaction.disablesAnimations = true
+        withTransaction(transaction) {
+            isSubmitLoadingViewPresented = true
+        }
+    }
+}
+
+extension SubmitCheckListView {
+    private var h1: some View {
+        Text("신청 정보를 확인해 주세요")
+            .H1()
+            .foregroundColor(.B)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.leading, 20)
+            .padding(.bottom, 12)
+    }
+    
+    @ViewBuilder
+    private var nextButton: some View {
+        Button {
+            isInfoReused.toggle()
+        } label: {
+            HStack(alignment: .center) {
+                if isInfoReused { Image("selectedCircle") }
+                else { Image("defaultCircle") }
+                Text("입력한 정보를 다음에도 사용할게요")
+                    .Cap3()
+                    .foregroundColor(Color.B)
+            }
+        }
+        .buttonStyle(PlainButtonStyle())
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.leading, 20)
+    }
+
+    @ViewBuilder
+    private func formCard(
+        _ form: String,
+        _ content: String,
+        showChevron: Bool = true,
+        destination: HomeRoute? = nil
+    ) -> some View {
+        HStack(alignment: .center) {
+            Text(form)
+                .B1()
+                .foregroundColor(.G5)
+            Spacer()
+            HStack(alignment: .center){
+                Text(content)
+                    .B4()
+                    .foregroundColor(.G5)
+                if(showChevron) {
+                    Image("chevronRight")
+                        .foregroundColor(.G4)
+                }
+            }
+            .onTapGesture {
+                guard let destination = destination else { return }
+                navigation.navigate(destination)
+            }
+        }
+        .padding(.horizontal, 20)
+        .padding(.vertical, 25)
+    }
+
+    
+    @ViewBuilder
+    private func addressCard(
+        _ form: String,
+        _ content: String,
+        destination: HomeRoute? = nil
+    ) -> some View {
+        HStack(alignment: .firstTextBaseline, spacing: 0) {
+            VStack(alignment: .leading, spacing: 16) {
+                Text(form)
+                    .B1()
+                    .foregroundColor(.G5)
+                Text(content)
+                    .B3()
+                    .foregroundColor(.G5)
+            }
+            Spacer()
+            Image("chevronRight")
+                .foregroundColor(.G4)
+                .onTapGesture {
+                    guard let destination = destination else { return }
+                    navigation.navigate(destination)
+                }
+        }
+        .padding(.horizontal, 20)
+        .padding(.vertical, 25)
+    }
+    
+    @ViewBuilder
+    private func h2(_ title: String, _ name: String) -> some View {
+        VStack(spacing: 4) {
+            HStack(alignment: .center) {
+                Text(title)
+                    .Cap6()
+                    .foregroundColor(.Green4)
+                    .padding(4)
+                    .padding(.horizontal, 3)
+                    .background(RoundedRectangle(cornerRadius: 25).fill(Color.Green2))
+                Text("\(name)님 정보")
+                    .T2()
+                    .foregroundColor(.G6)
+                    .padding(.leading, -4)
+                Spacer()
+            }
+            Divider()
+        }
+        .padding(.top, 28)
+        .padding(.leading, 20)
+    }
+    
 }
 
 struct SubmitCheckListView_Previews: PreviewProvider {
