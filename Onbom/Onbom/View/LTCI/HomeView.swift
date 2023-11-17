@@ -52,35 +52,34 @@ struct HomeView: View {
                 }
                 .background(Color.G2)
             }
-            
-            .navigationDestination(for: HomeRoute.self) { route in // TODO: ViewModifier로 빼기
-                switch(route) {
-                case .OnboardingView:                   OnboardingView(isOnboarding: .constant(true))
-                case .ApplyHistoryView:                 ApplyHistoryView()
-                case .DescriptionView:                  DescriptionView()
-                case .ApplyTypeView:                    ApplyTypeView().toolbar(.hidden, for: .tabBar)
-                case .MediHistoryView:                  MediHistoryView()
-                case .MediConditionView:                MediConditionView()
-                case .IDCardDescriptionView:            IDCardDescriptionView()
-                case .IDCardConfirmEditView:            IDCardConfirmEditView()
-                case .AddressFormView_Patient:          AddressFormView(formType: .patient, address: patient.address)
-                case .AddressFormView_ActualPatient:    AddressFormView(formType: .actualPatient, address: patient.actualAddress)
-                case .AddressFormView_Agent:            AddressFormView(formType: .agent, address: agent.address)
-                case .SignatureView:                    SignatureView()
-                case .SubmitCheckListView:              SubmitCheckListView()
-                case .StepView_First:                   StepView(state: .FIRST)
-                case .StepView_Second:                  StepView(state: .SECOND)
-                case .PatientInfoView:                  PatientInfoView()
-                case .AgentInfoView:                    AgentInfoView()
-                case .AgentInfoDetailView:              AgentInfoDetailView()
-                case .RejectView:                       RejectView()
-                    
-                case .PatientInfoView_EditPhoneNumber:  PatientInfoView(editState: .editPhoneNumber)
-                case .PatientInfoView_EditIDNumber:     PatientInfoView(editState: .editIDNumber)
-                default:                                RejectView()
-                }
+        }
+        .navigationDestination(for: HomeRoute.self) { route in
+            switch(route) {
+            case .OnboardingView:                   OnboardingView(isOnboarding: .constant(true))
+            case .ApplyHistoryView:                 ApplyHistoryView()
+            case .DescriptionView:                  DescriptionView()
+            case .ApplyTypeView:                    ApplyTypeView().toolbar(.hidden, for: .tabBar)
+            case .MediHistoryView:                  MediHistoryView()
+            case .MediConditionView:                MediConditionView()
+            case .IDCardDescriptionView:            IDCardDescriptionView()
+            case .IDCardConfirmEditView:            IDCardConfirmEditView()
+            case .AddressFormView_Patient:          AddressFormView(formType: .patient, address: patient.address)
+            case .AddressFormView_ActualPatient:    AddressFormView(formType: .actualPatient, address: patient.actualAddress)
+            case .AddressFormView_Agent:            AddressFormView(formType: .agent, address: agent.address)
+            case .SignatureView:                    SignatureView()
+            case .SubmitCheckListView:              SubmitCheckListView()
+            case .StepView_First:                   StepView(state: .FIRST)
+            case .StepView_Second:                  StepView(state: .SECOND)
+            case .PatientInfoView:                  PatientInfoView()
+            case .AgentInfoView:                    AgentInfoView()
+            case .AgentInfoView_Edit:               AgentInfoView(isEdit: true)
+            case .AgentInfoDetailView:              AgentInfoDetailView()
+            case .RejectView:                       RejectView()
+                
+            case .PatientInfoView_EditPhoneNumber:  PatientInfoView(editState: .editPhoneNumber)
+            case .PatientInfoView_EditIDNumber:     PatientInfoView(editState: .editIDNumber)
+            default:                                RejectView()
             }
-            
         }
     }
     

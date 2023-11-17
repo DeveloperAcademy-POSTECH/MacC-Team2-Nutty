@@ -19,17 +19,19 @@ class Agent: ObservableObject {
     @Published var id: String = ""
     @Published var idCardImage: UIImage = UIImage()
     @Published var relation: String = ""
+    @Published var detailRelation: String = ""
     @Published var address: Address = Address()
     @Published var phoneNumber: String = ""
     @Published var signature: [[CGPoint]] = []
     
     init() {}
     
-    init(name: String, id: String, idCardImage: UIImage, relation: String, address: Address, phoneNumber: String, signature: [[CGPoint]]) {
+    init(name: String, id: String, idCardImage: UIImage, relation: String, detailRelation: String, address: Address, phoneNumber: String, signature: [[CGPoint]]) {
         self.name = name
         self.id = id
         self.idCardImage = idCardImage
         self.relation = relation
+        self.detailRelation = detailRelation
         self.address = address
         self.phoneNumber = phoneNumber
         self.signature = signature
@@ -42,6 +44,12 @@ class Agent: ObservableObject {
     func splitID() -> (frontID: String, backID: String) {
         let splittedIDs = id.split(separator: "-").map { String($0) }
         return (splittedIDs.count > 0 ? splittedIDs[0] : "", splittedIDs.count > 1 ? splittedIDs[1] : "")
+    }
+    
+    func toStringRelation() -> String {
+        if(relation == "") { return detailRelation }
+        if(detailRelation == "") { return relation }
+        return "\(relation), \(detailRelation)"
     }
     
     func updateDictionary() {
@@ -67,7 +75,8 @@ let mockAgent = Agent(
     name: "김유진",
     id: "880912-2132321",
     idCardImage: UIImage(systemName: "heart")!,
-    relation: "친족",
+    relation: "가족",
+    detailRelation: "딸",
     address: mockAddress,
     phoneNumber: "01032323232",
     signature: [[]]
