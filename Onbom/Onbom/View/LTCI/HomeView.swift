@@ -15,7 +15,7 @@ struct HomeView: View {
     @StateObject var viewModel = HomeViewModel()
     
     @EnvironmentObject var navigation: NavigationManager
-    @EnvironmentObject var pdfManager: PDFManager
+    private let pdfManager: PDFManager = .shared
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
     let width = UIScreen.main.bounds.width
@@ -302,6 +302,5 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView(viewModel: HomeViewModel())
             .environmentObject(NavigationManager())
-            .environmentObject(PDFManager())
     }
 }

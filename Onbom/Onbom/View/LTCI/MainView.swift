@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject private var navigation = NavigationManager()
-    @StateObject private var pdfManager = PDFManager()
+    private let pdfManager: PDFManager = .shared
     @State private var tab: Tabs = .home
     
     var body: some View {
@@ -20,7 +20,6 @@ struct MainView: View {
                     HomeView()
                 }
                 .environmentObject(navigation)
-                .environmentObject(pdfManager)
                 
             case .article:
                 NavigationStack(path: $navigation.homePath) {
@@ -29,8 +28,7 @@ struct MainView: View {
                 .environmentObject(navigation)
                 
             case .profile:
-                Text("내 정보")
-                    .frame(maxHeight: .infinity)
+                MyInfoView()
             }
             
             if(navigation.homePath.count == 0) {
@@ -47,6 +45,5 @@ struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
             .environmentObject(NavigationManager())
-            .environmentObject(PDFManager())
     }
 }
