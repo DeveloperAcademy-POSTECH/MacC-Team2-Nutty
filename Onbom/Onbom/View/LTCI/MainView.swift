@@ -21,15 +21,19 @@ struct MainView: View {
                 }
                 .environmentObject(navigation)
                 .environmentObject(pdfManager)
-            case .history:
-                PDFViewer(pdfData: pdfManager.PDFDatas.first )
-                    .frame(maxHeight: .infinity)
+                
+            case .article:
+                NavigationStack(path: $navigation.homePath) {
+                    ArticleListView()
+                }
+                .environmentObject(navigation)
+                
             case .profile:
                 Text("내 정보")
                     .frame(maxHeight: .infinity)
             }
             
-            if(navigation.homePath.count == 0){
+            if(navigation.homePath.count == 0) {
                 CustomTabBarView(tab: $tab)
             }
         }
