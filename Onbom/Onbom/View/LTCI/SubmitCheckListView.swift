@@ -31,7 +31,8 @@ struct SubmitCheckListView: View {
                     formCard("신청 종류", "신규", showChevron: false)
                     
                     h2("신청인", patient.name)
-                    formCard("신청인 전화번호", patient.phoneNumber, destination: .PatientInfoView_EditPhoneNumber)
+                    formCard("신청인 이름", patient.name, destination: .PatientInfoView_EditName)
+                    formCard("신청인 전화번호", patient.hasMobile ? patient.phoneNumber : "전화번호 없음", destination: .PatientInfoView_EditPhoneNumber)
                     formCard("신청인 주민등록번호", patient.id, destination: .PatientInfoView_EditIDNumber)
                     addressCard("신청인 주민등록지", patient.address.toString, destination: .AddressFormView_Patient)
                     addressCard("신청인이 현재 살고 계신 주소지", patient.actualAddress.toString, destination: .AddressFormView_ActualPatient)
@@ -41,17 +42,18 @@ struct SubmitCheckListView: View {
                     formCard("신청인 주민등록번호", agent.id, destination: .IDCardConfirmEditView)
                     addressCard("대리인 주소지", agent.address.toString, destination: .AddressFormView_Agent)
                     
-                    nextButton
+                    saveInfoButton
                 }
+                .padding(.bottom, 20)
             }
+            
+            CTAButton.CustomButtonView(style: .primary(isDisabled:false)) {
+                onClickButton()
+            } label: {
+                Text("신청하기")
+            }
+            .padding(.horizontal, 20)
         }
-        
-        CTAButton.CustomButtonView(style: .primary(isDisabled:false)) {
-            onClickButton()
-        } label: {
-            Text("신청하기")
-        }
-        .padding([.top, .leading, .trailing], 20)
         .navigationBarBackButton()
         .fullScreenCover(isPresented: $isSubmitLoadingViewPresented) {
             SubmitView()
@@ -88,7 +90,7 @@ extension SubmitCheckListView {
     }
     
     @ViewBuilder
-    private var nextButton: some View {
+    private var saveInfoButton: some View {
         Button {
             isInfoReused.toggle()
         } label: {

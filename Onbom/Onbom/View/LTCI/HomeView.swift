@@ -76,6 +76,7 @@ struct HomeView: View {
             case .AgentInfoDetailView:              AgentInfoDetailView()
             case .RejectView:                       RejectView()
                 
+            case .PatientInfoView_EditName:         PatientInfoView(editState: .editName)
             case .PatientInfoView_EditPhoneNumber:  PatientInfoView(editState: .editPhoneNumber)
             case .PatientInfoView_EditIDNumber:     PatientInfoView(editState: .editIDNumber)
             default:                                RejectView()

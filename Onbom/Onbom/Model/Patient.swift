@@ -20,6 +20,7 @@ class Patient: ObservableObject {
     @Published var address: Address = Address()
     @Published var actualAddress: Address = Address()
     @Published var phoneNumber: String = ""
+    @Published var hasMobile: Bool = true
     @Published var hasInfectiousDisease = false
     @Published var hasMentalDisorder = false
     
