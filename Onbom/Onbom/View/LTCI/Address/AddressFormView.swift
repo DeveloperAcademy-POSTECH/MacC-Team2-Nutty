@@ -164,7 +164,7 @@ struct AddressFormView: View {
                     .multilineTextAlignment(.center)
                     .padding(.vertical, 20)
                 
-                Text("어르신이 병원이나 자녀 집 등 다른 곳에 계시다면\n추가 입력이 필요해요")
+                Text("어르신이 병원이나 자녀 집 등\n다른 곳에 계시다면 추가 입력이 필요해요")
                     .Cap3()
                     .foregroundColor(.G5)
                     .multilineTextAlignment(.center)

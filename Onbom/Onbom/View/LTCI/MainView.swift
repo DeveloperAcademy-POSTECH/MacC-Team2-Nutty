@@ -20,14 +20,18 @@ struct MainView: View {
                     HomeView()
                 }
                 .environmentObject(navigation)
-            case .history:
-                PDFViewer(pdfData: pdfManager.PDFDatas.first )
-                    .frame(maxHeight: .infinity)
+                
+            case .article:
+                NavigationStack(path: $navigation.homePath) {
+                    ArticleListView()
+                }
+                .environmentObject(navigation)
+                
             case .profile:
                 MyInfoView()
             }
             
-            if(navigation.homePath.count == 0){
+            if(navigation.homePath.count == 0) {
                 CustomTabBarView(tab: $tab)
             }
         }
