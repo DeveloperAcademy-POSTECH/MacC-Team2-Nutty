@@ -14,8 +14,10 @@ struct ApplyHistoryView: View {
     @EnvironmentObject var agent: Agent
     private let pdfManager: PDFManager = .shared
     @State private var isShowPdf = false
+    
     @State private var selectedPageIndex: Int = 0
-
+    @Namespace private var animation
+    
     var body: some View {
         VStack {
             Text("장기요양등급 신청 현황")
@@ -60,20 +62,22 @@ struct ApplyHistoryView: View {
                             Spacer()
                         }
                         ScrollView(.horizontal) {
-                            LazyHGrid(rows: [GridItem(.adaptive(minimum: 50))]) {
-                                if let pdfDocument = PDFDocument(data: pdfManager.PDFDatas.first ?? Data()) {
+                            LazyHGrid(rows: [GridItem(.adaptive(minimum: 70))]) {
+                                if let pdfDocument = /*PDFDocument(data: pdfManager.PDFDatas.first ?? Data())*/ PDFDocument(url: LTCIFormResource) {
                                     ForEach(0..<pdfDocument.pageCount, id: \.self) { pageIndex in
-                                        ThumbnailView(thumbnailImage: thumbnail(from: pdfDocument.page(at: pageIndex)!, size: CGSize(width: 50, height: 50)))
+                                        ThumbnailView(thumbnailImage: thumbnail(from: pdfDocument.page(at: pageIndex)!, size: CGSize(width: 500, height: 500)), isShowPdf: $isShowPdf)
                                             .onTapGesture {
                                                 selectedPageIndex = pageIndex
-                                                isShowPdf = true
+                                                withAnimation(.spring()) {
+                                                    isShowPdf = true
+                                                }
                                             }
+                                        
                                     }
-                                    .fullScreenCover(isPresented: $isShowPdf) {
-                                        PDFDetailView(selectedPageIndex: $selectedPageIndex, isShowPdf: $isShowPdf)    }
                                 }
                             }
                         }
+                        .matchedGeometryEffect(id: "pdf\(selectedPageIndex)", in: animation)
                     }
                     .padding(.horizontal, 20)
                     .padding(.vertical, 22)
@@ -117,6 +121,13 @@ struct ApplyHistoryView: View {
                 Spacer()
             }
         }
+        .overlay{
+            if isShowPdf {
+                PDFDetailView(selectedPageIndex: $selectedPageIndex, isShowPdf: $isShowPdf)
+                    .matchedGeometryEffect(id: "pdf\(selectedPageIndex)", in: animation)
+                    .ignoresSafeArea(.all)
+            }
+        }
         .navigationBarBackButton()
     }
     
@@ -155,24 +166,34 @@ struct ApplyHistoryView: View {
     }
     
     func thumbnail(from page: PDFPage, size: CGSize) -> UIImage {
-            let pdfView = PDFView()
-            pdfView.document = PDFDocument()
-            pdfView.document?.insert(page, at: 0)
-            let thumbnailImage = pdfView.document?.page(at: 0)?.thumbnail(of: size, for: .mediaBox)
-            return thumbnailImage ?? UIImage()
-        }
+        let pdfView = PDFView()
+        pdfView.document = PDFDocument()
+        pdfView.document?.insert(page, at: 0)
+        let thumbnailImage = pdfView.document?.page(at: 0)?.thumbnail(of: size, for: .mediaBox)
+        return thumbnailImage ?? UIImage()
+    }
 }
 
 struct ThumbnailView: View {
     var thumbnailImage: UIImage
+    @Namespace private var animation
+    @Binding var isShowPdf: Bool
     
+//    var frame: CGFloat {
+//        isShowPdf ? .infinity : 60
+//    }
     var body: some View {
         Image(uiImage: thumbnailImage)
             .resizable()
             .scaledToFit()
-            .frame(width: 50, height: 50)
-            .cornerRadius(8)
-            .padding(4)
+            .frame(width: 105, height: 105)
+            .background {
+                RoundedRectangle(cornerRadius: 12)
+                    .foregroundStyle(Color.TG2)
+            }
+            .padding(.vertical, 11)
+            .padding(.trailing, 3)
+            .matchedGeometryEffect(id: "pdf", in: animation)
     }
 }
 
@@ -180,20 +201,41 @@ struct PDFDetailView: View {
     private let pdfManager: PDFManager = .shared
     @Binding var selectedPageIndex: Int
     @Binding var isShowPdf: Bool
+    @Namespace private var animation
+    
     var body: some View {
-        VStack {
-            HStack {
-                Button {
-                    isShowPdf = false
-                } label: {
-                    Image(systemName: "xmark")
-                        .foregroundStyle(Color.G5)
-                }
-                Spacer()
-            }
-            .padding(.horizontal)
+//        VStack {
+//            HStack {
+//                Button {
+//                    withAnimation(.spring()) {
+//                        isShowPdf = false
+//                    }
+//                } label: {
+//                    Image(systemName: "xmark")
+//                        .foregroundStyle(Color.G5)
+//                        .padding()
+//                        .padding()
+//                }
+//                Spacer()
+//            }
+//            .padding(.horizontal)
+        ZStack {
+            Color.red
             PDFViewer(pdfData: pdfManager.PDFDatas.first ?? Data(), pageIndex: $selectedPageIndex)
+            Button {
+                withAnimation(.spring()) {
+                    isShowPdf = false
+                }
+            } label: {
+                Image(systemName: "xmark")
+                    .foregroundStyle(Color.G5)
+                    .padding()
+                    .padding()
+            }
+            Spacer()
         }
+
+//        }
     }
 }
 
