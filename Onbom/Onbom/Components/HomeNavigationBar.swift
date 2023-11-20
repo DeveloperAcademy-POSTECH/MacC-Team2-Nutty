@@ -14,10 +14,13 @@ struct HomeNavigationBar: View {
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
     
+    @Binding var scrollToTop: Bool
+    
     let transparant: Bool
     
-    init(transparant: Bool) {
+    init(transparant: Bool, scrollToTop: Binding<Bool> = .constant(false)) {
         self.transparant = transparant
+        _scrollToTop = scrollToTop
     }
     
     var body: some View {
@@ -48,6 +51,7 @@ struct HomeNavigationBar: View {
         pdfManager.PDFDatas.removeAll()
         patient.reset()
         agent.reset()
+        scrollToTop.toggle()
         navigation.navigate(.OnboardingView)
     }
 }
