@@ -10,21 +10,21 @@ import SwiftUI
 struct AdBanner: View {
     private let timer = Timer.publish(every: 8, on: .main, in: .common).autoconnect()
     @State private var selectedPage = 0
-    let width = UIScreen.main.bounds.width
     
     var body: some View {
         TabView(selection: $selectedPage){
             Image("Banner1")
                 .resizable()
-                .aspectRatio(contentMode: .fill)
+                .aspectRatio(contentMode: .fit)
                 .tag(0)
             Image("Banner2")
                 .resizable()
-                .aspectRatio(contentMode: .fill)
+                .aspectRatio(contentMode: .fit)
                 .tag(1)
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-        .frame(width: width, height: 84) // TODO: Invalid frame dimension
+        .scaledToFill()
+        .frame(height: 84)
         .overlay(
             Text("\(selectedPage + 1) / 2")
                 .foregroundStyle(Color.white)

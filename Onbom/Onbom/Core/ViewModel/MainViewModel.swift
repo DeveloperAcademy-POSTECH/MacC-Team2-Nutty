@@ -16,6 +16,12 @@ class MainViewModel: ObservableObject {
     
     @Published var state: MainViewState = .guide
     
+    init() {}
+    
+    init(state: MainViewState) {
+        self.state = state
+    }
+    
     public func onApplyLTCI() {
         state = .after
     }

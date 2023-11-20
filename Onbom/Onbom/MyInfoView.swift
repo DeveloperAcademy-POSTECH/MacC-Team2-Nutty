@@ -9,9 +9,17 @@ import SwiftUI
 
 struct MyInfoView: View {
     var body: some View {
-        Image("myInfoView")
-            .resizable()
-            .scaledToFill()
+        ZStack {
+            VStack {
+                Color.white
+                Color.G2
+            }
+            ScrollView {
+                Image("myInfoView")
+                    .resizable()
+                    .scaledToFit()
+            }
+        }
     }
 }
 

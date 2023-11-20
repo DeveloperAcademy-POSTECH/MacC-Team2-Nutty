@@ -10,48 +10,56 @@ import SwiftUI
 // TODO: 글씨 크기 짤림 이슈 - 먀
 
 struct HomeView: View {
+    private let pdfManager: PDFManager = .shared
     @EnvironmentObject var mainViewModel: MainViewModel
     @EnvironmentObject var navigation: NavigationManager
-    private let pdfManager: PDFManager = .shared
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
+    
+    @State private var scrollSwitch: Bool = false
     
     var body: some View {
         ZStack(alignment: .top) {
             VStack(spacing: 0) {
-                HomeNavigationBar(transparant: false)
+                HomeNavigationBar(transparant: false, scrollToTop: self.$scrollSwitch)
                 
-                ScrollView(showsIndicators: false) {
-                    VStack(spacing: 0){
-                        AdBanner()
-                        
-                        if(mainViewModel.state == .after) { LTCICardBack() }
-                        else { LTCICardFront() }
-                        
-                        HStack(spacing: 0) {
-                            Text("본인 부담금 계산기")
-                                .B2()
-                                .foregroundColor(Color.B)
-                                .padding(.leading, 19)
-                                .padding(.vertical, 20)
-                            Spacer()
-                            Image("chevronRight")
-                                .foregroundColor(Color.G4)
-                                .padding(.trailing, 19)
+                ScrollViewReader { proxy in
+                    ScrollView {
+                        VStack(spacing: 0){
+                            AdBanner()
+                                .id("topPosition")
+                            
+                            if(mainViewModel.state == .after) { LTCICardBack() }
+                            else { LTCICardFront() }
+                            
+                            HStack(spacing: 0) {
+                                Text("본인 부담금 계산기")
+                                    .B2()
+                                    .foregroundColor(Color.B)
+                                    .padding(.leading, 19)
+                                    .padding(.vertical, 20)
+                                Spacer()
+                                Image("chevronRight")
+                                    .foregroundColor(Color.G4)
+                                    .padding(.trailing, 19)
+                            }
+                            .background(RoundedRectangle(cornerRadius: 12).fill(Color.white)
+                                .shadow(color: .black.opacity(0.05), radius: 5))
+                            .padding(.horizontal, 20)
+                            .padding(.bottom, 25)
+                            
+                            
+                            carouselContent
+                            
+                            Spacer().frame(height: 100)
                         }
-                        .background(RoundedRectangle(cornerRadius: 12).fill(Color.white)
-                            .shadow(color: .black.opacity(0.05), radius: 5))
-                        .padding(.horizontal, 20)
-                        .padding(.bottom, 25)
-                        
-                        
-                        carouselContent
-                        
-                        Spacer().frame(height: 100)
+                    }
+                    .onChange(of: scrollSwitch) { _ in
+                        proxy.scrollTo("topPosition")
                     }
                 }
-                .background(Color.G2)
             }
+            .background(Color.G2)
         }
         .navigationDestination(for: HomeRoute.self) { route in
             switch(route) {
@@ -81,6 +89,7 @@ struct HomeView: View {
             case .PatientInfoView_EditIDNumber:     PatientInfoView(editState: .editIDNumber)
             default:                                RejectView()
             }
+            
         }
     }
     
@@ -155,6 +164,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .environmentObject(MainViewModel(state: .before))
             .environmentObject(NavigationManager())
             .environmentObject(mockAgent)
             .environmentObject(mockPatient)
