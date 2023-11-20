@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03092D0A2B04F895006884A5 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03092D092B04F895006884A5 /* MyInfoView.swift */; };
 		03D759362ACDA17400495D7F /* PostCodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D759352ACDA17400495D7F /* PostCodeInputView.swift */; };
 		03FB0B2F2B0368A700DC1129 /* PatientInfoCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FB0B2E2B0368A700DC1129 /* PatientInfoCompleteView.swift */; };
 		03FFF2A92ACDAE7A00B81D65 /* PostCodeViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2A82ACDAE7A00B81D65 /* PostCodeViewer.swift */; };
@@ -47,6 +48,8 @@
 		70E047092AD5138300FC73A5 /* PhoneNumberInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E047082AD5138300FC73A5 /* PhoneNumberInputField.swift */; };
 		70E0470B2AD5139200FC73A5 /* IDNumberInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E0470A2AD5139200FC73A5 /* IDNumberInputField.swift */; };
 		70E0470D2AD513BC00FC73A5 /* AddressInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E0470C2AD513BC00FC73A5 /* AddressInputField.swift */; };
+		70F9E1E02B03662300AACBCA /* ArticleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F9E1DF2B03662300AACBCA /* ArticleDetailView.swift */; };
+		70F9E1E32B047D4B00AACBCA /* ArticleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F9E1E22B047D4B00AACBCA /* ArticleListView.swift */; };
 		73007CC12AEBA5B600376511 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73007CC02AEBA5B600376511 /* Agent.swift */; };
 		73007CC32AEBA5BB00376511 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73007CC22AEBA5BB00376511 /* Address.swift */; };
 		731609682AD838FB00399476 /* StepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731609672AD838FB00399476 /* StepView.swift */; };
@@ -112,6 +115,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03092D092B04F895006884A5 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
 		03D759352ACDA17400495D7F /* PostCodeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCodeInputView.swift; sourceTree = "<group>"; };
 		03FB0B2E2B0368A700DC1129 /* PatientInfoCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientInfoCompleteView.swift; sourceTree = "<group>"; };
 		03FFF2A82ACDAE7A00B81D65 /* PostCodeViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCodeViewer.swift; sourceTree = "<group>"; };
@@ -153,6 +157,8 @@
 		70E047082AD5138300FC73A5 /* PhoneNumberInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberInputField.swift; sourceTree = "<group>"; };
 		70E0470A2AD5139200FC73A5 /* IDNumberInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDNumberInputField.swift; sourceTree = "<group>"; };
 		70E0470C2AD513BC00FC73A5 /* AddressInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressInputField.swift; sourceTree = "<group>"; };
+		70F9E1DF2B03662300AACBCA /* ArticleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailView.swift; sourceTree = "<group>"; };
+		70F9E1E22B047D4B00AACBCA /* ArticleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListView.swift; sourceTree = "<group>"; };
 		73007CC02AEBA5B600376511 /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
 		73007CC22AEBA5BB00376511 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		731609672AD838FB00399476 /* StepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepView.swift; sourceTree = "<group>"; };
@@ -321,6 +327,15 @@
 			path = IDCard;
 			sourceTree = "<group>";
 		};
+		70F9E1E12B03662C00AACBCA /* Article */ = {
+			isa = PBXGroup;
+			children = (
+				70F9E1E22B047D4B00AACBCA /* ArticleListView.swift */,
+				70F9E1DF2B03662300AACBCA /* ArticleDetailView.swift */,
+			);
+			path = Article;
+			sourceTree = "<group>";
+		};
 		73007CBE2AEBA26100376511 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +369,7 @@
 				AE57BA0D2ABD68FA00F71B34 /* Extensions */,
 				AE57BA0C2ABD68ED00F71B34 /* Model */,
 				AE57BA0B2ABD68E600F71B34 /* View */,
+				03092D092B04F895006884A5 /* MyInfoView.swift */,
 				737EE3532ABD646100D224FC /* OnbomApp.swift */,
 				737EE3572ABD646200D224FC /* Assets.xcassets */,
 				737EE3592ABD646200D224FC /* Preview Content */,
@@ -443,6 +459,7 @@
 			children = (
 				AE2FFAD92AEFA11C005DC43C /* Donghaeng */,
 				AE2FFAD82AEFA0F6005DC43C /* LTCI */,
+				70F9E1E12B03662C00AACBCA /* Article */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -741,6 +758,7 @@
 				70D2994A2AC573B3009F536A /* DocumentCameraViewer.swift in Sources */,
 				73FD46D72ADAADCF002ED839 /* NavigationManager.swift in Sources */,
 				7384DB082AEACB950034E7FD /* CustomNavigationBar.swift in Sources */,
+				70F9E1E32B047D4B00AACBCA /* ArticleListView.swift in Sources */,
 				03FFF2BB2AD5B74E00B81D65 /* CTAButton.swift in Sources */,
 				731609682AD838FB00399476 /* StepView.swift in Sources */,
 				AEB33E792AC2BDAC0082A3E7 /* PDFViewer.swift in Sources */,
@@ -755,6 +773,7 @@
 				73A9D6932B065E9F001F8F39 /* GuideView.swift in Sources */,
 				73007CC12AEBA5B600376511 /* Agent.swift in Sources */,
 				7372274C2AD476200021EFC6 /* ViewModifier.swift in Sources */,
+				70F9E1E02B03662300AACBCA /* ArticleDetailView.swift in Sources */,
 				03FFF2A92ACDAE7A00B81D65 /* PostCodeViewer.swift in Sources */,
 				73A9D6952B065F14001F8F39 /* LTCICardFront.swift in Sources */,
 				03FFF2CB2ADD614900B81D65 /* Alert.swift in Sources */,
@@ -770,6 +789,7 @@
 				731EB7472AF9ED9A00931952 /* MainViewModel.swift in Sources */,
 				73A9D69B2B0661AF001F8F39 /* LTCICardBack.swift in Sources */,
 				AE10D3922AD4E1C900D9ED3C /* PrivacyPolicyView.swift in Sources */,
+				03092D0A2B04F895006884A5 /* MyInfoView.swift in Sources */,
 				AEB33EA92ACAADE00082A3E7 /* PDFFormLocation.swift in Sources */,
 				03FFF2D12AE6AD2C00B81D65 /* SubmitLoadingView.swift in Sources */,
 				AEB33E9B2AC406600082A3E7 /* Color+Palette.swift in Sources */,

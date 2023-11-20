@@ -9,7 +9,7 @@ import SwiftUI
 
 enum Tabs {
     case home
-    case history
+    case article
     case profile
 }
 
@@ -36,14 +36,14 @@ struct CustomTabBarView: View {
                 Image("form_history")
                     .resizable()
                     .frame(width: 18, height: 20)
-                    .foregroundColor(tab == .history ? Color.Green4 : Color.G4)
+                    .foregroundColor(tab == .article ? Color.Green4 : Color.G4)
                 Text("신청 내역")
                     .Cap5()
-                    .foregroundColor(tab == .history ? Color.Green4 : Color.G5)
+                    .foregroundColor(tab == .article ? Color.Green4 : Color.G5)
             }
             .frame(maxWidth: .infinity)
             .onTapGesture {
-                tab = .history
+                tab = .article
             }
             
             VStack(spacing: 4){
