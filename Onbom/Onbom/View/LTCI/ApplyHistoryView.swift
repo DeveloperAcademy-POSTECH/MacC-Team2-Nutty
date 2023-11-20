@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import PDFKit
 
 struct ApplyHistoryView: View {
     @EnvironmentObject var navigation: NavigationManager
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
-    
+    private let pdfManager: PDFManager = .shared
+    @State private var isShowPdf = false
+    @State private var selectedPageIndex: Int = 0
+
     var body: some View {
         VStack {
             Text("장기요양등급 신청 현황")
@@ -55,6 +59,21 @@ struct ApplyHistoryView: View {
                                 .padding(.bottom, 2)
                             Spacer()
                         }
+                        ScrollView(.horizontal) {
+                            LazyHGrid(rows: [GridItem(.adaptive(minimum: 50))]) {
+                                if let pdfDocument = PDFDocument(data: pdfManager.PDFDatas.first ?? Data()) {
+                                    ForEach(0..<pdfDocument.pageCount, id: \.self) { pageIndex in
+                                        ThumbnailView(thumbnailImage: thumbnail(from: pdfDocument.page(at: pageIndex)!, size: CGSize(width: 50, height: 50)))
+                                            .onTapGesture {
+                                                selectedPageIndex = pageIndex
+                                                isShowPdf = true
+                                            }
+                                    }
+                                    .fullScreenCover(isPresented: $isShowPdf) {
+                                        PDFDetailView(selectedPageIndex: $selectedPageIndex, isShowPdf: $isShowPdf)    }
+                                }
+                            }
+                        }
                     }
                     .padding(.horizontal, 20)
                     .padding(.vertical, 22)
@@ -71,6 +90,14 @@ struct ApplyHistoryView: View {
                         }
                     } _: {
                         Image("chevronRight")
+                    }
+                    .background {
+                        Rectangle().fill(Color.white)
+                    }
+                    .onTapGesture {
+                        if let url = URL(string: "tel://15771000") {
+                            UIApplication.shared.open(url)
+                        }
                     }
                     
                     divider()
@@ -125,6 +152,48 @@ struct ApplyHistoryView: View {
             .fill(Color.G2)
             .frame(height: 12)
             .frame(maxWidth: .infinity)
+    }
+    
+    func thumbnail(from page: PDFPage, size: CGSize) -> UIImage {
+            let pdfView = PDFView()
+            pdfView.document = PDFDocument()
+            pdfView.document?.insert(page, at: 0)
+            let thumbnailImage = pdfView.document?.page(at: 0)?.thumbnail(of: size, for: .mediaBox)
+            return thumbnailImage ?? UIImage()
+        }
+}
+
+struct ThumbnailView: View {
+    var thumbnailImage: UIImage
+    
+    var body: some View {
+        Image(uiImage: thumbnailImage)
+            .resizable()
+            .scaledToFit()
+            .frame(width: 50, height: 50)
+            .cornerRadius(8)
+            .padding(4)
+    }
+}
+
+struct PDFDetailView: View {
+    private let pdfManager: PDFManager = .shared
+    @Binding var selectedPageIndex: Int
+    @Binding var isShowPdf: Bool
+    var body: some View {
+        VStack {
+            HStack {
+                Button {
+                    isShowPdf = false
+                } label: {
+                    Image(systemName: "xmark")
+                        .foregroundStyle(Color.G5)
+                }
+                Spacer()
+            }
+            .padding(.horizontal)
+            PDFViewer(pdfData: pdfManager.PDFDatas.first ?? Data(), pageIndex: $selectedPageIndex)
+        }
     }
 }
 

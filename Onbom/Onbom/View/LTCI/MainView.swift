@@ -21,7 +21,7 @@ struct MainView: View {
                 }
                 .environmentObject(navigation)
             case .history:
-                PDFViewer(pdfData: pdfManager.PDFDatas.first )
+                Text("돌봄 소식")
                     .frame(maxHeight: .infinity)
             case .profile:
                 Text("내 정보")
