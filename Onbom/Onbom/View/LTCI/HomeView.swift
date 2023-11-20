@@ -67,7 +67,7 @@ struct HomeView: View {
             case .AddressFormView_ActualPatient:    AddressFormView(formType: .actualPatient, address: patient.actualAddress)
             case .AddressFormView_Agent:            AddressFormView(formType: .agent, address: agent.address)
             case .SignatureView:                    SignatureView()
-            case .SubmitCheckListView:              SubmitCheckListView(homeViewModel: self.viewModel)
+            case .SubmitCheckListView:              SubmitCheckListView()
             case .StepView_First:                   StepView(state: .FIRST)
             case .StepView_Second:                  StepView(state: .SECOND)
             case .PatientInfoView:                  PatientInfoView()

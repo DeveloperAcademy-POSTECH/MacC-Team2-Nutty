@@ -20,12 +20,10 @@ struct MainView: View {
                     switch(tab) {
                     case .home:
                         HomeView()
-                    case .history:
-                        PDFViewer(pdfData: pdfManager.PDFDatas.first )
-                            .frame(maxHeight: .infinity)
+                    case .article:
+                        ArticleListView()
                     case .profile:
-                        Text("내 정보")
-                            .frame(maxHeight: .infinity)
+                        MyInfoView()
                     }
                     
                     CustomTabBarView(tab: $tab)
