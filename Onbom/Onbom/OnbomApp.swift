@@ -11,8 +11,6 @@ import FirebaseCore
 @main
 struct OnbomApp: App {
     
-    @State private var isOnboarding: Bool = true
-    
     init() {
         FirebaseApp.configure()
     }
