@@ -10,9 +10,9 @@ import SwiftUI
 // TODO: 글씨 크기 짤림 이슈 - 먀
 
 struct HomeView: View {
+    private let pdfManager: PDFManager = .shared
     @EnvironmentObject var mainViewModel: MainViewModel
     @EnvironmentObject var navigation: NavigationManager
-    private let pdfManager: PDFManager = .shared
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
     
@@ -155,6 +155,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .environmentObject(MainViewModel(state: .before))
             .environmentObject(NavigationManager())
             .environmentObject(mockAgent)
             .environmentObject(mockPatient)
