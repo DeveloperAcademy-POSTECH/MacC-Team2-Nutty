@@ -11,31 +11,29 @@ struct MainView: View {
     @StateObject private var navigation = NavigationManager()
     private let pdfManager: PDFManager = .shared
     @State private var tab: Tabs = .home
+    @StateObject var viewModel = MainViewModel()
     
     var body: some View {
-        ZStack(alignment: .bottom){
-            switch(tab) {
-            case .home:
-                NavigationStack(path: $navigation.homePath) {
-                    HomeView()
+        ZStack(alignment: .top) {
+            NavigationStack(path: $navigation.homePath) {
+                ZStack(alignment: .bottom) {
+                    switch(tab) {
+                    case .home:
+                        HomeView()
+                    case .article:
+                        ArticleListView()
+                    case .profile:
+                        MyInfoView()
+                    }
+                    
+                    CustomTabBarView(tab: $tab)
                 }
-                .environmentObject(navigation)
-                
-            case .article:
-                NavigationStack(path: $navigation.homePath) {
-                    ArticleListView()
-                }
-                .environmentObject(navigation)
-                
-            case .profile:
-                MyInfoView()
+                .ignoresSafeArea(edges: .bottom)
             }
-            
-            if(navigation.homePath.count == 0) {
-                CustomTabBarView(tab: $tab)
-            }
+            if(viewModel.state == .guide) { GuideView() }
         }
-        .ignoresSafeArea()
+        .environmentObject(navigation)
+        .environmentObject(viewModel)
         
         
     }
