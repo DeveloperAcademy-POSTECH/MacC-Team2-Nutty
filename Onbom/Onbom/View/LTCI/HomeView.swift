@@ -21,7 +21,7 @@ struct HomeView: View {
             VStack(spacing: 0) {
                 HomeNavigationBar(transparant: false)
                 
-                ScrollView(showsIndicators: false) {
+                ScrollView {
                     VStack(spacing: 0){
                         AdBanner()
                         
