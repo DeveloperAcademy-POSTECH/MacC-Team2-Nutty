@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-// TODO: 글씨 크기 짤림 이슈 - 먀
-
 struct HomeView: View {
     private let pdfManager: PDFManager = .shared
     @EnvironmentObject var mainViewModel: MainViewModel
