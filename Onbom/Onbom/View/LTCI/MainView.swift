@@ -9,9 +9,9 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject private var navigation = NavigationManager()
-    private let pdfManager: PDFManager = .shared
-    @State private var tab: Tabs = .home
     @StateObject var viewModel = MainViewModel()
+    @State private var tab: Tabs = .home
+    private let pdfManager: PDFManager = .shared
     
     var body: some View {
         ZStack(alignment: .top) {
