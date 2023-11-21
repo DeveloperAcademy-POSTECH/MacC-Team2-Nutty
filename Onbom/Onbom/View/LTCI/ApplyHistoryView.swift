@@ -14,9 +14,7 @@ struct ApplyHistoryView: View {
     @EnvironmentObject var agent: Agent
     private let pdfManager: PDFManager = .shared
     @State private var isShowPdf = false
-    
     @State private var selectedPageIndex: Int = 0
-    @Namespace private var animation
     
     var body: some View {
         VStack {
@@ -61,23 +59,22 @@ struct ApplyHistoryView: View {
                                 .padding(.bottom, 2)
                             Spacer()
                         }
-                        ScrollView(.horizontal) {
-                            LazyHGrid(rows: [GridItem(.adaptive(minimum: 70))]) {
-                                if let pdfDocument = /*PDFDocument(data: pdfManager.PDFDatas.first ?? Data())*/ PDFDocument(url: LTCIFormResource) {
-                                    ForEach(0..<pdfDocument.pageCount, id: \.self) { pageIndex in
-                                        ThumbnailView(thumbnailImage: thumbnail(from: pdfDocument.page(at: pageIndex)!, size: CGSize(width: 500, height: 500)), isShowPdf: $isShowPdf)
-                                            .onTapGesture {
-                                                selectedPageIndex = pageIndex
-                                                withAnimation(.spring()) {
-                                                    isShowPdf = true
-                                                }
-                                            }
-                                        
-                                    }
+                        HStack {
+                            if let pdfDocument = /*PDFDocument(data: pdfManager.PDFDatas.first ?? Data())*/ PDFDocument(url: LTCIFormResource) {
+                                ForEach(0..<pdfDocument.pageCount, id: \.self) { pageIndex in
+                                    ThumbnailView(thumbnailImage: thumbnail(from: pdfDocument.page(at: pageIndex)!, size: CGSize(width: 500, height: 500)), isShowPdf: $isShowPdf)
+                                        .onTapGesture {
+                                            selectedPageIndex = pageIndex
+                                            isShowPdf = true
+                                        }
+                                        .fullScreenCover(isPresented: $isShowPdf) {
+                                            PDFDetailView(selectedPageIndex: $selectedPageIndex, isShowPdf: $isShowPdf)
+                                                .ignoresSafeArea(.all)
+                                        }
                                 }
                             }
                         }
-                        .matchedGeometryEffect(id: "pdf\(selectedPageIndex)", in: animation)
+                        
                     }
                     .padding(.horizontal, 20)
                     .padding(.vertical, 22)
@@ -119,13 +116,6 @@ struct ApplyHistoryView: View {
                     .padding(.vertical, 22)
                 }
                 Spacer()
-            }
-        }
-        .overlay{
-            if isShowPdf {
-                PDFDetailView(selectedPageIndex: $selectedPageIndex, isShowPdf: $isShowPdf)
-                    .matchedGeometryEffect(id: "pdf\(selectedPageIndex)", in: animation)
-                    .ignoresSafeArea(.all)
             }
         }
         .navigationBarBackButton()
@@ -176,12 +166,8 @@ struct ApplyHistoryView: View {
 
 struct ThumbnailView: View {
     var thumbnailImage: UIImage
-    @Namespace private var animation
     @Binding var isShowPdf: Bool
     
-//    var frame: CGFloat {
-//        isShowPdf ? .infinity : 60
-//    }
     var body: some View {
         Image(uiImage: thumbnailImage)
             .resizable()
@@ -193,7 +179,6 @@ struct ThumbnailView: View {
             }
             .padding(.vertical, 11)
             .padding(.trailing, 3)
-            .matchedGeometryEffect(id: "pdf", in: animation)
     }
 }
 
@@ -201,41 +186,20 @@ struct PDFDetailView: View {
     private let pdfManager: PDFManager = .shared
     @Binding var selectedPageIndex: Int
     @Binding var isShowPdf: Bool
-    @Namespace private var animation
     
     var body: some View {
-//        VStack {
-//            HStack {
-//                Button {
-//                    withAnimation(.spring()) {
-//                        isShowPdf = false
-//                    }
-//                } label: {
-//                    Image(systemName: "xmark")
-//                        .foregroundStyle(Color.G5)
-//                        .padding()
-//                        .padding()
-//                }
-//                Spacer()
-//            }
-//            .padding(.horizontal)
-        ZStack {
-            Color.red
+        ZStack(alignment: .topLeading) {
             PDFViewer(pdfData: pdfManager.PDFDatas.first ?? Data(), pageIndex: $selectedPageIndex)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             Button {
-                withAnimation(.spring()) {
-                    isShowPdf = false
-                }
+                isShowPdf = false
             } label: {
                 Image(systemName: "xmark")
-                    .foregroundStyle(Color.G5)
-                    .padding()
-                    .padding()
+                    .foregroundStyle(.white)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 50)
             }
-            Spacer()
         }
-
-//        }
     }
 }
 
