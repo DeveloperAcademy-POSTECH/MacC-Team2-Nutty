@@ -34,8 +34,9 @@ struct PDFViewer: UIViewRepresentable {
         pdfView.displayMode = .singlePage
         pdfView.backgroundColor = UIColor(Color(.black).opacity(0.5))
         pdfView.autoScales = true
+        pdfView.setNeedsLayout()
+        pdfView.layoutIfNeeded()
+        pdfView.minScaleFactor = UIScreen.main.bounds.height * 0.00075
         pdfView.maxScaleFactor = 3.0
-        pdfView.minScaleFactor = 1.0
-        pdfView.contentMode = .scaleAspectFit
     }
 }
