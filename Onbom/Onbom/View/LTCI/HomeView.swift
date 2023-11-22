@@ -227,13 +227,7 @@ struct HomeView: View {
                     Spacer()
                 }
                 .padding(.horizontal, 20)
-                .padding(.bottom, 24)
-                
-                Rectangle()
-                    .fill(Color.G3)
-                    .frame(height: 98)
-                    .padding(.horizontal, 20)
-                    .padding(.bottom, 24)
+                .padding(.bottom, 80)
                 ZStack(alignment: .leading) {
                     GeometryReader { geometry in
                         Capsule()
