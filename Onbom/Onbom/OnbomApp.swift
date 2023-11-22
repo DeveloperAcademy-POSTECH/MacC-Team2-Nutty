@@ -11,21 +11,15 @@ import FirebaseCore
 @main
 struct OnbomApp: App {
     
-    @State private var isOnboarding: Bool = true
-    
     init() {
         FirebaseApp.configure()
     }
     
     var body: some Scene {
         WindowGroup {
-//            if(isOnboarding) {
-//                OnboardingView(isOnboarding: $isOnboarding)
-//            } else {
-                MainView()
-                    .environmentObject(Patient())
-                    .environmentObject(Agent())
-//            }
+            MainView()
+                .environmentObject(Patient())
+                .environmentObject(Agent())
         }
     }
 }

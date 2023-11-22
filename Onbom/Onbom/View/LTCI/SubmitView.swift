@@ -12,7 +12,7 @@ struct SubmitView: View {
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
     @State private var isloadingViewPresented = true
-    @ObservedObject var homeViewModel: HomeViewModel
+    @EnvironmentObject var mainViewModel: MainViewModel
     
     var body: some View {
         if isloadingViewPresented {
@@ -51,7 +51,7 @@ struct SubmitView: View {
                 }
             }
             .onAppear() {
-                homeViewModel.onApplyLTCI()
+                mainViewModel.onApplyLTCI()
             }
             .navigationBarBackButtonHidden(true)
             .padding([.top, .leading, .trailing], 20.0)
@@ -68,7 +68,8 @@ struct SubmitView: View {
 
 struct SubmitView_Previews: PreviewProvider {
     static var previews: some View {
-        SubmitView(homeViewModel: HomeViewModel())
+        SubmitView()
             .environmentObject(NavigationManager())
+            .environmentObject(MainViewModel())
     }
 }

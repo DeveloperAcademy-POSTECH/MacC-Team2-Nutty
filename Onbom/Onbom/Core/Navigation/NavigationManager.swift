@@ -56,11 +56,23 @@ public enum HomeRoute {
     case StepView_Second
     case PatientInfoView
     case AgentInfoView
+    case AgentInfoView_Edit
     case OnboardingView
     case ApplyHistoryView
     case AgentInfoDetailView
     case RejectView
     
+    case PatientInfoView_EditName
     case PatientInfoView_EditPhoneNumber
     case PatientInfoView_EditIDNumber
+    
+    /*----------------- ArticleListView view -----------------*/
+    case ArticleListView
+    case Article1View
+    case Article2View
+    case Article3View
+    case Article4View
+    case Article5View
+    case Article6View
+    case Article7View
 }

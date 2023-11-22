@@ -24,7 +24,7 @@ struct IDCardDescriptionView: View {
             }
             HStack {
                 Text("주민등록증 또는 운전면허증을 준비해 주세요\n사본이나 모니터 촬영, 임시 신분증은 쓸 수 없어요")
-                    .Cap2()
+                    .B3()
                     .foregroundColor(.G5)
                 Spacer()
             }

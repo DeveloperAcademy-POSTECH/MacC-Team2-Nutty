@@ -17,6 +17,7 @@ struct PatientInfoView: View {
         case seniorIDNumber2
     }
     public enum PatientInfoViewEditState {
+        case editName
         case editPhoneNumber
         case editIDNumber
     }
@@ -46,6 +47,9 @@ struct PatientInfoView: View {
         self.editState = editState
         
         switch(editState) {
+        case .editName:
+            self.didAppear = [true, false, false]
+            self.step = [true, false, false]
         case .editPhoneNumber:
             self.didAppear = [false, true, false]
             self.step = [false, true, false]
@@ -96,18 +100,19 @@ struct PatientInfoView: View {
     }
     
     private func isActiveButton() -> Bool {
-        if let editState = self.editState {
-            if editState == .editIDNumber {
-                if idNumberFront.count == 6 && idNumberBack.count == 7 {
-                    return true
-                }
-            }
-            else if editState == .editPhoneNumber {
-                if phoneNumber.count == 11 {
-                    return true
-                }
-            }
+        switch(self.editState) {
+        case .editIDNumber:
+            if idNumberFront.count == 6 && idNumberBack.count == 7 { return true }
             return false
+        case .editPhoneNumber:
+            if phoneNumber.count == 11 { return true }
+            if !hasMobile { return true }
+            return false
+        case .editName:
+            if name.count > 0 { return true }
+            return false
+        case .none:
+            break 
         }
         
         if !step[1] {
@@ -156,6 +161,7 @@ struct PatientInfoView: View {
             patient.name = self.name
             patient.combineID(frontID: self.idNumberFront, backID: self.idNumberBack)
             patient.phoneNumber = self.phoneNumber
+            patient.hasMobile = self.hasMobile
             navigation.navigate(.AddressFormView_Patient)
         }
     }
@@ -164,10 +170,18 @@ struct PatientInfoView: View {
         guard let isEditMode = self.editState else { return false }
         
         switch(isEditMode) {
+        case .editName:
+            isSeniorNameWrong = !name.isValidName()
+            if(isSeniorNameWrong == false) {
+                patient.name = name
+                navigation.pop()
+            }
         case .editPhoneNumber:
             isSeniorPhoneNumberWrong = !phoneNumber.isValidPhoneNumber()
+            if(!hasMobile) { isSeniorPhoneNumberWrong = false }
             if(isSeniorPhoneNumberWrong == false) {
                 patient.phoneNumber = phoneNumber
+                patient.hasMobile = hasMobile
                 navigation.pop()
             }
         case .editIDNumber:
@@ -232,8 +246,6 @@ extension PatientInfoView {
             if(step[2]) {
                 Alert(image: "security", label: "입력한 주민등록번호는 저장되지 않으니 안심하세요")
                     .padding(.horizontal, 20)
-                    .padding(.bottom, 16)
-                    .padding(.top, 20)
                     .appear(didAppear[2])
             }
         }
@@ -273,28 +285,29 @@ extension PatientInfoView {
                     didFinishTypingName()
                 }
                 .disabled(!self.hasMobile)
-            if self.editState == nil {
-                HStack(spacing: 0){
-                    Image(systemName: "checkmark.circle.fill")
-                        .foregroundColor( hasMobile ? Color.G3 : Color.Green4)
-                        .frame(width: 20, height: 20)
-                        .padding(.trailing, 10)
-                    Text("전화번호가 없어요")
-                        .Cap2()
-                        .foregroundColor(.B)
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .onTapGesture {
+            HStack(alignment: .center, spacing: 10) {
+                if !hasMobile { Image("selectedCircle") }
+                else { Image("defaultCircle") }
+                Text("전화번호가 없어요")
+                    .Cap2()
+                    .foregroundColor(.B)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .onTapGesture {
+                hasMobile.toggle()
+                if self.editState == nil {
                     if(hasMobile) {
-                        // 핸드폰이 없다고 체크함
+                        focusedField = .seniorPhoneNumber
+                    } else {
                         self.phoneNumber = ""
                         isSeniorPhoneNumberWrong = false
                         didFinishTypingPhoneNumber()
-                    } else {
-                        // 핸드폰이 있다고 체크함
-                        focusedField = .seniorPhoneNumber
                     }
-                    hasMobile.toggle()
+                } else {
+                    if(!hasMobile) {
+                        self.phoneNumber = ""
+                        isSeniorPhoneNumberWrong = false
+                    }
                 }
             }
         }
@@ -377,14 +390,14 @@ extension PatientInfoView {
                 CTAButton.CustomButtonView(style: .expanded(isDisabled: !isActiveButton())) {
                     onClickButton()
                 } label: {
-                    Text(navigation.isUserFromSubmitCheckListView ? "수정완료" : "다음")
+                    Text(navigation.isUserFromSubmitCheckListView ? "수정 완료" : "다음")
                 }
             }
             else {
                 CTAButton.CustomButtonView(style: .primary(isDisabled: !isActiveButton())) {
                     onClickButton()
                 } label: {
-                    Text(navigation.isUserFromSubmitCheckListView ? "수정완료" : "다음")
+                    Text(navigation.isUserFromSubmitCheckListView ? "수정 완료" : "다음")
                 }
                 .padding(.horizontal, 20)
             }
