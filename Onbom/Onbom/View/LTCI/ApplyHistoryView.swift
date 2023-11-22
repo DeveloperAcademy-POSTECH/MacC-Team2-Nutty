@@ -60,16 +60,18 @@ struct ApplyHistoryView: View {
                             Spacer()
                         }
                         HStack {
-                            if let pdfDocument = /*PDFDocument(data: pdfManager.PDFDatas.first ?? Data())*/ PDFDocument(url: LTCIFormResource) {
+                            if let pdfDocument = PDFDocument(data: pdfManager.PDFDatas.first ?? Data()) {
                                 ForEach(0..<pdfDocument.pageCount, id: \.self) { pageIndex in
-                                    ThumbnailView(thumbnailImage: thumbnail(from: pdfDocument.page(at: pageIndex)!, size: CGSize(width: 500, height: 500)), isShowPdf: $isShowPdf)
+                                    ThumbnailView(thumbnailImage: thumbnail(from: pdfDocument.page(at: pageIndex)!, size: CGSize(width: 500, height: 500)))
                                         .onTapGesture {
                                             selectedPageIndex = pageIndex
-                                            isShowPdf = true
+                                            withAnimation {
+                                                isShowPdf = true
+                                            }
                                         }
                                         .fullScreenCover(isPresented: $isShowPdf) {
-                                            PDFDetailView(selectedPageIndex: $selectedPageIndex, isShowPdf: $isShowPdf)
-                                                .ignoresSafeArea(.all)
+                                                PDFDetailView(selectedPageIndex: $selectedPageIndex, isShowPdf: $isShowPdf)
+                                                    .ignoresSafeArea(.all)
                                         }
                                 }
                             }
@@ -166,7 +168,6 @@ struct ApplyHistoryView: View {
 
 struct ThumbnailView: View {
     var thumbnailImage: UIImage
-    @Binding var isShowPdf: Bool
     
     var body: some View {
         Image(uiImage: thumbnailImage)
@@ -188,17 +189,24 @@ struct PDFDetailView: View {
     @Binding var isShowPdf: Bool
     
     var body: some View {
-        ZStack(alignment: .topLeading) {
+        ZStack(alignment: .top) {
             PDFViewer(pdfData: pdfManager.PDFDatas.first ?? Data(), pageIndex: $selectedPageIndex)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-            Button {
-                isShowPdf = false
-            } label: {
-                Image(systemName: "xmark")
-                    .foregroundStyle(.white)
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 50)
-            }
+            Rectangle()
+                .frame(maxWidth: .infinity, maxHeight: 90)
+                .foregroundStyle(.black.opacity(0.55))
+                .background(.ultraThinMaterial)
+                .overlay(alignment: .topLeading) {
+                    Button {
+                        withAnimation {
+                            isShowPdf = false
+                        }
+                    } label: {
+                        Image(systemName: "xmark")
+                            .foregroundStyle(.white)
+                            .padding(.horizontal, 20)
+                            .padding(.vertical, 50)
+                    }
+                }
         }
     }
 }

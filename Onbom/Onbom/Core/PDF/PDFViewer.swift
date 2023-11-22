@@ -32,10 +32,8 @@ struct PDFViewer: UIViewRepresentable {
             pdfView.go(to: page)
         }
         pdfView.displayMode = .singlePage
-        pdfView.backgroundColor = UIColor(Color(.black).opacity(0.5))
+        pdfView.backgroundColor = UIColor(Color(.black).opacity(0.8))
         pdfView.autoScales = true
-        pdfView.setNeedsLayout()
-        pdfView.layoutIfNeeded()
         pdfView.minScaleFactor = UIScreen.main.bounds.height * 0.00075
         pdfView.maxScaleFactor = 3.0
     }

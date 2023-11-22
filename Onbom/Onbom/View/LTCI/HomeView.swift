@@ -191,7 +191,7 @@ struct HomeView: View {
                 CTAButton.CustomButtonView(
                     style: .main)
                 {
-                    navigation.navigate(.SubmitCheckListView)
+                    navigation.navigate(.DescriptionView)
                 } label: {
                     Text("지금 바로 신청하기")
                 }
