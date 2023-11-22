@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03092D0A2B04F895006884A5 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03092D092B04F895006884A5 /* MyInfoView.swift */; };
+		039965EB2B0DEE8500566098 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039965EA2B0DEE8500566098 /* NotificationView.swift */; };
 		03D759362ACDA17400495D7F /* PostCodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D759352ACDA17400495D7F /* PostCodeInputView.swift */; };
 		03FB0B2F2B0368A700DC1129 /* PatientInfoCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FB0B2E2B0368A700DC1129 /* PatientInfoCompleteView.swift */; };
 		03FFF2A92ACDAE7A00B81D65 /* PostCodeViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2A82ACDAE7A00B81D65 /* PostCodeViewer.swift */; };
@@ -116,6 +117,7 @@
 
 /* Begin PBXFileReference section */
 		03092D092B04F895006884A5 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
+		039965EA2B0DEE8500566098 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		03D759352ACDA17400495D7F /* PostCodeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCodeInputView.swift; sourceTree = "<group>"; };
 		03FB0B2E2B0368A700DC1129 /* PatientInfoCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientInfoCompleteView.swift; sourceTree = "<group>"; };
 		03FFF2A82ACDAE7A00B81D65 /* PostCodeViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCodeViewer.swift; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 				AE57BA0C2ABD68ED00F71B34 /* Model */,
 				AE57BA0B2ABD68E600F71B34 /* View */,
 				03092D092B04F895006884A5 /* MyInfoView.swift */,
+				039965EA2B0DEE8500566098 /* NotificationView.swift */,
 				737EE3532ABD646100D224FC /* OnbomApp.swift */,
 				737EE3572ABD646200D224FC /* Assets.xcassets */,
 				737EE3592ABD646200D224FC /* Preview Content */,
@@ -758,6 +761,7 @@
 				70D2994A2AC573B3009F536A /* DocumentCameraViewer.swift in Sources */,
 				73FD46D72ADAADCF002ED839 /* NavigationManager.swift in Sources */,
 				7384DB082AEACB950034E7FD /* CustomNavigationBar.swift in Sources */,
+				039965EB2B0DEE8500566098 /* NotificationView.swift in Sources */,
 				70F9E1E32B047D4B00AACBCA /* ArticleListView.swift in Sources */,
 				03FFF2BB2AD5B74E00B81D65 /* CTAButton.swift in Sources */,
 				731609682AD838FB00399476 /* StepView.swift in Sources */,
