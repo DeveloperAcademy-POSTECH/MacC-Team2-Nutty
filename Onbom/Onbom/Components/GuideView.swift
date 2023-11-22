@@ -20,7 +20,7 @@ struct GuideView: View {
                 Triangle()
                     .fill(.white)
                     .frame(width: 20, height: 10)
-                VStack(alignment: .leading, spacing: 0){
+                VStack(alignment: .leading, spacing: 6){
                     Text("온봄이 처음이신가요?")
                         .B1()
                         .foregroundColor(.B)
