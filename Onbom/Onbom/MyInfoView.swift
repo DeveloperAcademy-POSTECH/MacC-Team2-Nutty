@@ -26,7 +26,6 @@ struct MyInfoView: View {
             }
         }
         .ignoresSafeArea(.all)
-        .toastView(toast: $toast)
     }
 }
 
