@@ -61,7 +61,6 @@ class PDFManager: ObservableObject {
                 default:
                     addTextAnnotation(page: firstPage, bounds:value.position, content: value.answer)
                 }
-                addTextAnnotation(page: firstPage, bounds:CGRect(x: 477, y: 322, width: 140, height: 20), content: "상세 관계")
             }
         }
             
