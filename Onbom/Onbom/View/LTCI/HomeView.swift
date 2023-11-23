@@ -95,7 +95,6 @@ struct HomeView: View {
     
     @ViewBuilder
     private var carouselContent: some View {
-        
         VStack(spacing: 0) {
             Text("복지정보 한눈에 보기")
                 .H2()

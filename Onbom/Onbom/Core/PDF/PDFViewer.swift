@@ -10,25 +10,31 @@ import PDFKit
 
 struct PDFViewer: UIViewRepresentable {
     var pdfData: Data?
-
+    @Binding var pageIndex: Int
     func makeUIView(context: Context) -> some UIView {
         let pdfView = PDFView()
-        
+        return pdfView
+    }
+    
+    func updateUIView(_ uiView: UIViewType, context: Context) {
+        if let pdfView = uiView as? PDFView {
+            setupPDFView(pdfView)
+        }
+    }
+    
+    private func setupPDFView(_ pdfView: PDFView) {
         if let pdfData {
             pdfView.document = PDFDocument(data: pdfData)
         } else {
             pdfView.document = PDFDocument(url: LTCIFormResource)
         }
-        pdfView.autoScales = true
-        
-        return pdfView
-    }
-    
-    func updateUIView(_ uiView: UIViewType, context: Context) {
-        if let pdfView = uiView as? PDFView, let pdfData {
-            pdfView.document = PDFDocument(data: pdfData)
-            pdfView.autoScales = true
+        if let page = pdfView.document?.page(at: pageIndex) {
+            pdfView.go(to: page)
         }
+        pdfView.displayMode = .singlePage
+        pdfView.backgroundColor = UIColor(Color(.black).opacity(0.8))
+        pdfView.autoScales = true
+        pdfView.minScaleFactor = UIScreen.main.bounds.height * 0.00075
+        pdfView.maxScaleFactor = 3.0
     }
 }
-
