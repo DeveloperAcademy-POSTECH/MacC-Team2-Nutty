@@ -20,7 +20,8 @@ class PDFManager: ObservableObject {
     let signatureSize: CGSize = CGSize(width: 500, height: 250)
     let imageSizeFloat: CGFloat = 0.5
     enum FixedPositionItems: CaseIterable {
-            case apply
+            case applyType
+            case isProtector
             case mailReceive
             case mailAddress
             case todayDate
@@ -37,10 +38,12 @@ class PDFManager: ObservableObject {
         // MARK: 첫번째 페이지
         if let firstPage = pdfDocument.page(at: 0) {
             // 고정된 정보
-            for item in Array(FixedPositionItems.allCases.prefix(1)) {
+            for item in Array(FixedPositionItems.allCases.prefix(2)) {
                 switch item {
-                case .apply:
+                case .applyType:
                     addTextAnnotation(page: firstPage, bounds: CGRect(x: 168, y: 742, width: 140, height: 20), content: "✓")
+                case .isProtector:
+                    addTextAnnotation(page: firstPage, bounds: CGRect(x: 181, y: 206, width: 140, height: 20), content: "✓")
                 default:
                     break
                 }
