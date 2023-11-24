@@ -155,24 +155,6 @@ struct HomeView: View {
                         .padding(.trailing, i == 5 ? 20 : 10)
                     }
                 }
-                .padding(.horizontal, 20)
-                .padding(.bottom, 7)
-                
-                HStack {
-                    Text("서류 전송")
-                        .Cap6()
-                        .foregroundColor(.G4)
-                    Spacer()
-                    Text("국민건강보험공단 확인중")
-                        .Cap6()
-                        .foregroundColor(.Green4)
-                    Spacer()
-                    Text("방문조사")
-                        .Cap6()
-                        .foregroundColor(.G4)
-                }
-                .padding(.horizontal, 20)
-                .padding(.bottom, 24)
                 
                 Text("국민건강보험공단에서 서류를 접수하면")
                     .Cap3()
