@@ -21,8 +21,10 @@ struct MediConditionView: View {
                     .foregroundColor(Color.B)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom, 48)
+                    .padding(.horizontal, 20)
                 
                 AlternativeForm(formSubject: "전염성 질환 보유 여부", answer: $hasInfectiousDisease)
+                    .padding(.horizontal, 20)
                 Spacer()
             }
             CTAButton.CustomButtonView(
@@ -34,9 +36,10 @@ struct MediConditionView: View {
             } label: {
                 Text("다음")
             }
+            .padding(.horizontal, 20)
         }
         .navigationBarBackButton()
-        .padding([.top, .leading, .trailing], 20)
+        .padding(.top, 20)
     }
 }
 
