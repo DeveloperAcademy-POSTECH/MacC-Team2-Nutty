@@ -19,7 +19,15 @@ class Patient: ObservableObject {
     @Published var id: String = ""
     @Published var address: Address = Address()
     @Published var actualAddress: Address = Address()
-    @Published var phoneNumber: String = ""
+    @Published var _phoneNumber = ""
+    
+    var phoneNumber: String {
+        get { return self._phoneNumber }
+        set {
+            if(newValue == " "){ self._phoneNumber = "" }
+            else { self._phoneNumber = newValue }
+        }
+    }
     @Published var hasMobile: Bool = true
     @Published var hasInfectiousDisease = false
     @Published var hasMentalDisorder = false

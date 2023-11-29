@@ -230,6 +230,25 @@ struct PatientInfoView: View {
     private func didFinishTypingAll() {
         focusedField = nil
     }
+    
+    private func toggleMobileExistence() {
+        
+        hasMobile.toggle()
+        if self.editState == nil {
+            if(hasMobile) {
+                focusedField = .seniorPhoneNumber
+            } else {
+                self.phoneNumber = " "
+                isSeniorPhoneNumberWrong = false
+                didFinishTypingPhoneNumber()
+            }
+        } else {
+            if(!hasMobile) {
+                self.phoneNumber = " "
+                isSeniorPhoneNumberWrong = false
+            }
+        }
+    }
 }
 
 
@@ -285,31 +304,15 @@ extension PatientInfoView {
                     didFinishTypingName()
                 }
                 .disabled(!self.hasMobile)
-            HStack(alignment: .center, spacing: 10) {
-                if !hasMobile { Image("selectedCircle") }
-                else { Image("defaultCircle") }
+            HStack(alignment: .center, spacing: 8) {
+                Image(systemName: "checkmark.circle.fill")
+                    .foregroundColor(hasMobile ? Color.G3 : Color.Green4)
                 Text("전화번호가 없어요")
                     .Cap2()
                     .foregroundColor(.B)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .onTapGesture {
-                hasMobile.toggle()
-                if self.editState == nil {
-                    if(hasMobile) {
-                        focusedField = .seniorPhoneNumber
-                    } else {
-                        self.phoneNumber = ""
-                        isSeniorPhoneNumberWrong = false
-                        didFinishTypingPhoneNumber()
-                    }
-                } else {
-                    if(!hasMobile) {
-                        self.phoneNumber = ""
-                        isSeniorPhoneNumberWrong = false
-                    }
-                }
-            }
+            .onTapGesture { toggleMobileExistence() }
         }
         .padding(.top, 36)
         .padding(.horizontal, 20)
@@ -408,4 +411,5 @@ extension PatientInfoView {
 #Preview {
     PatientInfoView()
         .environmentObject(Patient())
+        .environmentObject(NavigationManager())
 }
