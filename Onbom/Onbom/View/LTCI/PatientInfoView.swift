@@ -196,12 +196,27 @@ struct PatientInfoView: View {
     }
     
     private func getTitle() -> String {
-        if(step[2] == true){
-            return "님의\n주민등록번호를 입력해 주세요"
-        } else if(step[1] == true) {
-            return "님의\n전화번호를 입력해 주세요"
+        if(editState == nil) {
+            if(step[2] == true) {
+                return "\(self.name)님의\n주민등록번호를 입력해 주세요"
+            } else if(step[1] == true) {
+                return "\(self.name)님의\n전화번호를 입력해 주세요"
+            } else if(step[0] == true) {
+                return "어르신의\n성함을 입력해주세요"
+            }
         }
-        return ""
+        
+        guard let editState = self.editState else { return "" }
+        
+        switch(editState) {
+        case .editName:
+            return "\(self.name)님의\n성함을 확인해 주세요"
+        case .editPhoneNumber:
+            return "\(self.name)님의\n전화번호를 확인해 주세요"
+        case .editIDNumber:
+            return "\(self.name)님의\n주민등록번호를 확인해 주세요"
+        }
+        
     }
     
     
@@ -236,6 +251,7 @@ struct PatientInfoView: View {
         hasMobile.toggle()
         if self.editState == nil {
             if(hasMobile) {
+                self.phoneNumber = ""
                 focusedField = .seniorPhoneNumber
             } else {
                 self.phoneNumber = " "
@@ -243,7 +259,9 @@ struct PatientInfoView: View {
                 didFinishTypingPhoneNumber()
             }
         } else {
-            if(!hasMobile) {
+            if(hasMobile) {
+                self.phoneNumber = ""
+            } else {
                 self.phoneNumber = " "
                 isSeniorPhoneNumberWrong = false
             }
@@ -255,7 +273,7 @@ struct PatientInfoView: View {
 extension PatientInfoView {
     private var header: some View {
         VStack(spacing: 0) {
-            Text(step[1] == false ? "어르신의\n성함을 입력해주세요" : name + getTitle())
+            Text(getTitle())
                 .H1()
                 .foregroundColor(Color.B)
                 .frame(maxWidth: .infinity, alignment: .leading)
