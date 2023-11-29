@@ -39,10 +39,13 @@ struct HomeNavigationBar: View {
             .opacity(transparant ? 0.0000001 : 1)
             .onTapGesture(count: 3) { onReset() }
         } trailing: {
-            Image("notification")
-                .frame(width: 34, height: 34)
-                .padding(.trailing, 20)
-                .onTapGesture(count: 3) { transparant ? nil : mainViewModel.onFlipCard() }
+            Button {
+                navigation.navigate(.NotificationView)
+            } label : {
+                Image("notification")
+            }
+            .frame(width: 34, height: 34)
+            .padding(.trailing, 20)
         }
     
     }

@@ -64,6 +64,7 @@ struct HomeView: View {
         .navigationDestination(for: HomeRoute.self) { route in
             switch(route) {
             case .OnboardingView:                   OnboardingView(isOnboarding: .constant(true))
+            case .NotificationView:                 NotificationView()
             case .ApplyHistoryView:                 ApplyHistoryView()
             case .DescriptionView:                  DescriptionView()
             case .ApplyTypeView:                    ApplyTypeView().toolbar(.hidden, for: .tabBar)
@@ -154,6 +155,26 @@ struct HomeView: View {
                         .padding(.trailing, i == 5 ? 20 : 10)
                     }
                 }
+                
+                Text("국민건강보험공단에서 서류를 접수하면")
+                    .Cap3()
+                    .foregroundColor(.G5)
+                    .multilineTextAlignment(.center)
+                HStack(alignment: .center, spacing: 0){
+                    Text("어르신이 계시는 주소로 방문조사")
+                        .Label()
+                        .foregroundColor(.B)
+                    Text("가 진행돼요")
+                        .Cap3()
+                        .foregroundColor(.G5)
+                }
+                .padding(.bottom, 24)
+            }
+            .background(RoundedRectangle(cornerRadius: 20).fill(.white)
+                .shadow(color: .black.opacity(0.05), radius: 5))
+            .padding(20)
+            .onTapGesture {
+                navigation.navigate(.AddressFormView_Agent)
             }
         }
     }
