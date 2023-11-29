@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-// TODO: 글씨 크기 짤림 이슈 - 먀
-
 struct HomeView: View {
     private let pdfManager: PDFManager = .shared
     @EnvironmentObject var mainViewModel: MainViewModel
@@ -32,24 +30,10 @@ struct HomeView: View {
                             if(mainViewModel.state == .after) { LTCICardBack() }
                             else { LTCICardFront() }
                             
-                            HStack(spacing: 0) {
-                                Text("본인 부담금 계산기")
-                                    .B2()
-                                    .foregroundColor(Color.B)
-                                    .padding(.leading, 19)
-                                    .padding(.vertical, 20)
-                                Spacer()
-                                Image("chevronRight")
-                                    .foregroundColor(Color.G4)
-                                    .padding(.trailing, 19)
-                            }
-                            .background(RoundedRectangle(cornerRadius: 12).fill(Color.white)
-                                .shadow(color: .black.opacity(0.05), radius: 5))
-                            .padding(.horizontal, 20)
-                            .padding(.bottom, 25)
                             
+                            expenseCalcCard
                             
-                            carouselContent
+                            contentCard
                             
                             Spacer().frame(height: 100)
                         }
@@ -83,11 +67,13 @@ struct HomeView: View {
             case .AgentInfoView:                    AgentInfoView()
             case .AgentInfoView_Edit:               AgentInfoView(isEdit: true)
             case .AgentInfoDetailView:              AgentInfoDetailView()
-            case .RejectView:                       RejectView()
-                
             case .PatientInfoView_EditName:         PatientInfoView(editState: .editName)
             case .PatientInfoView_EditPhoneNumber:  PatientInfoView(editState: .editPhoneNumber)
             case .PatientInfoView_EditIDNumber:     PatientInfoView(editState: .editIDNumber)
+            case .CallTaxiView:                     CallTaxiView()
+            case .Article4View:                     ArticleDetailView(articleName: "Article4")
+            case .Article7View:                     ArticleDetailView(articleName: "Article7")
+            case .RejectView:                       RejectView()
             default:                                RejectView()
             }
             
@@ -95,91 +81,74 @@ struct HomeView: View {
     }
     
     @ViewBuilder
-    private var carouselContent: some View {
-        VStack(spacing: 0) {
-            Text("복지정보 한눈에 보기")
-                .H2()
-                .foregroundColor(Color.B)
-                .frame(maxWidth: .infinity, alignment: .leading)
+    private var expenseCalcCard: some View {
+        HStack(alignment: .center, spacing: 0) {
+            Image("calc")
+                .padding(10)
                 .padding(.leading, 20)
-                .padding(.bottom, 5)
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(spacing: 0) {
-                    let images = [Image("MainView_Green"),
-                                  Image("MainView_Blue"),
-                                  Image("MainView_Purple"),
-                                  Image("MainView_Yellow"),
-                                  Image("MainView_Pink"),
-                                  Image("MainView_Brown"),]
-                    let colors = [Color.init(hex: "E2F6E2"),
-                                  Color.init(hex: "D6EDF8"),
-                                  Color.init(hex: "DDDEF9"),
-                                  Color.init(hex: "FFFBD4"),
-                                  Color.init(hex: "FFE7F7"),
-                                  Color.init(hex: "DFD6CE"),]
-                    let circleColors = [Color.init(hex: "B4E8B4"),
-                                        Color.init(hex: "9FD4ED"),
-                                        Color.init(hex: "BFC1F6"),
-                                        Color.init(hex: "FAF1A4"),
-                                        Color.init(hex: "FECBED"),
-                                        Color.init(hex: "D6C4B5"),]
-                    let contents = ["치매가족휴가제로\n한 숨 돌려보세요",
-                                    "부담을 덜어드리는\n노인돌봄종합서비스",
-                                    "가장 가까운\n치매상담센터 찾기",
-                                    "필요했던 복지용구\n한번에 신청해보세요",
-                                    "인식표 나눔사업\n여기서 바로 알아보기",
-                                    "장기요양등급,\n1분만에 시설등급 받기",]
-                    
-                    ForEach(0..<6) { i in
-                        VStack(alignment: .leading, spacing: 0) {
-                            ZStack {
-                                Circle()
-                                    .fill(circleColors[i])
-                                    .frame(maxWidth: 64, maxHeight: 64)
-                                images[i]
-                            }
-                            .padding(.bottom, 31)
-                            Text(contents[i])
-                                .foregroundColor(Color.B)
-                                .T3()
-                            Text("알림 설정하기")
-                                .foregroundColor(Color.G5)
-                                .Cap4()
-                                .padding(.top, 5)
-                        }
-                        .padding(20)
-                        .frame(width: 160, height: 194, alignment: .topLeading)
-                        .background(colors[i])
-                        .cornerRadius(12)
-                        .padding(.leading, i == 0 ? 20 : 0)
-                        .padding(.trailing, i == 5 ? 20 : 10)
-                    }
-                }
-                
-                Text("국민건강보험공단에서 서류를 접수하면")
-                    .Cap3()
+            VStack(alignment: .leading, spacing: 4) {
+                Text("미리 알아보세요")
+                    .Cap4()
                     .foregroundColor(.G5)
-                    .multilineTextAlignment(.center)
-                HStack(alignment: .center, spacing: 0){
-                    Text("어르신이 계시는 주소로 방문조사")
-                        .Label()
-                        .foregroundColor(.B)
-                    Text("가 진행돼요")
-                        .Cap3()
-                        .foregroundColor(.G5)
-                }
-                .padding(.bottom, 24)
+                Text("본인 부담금 계산기")
+                    .B2()
+                    .foregroundColor(Color.B)
             }
-            .background(RoundedRectangle(cornerRadius: 20).fill(.white)
-                .shadow(color: .black.opacity(0.05), radius: 5))
-            .padding(20)
-            .onTapGesture {
-                navigation.navigate(.AddressFormView_Agent)
-            }
+            .padding(.leading, 12)
+            .padding(.vertical, 20)
+            Spacer()
+            Image("chevronRight")
+                .foregroundColor(Color.G4)
+                .padding(.trailing, 19)
         }
+        .background(RoundedRectangle(cornerRadius: 12).fill(Color.white)
+            .shadow(color: .black.opacity(0.05), radius: 5))
+        .padding(.horizontal, 20)
+        .padding(.bottom, 20)
     }
     
+    @ViewBuilder
+    private var contentCard: some View {
+        
+        let divider = HStack(alignment: .center, spacing: 0) {
+            Capsule()
+                .fill(Color.G2)
+                .frame(width: 1)
+                .frame(maxHeight: .infinity)
+        }
+        
+        HStack(alignment: .center, spacing: 0) {
+            Spacer()
+            col("callTaxi_asset", "동행콜 부르기")
+                .onTapGesture { navigation.navigate(.CallTaxiView) }
+            divider
+            col("syringe_no_back", "무료 독감접종")
+                .onTapGesture { navigation.navigate(.Article7View) }
+            divider
+            col("safetyCenter", "치매안심센터 찾기")
+                .onTapGesture { navigation.navigate(.Article4View) }
+            Spacer()
+        }
+        .padding(.vertical, 20)
+        .frame(maxWidth: .infinity)
+        .background(RoundedRectangle(cornerRadius: 12).fill(Color.white)
+            .shadow(color: .black.opacity(0.05), radius: 5))
+        .padding(.horizontal, 20)
+    }
+    
+    @ViewBuilder
+    private func col(_ img: String, _ title: String)-> some View {
+        VStack(alignment: .center, spacing: 8) {
+            Image(img)
+            Text(title)
+                .Cap4()
+                .foregroundColor(.G6)
+                .frame(maxWidth: .infinity)
+        }
+        .frame(maxWidth: .infinity)
+    }
 }
+
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {

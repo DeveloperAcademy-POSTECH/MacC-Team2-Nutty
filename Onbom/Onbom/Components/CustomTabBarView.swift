@@ -37,7 +37,7 @@ struct CustomTabBarView: View {
                     .resizable()
                     .frame(width: 18, height: 20)
                     .foregroundColor(tab == .article ? Color.Green4 : Color.G4)
-                Text("신청 내역")
+                Text("돌봄소식")
                     .Cap5()
                     .foregroundColor(tab == .article ? Color.Green4 : Color.G5)
             }
