@@ -60,18 +60,16 @@ struct ApplyHistoryView: View {
                             Spacer()
                         }
                         HStack {
-                            if let pdfDocument = PDFDocument(data: pdfManager.PDFDatas.first ?? Data()) {
+                            if let pdfDocument = PDFDocument(data: pdfManager.PDFDatas.first ?? Data()) ?? PDFDocument(url: LTCIFormResource) {
                                 ForEach(0..<pdfDocument.pageCount, id: \.self) { pageIndex in
-                                    ThumbnailView(thumbnailImage: thumbnail(from: pdfDocument.page(at: pageIndex)!, size: CGSize(width: 500, height: 500)))
+                                    ThumbnailView(thumbnailImage: thumbnail(from: pdfDocument.page(at: pageIndex)!))
                                         .onTapGesture {
                                             selectedPageIndex = pageIndex
-                                            withAnimation {
-                                                isShowPdf = true
-                                            }
+                                            isShowPdf = true
                                         }
                                         .fullScreenCover(isPresented: $isShowPdf) {
-                                                PDFDetailView(selectedPageIndex: $selectedPageIndex, isShowPdf: $isShowPdf)
-                                                    .ignoresSafeArea(.all)
+                                            PDFDetailView(selectedPageIndex: $selectedPageIndex, isShowPdf: $isShowPdf)
+                                                .ignoresSafeArea(.all)
                                         }
                                 }
                             }
@@ -157,7 +155,8 @@ struct ApplyHistoryView: View {
             .frame(maxWidth: .infinity)
     }
     
-    func thumbnail(from page: PDFPage, size: CGSize) -> UIImage {
+    func thumbnail(from page: PDFPage) -> UIImage {
+        let size: CGSize = CGSize(width: 500, height: 500)
         let pdfView = PDFView()
         pdfView.document = PDFDocument()
         pdfView.document?.insert(page, at: 0)
@@ -190,7 +189,7 @@ struct PDFDetailView: View {
     
     var body: some View {
         ZStack(alignment: .top) {
-            PDFViewer(pdfData: pdfManager.PDFDatas.first ?? Data(), pageIndex: $selectedPageIndex)
+            PDFViewer(pageIndex: $selectedPageIndex)
             Rectangle()
                 .frame(maxWidth: .infinity, maxHeight: 90)
                 .foregroundStyle(.black.opacity(0.55))
