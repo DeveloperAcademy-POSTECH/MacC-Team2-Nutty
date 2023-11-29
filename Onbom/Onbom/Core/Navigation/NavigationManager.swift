@@ -39,6 +39,7 @@ class NavigationManager: ObservableObject {
 }
 
 public enum HomeRoute {
+    case NotificationView
     case MainView
     case DescriptionView
     case ApplyTypeView

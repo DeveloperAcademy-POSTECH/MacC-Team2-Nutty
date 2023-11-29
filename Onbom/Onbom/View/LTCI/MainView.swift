@@ -9,9 +9,10 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject private var navigation = NavigationManager()
-    private let pdfManager: PDFManager = .shared
-    @State private var tab: Tabs = .home
     @StateObject var viewModel = MainViewModel()
+    @State private var tab: Tabs = .home
+    @State private var toast: ToastAlert? = nil
+    private let pdfManager: PDFManager = .shared
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -23,7 +24,7 @@ struct MainView: View {
                     case .article:
                         ArticleListView()
                     case .profile:
-                        MyInfoView()
+                        MyInfoView(toast: $toast)
                     }
                     
                     CustomTabBarView(tab: $tab)
@@ -34,8 +35,8 @@ struct MainView: View {
         }
         .environmentObject(navigation)
         .environmentObject(viewModel)
-        
-        
+        .toastView(toast: $toast)
+
     }
 }
 

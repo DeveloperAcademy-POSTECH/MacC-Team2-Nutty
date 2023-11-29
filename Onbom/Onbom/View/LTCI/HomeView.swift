@@ -48,6 +48,7 @@ struct HomeView: View {
         .navigationDestination(for: HomeRoute.self) { route in
             switch(route) {
             case .OnboardingView:                   OnboardingView(isOnboarding: .constant(true))
+            case .NotificationView:                 NotificationView()
             case .ApplyHistoryView:                 ApplyHistoryView()
             case .DescriptionView:                  DescriptionView()
             case .ApplyTypeView:                    ApplyTypeView().toolbar(.hidden, for: .tabBar)
@@ -118,13 +119,13 @@ struct HomeView: View {
         
         HStack(alignment: .center, spacing: 0) {
             Spacer()
-            td("callTaxi_asset", "동행콜 부르기")
+            col("callTaxi_asset", "동행콜 부르기")
                 .onTapGesture { navigation.navigate(.CallTaxiView) }
             divider
-            td("syringe_no_back", "무료 독감접종")
+            col("syringe_no_back", "무료 독감접종")
                 .onTapGesture { navigation.navigate(.Article7View) }
             divider
-            td("safetyCenter", "치매안심센터 찾기")
+            col("safetyCenter", "치매안심센터 찾기")
                 .onTapGesture { navigation.navigate(.Article4View) }
             Spacer()
         }
@@ -136,7 +137,7 @@ struct HomeView: View {
     }
     
     @ViewBuilder
-    private func td(_ img: String, _ title: String)-> some View {
+    private func col(_ img: String, _ title: String)-> some View {
         VStack(alignment: .center, spacing: 8) {
             Image(img)
             Text(title)

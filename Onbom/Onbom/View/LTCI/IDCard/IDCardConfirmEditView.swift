@@ -76,20 +76,30 @@ struct IDCardConfirmEditView: View {
             
             if !isKeyboardVisible {
                 dynamicHStack {
-                    CTAButton.CustomButtonView(style: .secondary) {
-                        dismiss()
-                    } label: {
-                        Text("재촬영")
+                    if navigation.isUserFromSubmitCheckListView {
+                        CTAButton.CustomButtonView(style: .primary(isDisabled: !isIDNumberValid)) {
+                            agent.combineID(frontID: frontIDNumber, backID: backIDNumber)
+                            navigation.pop()
+                        } label: {
+                            Text("수정완료")
+                        }
+                        .frame(maxWidth: .infinity)
+                    } else {
+                        CTAButton.CustomButtonView(style: .secondary) {
+                            dismiss()
+                        } label: {
+                            Text("재촬영")
+                        }
+                        .frame(maxWidth: dynamicTypeSize <= .xxxLarge ? 103 : .infinity)
+                        
+                        CTAButton.CustomButtonView(style: .primary(isDisabled: !isIDNumberValid)) {
+                            agent.combineID(frontID: frontIDNumber, backID: backIDNumber)
+                            navigation.navigate(.AddressFormView_Agent)
+                        } label: {
+                            Text("다음")
+                        }
+                        .frame(maxWidth: .infinity)
                     }
-                    .frame(maxWidth: dynamicTypeSize <= .xxxLarge ? 103 : .infinity)
-                    
-                    CTAButton.CustomButtonView(style: .primary(isDisabled: !isIDNumberValid)) {
-                        agent.combineID(frontID: frontIDNumber, backID: backIDNumber)
-                        navigation.navigate(.AddressFormView_Agent)
-                    } label: {
-                        Text("다음")
-                    }
-                    .frame(maxWidth: .infinity)
                 }
                 .padding(.top, 4)
                 .padding(.horizontal, 20)

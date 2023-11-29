@@ -6,69 +6,119 @@
 //
 
 import SwiftUI
+import PDFKit
 
 struct ApplyHistoryView: View {
     @EnvironmentObject var navigation: NavigationManager
     @EnvironmentObject var patient: Patient
     @EnvironmentObject var agent: Agent
+    private let pdfManager: PDFManager = .shared
+    @State private var isShowPdf = false
+    @State private var selectedPageIndex: Int = 0
     
     var body: some View {
-        VStack(spacing: 0) {
-            Text("장기요양등급 신규 신청")
+        VStack {
+            Text("장기요양등급 신청 현황")
                 .H1()
                 .foregroundColor(.B)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.leading, 20)
-            
-            formCard {
-                Text("서류 전송 상태")
-                    .B1()
-                    .foregroundColor(.G4)
-            } _: {
-                Text("서류 전송 완료")
-                    .B3()
-                    .foregroundColor(.G5)
-            }
-            .padding(.vertical, 2)
-            
-            divider()
-            
-            formCard("신청인", "\(patient.name)")
-            formCard("대리인", "김유진")
-            formCard("주소", patient.address.toString, axis: .firstTextBaseline)
-            
-            divider()
-            
-            formCard {
-                VStack(alignment: .leading, spacing: 6) {
-                    Text("국민건강보험공단 지사")
-                        .B1()
-                        .foregroundColor(.G6)
-                    Text("신청 관련 문의가 필요할 때")
-                        .Cap4()
-                        .foregroundColor(.G5)
+                .padding([.horizontal, .top], 20)
+            ScrollView {
+                VStack(spacing: 0) {
+                    formCard("신청 현황", "서류 전송 완료")
+                    divider()
+                    formCard("신청 종류", "신규")
+                    formCard("신청인", "\(mockPatient.name)")
+                    formCard("대리인", "김유진")
+                    VStack(alignment: .leading) {
+                        Text("신청인의 실주소지")
+                            .B1()
+                            .foregroundColor(.G5)
+                            .padding(.bottom, 2)
+                        HStack(spacing: 7) {
+                            Image("Important")
+                            Text("이 주소로 우편물 전송과 방문심사가 진행돼요")
+                                .Cap4()
+                                .foregroundColor(.G4)
+                            Spacer()
+                        }
+                        .padding(.bottom, 12)
+                        Text("\(mockPatient.actualAddress.toString)")
+                            .B3()
+                            .foregroundColor(.G5)
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 22)
+                    
+                    divider()
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Text("전송 서류")
+                                .B1()
+                                .foregroundColor(.G5)
+                                .padding(.bottom, 2)
+                            Spacer()
+                        }
+                        HStack {
+                            if let pdfDocument = PDFDocument(data: pdfManager.PDFDatas.first ?? Data()) ?? PDFDocument(url: LTCIFormResource) {
+                                ForEach(0..<pdfDocument.pageCount, id: \.self) { pageIndex in
+                                    ThumbnailView(thumbnailImage: thumbnail(from: pdfDocument.page(at: pageIndex)!))
+                                        .onTapGesture {
+                                            selectedPageIndex = pageIndex
+                                            isShowPdf = true
+                                        }
+                                        .fullScreenCover(isPresented: $isShowPdf) {
+                                            PDFDetailView(selectedPageIndex: $selectedPageIndex, isShowPdf: $isShowPdf)
+                                                .ignoresSafeArea(.all)
+                                        }
+                                }
+                            }
+                        }
+                        
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 22)
+                    divider()
+                    
+                    formCard {
+                        VStack(alignment: .leading, spacing: 6) {
+                            Text("국민건강보험공단 지사")
+                                .B1()
+                                .foregroundColor(.G6)
+                            Text("신청 관련 문의가 필요할 때")
+                                .Cap4()
+                                .foregroundColor(.G5)
+                        }
+                    } _: {
+                        Image("chevronRight")
+                    }
+                    .background {
+                        Rectangle().fill(Color.white)
+                    }
+                    .onTapGesture {
+                        if let url = URL(string: "tel://15771000") {
+                            UIApplication.shared.open(url)
+                        }
+                    }
+                    
+                    divider()
+                    
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text(" · 필요에 따라 공단에서 추가 서류를 요청할 수 있습니다.")
+                            .T4()
+                            .foregroundColor(.G4)
+                        Text(" · 신청서를 제출한 날부터 30일 이내 등급 판정이 완료됩니다.")
+                            .T4()
+                            .foregroundColor(.G4)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 22)
                 }
-            } _: {
-                Image("chevronRight")
-                    .foregroundColor(.G4)
+                Spacer()
             }
-            
-            divider()
-            
-            VStack(alignment: .leading, spacing: 3) {
-                Text(" · 필요에 따라 공단에서 추가 서류를 요청할 수 있습니다.")
-                    .T4()
-                    .foregroundColor(.G4)
-                Text(" · 신청서를 제출한 날부터 30일 이내 등급 판정이 완료됩니다.")
-                    .T4()
-                    .foregroundColor(.G4)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal, 20)
-            .padding(.vertical, 22)
         }
-        Spacer()
-            .navigationBarBackButton()
+        .navigationBarBackButton()
     }
     
     @ViewBuilder
@@ -76,14 +126,14 @@ struct ApplyHistoryView: View {
         HStack(alignment: axis) {
             Text(form)
                 .B1()
-                .foregroundColor(.G4)
+                .foregroundColor(.G5)
             Spacer()
             Text(content)
                 .B3()
-                .foregroundColor(.G6)
+                .foregroundColor(.G5)
         }
         .padding(.horizontal, 20)
-        .padding(.vertical, 19)
+        .padding(.vertical, 28)
     }
     
     @ViewBuilder
@@ -94,7 +144,7 @@ struct ApplyHistoryView: View {
             content()
         }
         .padding(.horizontal, 20)
-        .padding(.vertical, 19)
+        .padding(.vertical, 20)
     }
     
     @ViewBuilder
@@ -103,6 +153,60 @@ struct ApplyHistoryView: View {
             .fill(Color.G2)
             .frame(height: 12)
             .frame(maxWidth: .infinity)
+    }
+    
+    func thumbnail(from page: PDFPage) -> UIImage {
+        let size: CGSize = CGSize(width: 500, height: 500)
+        let pdfView = PDFView()
+        pdfView.document = PDFDocument()
+        pdfView.document?.insert(page, at: 0)
+        let thumbnailImage = pdfView.document?.page(at: 0)?.thumbnail(of: size, for: .mediaBox)
+        return thumbnailImage ?? UIImage()
+    }
+}
+
+struct ThumbnailView: View {
+    var thumbnailImage: UIImage
+    
+    var body: some View {
+        Image(uiImage: thumbnailImage)
+            .resizable()
+            .scaledToFit()
+            .frame(width: 105, height: 105)
+            .background {
+                RoundedRectangle(cornerRadius: 12)
+                    .foregroundStyle(Color.TG2)
+            }
+            .padding(.vertical, 11)
+            .padding(.trailing, 3)
+    }
+}
+
+struct PDFDetailView: View {
+    private let pdfManager: PDFManager = .shared
+    @Binding var selectedPageIndex: Int
+    @Binding var isShowPdf: Bool
+    
+    var body: some View {
+        ZStack(alignment: .top) {
+            PDFViewer(pageIndex: $selectedPageIndex)
+            Rectangle()
+                .frame(maxWidth: .infinity, maxHeight: 90)
+                .foregroundStyle(.black.opacity(0.55))
+                .background(.ultraThinMaterial)
+                .overlay(alignment: .topLeading) {
+                    Button {
+                        withAnimation {
+                            isShowPdf = false
+                        }
+                    } label: {
+                        Image(systemName: "xmark")
+                            .foregroundStyle(.white)
+                            .padding(.horizontal, 20)
+                            .padding(.vertical, 50)
+                    }
+                }
+        }
     }
 }
 
