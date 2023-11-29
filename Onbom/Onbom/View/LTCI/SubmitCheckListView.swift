@@ -192,8 +192,9 @@ extension SubmitCheckListView {
 struct SubmitCheckListView_Previews: PreviewProvider {
     static var previews: some View {
         SubmitCheckListView()
-            .environmentObject(Patient())
-            .environmentObject(Agent())
+            .environmentObject(NavigationManager())
+            .environmentObject(mockPatient)
+            .environmentObject(mockAgent)
     }
 }
 

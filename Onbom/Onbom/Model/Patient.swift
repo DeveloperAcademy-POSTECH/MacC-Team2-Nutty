@@ -62,10 +62,10 @@ class Patient: ObservableObject {
 
 let mockPatient = Patient(
     name: "김순옥",
-    id: "331212-2132321",
+    id: "331212-1234567",
     address: mockAddress,
     actualAddress: mockAddress,
-    phoneNumber: "01032323232",
+    phoneNumber: "01012341234",
     hasInfectiousDisease: false,
     hasMentalDisorder: false
 )
