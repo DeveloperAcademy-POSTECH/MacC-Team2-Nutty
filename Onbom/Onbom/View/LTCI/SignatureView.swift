@@ -22,7 +22,7 @@ struct SignatureView: View {
             Text("대리인 본인")
                 .Label()
                 .foregroundColor(Color.G6)
-                .padding(.bottom, 4)
+                .padding(.bottom, 12)
             ZStack {
                 Rectangle()
                     .foregroundStyle(Color.G2)
@@ -92,5 +92,6 @@ struct SignatureView_Previews: PreviewProvider {
     static var previews: some View {
         SignatureView()
             .environmentObject(Agent())
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
     }
 }

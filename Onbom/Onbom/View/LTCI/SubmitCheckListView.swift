@@ -44,7 +44,7 @@ struct SubmitCheckListView: View {
                     
                     saveInfoButton
                 }
-                .padding(.bottom, 20)
+                .padding(.bottom, 34)
             }
             
             CTAButton.CustomButtonView(style: .primary(isDisabled:false)) {
@@ -54,6 +54,7 @@ struct SubmitCheckListView: View {
             }
             .padding(.horizontal, 20)
         }
+        .padding(.top, 20)
         .navigationBarBackButton()
         .fullScreenCover(isPresented: $isSubmitLoadingViewPresented) {
             SubmitView()
@@ -101,6 +102,7 @@ extension SubmitCheckListView {
                     .Cap3()
                     .foregroundColor(Color.B)
             }
+            .padding(.top, 17)
         }
         .buttonStyle(PlainButtonStyle())
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -195,6 +197,7 @@ struct SubmitCheckListView_Previews: PreviewProvider {
             .environmentObject(NavigationManager())
             .environmentObject(mockPatient)
             .environmentObject(mockAgent)
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
     }
 }
 
