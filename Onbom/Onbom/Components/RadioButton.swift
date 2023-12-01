@@ -12,6 +12,103 @@ enum RadioButtonStyle {
     case twoSelected
 }
 
+struct OneSelectedButton: View {
+    let action: () -> Void
+    let type: ApplyTypeViewButton
+    let disabled: Bool
+    @Binding var selected: ApplyTypeViewButton?
+    
+    init(type: ApplyTypeViewButton, selected: Binding<ApplyTypeViewButton?>, disabled: Bool = false, action: @escaping () -> Void) {
+        self.type = type
+        self._selected = selected
+        self.action = action
+        self.disabled = disabled
+    }
+    
+    var titleColor: Color {
+        get {
+            if(disabled) { return .G3 }
+            if(type == selected) { return .Green4 }
+            else { return .B }
+        }
+    }
+    
+    var descColor: Color {
+        get {
+            if(disabled) { return .G3 }
+            if(type == selected) { return .Green4 }
+            else { return .G5 }
+        }
+    }
+    
+    var body: some View {
+        Button { 
+            action()
+        } label: {
+            VStack(alignment: .leading, spacing: 13) {
+                Text(type.rawValue)
+                    .T2()
+                    .foregroundColor(titleColor)
+                Text(type.desc)
+                    .Cap3()
+                    .foregroundColor(descColor)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .padding(.leading, 16)
+            .frame(height: 100)
+            .frame(maxWidth: .infinity)
+        }
+        .background(RoundedRectangle(cornerRadius: 10).fill(type == selected ? Color.Green2 : Color.G2))
+        .overlay(RoundedRectangle(cornerRadius: 10)
+            .stroke(type == selected ? Color.Green4 : Color.G2, lineWidth: 1.2).opacity(0.7))
+        .buttonStyle(OneSelectedButtonStyle())
+    }
+}
+
+
+struct OneSelectedButtonStyle: ButtonStyle {
+    
+    public func makeBody(configuration: Configuration) -> some View {
+        print("haf")
+        
+        return configuration.label
+            .foregroundColor(configuration.isPressed ? Color.Green4 : Color.white.opacity(0.0000001))
+            .background(RoundedRectangle(cornerRadius: 10).fill(configuration.isPressed ? Color.Green3 : Color.white.opacity(0.0000001)))
+            .overlay(RoundedRectangle(cornerRadius: 10)
+                .stroke(configuration.isPressed ? Color.TGreen : Color.white.opacity(0.000000001), lineWidth: 1.2))
+    }
+}
+
+
+struct TestGoodView: View {
+    
+    @State var selected: ApplyTypeViewButton? = nil
+    
+    var body: some View {
+        VStack(spacing: 10) {
+            OneSelectedButton(type: .new, selected: $selected) {
+                selected = ApplyTypeViewButton.new
+            }
+            OneSelectedButton(type: .renew, selected: $selected) {
+                selected = .renew
+            }
+            OneSelectedButton(type: .change, selected: $selected, disabled: true) {
+                selected = .change
+            }
+            .disabled(true)
+            Spacer()
+
+            Rectangle().fill(Color.blue)
+                .frame(width: 100, height: 100)
+        }
+        .padding(.horizontal, 20)
+    }
+}
+
+#Preview {
+    TestGoodView()
+}
+
 struct RadioButton {
     struct CustomButtonView<CustomLabelType: View>: View {
         let style: RadioButtonStyle
@@ -144,8 +241,8 @@ struct RadioButtonExampleView: View {
     }
 }
 
-struct RadioButton_Previews: PreviewProvider {
-    static var previews: some View {
-        RadioButtonExampleView()
-    }
-}
+//struct RadioButton_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RadioButtonExampleView()
+//    }
+//}
