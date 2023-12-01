@@ -70,6 +70,7 @@
 		7372274C2AD476200021EFC6 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372274B2AD476200021EFC6 /* ViewModifier.swift */; };
 		7372274F2AD476AD0021EFC6 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372274E2AD476AD0021EFC6 /* FormTextField.swift */; };
 		737804D32B19671900485089 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737804D22B19671900485089 /* NotificationView.swift */; };
+		737804D52B1A19BE00485089 /* RadioOneButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737804D42B1A19BE00485089 /* RadioOneButtonStyle.swift */; };
 		737D49032ACB3F4F008AC5EC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D49022ACB3F4F008AC5EC /* MainView.swift */; };
 		737EE3542ABD646100D224FC /* OnbomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737EE3532ABD646100D224FC /* OnbomApp.swift */; };
 		737EE3582ABD646200D224FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737EE3572ABD646200D224FC /* Assets.xcassets */; };
@@ -183,6 +184,7 @@
 		7372274B2AD476200021EFC6 /* ViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifier.swift; sourceTree = "<group>"; };
 		7372274E2AD476AD0021EFC6 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		737804D22B19671900485089 /* NotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		737804D42B1A19BE00485089 /* RadioOneButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioOneButtonStyle.swift; sourceTree = "<group>"; };
 		737D49022ACB3F4F008AC5EC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		737EE3532ABD646100D224FC /* OnbomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbomApp.swift; sourceTree = "<group>"; };
 		737EE3572ABD646200D224FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -548,6 +550,7 @@
 				73A9D6942B065F14001F8F39 /* LTCICardFront.swift */,
 				73A9D69A2B0661AF001F8F39 /* LTCICardBack.swift */,
 				700FE8BA2B0DF6A400847FF7 /* ToastAlert.swift */,
+				737804D42B1A19BE00485089 /* RadioOneButtonStyle.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -747,6 +750,7 @@
 				737D49032ACB3F4F008AC5EC /* MainView.swift in Sources */,
 				70E047072AD5135F00FC73A5 /* NumberInputField.swift in Sources */,
 				70D299532AC961AB009F536A /* IDCardOCRView.swift in Sources */,
+				737804D52B1A19BE00485089 /* RadioOneButtonStyle.swift in Sources */,
 				7337E1E82AD04B1700D91E6F /* TextStyle+Extension.swift in Sources */,
 				709697CE2ADBBF4000DB8B19 /* IDCardConfirmEditView.swift in Sources */,
 				AE933EDE2AD42E60003D87E6 /* AgentInfoDetailView.swift in Sources */,
