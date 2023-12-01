@@ -232,5 +232,6 @@ struct AddressFormView_Previews: PreviewProvider {
         AddressFormView(formType: .patient)
             .environmentObject(Patient())
             .environmentObject(Agent())
+            .environmentObject(NavigationManager())
     }
 }

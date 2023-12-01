@@ -85,7 +85,7 @@ struct ApplyTypeView: View {
                 .padding(20)
                 .sheet(isPresented: $isPrivacyPolicyViewPresented) {
                     PrivacyPolicyView(isPrivacyPolicyViewPresented: $isPrivacyPolicyViewPresented)
-                        .presentationDetents([.fraction(0.4), .large])
+                        .presentationDetents([.fraction(0.4)])
                         .presentationDragIndicator(.hidden)
                 }
             }

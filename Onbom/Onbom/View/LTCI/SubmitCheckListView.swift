@@ -25,35 +25,58 @@ struct SubmitCheckListView: View {
     var body: some View {
         VStack(spacing: 0) {
             h1
-            
-            ScrollView(showsIndicators: false) {
-                VStack(spacing: 0) {
-                    formCard("신청 종류", "신규", showChevron: false)
-                    
-                    h2("신청인", patient.name)
-                    formCard("신청인 이름", patient.name, destination: .PatientInfoView_EditName)
-                    formCard("신청인 전화번호", patient.hasMobile ? patient.phoneNumber : "전화번호 없음", destination: .PatientInfoView_EditPhoneNumber)
-                    formCard("신청인 주민등록번호", patient.id, destination: .PatientInfoView_EditIDNumber)
-                    addressCard("신청인 주민등록지", patient.address.toString, destination: .AddressFormView_Patient)
-                    addressCard("신청인이 현재 살고 계신 주소지", patient.actualAddress.toString, destination: .AddressFormView_ActualPatient)
-                    
-                    h2("대리인", agent.name)
-                    formCard("신청인과의 관계", agent.toStringRelation(), destination: .AgentInfoView_Edit)
-                    formCard("신청인 주민등록번호", agent.id, destination: .IDCardConfirmEditView)
-                    addressCard("대리인 주소지", agent.address.toString, destination: .AddressFormView_Agent)
-                    
-                    saveInfoButton
+            ZStack {
+                ScrollView(showsIndicators: false) {
+                    VStack(spacing: 0) {
+                        formCard("신청 종류", "신규", showChevron: false)
+                        
+                        h2("신청인", patient.name)
+                        formCard("신청인 이름", patient.name, destination: .PatientInfoView_EditName)
+                        formCard("신청인 전화번호", patient.hasMobile ? patient.phoneNumber : "전화번호 없음", destination: .PatientInfoView_EditPhoneNumber)
+                        formCard("신청인 주민등록번호", patient.id, destination: .PatientInfoView_EditIDNumber)
+                        addressCard("신청인 주민등록지", patient.address.toString, destination: .AddressFormView_Patient)
+                        addressCard("신청인이 현재 살고 계신 주소지", patient.actualAddress.toString, destination: .AddressFormView_ActualPatient)
+                        
+                        h2("대리인", agent.name)
+                        formCard("신청인과의 관계", agent.toStringRelation(), destination: .AgentInfoView_Edit)
+                        formCard("신청인 주민등록번호", agent.id, destination: .IDCardConfirmEditView)
+                        addressCard("대리인 주소지", agent.address.toString, destination: .AddressFormView_Agent)
+                        
+                        saveInfoButton
+                        
+                        Rectangle().fill(Color.clear).frame(height: 88)
+                    }
+                    .padding(.bottom, 34)
                 }
-                .padding(.bottom, 20)
+                VStack {
+                    Spacer()
+                    LinearGradient(
+                        stops: [
+                            .init(color: .TPW, location : 0),
+                            .init(color: .W, location : 0.48)
+                        ],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                    .ignoresSafeArea(.all)
+                    .frame(maxWidth: .infinity, maxHeight: 104)
+                    .overlay {
+                        VStack {
+                            Spacer()
+                            CTAButton.CustomButtonView(
+                                style: .primary(isDisabled: false))
+                            {
+                                onClickButton()
+                            } label: {
+                                Text("신청하기")
+                            }
+                        }
+                        .padding(.horizontal, 20)
+                    }
+                }
             }
-            
-            CTAButton.CustomButtonView(style: .primary(isDisabled:false)) {
-                onClickButton()
-            } label: {
-                Text("신청하기")
-            }
-            .padding(.horizontal, 20)
         }
+        .padding(.top, 20)
         .navigationBarBackButton()
         .fullScreenCover(isPresented: $isSubmitLoadingViewPresented) {
             SubmitView()
@@ -102,6 +125,7 @@ extension SubmitCheckListView {
                     .foregroundColor(Color.B)
             }
         }
+        .padding(.top, 17)
         .buttonStyle(PlainButtonStyle())
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.leading, 20)
