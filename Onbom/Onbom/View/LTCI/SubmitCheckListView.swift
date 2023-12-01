@@ -66,9 +66,9 @@ struct SubmitCheckListView: View {
                             CTAButton.CustomButtonView(
                                 style: .primary(isDisabled: false))
                             {
-                                navigation.navigate(.ApplyTypeView)
+                                onClickButton()
                             } label: {
-                                Text("바로 신청하기")
+                                Text("신청하기")
                             }
                         }
                         .padding(.horizontal, 20)
