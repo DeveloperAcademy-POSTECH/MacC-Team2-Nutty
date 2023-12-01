@@ -29,12 +29,13 @@ struct HomeNavigationBar: View {
                 Image("Logo")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 34)
+                    .frame(width: 30)
                     .padding(.top, 4)
                     .padding(.leading, 20)
+                    .padding(.trailing, 3)
                 Text("온봄")
                     .foregroundColor(Color.Green4)
-                    .font(.custom("Dongle-Bold", size: 42))
+                    .font(.custom("Dongle-Bold", size: 39))
             }
             .opacity(transparant ? 0.0000001 : 1)
             .onTapGesture(count: 3) { onReset() }

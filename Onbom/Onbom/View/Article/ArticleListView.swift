@@ -13,112 +13,112 @@ struct ArticleListView: View {
     @EnvironmentObject var navigation: NavigationManager
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 0) {
-                Image("ArticleListTitle")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .padding(.bottom, 32)
-                    .onTapGesture {
-                        navigation.navigate(.Article4View)
-                    }
-                
-                Text("이번 주 가장 인기있는 소식")
-                    .H2()
-                    .foregroundStyle(Color.B)
-                    .padding(.horizontal, 20)
-                    .padding(.bottom, 12)
-                
-                ForEach(articleList, id: \.self) { item in
-                    let details = item.detail
-                    if details.number <= 3 {
-                        Button {
-                            navigation.navigate(details.link)
-                        } label: {
-                            PopulareListCell(image: details.image,
-                                             number: "\(details.number)",
-                                             content: details.content,
-                                             hastag: details.hashtag)
-                        }
-                    }
-                }
-                
-                HStack {
-                    VStack(alignment: .leading, spacing: 0) {
-                        Text("어르신께 딱 맞는 돌봄소식")
-                            .B1()
-                            .foregroundStyle(Color.G6)
-                        Text("알려드릴까요?")
-                            .Cap4()
-                            .foregroundStyle(Color.G5)
-                            .padding(.top, 10)
-                    }
-                    Spacer()
-                    Text("알림받기")
-                        .B2()
-                        .foregroundStyle(Color.Green4)
-                        .padding(12)
-                        .background {
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundStyle(Color.Green2)
-                        }
-                }
-                .padding(.horizontal, 20)
-                .padding(.top, 40)
-                
-                Rectangle()
-                    .frame(maxWidth: .infinity, maxHeight: 12)
-                    .foregroundStyle(Color.G2)
-                    .padding(.vertical, 32)
-                
-                Text("복지정보 한눈에 보기")
-                    .H2()
-                    .foregroundStyle(Color.B)
-                    .padding(.horizontal, 20)
-                
-                HashtagCarousel(selectedHashtag: $selectedHashtag)
-                
+        VStack(spacing: 0) {
+            Spacer().frame(height: 1)
+            ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
-                    ForEach(articleList, id:\.self) { item in
+                    Image("ArticleListTitle")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .padding(.bottom, 32)
+                    
+                    Text("이번 주 가장 인기있는 소식")
+                        .H2()
+                        .foregroundStyle(Color.B)
+                        .padding(.horizontal, 20)
+                        .padding(.bottom, 12)
+                    
+                    ForEach(articleList, id: \.self) { item in
                         let details = item.detail
-                        let contentNoNewline = details.content.replacingOccurrences(of: "\n", with: " ")
-                        if selectedHashtag == "전체" || details.hashtag.contains(selectedHashtag) {
+                        if details.number <= 3 {
                             Button {
                                 navigation.navigate(details.link)
                             } label: {
-                                ArticleListCell(image: details.image, content: contentNoNewline)
-                                    .accentColor(Color.B)
+                                PopulareListCell(image: details.image,
+                                                 number: "\(details.number)",
+                                                 content: details.content,
+                                                 hastag: details.hashtag)
+                            }
+                        }
+                    }
+                    
+                    HStack {
+                        VStack(alignment: .leading, spacing: 0) {
+                            Text("어르신께 딱 맞는 돌봄소식")
+                                .B1()
+                                .foregroundStyle(Color.G6)
+                            Text("알려드릴까요?")
+                                .Cap4()
+                                .foregroundStyle(Color.G5)
+                                .padding(.top, 10)
+                        }
+                        Spacer()
+                        Text("알림받기")
+                            .B2()
+                            .foregroundStyle(Color.Green4)
+                            .padding(12)
+                            .background {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(Color.Green2)
+                            }
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.top, 40)
+                    
+                    Rectangle()
+                        .frame(maxWidth: .infinity, maxHeight: 12)
+                        .foregroundStyle(Color.G2)
+                        .padding(.vertical, 32)
+                    
+                    Text("복지정보 한눈에 보기")
+                        .H2()
+                        .foregroundStyle(Color.B)
+                        .padding(.horizontal, 20)
+                    
+                    HashtagCarousel(selectedHashtag: $selectedHashtag)
+                    
+                    VStack(alignment: .leading, spacing: 0) {
+                        ForEach(articleList, id:\.self) { item in
+                            let details = item.detail
+                            let contentNoNewline = details.content.replacingOccurrences(of: "\n", with: " ")
+                            if selectedHashtag == "전체" || details.hashtag.contains(selectedHashtag) {
+                                Button {
+                                    navigation.navigate(details.link)
+                                } label: {
+                                    ArticleListCell(image: details.image, content: contentNoNewline)
+                                        .accentColor(Color.B)
+                                }
                             }
                         }
                     }
                 }
-            }
-            .background(Color.W)
-            VStack(alignment: .leading) {
-                HStack(alignment: .top) {
-                    Text(" • ")
-                        .Cap5()
-                        .foregroundStyle(Color.G4)
-                    Text("온봄 ‘복지정보 한눈에 보기’의 모든 정보는 참고 용도로만 활용 가능하며, 의학적 진단, 진료, 혹은 치료를 대신하지 않습니다.")
-                        .Cap5()
-                        .foregroundStyle(Color.G4)
+                .background(Color.W)
+                VStack(alignment: .leading) {
+                    HStack(alignment: .top) {
+                        Text(" • ")
+                            .Cap5()
+                            .foregroundStyle(Color.G4)
+                        Text("온봄 ‘복지정보 한눈에 보기’의 모든 정보는 참고 용도로만 활용 가능하며, 의학적 진단, 진료, 혹은 치료를 대신하지 않습니다.")
+                            .Cap5()
+                            .foregroundStyle(Color.G4)
+                    }
+                    .padding(.bottom, 10)
+                    
+                    HStack(alignment: .top) {
+                        Text(" • ")
+                            .Cap5()
+                            .foregroundStyle(Color.G4)
+                        Text("의료 지원 및 의학에 근거한 전문적인 판단이 필요한 경우 의료기관에 방문해 전문가와 상담하십시오.")
+                            .Cap5()
+                            .foregroundStyle(Color.G4)
+                    }
                 }
-                .padding(.bottom, 10)
-
-                HStack(alignment: .top) {
-                    Text(" • ")
-                        .Cap5()
-                        .foregroundStyle(Color.G4)
-                    Text("의료 지원 및 의학에 근거한 전문적인 판단이 필요한 경우 의료기관에 방문해 전문가와 상담하십시오.")
-                        .Cap5()
-                        .foregroundStyle(Color.G4)
-                }
+                .padding(.horizontal, 20)
+                .padding(.top, 22)
+                .padding(.bottom, 160)
             }
-            .padding(.horizontal, 20)
-            .padding(.top, 22)
-            .padding(.bottom, 160)
         }
-        .background(Color.G2)
+        .background(Color.W)
         .onAppear {
             let appearance = UINavigationBarAppearance()
             

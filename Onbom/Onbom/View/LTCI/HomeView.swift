@@ -71,6 +71,7 @@ struct HomeView: View {
             case .PatientInfoView_EditPhoneNumber:  PatientInfoView(editState: .editPhoneNumber)
             case .PatientInfoView_EditIDNumber:     PatientInfoView(editState: .editIDNumber)
             case .CallTaxiView:                     CallTaxiView()
+            case .Article3View:                     ArticleDetailView(articleName: "Article3")
             case .Article4View:                     ArticleDetailView(articleName: "Article4")
             case .Article7View:                     ArticleDetailView(articleName: "Article7")
             case .RejectView:                       RejectView()
@@ -83,16 +84,16 @@ struct HomeView: View {
     @ViewBuilder
     private var expenseCalcCard: some View {
         HStack(alignment: .center, spacing: 0) {
-            Image("calc")
+            Image("callTaxi_asset")
                 .padding(10)
                 .padding(.leading, 20)
             VStack(alignment: .leading, spacing: 4) {
-                Text("미리 알아보세요")
-                    .Cap4()
+                Text("휠체어를 탄 어르신이 외출할 때")
+                    .Cap3()
                     .foregroundColor(.G5)
-                Text("본인 부담금 계산기")
-                    .B2()
-                    .foregroundColor(Color.B)
+                Text("동행콜 부르기")
+                    .H2()
+                    .foregroundColor(.G6)
             }
             .padding(.leading, 12)
             .padding(.vertical, 20)
@@ -105,6 +106,9 @@ struct HomeView: View {
             .shadow(color: .black.opacity(0.05), radius: 5))
         .padding(.horizontal, 20)
         .padding(.bottom, 20)
+        .onTapGesture {
+            navigation.navigate(.CallTaxiView)
+        }
     }
     
     @ViewBuilder
@@ -119,14 +123,14 @@ struct HomeView: View {
         
         HStack(alignment: .center, spacing: 0) {
             Spacer()
-            col("callTaxi_asset", "동행콜 부르기")
-                .onTapGesture { navigation.navigate(.CallTaxiView) }
+            col("stethoscope_no_back", "복지용구 신청")
+                .onTapGesture { navigation.navigate(.Article4View) }
             divider
             col("syringe_no_back", "무료 독감접종")
                 .onTapGesture { navigation.navigate(.Article7View) }
             divider
             col("safetyCenter", "치매안심센터 찾기")
-                .onTapGesture { navigation.navigate(.Article4View) }
+                .onTapGesture { navigation.navigate(.Article3View) }
             Spacer()
         }
         .padding(.vertical, 20)
