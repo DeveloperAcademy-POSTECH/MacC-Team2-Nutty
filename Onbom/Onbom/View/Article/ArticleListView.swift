@@ -19,6 +19,9 @@ struct ArticleListView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .padding(.bottom, 32)
+                    .onTapGesture {
+                        navigation.navigate(.Article4View)
+                    }
                 
                 Text("이번 주 가장 인기있는 소식")
                     .H2()
@@ -185,6 +188,8 @@ fileprivate struct HashtagCarousel: View {
                                         .strokeBorder(selectedHashtag == tag ? Color.clear : Color.G3, lineWidth: 1)
                                 )
                         }
+                        .padding(.leading, tag == "전체" ? 20 : 0 )
+                        .padding(.trailing, tag == "실종예방" ? 20 : 0 )
                         .onTapGesture {
                             selectedHashtag = tag
                         }
@@ -193,7 +198,6 @@ fileprivate struct HashtagCarousel: View {
         }
         .scrollIndicators(.hidden)
         .padding(.vertical, 12)
-        .padding(.leading, 20)
     }
 }
 

@@ -137,14 +137,17 @@ fileprivate struct IDCardOCRSheet: View {
             }
             
             ForEach(0..<sheetString.count, id: \.self) { index in
-                HStack {
+                HStack(alignment: .center) {
                     Text("\(index + 1)")
-                        .Label()
+                        .Cap3()
                         .foregroundColor(.Green4)
                         .padding(8)
-                        .background {
-                            Circle().fill(Color.Green2)
-                        }
+                        .background(
+                            Circle()
+                                .fill(Color.Green2)
+                                .frame(width: 21, height: 21)
+                        )
+
                     Text(sheetString[index])
                         .B3()
                         .foregroundColor(.G5)
@@ -169,5 +172,6 @@ struct IDCardOCRView_Previews: PreviewProvider {
     static var previews: some View {
         IDCardOCRView(presentIDCardOCR: .constant(false), onFinishCapture: {})
             .environmentObject(Agent())
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
     }
 }
