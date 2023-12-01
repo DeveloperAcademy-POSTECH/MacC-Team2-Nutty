@@ -47,3 +47,10 @@ struct Triangle: Shape {
         return path
     }
 }
+
+extension View {
+    func toastView(toast: Binding<ToastAlert?>) -> some View {
+        self.modifier(ToastAlertModifier(toast: toast))
+    }
+}
+

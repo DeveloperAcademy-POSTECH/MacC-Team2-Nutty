@@ -12,6 +12,7 @@ class Agent: ObservableObject {
         "name":("김유진", CGRect(x: 158, y: 450, width: 140, height: 20)),
         "id":("", CGRect(x: 395, y: 450, width: 150, height: 20)),
         "relation":("", CGRect(x: 183, y: 320, width: 140, height: 20)),
+        "detailRelation":("", CGRect(x: 478, y: 322, width: 140, height: 20)),
         "address":("", CGRect(x: 158, y: 413, width: 380, height: 20)),
         "phoneNumber":("", CGRect(x: 158, y: 368, width: 140, height: 20)),
     ]
@@ -56,6 +57,7 @@ class Agent: ObservableObject {
         dictionary["name"]?.answer = name
         dictionary["id"]?.answer = id
         dictionary["relation"]?.answer = relation
+        dictionary["detailRelation"]?.answer = detailRelation
         dictionary["address"]?.answer = "\(address.cityAddress)  \(address.detailAddress)"
         dictionary["phoneNumber"]?.answer = phoneNumber
     }

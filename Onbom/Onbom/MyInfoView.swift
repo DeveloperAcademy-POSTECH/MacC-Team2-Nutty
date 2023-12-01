@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MyInfoView: View {
+    @Binding var toast: ToastAlert?
+
     var body: some View {
         ZStack {
             VStack {
@@ -19,10 +21,14 @@ struct MyInfoView: View {
                     .resizable()
                     .scaledToFit()
             }
+            .onTapGesture {
+                toast = ToastAlert(message: "지금은 서비스 준비중이에요")
+            }
         }
+        .ignoresSafeArea(.all)
     }
 }
 
 #Preview {
-    MyInfoView()
+    MyInfoView(toast: .constant(ToastAlert(message: "test")))
 }

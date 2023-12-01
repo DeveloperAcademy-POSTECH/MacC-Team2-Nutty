@@ -39,6 +39,7 @@ class NavigationManager: ObservableObject {
 }
 
 public enum HomeRoute {
+    case NotificationView
     case MainView
     case DescriptionView
     case ApplyTypeView
@@ -60,11 +61,11 @@ public enum HomeRoute {
     case OnboardingView
     case ApplyHistoryView
     case AgentInfoDetailView
-    case RejectView
-    
     case PatientInfoView_EditName
     case PatientInfoView_EditPhoneNumber
     case PatientInfoView_EditIDNumber
+    case CallTaxiView
+    case RejectView
     
     /*----------------- ArticleListView view -----------------*/
     case ArticleListView

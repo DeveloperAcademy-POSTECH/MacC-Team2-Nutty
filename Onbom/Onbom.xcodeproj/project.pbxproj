@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03092D0A2B04F895006884A5 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03092D092B04F895006884A5 /* MyInfoView.swift */; };
+		039965EB2B0DEE8500566098 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039965EA2B0DEE8500566098 /* NotificationView.swift */; };
 		03D759362ACDA17400495D7F /* PostCodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D759352ACDA17400495D7F /* PostCodeInputView.swift */; };
 		03FB0B2F2B0368A700DC1129 /* PatientInfoCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FB0B2E2B0368A700DC1129 /* PatientInfoCompleteView.swift */; };
 		03FFF2A92ACDAE7A00B81D65 /* PostCodeViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2A82ACDAE7A00B81D65 /* PostCodeViewer.swift */; };
@@ -16,6 +17,7 @@
 		03FFF2CB2ADD614900B81D65 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2CA2ADD614900B81D65 /* Alert.swift */; };
 		03FFF2D12AE6AD2C00B81D65 /* SubmitLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2D02AE6AD2B00B81D65 /* SubmitLoadingView.swift */; };
 		03FFF2D32AE6B4A600B81D65 /* SubmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2D22AE6B4A600B81D65 /* SubmitView.swift */; };
+		700FE8BB2B0DF6A400847FF7 /* ToastAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700FE8BA2B0DF6A400847FF7 /* ToastAlert.swift */; };
 		702872662AF737A500061AD4 /* String+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702872652AF737A500061AD4 /* String+Validation.swift */; };
 		702D35AA2ADBBD31008FE1F8 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D35A92ADBBD31008FE1F8 /* Patient.swift */; };
 		708891EB2AD55191005B67AB /* AddressFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708891EA2AD55191005B67AB /* AddressFormView.swift */; };
@@ -116,6 +118,7 @@
 
 /* Begin PBXFileReference section */
 		03092D092B04F895006884A5 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
+		039965EA2B0DEE8500566098 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		03D759352ACDA17400495D7F /* PostCodeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCodeInputView.swift; sourceTree = "<group>"; };
 		03FB0B2E2B0368A700DC1129 /* PatientInfoCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientInfoCompleteView.swift; sourceTree = "<group>"; };
 		03FFF2A82ACDAE7A00B81D65 /* PostCodeViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCodeViewer.swift; sourceTree = "<group>"; };
@@ -124,6 +127,7 @@
 		03FFF2CA2ADD614900B81D65 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		03FFF2D02AE6AD2B00B81D65 /* SubmitLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitLoadingView.swift; sourceTree = "<group>"; };
 		03FFF2D22AE6B4A600B81D65 /* SubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitView.swift; sourceTree = "<group>"; };
+		700FE8BA2B0DF6A400847FF7 /* ToastAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastAlert.swift; sourceTree = "<group>"; };
 		702872642AF736C200061AD4 /* OnbomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnbomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		702872652AF737A500061AD4 /* String+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Validation.swift"; sourceTree = "<group>"; };
 		702D35A92ADBBD31008FE1F8 /* Patient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
@@ -370,6 +374,7 @@
 				AE57BA0C2ABD68ED00F71B34 /* Model */,
 				AE57BA0B2ABD68E600F71B34 /* View */,
 				03092D092B04F895006884A5 /* MyInfoView.swift */,
+				039965EA2B0DEE8500566098 /* NotificationView.swift */,
 				737EE3532ABD646100D224FC /* OnbomApp.swift */,
 				737EE3572ABD646200D224FC /* Assets.xcassets */,
 				737EE3592ABD646200D224FC /* Preview Content */,
@@ -540,6 +545,7 @@
 				73A9D6962B065F60001F8F39 /* AdBanner.swift */,
 				73A9D6942B065F14001F8F39 /* LTCICardFront.swift */,
 				73A9D69A2B0661AF001F8F39 /* LTCICardBack.swift */,
+				700FE8BA2B0DF6A400847FF7 /* ToastAlert.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -758,6 +764,7 @@
 				70D2994A2AC573B3009F536A /* DocumentCameraViewer.swift in Sources */,
 				73FD46D72ADAADCF002ED839 /* NavigationManager.swift in Sources */,
 				7384DB082AEACB950034E7FD /* CustomNavigationBar.swift in Sources */,
+				039965EB2B0DEE8500566098 /* NotificationView.swift in Sources */,
 				70F9E1E32B047D4B00AACBCA /* ArticleListView.swift in Sources */,
 				03FFF2BB2AD5B74E00B81D65 /* CTAButton.swift in Sources */,
 				731609682AD838FB00399476 /* StepView.swift in Sources */,
@@ -805,6 +812,7 @@
 				737227402AD30BBE0021EFC6 /* RejectView.swift in Sources */,
 				70AC25A52AF15BF900DBC4A0 /* TextRecognizable.swift in Sources */,
 				737227442AD474E50021EFC6 /* View+Extension.swift in Sources */,
+				700FE8BB2B0DF6A400847FF7 /* ToastAlert.swift in Sources */,
 				AEB33EAC2ACD3D010082A3E7 /* DigitalSignatureManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1009,6 +1017,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Nutty.Onbom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
