@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		03092D0A2B04F895006884A5 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03092D092B04F895006884A5 /* MyInfoView.swift */; };
-		039965EB2B0DEE8500566098 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039965EA2B0DEE8500566098 /* NotificationView.swift */; };
 		03D759362ACDA17400495D7F /* PostCodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D759352ACDA17400495D7F /* PostCodeInputView.swift */; };
 		03FB0B2F2B0368A700DC1129 /* PatientInfoCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FB0B2E2B0368A700DC1129 /* PatientInfoCompleteView.swift */; };
 		03FFF2A92ACDAE7A00B81D65 /* PostCodeViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FFF2A82ACDAE7A00B81D65 /* PostCodeViewer.swift */; };
@@ -70,6 +69,7 @@
 		737227442AD474E50021EFC6 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737227432AD474E50021EFC6 /* View+Extension.swift */; };
 		7372274C2AD476200021EFC6 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372274B2AD476200021EFC6 /* ViewModifier.swift */; };
 		7372274F2AD476AD0021EFC6 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372274E2AD476AD0021EFC6 /* FormTextField.swift */; };
+		737804D32B19671900485089 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737804D22B19671900485089 /* NotificationView.swift */; };
 		737D49032ACB3F4F008AC5EC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D49022ACB3F4F008AC5EC /* MainView.swift */; };
 		737EE3542ABD646100D224FC /* OnbomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737EE3532ABD646100D224FC /* OnbomApp.swift */; };
 		737EE3582ABD646200D224FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737EE3572ABD646200D224FC /* Assets.xcassets */; };
@@ -182,6 +182,7 @@
 		737227432AD474E50021EFC6 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		7372274B2AD476200021EFC6 /* ViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifier.swift; sourceTree = "<group>"; };
 		7372274E2AD476AD0021EFC6 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
+		737804D22B19671900485089 /* NotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		737D49022ACB3F4F008AC5EC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		737EE3532ABD646100D224FC /* OnbomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbomApp.swift; sourceTree = "<group>"; };
 		737EE3572ABD646200D224FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -428,6 +429,7 @@
 				73525BF62AE68AF500A73769 /* OnboardingView.swift */,
 				737D49022ACB3F4F008AC5EC /* MainView.swift */,
 				73FD46D82ADADF8C002ED839 /* HomeView.swift */,
+				737804D22B19671900485089 /* NotificationView.swift */,
 				731EB7442AF9323B00931952 /* ApplyHistoryView.swift */,
 				AEA098F32AE6B13800DE9BA8 /* DescriptionView.swift */,
 				7337E1EE2AD1531700D91E6F /* ApplyTypeView.swift */,
@@ -758,13 +760,13 @@
 				70AC25B02AF226EE00DBC4A0 /* IDCardCameraManager.swift in Sources */,
 				7389872F2AD5E95A00688634 /* MediConditionViewModel.swift in Sources */,
 				7372273E2AD2FB340021EFC6 /* MediHistoryView.swift in Sources */,
+				737804D32B19671900485089 /* NotificationView.swift in Sources */,
 				735ADB2F2AD5AC4E0069B94B /* MediConditionView.swift in Sources */,
 				70D299512AC9617D009F536A /* IDCardDescriptionView.swift in Sources */,
 				708891F12AD55607005B67AB /* CityAddressInputField.swift in Sources */,
 				70D2994A2AC573B3009F536A /* DocumentCameraViewer.swift in Sources */,
 				73FD46D72ADAADCF002ED839 /* NavigationManager.swift in Sources */,
 				7384DB082AEACB950034E7FD /* CustomNavigationBar.swift in Sources */,
-				039965EB2B0DEE8500566098 /* NotificationView.swift in Sources */,
 				70F9E1E32B047D4B00AACBCA /* ArticleListView.swift in Sources */,
 				03FFF2BB2AD5B74E00B81D65 /* CTAButton.swift in Sources */,
 				731609682AD838FB00399476 /* StepView.swift in Sources */,
