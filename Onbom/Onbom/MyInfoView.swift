@@ -16,11 +16,9 @@ struct MyInfoView: View {
                 Color.white
                 Color.G2
             }
-            ScrollView {
-                Image("myInfoView")
-                    .resizable()
-                    .scaledToFit()
-            }
+            Image("myInfoView")
+                .resizable()
+                .scaledToFit()
             .onTapGesture {
                 toast = ToastAlert(message: "지금은 서비스 준비중이에요")
             }
@@ -29,6 +27,9 @@ struct MyInfoView: View {
     }
 }
 
-#Preview {
-    MyInfoView(toast: .constant(ToastAlert(message: "test")))
+struct MyInfoView_Previews: PreviewProvider {
+    static var previews: some View {
+        MyInfoView(toast: .constant(ToastAlert(message: "test")))
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
+    }
 }
