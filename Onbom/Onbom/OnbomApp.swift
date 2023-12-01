@@ -18,8 +18,8 @@ struct OnbomApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
-                .environmentObject(Patient())
-                .environmentObject(Agent())
+                .environmentObject(mockPatient)
+                .environmentObject(mockAgent)
         }
     }
 }

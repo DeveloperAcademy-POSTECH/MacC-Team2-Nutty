@@ -41,7 +41,7 @@ struct DescriptionView: View {
                         CTAButton.CustomButtonView(
                             style: .primary(isDisabled: false))
                         {
-                            print()
+                            navigation.navigate(.ApplyTypeView)
                         } label: {
                             Text("바로 신청하기")
                         }

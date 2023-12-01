@@ -75,12 +75,12 @@ class Agent: ObservableObject {
 
 let mockAgent = Agent(
     name: "김유진",
-    id: "880912-2132321",
+    id: "880912-1234567",
     idCardImage: UIImage(systemName: "heart")!,
     relation: "가족",
     detailRelation: "딸",
     address: mockAddress,
-    phoneNumber: "01032323232",
+    phoneNumber: "01012341234",
     signature: [[]]
 )
 

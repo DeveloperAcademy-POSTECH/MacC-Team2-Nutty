@@ -46,6 +46,7 @@ struct HomeNavigationBar: View {
             }
             .frame(width: 34, height: 34)
             .padding(.trailing, 20)
+            .disabled(transparant)
         }
     
     }
