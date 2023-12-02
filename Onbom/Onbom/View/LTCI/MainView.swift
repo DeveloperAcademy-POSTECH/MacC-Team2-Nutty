@@ -15,8 +15,8 @@ struct MainView: View {
     private let pdfManager: PDFManager = .shared
     
     var body: some View {
-        NavigationStack(path: $navigation.homePath) {
-            ZStack(alignment: .top) {
+        ZStack(alignment: .top) {
+            NavigationStack(path: $navigation.homePath) {
                 ZStack(alignment: .bottom) {
                     switch(tab) {
                     case .home: HomeView()
@@ -27,10 +27,9 @@ struct MainView: View {
                     CustomTabBarView(tab: $tab)
                 }
                 .ignoresSafeArea(edges: .bottom)
-                if(viewModel.state == .guide) { GuideView() }
             }
+            if(viewModel.state == .guide) { GuideView() }
         }
-        .onAppear { navigation.navigate(.OnboardingView) }
         .environmentObject(navigation)
         .environmentObject(viewModel)
         .toastView(toast: $toast)
