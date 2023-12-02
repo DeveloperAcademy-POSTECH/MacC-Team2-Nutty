@@ -21,7 +21,6 @@ struct PatientInfoView: View {
         case editPhoneNumber
         case editIDNumber
     }
-    @FocusState var testFocused: Bool
     let editState: PatientInfoViewEditState?
     
     @EnvironmentObject var patient: Patient
@@ -380,7 +379,6 @@ extension PatientInfoView {
             HStack(spacing: 0){
                 ZStack(alignment: .trailing){
                     TextField("앞 6자리", text: self.$idNumberFront)
-                        .focused($testFocused)
                         .font(.custom("Pretendard-Medium", size: 16))
                         .lineSpacing(16 / 2 * (100 - 100)/100)
                         .kerning(-3/10)
