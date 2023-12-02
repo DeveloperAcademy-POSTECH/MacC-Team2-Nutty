@@ -9,12 +9,10 @@ import SwiftUI
 
 class MainViewModel: ObservableObject {
     enum MainViewState {
-        case guide
-        case before
-        case after
+        case begin, guide, before, after
     }
     
-    @Published var state: MainViewState = .guide
+    @Published var state: MainViewState = .begin
     
     init() {}
     
