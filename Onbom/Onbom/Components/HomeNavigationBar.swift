@@ -25,7 +25,7 @@ struct HomeNavigationBar: View {
     
     var body: some View {
         CustomNavigationBar {
-            HStack(alignment: .center, spacing: 5) {
+            HStack(alignment: .center, spacing: 10) {
                 Image("Logo")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -49,6 +49,7 @@ struct HomeNavigationBar: View {
             .padding(.trailing, 20)
             .disabled(transparant)
         }
+        .padding(.bottom, 4)
     
     }
     private func onReset() {

@@ -19,12 +19,9 @@ struct MainView: View {
             NavigationStack(path: $navigation.homePath) {
                 ZStack(alignment: .bottom) {
                     switch(tab) {
-                    case .home:
-                        HomeView()
-                    case .article:
-                        ArticleListView()
-                    case .profile:
-                        MyInfoView(toast: $toast)
+                    case .home: HomeView()
+                    case .article: ArticleListView()
+                    case .profile: MyInfoView(toast: $toast)
                     }
                     
                     CustomTabBarView(tab: $tab)
@@ -32,6 +29,7 @@ struct MainView: View {
                 .ignoresSafeArea(edges: .bottom)
             }
             if(viewModel.state == .guide) { GuideView() }
+            else if(viewModel.state == .begin) { OnboardingView(isOnboarding: .constant(false)) }
         }
         .environmentObject(navigation)
         .environmentObject(viewModel)

@@ -63,8 +63,21 @@ struct CustomTabBarView: View {
         .padding(.horizontal, 25)
         .padding(.top, 13)
         .padding(.bottom, 33)
-        .background(Color.white)
-        .cornerRadius(24, corners: [.topLeft, .topRight])
+        .background {
+            Rectangle()
+                .cornerRadius(24, corners: [.topLeft, .topRight])
+                .foregroundStyle(Color.white)
+        }
+        .background {
+            Rectangle()
+                .cornerRadius(24, corners: [.topLeft, .topRight])
+                .foregroundStyle(Color.G2.opacity(1))
+                .offset(y: -1)
+        }
     }
 }
 
+
+#Preview {
+    CustomTabBarView(tab: .constant(.home))
+}

@@ -23,6 +23,7 @@ struct AgentInfoView: View {
     @State private var isKeyboardVisible: Bool = false
     @State private var step: [Bool]
     @State private var didAppear: [Bool]
+    @FocusState private var focused: Bool
     let editState: Bool
         
     private var title: String {
@@ -89,16 +90,13 @@ extension AgentInfoView {
     }
     
     private func didFinishSelectRelation() {
-        if(navigation.isUserFromSubmitCheckListView) { return }
+        if(self.editState) { return }
+        self.focused = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            withAnimation {
-                step[1] = true
-            }
+            withAnimation { step[1] = true }
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
-            withAnimation {
-                didAppear[1] = true
-            }
+            withAnimation { didAppear[1] = true }
         }
     }
     
@@ -160,6 +158,7 @@ extension AgentInfoView {
             .onSubmit { isKeyboardVisible = false }
             .padding(.horizontal, 20)
             .appear(didAppear[1])
+            .focused($focused)
     }
 
     
@@ -173,7 +172,7 @@ extension AgentInfoView {
                 }
             }
             else {
-                VStack(spacing: 10){
+                VStack(spacing: 13){
                     Button {
                         navigation.navigate(.AgentInfoDetailView)
                     } label: {

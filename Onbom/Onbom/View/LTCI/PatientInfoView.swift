@@ -195,7 +195,7 @@ struct PatientInfoView: View {
         return true
     }
     
-    private func getTitle() -> String {
+    private func titleStr() -> String {
         if(editState == nil) {
             if(step[2] == true) {
                 return "\(self.name)님의\n주민등록번호를 입력해 주세요"
@@ -273,7 +273,7 @@ struct PatientInfoView: View {
 extension PatientInfoView {
     private var header: some View {
         VStack(spacing: 0) {
-            Text(getTitle())
+            Text(titleStr())
                 .H1()
                 .foregroundColor(Color.B)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -308,19 +308,19 @@ extension PatientInfoView {
     
     private var phoneNumberField: some View {
         VStack(spacing: 12){
-            FormTextField(formSubject: "전화번호", placeHolder: "전화번호", textInput: self.$phoneNumber, isWrong: $isSeniorPhoneNumberWrong)
+            FormTextField(formSubject: "전화번호", placeHolder: "전화번호", textInput: self.$phoneNumber, isWrong: $isSeniorPhoneNumberWrong, abled: $hasMobile)
                 .onReceive(Just(self.phoneNumber)) { _ in
                     if self.phoneNumber.count > 11 {
                          self.phoneNumber = String(self.phoneNumber.prefix(11))
                     } else if self.phoneNumber.count < 11 {
                         isSeniorPhoneNumberWrong = false
+                    } else if self.phoneNumber.count == 11 {
+                        isSeniorPhoneNumberWrong = !phoneNumber.isValidPhoneNumber()
                     }
                 }
                 .keyboardType(.numberPad)
                 .focused($focusedField, equals: .seniorPhoneNumber)
-                .onSubmit {
-                    didFinishTypingName()
-                }
+                .onSubmit { didFinishTypingName() }
                 .disabled(!self.hasMobile)
             HStack(alignment: .center, spacing: 8) {
                 Image(systemName: "checkmark.circle.fill")
@@ -363,6 +363,8 @@ extension PatientInfoView {
                         }
                         .onChange(of: self.idNumberFront) { newValue in
                             if newValue.count == 6 {
+                                isSeniorIDNumber1Wrong = !self.idNumberFront.isValidDateOfBirth()
+                                if(isSeniorIDNumber1Wrong) { return }
                                 focusedField = .seniorIDNumber2
                             }
                         }

@@ -37,4 +37,12 @@ extension String {
         return koreanRegex?.firstMatch(in: self, options: [], range: NSRange(location: 0, length: self.utf16.count)) != nil
     }
 
+    func slice(_ from: Int, _ to: Int) -> String {
+        guard to < count, to >= 0, from <= to else { return "" }
+        
+        let startIndex = index(self.startIndex, offsetBy: from)
+        let endIndex = index(self.startIndex, offsetBy: to + 1)
+        
+        return String(self[startIndex ..< endIndex])
+    }
 }
