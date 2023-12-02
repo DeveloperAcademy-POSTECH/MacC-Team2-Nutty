@@ -162,17 +162,19 @@ struct AddressFormView: View {
                     .T1()
                     .foregroundColor(.B)
                     .multilineTextAlignment(.center)
-                    .padding(.vertical, 20)
+                    .padding(.top, 20)
                 
                 Text("어르신이 병원이나 자녀 집 등\n다른 곳에 계시다면 추가 입력이 필요해요")
                     .Cap3()
                     .foregroundColor(.G5)
                     .multilineTextAlignment(.center)
+                    .padding(.top, 20)
+                
+                Spacer()
                 
                 HStack(spacing: 10) {
                     CTAButton.CustomButtonView(style: .secondary) {
                         patient.actualAddress = address
-//                        patient.isSameAddress = true
                         hideKeyboard()
                         showActualAddressCheckView = false
                         navigation.navigate(.StepView_Second)
@@ -182,7 +184,6 @@ struct AddressFormView: View {
                     
                     CTAButton.CustomButtonView(style: .secondary) {
                         showActualAddressCheckView = false
-//                        patient.isSameAddress = false
                         hideKeyboard()
                         navigation.navigate(.AddressFormView_ActualPatient)
                     } label: {
@@ -190,9 +191,9 @@ struct AddressFormView: View {
                     }
                 }
                 .padding(.horizontal, 20)
-                .padding(.top, 40)
+                .padding(.top, 20)
             }
-            .presentationDetents([.fraction(0.46)])
+            .presentationDetents([.fraction(0.445)])
             .presentationDragIndicator(.hidden)
             .presentationCornerRadius(12)
         }

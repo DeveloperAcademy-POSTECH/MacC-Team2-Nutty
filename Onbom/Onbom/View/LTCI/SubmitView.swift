@@ -25,7 +25,7 @@ struct SubmitView: View {
                         .lineSpacing(10)
                         .foregroundColor(.B)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.top, 40)
+                        .padding(.top, 45)
                     Text("어르신 방문을 위해 건강보험공단에서 연락을 할 거예요\n등급 산정 과정에서 추가 서류가 필요할 수도 있어요")
                         .B3()
                         .lineSpacing(10)
@@ -33,9 +33,10 @@ struct SubmitView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .frame(maxHeight: .infinity, alignment: .topLeading)
-                .padding(.bottom, 71)
+                
                 Image("SubmitView")
-                    .padding(.bottom, 90)
+                    .padding(.bottom, 100)
+                
                 VStack(spacing: 0) {
                     CTAButton.CustomButtonView(
                         style: .primary(isDisabled: false))
@@ -56,7 +57,6 @@ struct SubmitView: View {
             .navigationBarBackButtonHidden(true)
             .padding([.top, .leading, .trailing], 20.0)
         }
-        
     }
     
     func showLoadingView() {

@@ -46,7 +46,6 @@ struct SubmitCheckListView: View {
                         
                         Rectangle().fill(Color.clear).frame(height: 88)
                     }
-                    .padding(.bottom, 34)
                 }
                 VStack {
                     Spacer()
@@ -124,7 +123,6 @@ extension SubmitCheckListView {
                     .Cap3()
                     .foregroundColor(Color.B)
             }
-            .padding(.top, 17)
         }
         .padding(.top, 17)
         .buttonStyle(PlainButtonStyle())
