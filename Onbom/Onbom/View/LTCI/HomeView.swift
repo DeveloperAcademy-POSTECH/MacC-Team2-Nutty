@@ -30,8 +30,7 @@ struct HomeView: View {
                             if(mainViewModel.state == .after) { LTCICardBack() }
                             else { LTCICardFront() }
                             
-                            
-                            expenseCalcCard
+                            callTaxiCard
                             
                             contentCard
                             
@@ -82,7 +81,7 @@ struct HomeView: View {
     }
     
     @ViewBuilder
-    private var expenseCalcCard: some View {
+    private var callTaxiCard: some View {
         HStack(alignment: .center, spacing: 0) {
             Image("callTaxi_asset")
                 .padding(10)
