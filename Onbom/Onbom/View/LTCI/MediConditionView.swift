@@ -14,19 +14,18 @@ struct MediConditionView: View {
     @State private var hasInfectiousDisease : Bool? = nil
     
     var body: some View {
-        VStack {
-            ScrollView {
-                Text("어르신이 현재\n전염성 질환을 가지고 계신가요?")
-                    .H1()
-                    .foregroundColor(Color.B)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.bottom, 48)
-                    .padding(.horizontal, 20)
-                
-                AlternativeForm(formSubject: "전염성 질환 보유 여부", answer: $hasInfectiousDisease)
-                    .padding(.horizontal, 20)
-                Spacer()
-            }
+        VStack(spacing: 0) {
+            Text("어르신이 현재\n전염성 질환을 가지고 계신가요?")
+                .H1()
+                .foregroundColor(Color.B)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.bottom, 48)
+                .padding(.horizontal, 20)
+            
+            AlternativeForm(formSubject: "전염성 질환 보유 여부", answer: $hasInfectiousDisease)
+                .padding(.horizontal, 20)
+            Spacer()
+            
             CTAButton.CustomButtonView(
                 style: .primary(isDisabled: hasInfectiousDisease == nil))
             {
