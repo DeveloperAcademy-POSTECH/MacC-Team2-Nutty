@@ -48,6 +48,13 @@ class Patient: ObservableObject {
         id = "\(frontID)-\(backID)"
     }
     
+    func getPhoneNumber() -> String {
+        if(hasMobile == false) { return "전화번호 없음"}
+        if(self._phoneNumber.count < 11) { return "전화번호가 올바르지 않습니다" }
+        
+        return "010-\(_phoneNumber.slice(3, 6))-\(_phoneNumber.slice(7,10))"
+    }
+    
     func updateDictionary() {
         dictionary["name"]?.answer = name
         dictionary["id"]?.answer = id

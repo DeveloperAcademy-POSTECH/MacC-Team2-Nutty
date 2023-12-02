@@ -195,7 +195,7 @@ struct PatientInfoView: View {
         return true
     }
     
-    private func getTitle() -> String {
+    private func titleStr() -> String {
         if(editState == nil) {
             if(step[2] == true) {
                 return "\(self.name)님의\n주민등록번호를 입력해 주세요"
@@ -273,7 +273,7 @@ struct PatientInfoView: View {
 extension PatientInfoView {
     private var header: some View {
         VStack(spacing: 0) {
-            Text(getTitle())
+            Text(titleStr())
                 .H1()
                 .foregroundColor(Color.B)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -318,9 +318,7 @@ extension PatientInfoView {
                 }
                 .keyboardType(.numberPad)
                 .focused($focusedField, equals: .seniorPhoneNumber)
-                .onSubmit {
-                    didFinishTypingName()
-                }
+                .onSubmit { didFinishTypingName() }
                 .disabled(!self.hasMobile)
             HStack(alignment: .center, spacing: 8) {
                 Image(systemName: "checkmark.circle.fill")
@@ -363,6 +361,8 @@ extension PatientInfoView {
                         }
                         .onChange(of: self.idNumberFront) { newValue in
                             if newValue.count == 6 {
+                                isSeniorIDNumber1Wrong = !self.idNumberFront.isValidDateOfBirth()
+                                if(isSeniorIDNumber1Wrong) { return }
                                 focusedField = .seniorIDNumber2
                             }
                         }

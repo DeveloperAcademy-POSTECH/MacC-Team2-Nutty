@@ -51,15 +51,15 @@ struct ApplyTypeView: View {
                 }
                 .navigationBarBackButton()
                 .padding(20)
-                .sheet(isPresented: $isPrivacyPolicyViewPresented) {
-                    PrivacyPolicyView(isPrivacyPolicyViewPresented: $isPrivacyPolicyViewPresented)
-                        .presentationDetents([.fraction(0.4)])
-                        .presentationDragIndicator(.hidden)
-                }
             }
             if isPrivacyPolicyViewPresented {
                 Color.black.opacity(0.3).ignoresSafeArea()
             }
+        }
+        .sheet(isPresented: $isPrivacyPolicyViewPresented) {
+            PrivacyPolicyView(isPrivacyPolicyViewPresented: $isPrivacyPolicyViewPresented)
+                .presentationDetents([.fraction(0.4)])
+                .presentationDragIndicator(.hidden)
         }
     }
     
