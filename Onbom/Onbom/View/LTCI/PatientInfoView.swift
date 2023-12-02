@@ -308,12 +308,14 @@ extension PatientInfoView {
     
     private var phoneNumberField: some View {
         VStack(spacing: 12){
-            FormTextField(formSubject: "전화번호", placeHolder: "전화번호", textInput: self.$phoneNumber, isWrong: $isSeniorPhoneNumberWrong)
+            FormTextField(formSubject: "전화번호", placeHolder: "전화번호", textInput: self.$phoneNumber, isWrong: $isSeniorPhoneNumberWrong, abled: $hasMobile)
                 .onReceive(Just(self.phoneNumber)) { _ in
                     if self.phoneNumber.count > 11 {
                          self.phoneNumber = String(self.phoneNumber.prefix(11))
                     } else if self.phoneNumber.count < 11 {
                         isSeniorPhoneNumberWrong = false
+                    } else if self.phoneNumber.count == 11 {
+                        isSeniorPhoneNumberWrong = !phoneNumber.isValidPhoneNumber()
                     }
                 }
                 .keyboardType(.numberPad)
