@@ -10,17 +10,18 @@ import Combine
 
 
 struct PatientInfoView: View {
-    private enum Field: Hashable {
-        case seniorName
-        case seniorPhoneNumber
-        case seniorIDNumber1
-        case seniorIDNumber2
+    private enum Field: String, Hashable {
+        case seniorName = "nameField"
+        case seniorPhoneNumber = "phoneNumberField"
+        case seniorIDNumber1 = "idnumber1Field"
+        case seniorIDNumber2 = "idnumber2Field"
     }
     public enum PatientInfoViewEditState {
         case editName
         case editPhoneNumber
         case editIDNumber
     }
+    @FocusState var testFocused: Bool
     let editState: PatientInfoViewEditState?
     
     @EnvironmentObject var patient: Patient
@@ -39,7 +40,7 @@ struct PatientInfoView: View {
     
     @State private var step: [Bool]
     @State private var didAppear: [Bool]
-    @State private var isKeyboardVisible: Bool = true
+    @State private var isKeyboardVisible: Bool = false
     
     @FocusState private var focusedField: Field?
     
@@ -67,9 +68,18 @@ struct PatientInfoView: View {
             header
           
             ScrollView(showsIndicators: false) {
-                if(step[2]) { idNumberField }
-                if(step[1]) { phoneNumberField }
-                if(step[0]) { nameField }
+                ScrollViewReader { proxy in
+                    if(step[2]) { idNumberField }
+                    if(step[1]) { phoneNumberField }
+                    if(step[0]) { nameField }
+                    
+                    EmptyView()
+                        .onChange(of: focusedField) { _ in
+                            DispatchQueue.main.asyncAfter (deadline: .now() + 0.5) {
+                                withAnimation { proxy.scrollTo(focusedField?.rawValue, anchor: .bottom) }
+                            }
+                        }
+                }
             }
             
             nextButton
@@ -81,12 +91,22 @@ struct PatientInfoView: View {
     
     private func onAppear() {
         loadPatientInfo()
-        focusedField = .seniorName
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notification in
             self.isKeyboardVisible = true
         }
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { notification in
             self.isKeyboardVisible = false
+        }
+        
+        switch(editState) {
+        case .editName:
+            focusedField = .seniorName
+        case .editPhoneNumber:
+            focusedField = .seniorPhoneNumber
+        case .editIDNumber:
+            focusedField = .seniorIDNumber1
+        case .none:
+            focusedField = .seniorName
         }
     }
     
@@ -289,21 +309,27 @@ extension PatientInfoView {
     }
     
     private var nameField : some View {
-        FormTextField(formSubject: "어르신 성함", placeHolder: "성함", textInput: self.$name, isWrong: $isSeniorNameWrong)
-            .onReceive(Just(name)) { _ in
-                if name.count > 6 {
-                    name = String(name.prefix(6))
+        VStack(spacing: 0) {
+            FormTextField(formSubject: "어르신 성함", placeHolder: "성함", textInput: self.$name, isWrong: $isSeniorNameWrong)
+                .onReceive(Just(name)) { _ in
+                    if name.count > 6 {
+                        name = String(name.prefix(6))
+                    }
                 }
-            }
-            .animation(.easeInOut, value: step)
-            .focused($focusedField, equals: .seniorName)
-            .onSubmit {
-                if(name.isEmpty) { return }
-                didFinishTypingName()
-            }
-            .padding(.horizontal, 20)
-            .padding(.top, 36)
-            .padding(.bottom, 60)
+                .animation(.easeInOut, value: step)
+                .focused($focusedField, equals: .seniorName)
+                .onSubmit {
+                    if(name.isEmpty) { return }
+                    didFinishTypingName()
+                }
+                .padding(.horizontal, 20)
+                .padding(.top, 36)
+            Color.clear
+                .frame(height: 30)
+                .id("nameField")
+            Spacer()
+                .frame(height: 60)
+        }
     }
     
     private var phoneNumberField: some View {
@@ -331,6 +357,10 @@ extension PatientInfoView {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .onTapGesture { toggleMobileExistence() }
+            
+            Color.clear
+                .frame(height: 1)
+                .id("phoneNumberField")
         }
         .padding(.top, 36)
         .padding(.horizontal, 20)
@@ -350,6 +380,7 @@ extension PatientInfoView {
             HStack(spacing: 0){
                 ZStack(alignment: .trailing){
                     TextField("앞 6자리", text: self.$idNumberFront)
+                        .focused($testFocused)
                         .font(.custom("Pretendard-Medium", size: 16))
                         .lineSpacing(16 / 2 * (100 - 100)/100)
                         .kerning(-3/10)
@@ -365,6 +396,7 @@ extension PatientInfoView {
                             if newValue.count == 6 {
                                 isSeniorIDNumber1Wrong = !self.idNumberFront.isValidDateOfBirth()
                                 if(isSeniorIDNumber1Wrong) { return }
+                                if(editState != nil) { return }
                                 focusedField = .seniorIDNumber2
                             }
                         }
@@ -383,7 +415,13 @@ extension PatientInfoView {
                 Text("-")
                     .padding(.horizontal, 7)
                 
-                SecureField("뒤 7자리", text: self.$idNumberBack)
+                Group {
+                    if editState == nil {
+                        SecureField("뒤 7자리", text: self.$idNumberBack)
+                    } else {
+                        TextField("뒤 7자리", text: self.$idNumberBack)
+                    }
+                }
                     .frame(height:23)
                     .font(.system(size: 16))
                     .onReceive(Just( self.idNumberBack)) { _ in
@@ -413,14 +451,14 @@ extension PatientInfoView {
                 CTAButton.CustomButtonView(style: .expanded(isDisabled: !isActiveButton())) {
                     onClickButton()
                 } label: {
-                    Text(navigation.isUserFromSubmitCheckListView ? "수정 완료" : "다음")
+                    Text(editState == nil ? "다음" : "수정 완료")
                 }
             }
             else {
                 CTAButton.CustomButtonView(style: .primary(isDisabled: !isActiveButton())) {
                     onClickButton()
                 } label: {
-                    Text(navigation.isUserFromSubmitCheckListView ? "수정 완료" : "다음")
+                    Text(editState == nil ? "다음" : "수정 완료")
                 }
                 .padding(.horizontal, 20)
             }

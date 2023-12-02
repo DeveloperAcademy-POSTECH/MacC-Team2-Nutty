@@ -59,7 +59,7 @@ struct FormTextField: View {
     func subjectColor() -> Color {
         if(abled == false) { return .G4 }
         else if(isWrong) { return .R }
-        else if(focused) { return .G6 }
+        else if(focused) { return .Green4 }
         else { return .B }
     }
     
