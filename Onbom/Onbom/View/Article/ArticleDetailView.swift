@@ -23,7 +23,7 @@ struct ArticleDetailView: View {
             ToolbarItem(placement: .topBarTrailing) {
                 ShareLink(
                     item: Image(articleName),
-                    preview: SharePreview("square.and.arrow.up",
+                    preview: SharePreview("돌봄소식",
                                           image: Image(articleName))
                 )
                 .tint(.G5)
