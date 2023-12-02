@@ -104,7 +104,7 @@ struct HomeView: View {
         .background(RoundedRectangle(cornerRadius: 12).fill(Color.white)
             .shadow(color: .black.opacity(0.05), radius: 5))
         .padding(.horizontal, 20)
-        .padding(.bottom, 20)
+        .padding(.bottom, 21)
         .onTapGesture {
             navigation.navigate(.CallTaxiView)
         }
