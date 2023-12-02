@@ -36,11 +36,11 @@ struct IDCardOCRView: View {
                             .foregroundColor(.white)
                     }
                     Spacer()
-#if DEBUG
-                    Button("완료") {
-                        onFinishCapture()
-                    }
-#endif
+//#if DEBUG
+//                    Button("완료") {
+//                        onFinishCapture()
+//                    }
+//#endif
                 }
                 Spacer()
             }
