@@ -18,7 +18,7 @@ struct PatientInfoCompleteView: View {
             Image("checkmark")
             Spacer()
         }
-        .padding(.top, 170)
+        .padding(.top, 172.8)
         .navigationBarBackButtonHidden(true)
     }
         

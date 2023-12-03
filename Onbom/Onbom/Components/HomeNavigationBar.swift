@@ -25,18 +25,18 @@ struct HomeNavigationBar: View {
     
     var body: some View {
         CustomNavigationBar {
-            HStack(alignment: .center, spacing: 10) {
+            HStack(alignment: .center, spacing: 8) {
                 Image("Logo")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 30)
+                    .frame(width: 31)
                     .padding(.top, 4)
                     .padding(.leading, 20)
-                    .padding(.trailing, 3)
                 Text("온봄")
                     .foregroundColor(Color.Green4)
                     .font(.custom("Dongle-Bold", size: 39))
             }
+            .padding(.top, 2)
             .opacity(transparant ? 0.0000001 : 1)
             .onTapGesture(count: 3) { onReset() }
         } trailing: {
@@ -47,9 +47,11 @@ struct HomeNavigationBar: View {
             }
             .frame(width: 34, height: 34)
             .padding(.trailing, 20)
+            .padding(.top, 6)
             .disabled(transparant)
         }
-        .padding(.bottom, 4)
+        .padding(.bottom, 6)
+        .padding(.top, 4)
     
     }
     private func onReset() {
