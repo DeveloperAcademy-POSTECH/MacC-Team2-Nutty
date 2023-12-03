@@ -46,7 +46,7 @@ struct HomeView: View {
         }
         .navigationDestination(for: HomeRoute.self) { route in
             switch(route) {
-            case .OnboardingView:                   OnboardingView(isOnboarding: .constant(true))
+            case .OnboardingView:                   OnboardingView()
             case .NotificationView:                 NotificationView()
             case .ApplyHistoryView:                 ApplyHistoryView()
             case .DescriptionView:                  DescriptionView()
