@@ -114,6 +114,7 @@ struct PatientInfoView: View {
         
         self.name = patient.name
         self.phoneNumber = patient.phoneNumber
+        self.hasMobile = patient.hasMobile
         self.idNumberFront = String(idNumber.prefix(6))
         self.idNumberBack = String(idNumber.suffix(7))
     }
@@ -358,10 +359,16 @@ extension PatientInfoView {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .onTapGesture { toggleMobileExistence() }
+            .overlay(
+                Color.clear
+                    .frame(height: 30)
+                    .id("phoneNumberField")
+                    .allowsHitTesting(false)
+                    .offset(y: 30)
+                , alignment: .bottom
+            )
             
-            Color.clear
-                .frame(height: 30)
-                .id("phoneNumberField")
+            
         }
         .padding(.top, 36)
         .padding(.horizontal, 20)
@@ -466,8 +473,9 @@ extension PatientInfoView {
         .ignoresSafeArea(.keyboard, edges: .bottom)
     }
 }
+
 #Preview {
     PatientInfoView()
-        .environmentObject(Patient())
+        .environmentObject(mockPatient)
         .environmentObject(NavigationManager())
 }
