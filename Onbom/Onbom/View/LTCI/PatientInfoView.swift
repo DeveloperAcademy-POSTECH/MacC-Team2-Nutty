@@ -289,6 +289,7 @@ struct PatientInfoView: View {
 }
 
 
+// MARK: 컴포넌트
 extension PatientInfoView {
     private var header: some View {
         VStack(spacing: 0) {
@@ -332,7 +333,7 @@ extension PatientInfoView {
     }
     
     private var phoneNumberField: some View {
-        VStack(spacing: 12){
+        VStack(spacing: 0){
             FormTextField(formSubject: "전화번호", placeHolder: "전화번호", textInput: self.$phoneNumber, isWrong: $isSeniorPhoneNumberWrong, abled: $hasMobile)
                 .onReceive(Just(self.phoneNumber)) { _ in
                     if self.phoneNumber.count > 11 {
@@ -347,6 +348,7 @@ extension PatientInfoView {
                 .focused($focusedField, equals: .seniorPhoneNumber)
                 .onSubmit { didFinishTypingName() }
                 .disabled(!self.hasMobile)
+                .padding(.bottom, 12)
             HStack(alignment: .center, spacing: 8) {
                 Image(systemName: "checkmark.circle.fill")
                     .foregroundColor(hasMobile ? Color.G3 : Color.Green4)
@@ -358,7 +360,7 @@ extension PatientInfoView {
             .onTapGesture { toggleMobileExistence() }
             
             Color.clear
-                .frame(height: 1)
+                .frame(height: 30)
                 .id("phoneNumberField")
         }
         .padding(.top, 36)
