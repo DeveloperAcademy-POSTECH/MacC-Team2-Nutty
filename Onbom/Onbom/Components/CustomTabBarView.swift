@@ -73,7 +73,7 @@ struct CustomTabBarView: View {
                 .cornerRadius(24, corners: [.topLeft, .topRight])
                 .foregroundStyle(Color.G2.opacity(1))
                 .offset(y: -1)
-                .shadow(color: .black.opacity(0.05), radius: 4)
+                .shadow(color: .black.opacity(0.05), radius: 40)
         }
         
     }
