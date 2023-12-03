@@ -73,6 +73,7 @@ struct SubmitCheckListView: View {
                         .padding(.horizontal, 20)
                     }
                 }
+                .allowsHitTesting(false)
             }
         }
         .padding(.top, 20)
@@ -113,21 +114,17 @@ extension SubmitCheckListView {
     
     @ViewBuilder
     private var saveInfoButton: some View {
-        Button {
-            isInfoReused.toggle()
-        } label: {
-            HStack(alignment: .center) {
-                if isInfoReused { Image("selectedCircle") }
-                else { Image("defaultCircle") }
-                Text("입력한 정보를 다음에도 사용할게요")
-                    .Cap3()
-                    .foregroundColor(Color.B)
-            }
+        HStack(alignment: .center) {
+            if isInfoReused { Image("selectedCircle") }
+            else { Image("defaultCircle") }
+            Text("입력한 정보를 다음에도 사용할게요")
+                .Cap3()
+                .foregroundColor(Color.B)
         }
         .padding(.top, 17)
-        .buttonStyle(PlainButtonStyle())
-        .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.leading, 20)
+        .onTapGesture { isInfoReused.toggle() }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 
     @ViewBuilder
@@ -151,10 +148,11 @@ extension SubmitCheckListView {
                         .foregroundColor(.G4)
                 }
             }
-            .onTapGesture {
-                guard let destination = destination else { return }
-                navigation.navigate(destination)
-            }
+        }
+        .background(.white.opacity(0.00001)) // clickable area
+        .onTapGesture {
+            guard let destination = destination else { return }
+            navigation.navigate(destination)
         }
         .padding(.horizontal, 20)
         .padding(.vertical, 25)
@@ -179,10 +177,11 @@ extension SubmitCheckListView {
             Spacer()
             Image("chevronRight")
                 .foregroundColor(.G4)
-                .onTapGesture {
-                    guard let destination = destination else { return }
-                    navigation.navigate(destination)
-                }
+        }
+        .background(.white.opacity(0.00001)) // clickable area
+        .onTapGesture {
+            guard let destination = destination else { return }
+            navigation.navigate(destination)
         }
         .padding(.horizontal, 20)
         .padding(.vertical, 25)
@@ -199,11 +198,12 @@ extension SubmitCheckListView {
                     .padding(.horizontal, 3)
                     .background(RoundedRectangle(cornerRadius: 25).fill(Color.Green2))
                 Text("\(name)님 정보")
-                    .T2()
+                    .T1()
                     .foregroundColor(.G6)
                     .padding(.leading, -4)
                 Spacer()
             }
+            .padding(.bottom, 3)
             Divider()
         }
         .padding(.top, 28)
