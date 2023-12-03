@@ -82,8 +82,7 @@ struct LTCICardBack: View {
             }
             .padding(.bottom, 24)
         }
-        .background(RoundedRectangle(cornerRadius: 20).fill(.white)
-            .shadow(color: .black.opacity(0.05), radius: 5))
+        .homeViewShadow()
         .padding(20)
         .onTapGesture {
             navigation.navigate(.ApplyHistoryView)

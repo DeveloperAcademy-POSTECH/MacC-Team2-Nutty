@@ -101,8 +101,7 @@ struct HomeView: View {
                 .foregroundColor(Color.G4)
                 .padding(.trailing, 19)
         }
-        .background(RoundedRectangle(cornerRadius: 12).fill(Color.white)
-            .shadow(color: .black.opacity(0.05), radius: 5))
+        .homeViewShadow()
         .padding(.horizontal, 20)
         .padding(.bottom, 21)
         .onTapGesture {
@@ -134,8 +133,7 @@ struct HomeView: View {
         }
         .padding(.vertical, 20)
         .frame(maxWidth: .infinity)
-        .background(RoundedRectangle(cornerRadius: 12).fill(Color.white)
-            .shadow(color: .black.opacity(0.05), radius: 5))
+        .homeViewShadow()
         .padding(.horizontal, 20)
     }
     
