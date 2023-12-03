@@ -59,6 +59,7 @@ struct SubmitCheckListView: View {
                     )
                     .ignoresSafeArea(.all)
                     .frame(maxWidth: .infinity, maxHeight: 104)
+                    .allowsHitTesting(false)
                     .overlay {
                         VStack {
                             Spacer()
@@ -73,7 +74,6 @@ struct SubmitCheckListView: View {
                         .padding(.horizontal, 20)
                     }
                 }
-                .allowsHitTesting(false)
             }
         }
         .padding(.top, 20)
