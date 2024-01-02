@@ -35,23 +35,22 @@ struct ApplyTypeView: View {
     
     var body: some View {
         ZStack {
-            ScrollView {
-                VStack {
-                    Text("장기요양등급\n신청 종류를 선택해 주세요")
-                        .H1()
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.bottom, 48)
-                    
-                    Button(action: {}, label: {})
-                        .buttonStyle(RadioOneButtonStyle(type: .new, selected: $selected, action: showModal))
-                    Button(action: {}, label: {})
-                        .buttonStyle(RadioOneButtonStyle(type: .renew, selected: $selected, disabled: true))
-                    Button(action: {}, label: {})
-                        .buttonStyle(RadioOneButtonStyle(type: .change, selected: $selected, disabled: true))
-                }
-                .navigationBarBackButton()
-                .padding(20)
+            VStack {
+                Text("장기요양등급\n신청 종류를 선택해 주세요")
+                    .H1()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.bottom, 48)
+                
+                Button(action: {}, label: {})
+                    .buttonStyle(RadioOneButtonStyle(type: .new, selected: $selected, action: showModal))
+                Button(action: {}, label: {})
+                    .buttonStyle(RadioOneButtonStyle(type: .renew, selected: $selected, disabled: true))
+                Button(action: {}, label: {})
+                    .buttonStyle(RadioOneButtonStyle(type: .change, selected: $selected, disabled: true))
+                Spacer()
             }
+            .navigationBarBackButton()
+            .padding(20)
             if isPrivacyPolicyViewPresented {
                 Color.black.opacity(0.3).ignoresSafeArea()
             }

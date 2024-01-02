@@ -33,7 +33,7 @@ struct CustomTabBarView: View {
             }
             
             VStack(spacing: 4){
-                Image("form_history")
+                Image("dolbom_news")
                     .resizable()
                     .frame(width: 18, height: 20)
                     .foregroundColor(tab == .article ? Color.Green4 : Color.G4)
@@ -73,7 +73,9 @@ struct CustomTabBarView: View {
                 .cornerRadius(24, corners: [.topLeft, .topRight])
                 .foregroundStyle(Color.G2.opacity(1))
                 .offset(y: -1)
+                .shadow(color: .black.opacity(0.05), radius: 40)
         }
+        
     }
 }
 

@@ -29,7 +29,7 @@ struct MainView: View {
                 .ignoresSafeArea(edges: .bottom)
             }
             if(viewModel.state == .guide) { GuideView() }
-            else if(viewModel.state == .begin) { OnboardingView(isOnboarding: .constant(false)) }
+            else if(viewModel.state == .begin) { OnboardingView() }
         }
         .environmentObject(navigation)
         .environmentObject(viewModel)

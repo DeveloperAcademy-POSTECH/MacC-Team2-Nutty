@@ -28,7 +28,7 @@ struct ApplyHistoryView: View {
                     formCard("신청 현황", "서류 전송 완료")
                     divider()
                     formCard("신청 종류", "신규")
-                    formCard("신청인", "\(mockPatient.name)")
+                    formCard("신청인", "\(patient.name)")
                     formCard("대리인", "김유진")
                     VStack(alignment: .leading) {
                         Text("신청인의 실주소지")
@@ -43,7 +43,7 @@ struct ApplyHistoryView: View {
                             Spacer()
                         }
                         .padding(.bottom, 12)
-                        Text("\(mockPatient.actualAddress.toString)")
+                        Text("\(patient.actualAddress.toString)")
                             .B3()
                             .foregroundColor(.G5)
                     }
@@ -200,10 +200,10 @@ struct PDFDetailView: View {
                             isShowPdf = false
                         }
                     } label: {
-                        Image(systemName: "xmark")
+                        Image("close_icon")
                             .foregroundStyle(.white)
                             .padding(.horizontal, 20)
-                            .padding(.vertical, 50)
+                            .padding(.vertical, 55)
                     }
                 }
         }

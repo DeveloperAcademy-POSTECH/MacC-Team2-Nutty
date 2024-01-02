@@ -53,7 +53,7 @@ struct AgentInfoView: View {
                 Text(title)
                     .H1()
                     .foregroundColor(Color.B)
-                    .padding(.top, 24)
+                    .padding(.top, 20)
                     .padding(.horizontal, 20)
                 VStack(spacing: 36) {
                     Spacer().frame(height: 12)

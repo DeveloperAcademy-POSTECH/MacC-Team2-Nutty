@@ -38,7 +38,7 @@ extension Text {
         customTextStyle(fontName: "Pretendard-Medium", fontSize: 16, lineSpacing: 140, kerning: -3)
     }
     func B4() -> some View {
-        customTextStyle(fontName: "Pretendard-Medium", fontSize: 16, lineSpacing: 100, kerning: -3)
+        customTextStyle(fontName: "Pretendard-Medium", fontSize: 17, lineSpacing: 100, kerning: -3)
     }
     
     func Label() -> some View {

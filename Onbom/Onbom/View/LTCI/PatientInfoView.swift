@@ -10,11 +10,11 @@ import Combine
 
 
 struct PatientInfoView: View {
-    private enum Field: Hashable {
-        case seniorName
-        case seniorPhoneNumber
-        case seniorIDNumber1
-        case seniorIDNumber2
+    private enum Field: String, Hashable {
+        case seniorName = "nameField"
+        case seniorPhoneNumber = "phoneNumberField"
+        case seniorIDNumber1 = "idnumber1Field"
+        case seniorIDNumber2 = "idnumber2Field"
     }
     public enum PatientInfoViewEditState {
         case editName
@@ -39,7 +39,7 @@ struct PatientInfoView: View {
     
     @State private var step: [Bool]
     @State private var didAppear: [Bool]
-    @State private var isKeyboardVisible: Bool = true
+    @State private var isKeyboardVisible: Bool = false
     
     @FocusState private var focusedField: Field?
     
@@ -67,9 +67,18 @@ struct PatientInfoView: View {
             header
           
             ScrollView(showsIndicators: false) {
-                if(step[2]) { idNumberField }
-                if(step[1]) { phoneNumberField }
-                if(step[0]) { nameField }
+                ScrollViewReader { proxy in
+                    if(step[2]) { idNumberField }
+                    if(step[1]) { phoneNumberField }
+                    if(step[0]) { nameField }
+                    
+                    EmptyView()
+                        .onChange(of: focusedField) { _ in
+                            DispatchQueue.main.asyncAfter (deadline: .now() + 0.5) {
+                                withAnimation { proxy.scrollTo(focusedField?.rawValue, anchor: .bottom) }
+                            }
+                        }
+                }
             }
             
             nextButton
@@ -81,12 +90,22 @@ struct PatientInfoView: View {
     
     private func onAppear() {
         loadPatientInfo()
-        focusedField = .seniorName
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notification in
             self.isKeyboardVisible = true
         }
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { notification in
             self.isKeyboardVisible = false
+        }
+        
+        switch(editState) {
+        case .editName:
+            focusedField = .seniorName
+        case .editPhoneNumber:
+            focusedField = .seniorPhoneNumber
+        case .editIDNumber:
+            focusedField = .seniorIDNumber1
+        case .none:
+            focusedField = .seniorName
         }
     }
     
@@ -95,6 +114,7 @@ struct PatientInfoView: View {
         
         self.name = patient.name
         self.phoneNumber = patient.phoneNumber
+        self.hasMobile = patient.hasMobile
         self.idNumberFront = String(idNumber.prefix(6))
         self.idNumberBack = String(idNumber.suffix(7))
     }
@@ -270,6 +290,7 @@ struct PatientInfoView: View {
 }
 
 
+// MARK: 컴포넌트
 extension PatientInfoView {
     private var header: some View {
         VStack(spacing: 0) {
@@ -289,25 +310,31 @@ extension PatientInfoView {
     }
     
     private var nameField : some View {
-        FormTextField(formSubject: "어르신 성함", placeHolder: "성함", textInput: self.$name, isWrong: $isSeniorNameWrong)
-            .onReceive(Just(name)) { _ in
-                if name.count > 6 {
-                    name = String(name.prefix(6))
+        VStack(spacing: 0) {
+            FormTextField(formSubject: "어르신 성함", placeHolder: "성함", textInput: self.$name, isWrong: $isSeniorNameWrong)
+                .onReceive(Just(name)) { _ in
+                    if name.count > 6 {
+                        name = String(name.prefix(6))
+                    }
                 }
-            }
-            .animation(.easeInOut, value: step)
-            .focused($focusedField, equals: .seniorName)
-            .onSubmit {
-                if(name.isEmpty) { return }
-                didFinishTypingName()
-            }
-            .padding(.horizontal, 20)
-            .padding(.top, 36)
-            .padding(.bottom, 60)
+                .animation(.easeInOut, value: step)
+                .focused($focusedField, equals: .seniorName)
+                .onSubmit {
+                    if(name.isEmpty) { return }
+                    didFinishTypingName()
+                }
+                .padding(.horizontal, 20)
+                .padding(.top, 36)
+            Color.clear
+                .frame(height: 30)
+                .id("nameField")
+            Spacer()
+                .frame(height: 60)
+        }
     }
     
     private var phoneNumberField: some View {
-        VStack(spacing: 12){
+        VStack(spacing: 0){
             FormTextField(formSubject: "전화번호", placeHolder: "전화번호", textInput: self.$phoneNumber, isWrong: $isSeniorPhoneNumberWrong, abled: $hasMobile)
                 .onReceive(Just(self.phoneNumber)) { _ in
                     if self.phoneNumber.count > 11 {
@@ -322,6 +349,7 @@ extension PatientInfoView {
                 .focused($focusedField, equals: .seniorPhoneNumber)
                 .onSubmit { didFinishTypingName() }
                 .disabled(!self.hasMobile)
+                .padding(.bottom, 12)
             HStack(alignment: .center, spacing: 8) {
                 Image(systemName: "checkmark.circle.fill")
                     .foregroundColor(hasMobile ? Color.G3 : Color.Green4)
@@ -331,6 +359,16 @@ extension PatientInfoView {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .onTapGesture { toggleMobileExistence() }
+            .overlay(
+                Color.clear
+                    .frame(height: 30)
+                    .id("phoneNumberField")
+                    .allowsHitTesting(false)
+                    .offset(y: 30)
+                , alignment: .bottom
+            )
+            
+            
         }
         .padding(.top, 36)
         .padding(.horizontal, 20)
@@ -365,6 +403,7 @@ extension PatientInfoView {
                             if newValue.count == 6 {
                                 isSeniorIDNumber1Wrong = !self.idNumberFront.isValidDateOfBirth()
                                 if(isSeniorIDNumber1Wrong) { return }
+                                if(editState != nil) { return }
                                 focusedField = .seniorIDNumber2
                             }
                         }
@@ -383,7 +422,13 @@ extension PatientInfoView {
                 Text("-")
                     .padding(.horizontal, 7)
                 
-                SecureField("뒤 7자리", text: self.$idNumberBack)
+                Group {
+                    if editState == nil {
+                        SecureField("뒤 7자리", text: self.$idNumberBack)
+                    } else {
+                        TextField("뒤 7자리", text: self.$idNumberBack)
+                    }
+                }
                     .frame(height:23)
                     .font(.system(size: 16))
                     .onReceive(Just( self.idNumberBack)) { _ in
@@ -413,14 +458,14 @@ extension PatientInfoView {
                 CTAButton.CustomButtonView(style: .expanded(isDisabled: !isActiveButton())) {
                     onClickButton()
                 } label: {
-                    Text(navigation.isUserFromSubmitCheckListView ? "수정 완료" : "다음")
+                    Text(editState == nil ? "다음" : "수정 완료")
                 }
             }
             else {
                 CTAButton.CustomButtonView(style: .primary(isDisabled: !isActiveButton())) {
                     onClickButton()
                 } label: {
-                    Text(navigation.isUserFromSubmitCheckListView ? "수정 완료" : "다음")
+                    Text(editState == nil ? "다음" : "수정 완료")
                 }
                 .padding(.horizontal, 20)
             }
@@ -428,8 +473,9 @@ extension PatientInfoView {
         .ignoresSafeArea(.keyboard, edges: .bottom)
     }
 }
+
 #Preview {
     PatientInfoView()
-        .environmentObject(Patient())
+        .environmentObject(mockPatient)
         .environmentObject(NavigationManager())
 }

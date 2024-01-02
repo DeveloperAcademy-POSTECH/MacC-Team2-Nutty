@@ -52,6 +52,7 @@ struct PrivacyPolicyView: View {
             } label: {
                 Text("다음")
             }
+            .padding(.bottom, 4)
         }
         .padding(.horizontal, 20.0)
         .padding(.top, 37)

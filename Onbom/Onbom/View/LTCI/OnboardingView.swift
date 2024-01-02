@@ -9,7 +9,6 @@ import SwiftUI
 
 struct OnboardingView: View {
     @State private var selectedTab: Int = 0
-    @Binding var isOnboarding: Bool
     @EnvironmentObject var navigation: NavigationManager
     @EnvironmentObject var mainViewModel: MainViewModel
     
@@ -84,9 +83,10 @@ struct OnboardingView: View {
     
     func onClickButton() {
         if(selectedTab == 2) {
-            isOnboarding = false
             navigation.popToRoot()
-            mainViewModel.state = .guide
+            withAnimation(.easeOut(duration: 0.8)) {
+                mainViewModel.state = .guide
+            }
             return
         }
         withAnimation {

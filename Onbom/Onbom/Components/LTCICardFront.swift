@@ -31,9 +31,11 @@ struct LTCICardFront: View {
             }
             .padding([.horizontal, .bottom], 20)
         }
-        .background(RoundedRectangle(cornerRadius: 20).fill(.white)
-            .shadow(color: .black.opacity(0.05), radius: 5))
+        .homeViewShadow()
         .padding(20)
+        .padding(.top, 2)
+        .padding(.bottom, 1)
+        
     }
 }
 

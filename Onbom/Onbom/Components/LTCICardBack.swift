@@ -13,7 +13,7 @@ struct LTCICardBack: View {
     var body: some View {
         VStack(spacing: 0) {
             HStack(alignment: .center){
-                Text("장기요양등급신청")
+                Text("장기요양등급 신청 현황")
                     .T2()
                     .foregroundColor(.B)
                 Spacer()
@@ -43,6 +43,10 @@ struct LTCICardBack: View {
                         .fill(Color.G2)
                         .frame(height: 6.5)
                         .frame(maxWidth: .infinity)
+                        .overlay(
+                            Image("progress_percent").offset(y: -14)
+                            , alignment: .bottom
+                        )
                     Capsule()
                         .fill(Color.Green4)
                         .frame(height: 6.5)
@@ -74,7 +78,7 @@ struct LTCICardBack: View {
                 .multilineTextAlignment(.center)
             HStack(alignment: .center, spacing: 0){
                 Text("어르신이 계시는 주소로 방문조사")
-                    .Label()
+                    .B2()
                     .foregroundColor(.B)
                 Text("가 진행돼요")
                     .Cap3()
@@ -82,8 +86,7 @@ struct LTCICardBack: View {
             }
             .padding(.bottom, 24)
         }
-        .background(RoundedRectangle(cornerRadius: 20).fill(.white)
-            .shadow(color: .black.opacity(0.05), radius: 5))
+        .homeViewShadow()
         .padding(20)
         .onTapGesture {
             navigation.navigate(.ApplyHistoryView)

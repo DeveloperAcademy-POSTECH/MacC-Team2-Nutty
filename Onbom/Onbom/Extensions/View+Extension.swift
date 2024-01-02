@@ -54,3 +54,13 @@ extension View {
     }
 }
 
+
+extension View {
+    func homeViewShadow() -> some View {
+        self
+            .background(RoundedRectangle(cornerRadius: 20).fill(.white)
+                .shadow(color: .black.opacity(0.05), radius: 15)
+                .mask(RoundedRectangle(cornerRadius: 20).padding(.bottom, -20))
+            )
+    }
+}
